@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="InfoBlockView">
+        <attr name="infoBlockTitle" format="string" />
+        <attr name="infoBlockSubTitle" format="string" />
+        <attr name="infoBlockValue" format="string" />
+        <attr name="infoBlockUseCurrency" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="RateRecyclerView">
+        <attr name="rateRecyclerType" format="enum">
+            <enum name="card" value="0" />
+            <enum name="list" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <!-- Emerald masked edit text -->
+    <attr name="maskType" format="enum">
+        <enum name="phoneNumber" value="1" />
+        <enum name="cellphoneNumber" value="2" />
+        <enum name="email" value="3" />
+        <enum name="cpf" value="4" />
+        <enum name="cnpj" value="5" />
+        <enum name="cep" value="6" />
+        <enum name="text" value="7" />
+        <enum name="currency" value="8" />
+    </attr>
+
+    <declare-styleable name="EmeraldMaskedEditText">
+        <attr name="mask" format="string" />
+        <attr name="maskType" />
+        <attr name="showHint" format="boolean" />
+        <attr name="showError" format="boolean" />
+    </declare-styleable>
+
+    <!-- Event list -->
+    <declare-styleable name="DateEventListView">
+        <attr name="eventDateSelectedColor" format="color" />
+        <attr name="eventDateTextColor" format="color" />
+        <attr name="eventDateTextColorWhenSelected" format="color" />
+        <attr name="eventDateTextSize" format="dimension" />
+        <attr name="eventTitleTextColor" format="color" />
+        <attr name="eventTitleTextSize" format="dimension" />
+    </declare-styleable>
+
+    <!-- Emerald button -->
+    <attr name="emeraldButtonType" format="enum">
+        <enum name="primary" value="0" />
+        <enum name="confirm" value="1" />
+        <enum name="delete" value="2" />
+        <enum name="neutral" value="3" />
+        <enum name="disabled" value="4" />
+    </attr>
+
+    <attr name="emeraldButtonStyle" format="enum">
+        <enum name="filled" value="0" />
+        <enum name="outline" value="1" />
+        <enum name="text" value="2" />
+    </attr>
+
+    <declare-styleable name="EmeraldButton">
+        <attr name="emeraldButtonType" />
+        <attr name="emeraldButtonStyle" />
+        <attr name="state_outline" format="boolean" />
+        <attr name="state_text" format="boolean" />
+    </declare-styleable>
+
+    <!--Edit Text-->
+    <declare-styleable name="EmeraldBaseEditText">
+        <attr name="required" format="boolean" />
+        <attr name="android:inputType" />
+        <attr name="text" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="EmeraldEditText">
+        <attr name="mask" />
+        <attr name="maskType" />
+    </declare-styleable>
+
+    <declare-styleable name="EmeraldDateSelector">
+        <attr name="showDatePicker" format="boolean" />
+        <attr name="navigateUsingMonths" format="boolean" />
+        <attr name="showArrows" format="boolean" />
+    </declare-styleable>
+
+</resources>
+

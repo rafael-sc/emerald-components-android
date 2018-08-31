@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/emeraldImgRightArrowDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_arrow_right_green_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/emeraldImgCalendarDate"
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:src="@drawable/ic_calendar_green_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/emeraldTextDate"
+        app:layout_constraintRight_toLeftOf="@+id/emeraldTextDate"
+        app:layout_constraintTop_toTopOf="@+id/emeraldTextDate" />
+
+    <TextView
+        android:id="@+id/emeraldTextDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/emerald_date_view_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/emeraldImgRightArrowDate"
+        app:layout_constraintStart_toEndOf="@+id/emeraldImgLeftArrowDate"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="07 de agosto, terça-feira" />
+
+    <ImageView
+        android:id="@+id/emeraldImgLeftArrowDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_arrow_left_green_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

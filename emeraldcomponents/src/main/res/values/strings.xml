@@ -1,0 +1,28 @@
+<resources>
+    <string name="emerald_total_sold">TOTAL VENDIDO:</string>
+    <string name="emerald_last_days">Ultimos 7 dias</string>
+
+    <!--Login component strings-->
+    <string name="emerald_mask_error">Valor inválido</string>
+    <string name="emerald_invalid_email">Email inválido</string>
+    <string name="emerald_invalid_auto_complete_text">Valor não condiz com nenhuma opção</string>
+
+    <!-- Button component strings -->
+    <string name="emerald_button_default_text">BUTTON</string>
+
+    <!-- Sling Date Filter -->
+    <string name="emerald_date_filter_option_today">Hoje</string>
+    <string name="emerald_date_filter_option_yesterday">Ontem</string>
+    <string name="emerald_date_filter_option_last_7_days">Últimos 7 dias</string>
+    <string name="emerald_date_filter_option_last_30_days">Últimos 30 dias</string>
+    <string name="emerald_date_filter_option_this_month">Este mês</string>
+    <string name="emerald_date_filter_option_last_month">Mês passado</string>
+    <string name="emerald_date_filter_option_personalized">Personalizado</string>
+    <string name="emerald_date_filter_date_pattern">dd/MM/YY</string>
+    <string name="emerald_date_filter_date_range">%1$s a %2$s</string>
+    <string name="emerald_date_filter_button">FILTRAR</string>
+
+    <!-- Sling Date Selector -->
+    <string name="emerald_date_selector_pattern_day">dd \'de\' MMMM, EEEE</string>
+    <string name="emerald_date_selector_pattern_month">MMMM, yyyy</string>
+</resources>

@@ -1,0 +1,43 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.stone.emeraldcomponentsandroid">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.PagerTabsActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.CalendarActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.ButtonActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.MaskedEditTextActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.EditTextActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.AutoCompleteActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.SpinnerActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.DateActivity"
+            android:parentActivityName=".MainActivity" />
+    </application>
+</manifest>

@@ -1,0 +1,28 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="Emerald" parent="Theme.AppCompat.Light" />
+
+    <style name="Emerald.TextFloatLabelAppearance" parent="TextAppearance.AppCompat">
+        <!-- Floating label appearance here -->
+        <item name="android:textColor">@color/emerald_input_default</item>
+    </style>
+
+    <style name="Emerald.TextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/emerald_input_default</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Emerald.ErrorAppearance" parent="@style/Emerald.TextAppearance">
+        <item name="android:textColor">@color/emerald_input_error</item>
+    </style>
+
+    <style name="Emerald.WarningAppearance" parent="@style/Emerald.TextAppearance">
+        <item name="android:textColor">@color/emerald_input_warning</item>
+    </style>
+
+    <style name="Emerald.SuccessAppearance" parent="@style/Emerald.TextAppearance">
+        <item name="android:textColor">@color/emerald_input_success</item>
+    </style>
+
+</resources>

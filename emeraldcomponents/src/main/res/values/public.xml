@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <public name="emerald_button_primary" type="string" />
+    <public name="ic_calendar_green_24dp" type="drawable"/>
+</resources>
