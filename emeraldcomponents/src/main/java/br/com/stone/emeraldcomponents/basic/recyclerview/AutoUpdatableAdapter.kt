@@ -1,4 +1,4 @@
-package stone.com.br.basiccomponents.basics.recyclerview
+package br.com.stone.emeraldcomponents.basic.recyclerview
 
 import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView

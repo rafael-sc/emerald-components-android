@@ -3,6 +3,7 @@ package br.com.stone.emeraldcomponents.basics.recyclerview
 import android.view.View
 import android.widget.FrameLayout
 import br.com.stone.emeraldcomponents.R
+import br.com.stone.emeraldcomponents.basic.recyclerview.AbstractAdapter
 import kotlinx.android.synthetic.main.test_layout.view.*
 import org.junit.Assert
 import org.junit.Before
@@ -11,7 +12,6 @@ import org.junit.runner.RunWith
 import org.mockito.Mockito
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
-import stone.com.br.basiccomponents.basics.recyclerview.AbstractAdapter
 
 @RunWith(RobolectricTestRunner::class)
 class AbstractAdapterTest {
