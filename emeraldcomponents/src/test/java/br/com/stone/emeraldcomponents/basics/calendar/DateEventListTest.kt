@@ -7,6 +7,7 @@ import android.text.style.StyleSpan
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.calendar.DateEvent
 import br.com.stone.emeraldcomponents.basic.calendar.DateEventList
+import br.com.stone.emeraldcomponents.basic.recyclerview.SlingAdapter
 import br.com.stone.emeraldcomponents.extension.colorRes
 import br.com.stone.emeraldcomponents.extension.day
 import org.junit.Assert
@@ -18,7 +19,6 @@ import org.junit.runner.RunWith
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
-import stone.com.br.basiccomponents.basics.recyclerview.SlingAdapter
 import java.util.Calendar
 
 @RunWith(RobolectricTestRunner::class)

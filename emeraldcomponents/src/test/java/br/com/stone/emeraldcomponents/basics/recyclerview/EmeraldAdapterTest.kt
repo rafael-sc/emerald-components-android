@@ -4,6 +4,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.FrameLayout
 import br.com.stone.emeraldcomponents.R
+import br.com.stone.emeraldcomponents.basic.recyclerview.AbstractAdapter
+import br.com.stone.emeraldcomponents.basic.recyclerview.SlingAdapter
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -12,8 +14,6 @@ import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
-import stone.com.br.basiccomponents.basics.recyclerview.AbstractAdapter
-import stone.com.br.basiccomponents.basics.recyclerview.SlingAdapter
 
 @RunWith(RobolectricTestRunner::class)
 class EmeraldAdapterTest {

@@ -1,6 +1,5 @@
 package br.com.stone.emeraldcomponents.basic
 
-
 import android.view.View
 
 /**
