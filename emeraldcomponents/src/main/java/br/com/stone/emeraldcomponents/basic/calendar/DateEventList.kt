@@ -14,6 +14,7 @@ import android.view.View
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.calendar.CalendarHelper.getGroupedEvents
 import br.com.stone.emeraldcomponents.basic.calendar.CalendarHelper.sortDates
+import br.com.stone.emeraldcomponents.basic.recyclerview.SlingAdapter
 import br.com.stone.emeraldcomponents.extension.colorRes
 import br.com.stone.emeraldcomponents.extension.day
 import br.com.stone.emeraldcomponents.extension.dimen
@@ -21,7 +22,6 @@ import br.com.stone.emeraldcomponents.extension.format
 import br.com.stone.emeraldcomponents.extension.setUp
 import kotlinx.android.synthetic.main.event_list_content_item.view.*
 import kotlinx.android.synthetic.main.widget_event_list_item.view.*
-import stone.com.br.basiccomponents.basics.recyclerview.SlingAdapter
 import java.util.Calendar
 
 class DateEventList : RecyclerView {
