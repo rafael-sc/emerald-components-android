@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import br.com.stone.emeraldcomponents.basic.recyclerview.SlingAdapter
-import stone.com.br.basiccomponents.common.ParentActivityException
+import br.com.stone.emeraldcomponents.common.ParentActivityException
 
 /**
  * Created by renan.silva on 18/04/2018.

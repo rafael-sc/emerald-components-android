@@ -3,7 +3,6 @@ package br.com.stone.emeraldcomponents.common
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.ExpectedException
-import stone.com.br.basiccomponents.common.ParentActivityException
 
 /**
  * Created by renan.silva on 19/04/2018.
