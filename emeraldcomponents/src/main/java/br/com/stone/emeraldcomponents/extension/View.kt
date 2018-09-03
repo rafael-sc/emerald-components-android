@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import stone.com.br.basiccomponents.basics.recyclerview.SlingAdapter
+import br.com.stone.emeraldcomponents.basic.recyclerview.SlingAdapter
 import stone.com.br.basiccomponents.common.ParentActivityException
 
 /**

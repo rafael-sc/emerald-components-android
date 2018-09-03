@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'maven'
 apply plugin: 'jacoco'
+apply plugin: 'com.github.kt3k.coveralls'
 
 apply from: '../static-analysis/lint.gradle'
 apply from: '../static-analysis/ktlint.gradle'
@@ -98,11 +99,16 @@ uploadArchives {
     }
 }
 
-task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
+coveralls {
+    sourceDirs = files(subprojects.sourceSets.main.allSource.srcDirs).files.absolutePath
+}
+
+task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
 
     reports {
         xml.enabled = true
         html.enabled = true
+        csv.enabled = false
     }
 
     sourceDirectories = files([mainSrc])

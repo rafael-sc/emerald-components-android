@@ -1,4 +1,4 @@
-package stone.com.br.basiccomponents.basics.recyclerview
+package br.com.stone.emeraldcomponents.basic.recyclerview
 
 import android.view.View
 

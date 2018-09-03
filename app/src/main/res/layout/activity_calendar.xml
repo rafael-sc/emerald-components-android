@@ -10,6 +10,8 @@
         android:id="@+id/dateView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <br.com.stone.emeraldcomponents.basic.calendar.EmeraldCalendarView
@@ -17,6 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateView"
         app:mcv_selectionColor="@color/colorPrimaryDark"
         app:mcv_tileWidth="match_parent" />
