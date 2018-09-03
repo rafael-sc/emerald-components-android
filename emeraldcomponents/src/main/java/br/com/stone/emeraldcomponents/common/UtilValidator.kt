@@ -1,4 +1,4 @@
-package stone.com.br.basiccomponents.common
+package br.com.stone.emeraldcomponents.common
 
 /**
  * Created on 04/06/2018
