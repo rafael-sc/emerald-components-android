@@ -6,8 +6,8 @@ import android.text.InputType
 import android.util.AttributeSet
 import android.view.View.OnFocusChangeListener
 import br.com.stone.emeraldcomponents.R
+import br.com.stone.emeraldcomponents.common.UtilValidator
 import com.redmadrobot.inputmask.MaskedTextChangedListener
-import stone.com.br.basiccomponents.common.UtilValidator
 
 /**
  * Created by renan.silva on 21/02/2018.

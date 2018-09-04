@@ -1,1 +1,0 @@
-* @diegolucasb @renanrbs @italomarcel @VictorGTdaCruz
