@@ -1,3 +1,5 @@
+[![Build Status](https://app.bitrise.io/app/278ed84073e37a0d/status.svg?token=2CEvAt0AcRJhLJZgDo0PVA)](https://app.bitrise.io/app/278ed84073e37a0d)
+
 # Emerald Components Android
 This is a base project, created to serve as a Emerald pattern for all future Android applications. 
 
