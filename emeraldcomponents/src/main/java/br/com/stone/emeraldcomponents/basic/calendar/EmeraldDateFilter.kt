@@ -39,7 +39,7 @@ class EmeraldDateFilter : ConstraintLayout {
 
     private var currentFilterType: EmeraldDateFilterOptions = EmeraldDateFilterOptions.TODAY
 
-    private val datePatternString = context.getString(R.string.emerald_date_filter_date_pattern)
+    private val datePatternString = context.getString(R.string.emerald_date_filter_pattern)
 
     constructor(context: Context) : super(context)
 

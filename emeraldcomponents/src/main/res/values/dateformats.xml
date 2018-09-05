@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+
+        All formats added here should be tested in CalendarTest file
+
+     -->
+
+    <!-- Sling Date Selector -->
+    <string name="emerald_date_selector_pattern_day">dd \'de\' MMMM, EEEE</string>
+    <string name="emerald_date_selector_pattern_month">MMMM, yyyy</string>
+
+    <!-- Sling Date Filter -->
+    <string name="emerald_date_filter_pattern">dd/MM/yy</string>
+
+</resources>
