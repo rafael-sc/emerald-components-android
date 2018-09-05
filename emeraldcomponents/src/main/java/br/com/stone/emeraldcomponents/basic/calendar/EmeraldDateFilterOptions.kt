@@ -31,7 +31,7 @@ enum class EmeraldDateFilterOptions(
 
     LAST_THIRTY_DAYS(R.string.emerald_date_filter_option_last_30_days, {
         val today = it.clone() as Calendar
-        it.apply { set(Calendar.DAY_OF_YEAR, get(Calendar.DAY_OF_YEAR) - 30) }
+        it.apply { set(Calendar.DAY_OF_YEAR, get(Calendar.DAY_OF_YEAR) - 29) }
         Pair(it, today)
     }),
 

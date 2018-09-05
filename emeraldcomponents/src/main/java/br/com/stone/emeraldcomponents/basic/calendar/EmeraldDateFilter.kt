@@ -2,9 +2,12 @@ package br.com.stone.emeraldcomponents.basic.calendar
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.os.Parcelable
 import android.support.constraint.ConstraintLayout
 import android.util.AttributeSet
+import android.view.View
 import android.widget.PopupMenu
+import android.widget.Toast
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.extension.day
 import br.com.stone.emeraldcomponents.extension.format
@@ -14,6 +17,7 @@ import br.com.stone.emeraldcomponents.extension.show
 import br.com.stone.emeraldcomponents.extension.year
 import kotlinx.android.synthetic.main.widget_date_filter.view.*
 import java.util.Calendar
+import java.util.Locale
 
 /**
  * Created on 23/08/2018
@@ -35,9 +39,10 @@ class EmeraldDateFilter : ConstraintLayout {
             refreshTitleAndDate()
         }
 
-    private var filterChangedListener: (startDate: Calendar, endDate: Calendar) -> Unit = { _ , _ -> }
+    var currentFilterType: EmeraldDateFilterOptions = EmeraldDateFilterOptions.TODAY
+        private set
 
-    private var currentFilterType: EmeraldDateFilterOptions = EmeraldDateFilterOptions.TODAY
+    private var filterChangedListener: (startDate: Calendar, endDate: Calendar) -> Unit = { _, _ -> }
 
     private val datePatternString = context.getString(R.string.emerald_date_filter_pattern)
 
@@ -46,15 +51,17 @@ class EmeraldDateFilter : ConstraintLayout {
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
 
     init {
-        ConstraintLayout.inflate(context, R.layout.widget_date_filter, this)
-        setListeners()
-        setFilter(EmeraldDateFilterOptions.TODAY)
+        inflate(context, R.layout.widget_date_filter, this)
+        if (!isInEditMode) {
+            setListeners()
+            setFilter(EmeraldDateFilterOptions.TODAY)
+        }
     }
 
     fun setFilter(item: EmeraldDateFilterOptions) {
         currentFilterType = item
         if (item == EmeraldDateFilterOptions.PERSONALIZED) {
-            setupPersonalizedLayout(true)
+            setupPersonalizedLayout()
         } else {
             setupPersonalizedLayout(false)
 
@@ -71,7 +78,7 @@ class EmeraldDateFilter : ConstraintLayout {
         this.endDate = endDate
 
         currentFilterType = EmeraldDateFilterOptions.PERSONALIZED
-        setupPersonalizedLayout(true)
+        setupPersonalizedLayout()
 
         filterChangedListener(startDate, endDate)
     }
@@ -87,9 +94,9 @@ class EmeraldDateFilter : ConstraintLayout {
             popUp.inflate(R.menu.menu_date_filter_popup)
 
             popUp.setOnMenuItemClickListener { menuItem ->
-                setFilter( EmeraldDateFilterOptions.values().find {
+                setFilter(EmeraldDateFilterOptions.values().find {
                     context.getString(it.textResId) == menuItem.title.toString()
-                } ?: EmeraldDateFilterOptions.TODAY )
+                } ?: EmeraldDateFilterOptions.TODAY)
                 true
             }
 
@@ -98,7 +105,8 @@ class EmeraldDateFilter : ConstraintLayout {
 
         emeraldDateFilterStartDate.setOnClickListener {
             val datePickerDialogListener = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
-                startDate = Calendar.getInstance().apply { set(year, month, dayOfMonth) }
+                val selected = Calendar.getInstance().apply { set(year, month, dayOfMonth) }
+                startDate = if (isValidDateRange(selected, endDate)) selected else endDate
                 emeraldDateFilterStartDate.text = startDate.format(datePatternString)
                 filterChangedListener(startDate, endDate)
             }
@@ -108,7 +116,8 @@ class EmeraldDateFilter : ConstraintLayout {
 
         emeraldDateFilterEndDate.setOnClickListener {
             val datePickerDialogListener = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
-                endDate = Calendar.getInstance().apply { set(year, month, dayOfMonth) }
+                val selected = Calendar.getInstance().apply { set(year, month, dayOfMonth) }
+                endDate = if (isValidDateRange(startDate, selected)) selected else startDate
                 emeraldDateFilterEndDate.text = endDate.format(datePatternString)
                 filterChangedListener(startDate, endDate)
             }
@@ -117,9 +126,22 @@ class EmeraldDateFilter : ConstraintLayout {
         }
     }
 
+    internal fun isValidDateRange(start: Calendar, end: Calendar): Boolean {
+        return if (start.time.after(end.time)) {
+            showInvalidCustomDateFilterMessage()
+            false
+        } else {
+            true
+        }
+    }
+
     private fun refreshTitleAndDate() {
         if (currentFilterType != EmeraldDateFilterOptions.PERSONALIZED) {
-            emeraldTextDateLabel.text = context.getString(currentFilterType.textResId)
+            emeraldTextDateLabel.text = when (currentFilterType) {
+                EmeraldDateFilterOptions.THIS_MONTH, EmeraldDateFilterOptions.LAST_MONTH ->
+                    startDate.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale("pt", "BR")).capitalize()
+                else -> context.getString(currentFilterType.textResId)
+            }
             emeraldTextDateRangeSubtitle.text = if (startDate == endDate) {
                 startDate.format(datePatternString)
             } else {
@@ -129,7 +151,10 @@ class EmeraldDateFilter : ConstraintLayout {
         }
     }
 
-    private fun setupPersonalizedLayout(shouldShowLayout: Boolean) {
+    private fun setupPersonalizedLayout(shouldShowLayout: Boolean = true) {
+        emeraldDateFilterExpandConstraint.hide()
+        emeraldTextDateRangeSubtitle.show()
+
         if (shouldShowLayout) {
             emeraldDateFilterExpandConstraint.show()
             emeraldTextDateRangeSubtitle.hide()
@@ -137,9 +162,34 @@ class EmeraldDateFilter : ConstraintLayout {
             emeraldTextDateLabel.text = context.getString(EmeraldDateFilterOptions.PERSONALIZED.textResId)
             emeraldDateFilterStartDate.text = startDate.format(datePatternString)
             emeraldDateFilterEndDate.text = endDate.format(datePatternString)
-        } else {
-            emeraldDateFilterExpandConstraint.hide()
-            emeraldTextDateRangeSubtitle.show()
         }
     }
+
+    private fun showInvalidCustomDateFilterMessage() {
+        Toast.makeText(context, context.getString(R.string.emerald_date_filter_invalid_custom_date_message),
+                Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onSaveInstanceState(): Parcelable {
+        return SavedState(currentFilterType, startDate, endDate, super.onSaveInstanceState())
+    }
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        if (state !is SavedState) {
+            super.onRestoreInstanceState(state)
+            return
+        }
+
+        super.onRestoreInstanceState(state.superState)
+        if (state.filter == EmeraldDateFilterOptions.PERSONALIZED) {
+            setCustomFilter(state.startDate, state.endDate)
+        } else {
+            setFilter(state.filter)
+        }
+    }
+
+    internal class SavedState(val filter: EmeraldDateFilterOptions,
+                              val startDate: Calendar,
+                              val endDate: Calendar,
+                              superState: Parcelable) : View.BaseSavedState(superState)
 }
