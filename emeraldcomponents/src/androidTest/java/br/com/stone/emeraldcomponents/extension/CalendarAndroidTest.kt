@@ -45,5 +45,4 @@ class CalendarAndroidTest {
         }
         Assert.assertEquals("02/06/18", calendar.format(context.getString(R.string.emerald_date_filter_pattern)))
     }
-
 }
