@@ -25,4 +25,5 @@
     <!-- Sling Date Selector -->
     <string name="emerald_date_selector_pattern_day">dd \'de\' MMMM, EEEE</string>
     <string name="emerald_date_selector_pattern_month">MMMM, yyyy</string>
+    <string name="emerald_date_filter_invalid_custom_date_message">A data inicial não pode ser maior que a data final</string>
 </resources>

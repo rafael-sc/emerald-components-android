@@ -1,17 +1,21 @@
 package br.com.stone.emeraldcomponents.basics.calendar
 
+import android.app.DatePickerDialog
 import android.support.v4.app.FragmentActivity
 import android.view.View
-import br.com.stone.emeraldcomponents.basic.calendar.EmeraldDateFilter
-import br.com.stone.emeraldcomponents.basic.calendar.EmeraldDateFilterOptions
-import kotlinx.android.synthetic.main.widget_date_filter.view.*
+import br.com.stone.emeraldcomponents.basic.calendar.EmeraldDateSelector
+import br.com.stone.emeraldcomponents.extension.format
+import br.com.stone.emeraldcomponents.extension.month
+import kotlinx.android.synthetic.main.widget_date.view.*
 import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.Mockito
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.shadows.ShadowDialog
 import java.util.Calendar
 
 /**
@@ -23,14 +27,14 @@ import java.util.Calendar
 @RunWith(RobolectricTestRunner::class)
 class EmeraldDateFilterTest {
 
-    private lateinit var view: EmeraldDateFilter
+    private lateinit var view: EmeraldDateSelector
 
     private lateinit var activity: FragmentActivity
 
     @Before
     fun setup() {
         activity = Robolectric.buildActivity(FragmentActivity::class.java).create().get()
-        view = EmeraldDateFilter(activity)
+        view = EmeraldDateSelector(activity)
     }
 
     @Test
@@ -39,28 +43,63 @@ class EmeraldDateFilterTest {
     }
 
     @Test
-    fun testSetFilterNotPersonalized() {
-        view.setFilter(EmeraldDateFilterOptions.YESTERDAY)
-        assertEquals(view.emeraldDateFilterExpandConstraint.visibility, View.GONE)
-        assertEquals(view.emeraldTextDateRangeSubtitle.visibility, View.VISIBLE)
+    fun testInstanceWithAttributeSet() {
+        val attrs = Robolectric.buildAttributeSet().build()
+        val view = EmeraldDateSelector(activity, attrs)
+        Assert.assertNotNull(view)
     }
 
     @Test
-    fun testSetFilterPersonalized() {
-        view.setFilter(EmeraldDateFilterOptions.PERSONALIZED)
-        assertEquals(view.emeraldTextDateLabel.text, view.context.getString(EmeraldDateFilterOptions.PERSONALIZED.textResId))
-        assertEquals(view.emeraldDateFilterExpandConstraint.visibility, View.VISIBLE)
-        assertEquals(view.emeraldTextDateRangeSubtitle.visibility, View.GONE)
-    }
-
-    @Test
-    fun testSetCustomFilter() {
+    fun testSetDate() {
+        val pattern = "MMMM, yyyy"
         val date = Calendar.getInstance()
-        view.setCustomFilter(date, date)
-        assertEquals(view.startDate, date)
-        assertEquals(view.endDate, date)
-        assertEquals(view.emeraldTextDateLabel.text, view.context.getString(EmeraldDateFilterOptions.PERSONALIZED.textResId))
-        assertEquals(view.emeraldDateFilterExpandConstraint.visibility, View.VISIBLE)
-        assertEquals(view.emeraldTextDateRangeSubtitle.visibility, View.GONE)
+        view.date = date
+        assertEquals(date.format(pattern), view.emeraldTextDate.text)
+    }
+
+    @Test
+    fun testSetDateChangedListener() {
+        val mockList = Mockito.mock(List::class.java)
+        view.setDateChangedListener { mockList.size }
+        view.emeraldImgRightArrowDate.performClick()
+        Mockito.verify(mockList).size
+    }
+
+    @Test
+    fun testOnRightArrowClick() {
+        val month = 10
+        view.date.set(Calendar.DAY_OF_MONTH, 1)
+        view.date.set(Calendar.MONTH, month)
+        view.emeraldImgRightArrowDate.performClick()
+        assertEquals(month + 1, view.date.month())
+    }
+
+    @Test
+    fun testOnLeftArrowClick() {
+        val month = 10
+        view.date.set(Calendar.DAY_OF_MONTH, 1)
+        view.date.set(Calendar.MONTH, month)
+        view.emeraldImgLeftArrowDate.performClick()
+        assertEquals(month - 1, view.date.month())
+    }
+
+    @Test
+    fun testOnDateTitleClick() {
+        view.emeraldTextDate.performClick()
+        Assert.assertTrue(ShadowDialog.getLatestDialog() is DatePickerDialog)
+    }
+
+    @Test
+    fun testShowArrows() {
+        view.showArrows = true
+        assertEquals(View.VISIBLE, view.emeraldImgLeftArrowDate.visibility)
+        assertEquals(View.VISIBLE, view.emeraldImgRightArrowDate.visibility)
+    }
+
+    @Test
+    fun testHideArrows() {
+        view.showArrows = false
+        assertEquals(View.GONE, view.emeraldImgLeftArrowDate.visibility)
+        assertEquals(View.GONE, view.emeraldImgRightArrowDate.visibility)
     }
 }

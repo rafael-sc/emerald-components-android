@@ -62,7 +62,7 @@ class EmeraldMaskedEditText : AppCompatEditText {
     }
 
     fun defineMask(mask: String?) {
-        if(type == MaskTypes.CURRENCY) {
+        if (type == MaskTypes.CURRENCY) {
             addTextChangedListener(CurrencyTextWatcher(this, valueListener = { unmaskedText = it }))
             setText("0")
             inputType = InputType.TYPE_CLASS_NUMBER

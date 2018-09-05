@@ -98,7 +98,7 @@ class EmeraldDateFilterOptionsTest {
     @Test
     fun testCalculateLast30Days() {
         val (start, end) = EmeraldDateFilterOptions.LAST_THIRTY_DAYS.calculate(day)
-        assertEquals(start.day(), 29)
+        assertEquals(start.day(), 30)
         assertEquals(end.day(), 28)
     }
 
