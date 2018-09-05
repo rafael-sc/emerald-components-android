@@ -44,7 +44,7 @@ class EmeraldDateFilter : ConstraintLayout {
 
     private var filterChangedListener: (startDate: Calendar, endDate: Calendar) -> Unit = { _, _ -> }
 
-    private val datePatternString = context.getString(R.string.emerald_date_filter_date_pattern)
+    private val datePatternString = context.getString(R.string.emerald_date_filter_pattern)
 
     constructor(context: Context) : super(context)
 

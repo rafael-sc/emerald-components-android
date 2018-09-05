@@ -16,15 +16,15 @@ class DateActivity : AppCompatActivity() {
         emeraldDateSelector.navigateUsingMonths = false
 
         emeraldDateSelector.setDateChangedListener {
-            Toast.makeText(this, it.format("dd/MM/YY")
+            Toast.makeText(this, it.format("dd/MM/yy")
                     , Toast.LENGTH_SHORT).show()
         }
 
         emeraldDateFilter.setOnFilterChangedListener { startDate, endDate ->
-            if (startDate == endDate) Toast.makeText(this, startDate.format("dd/MM/YY")
+            if (startDate == endDate) Toast.makeText(this, startDate.format("dd/MM/yy")
                         , Toast.LENGTH_SHORT).show()
             else Toast.makeText(this,
-                    startDate.format("dd/MM/YY") + " até " + endDate.format("dd/MM/YY")
+                    startDate.format("dd/MM/yy") + " até " + endDate.format("dd/MM/yy")
                     , Toast.LENGTH_SHORT).show()
         }
     }
