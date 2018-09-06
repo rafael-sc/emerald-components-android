@@ -14,7 +14,7 @@ abstract class LifecycleOwnerConstraintLayout : ConstraintLayout, LifecycleOwner
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
-    override val mLifecycleRegistry: LifecycleRegistry by lazy { LifecycleRegistry(this) }
+    override val lifecycleRegistry: LifecycleRegistry by lazy { LifecycleRegistry(this) }
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()

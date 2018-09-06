@@ -9,17 +9,17 @@ import android.arch.lifecycle.LifecycleRegistry
  */
 interface LifecycleOwnerView : LifecycleOwner {
 
-    val mLifecycleRegistry: LifecycleRegistry
+    val lifecycleRegistry: LifecycleRegistry
 
     override fun getLifecycle(): Lifecycle {
-        return mLifecycleRegistry
+        return lifecycleRegistry
     }
 
     fun onDestroyCalled() {
-        mLifecycleRegistry.markState(Lifecycle.State.DESTROYED)
+        lifecycleRegistry.markState(Lifecycle.State.DESTROYED)
     }
 
     fun onCreateCalled() {
-        mLifecycleRegistry.markState(Lifecycle.State.STARTED)
+        lifecycleRegistry.markState(Lifecycle.State.STARTED)
     }
 }
