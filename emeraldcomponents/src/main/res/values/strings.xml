@@ -18,11 +18,7 @@
     <string name="emerald_date_filter_option_this_month">Este mês</string>
     <string name="emerald_date_filter_option_last_month">Mês passado</string>
     <string name="emerald_date_filter_option_personalized">Personalizado</string>
-    <string name="emerald_date_filter_date_pattern">dd/MM/YY</string>
     <string name="emerald_date_filter_date_range">%1$s a %2$s</string>
     <string name="emerald_date_filter_button">FILTRAR</string>
-
-    <!-- Sling Date Selector -->
-    <string name="emerald_date_selector_pattern_day">dd \'de\' MMMM, EEEE</string>
-    <string name="emerald_date_selector_pattern_month">MMMM, yyyy</string>
+    <string name="emerald_date_filter_invalid_custom_date_message">A data inicial não pode ser maior que a data final</string>
 </resources>
