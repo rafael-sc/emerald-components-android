@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.2.0 - 2018-09-06
+- [Added LifecycleOwnerConstraintLayout][issue-14]
+
 ## 0.1.1 - 2018-09-06
 
 ### Fixed
@@ -7,3 +10,5 @@
 
 ## 0.1.0 - 2018-09-01
 - Initial release
+
+[issue-14]:https://github.com/stone-payments/emerald-components-android/issues/14
