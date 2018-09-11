@@ -4,13 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import br.com.stone.emeraldcomponents.extension.setUp
-import br.com.stone.emeraldcomponentsandroid.activities.AutoCompleteActivity
-import br.com.stone.emeraldcomponentsandroid.activities.ButtonActivity
-import br.com.stone.emeraldcomponentsandroid.activities.CalendarActivity
-import br.com.stone.emeraldcomponentsandroid.activities.DateActivity
-import br.com.stone.emeraldcomponentsandroid.activities.EditTextActivity
-import br.com.stone.emeraldcomponentsandroid.activities.MaskedEditTextActivity
-import br.com.stone.emeraldcomponentsandroid.activities.SpinnerActivity
+import br.com.stone.emeraldcomponentsandroid.activities.InputActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_activity_list.view.*
 
