@@ -21,13 +21,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val activities = listOf(
-                ButtonActivity::class.java to "Emerald Button",
-                CalendarActivity::class.java to "Calendar + Date Event List",
-                AutoCompleteActivity::class.java to "Auto complete",
-                EditTextActivity::class.java to "Emerald Edit Text",
-                MaskedEditTextActivity::class.java to "Masked Edit Text",
-                SpinnerActivity::class.java to "Emerald Spinner",
-                DateActivity::class.java to "Emerald Date Selector and Filter")
+                InputActivity::class.java to "Inputs"
+        )
 
         recyclerMain.setUp(activities,
                 { R.layout.item_activity_list },
