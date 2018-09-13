@@ -2,6 +2,7 @@ package br.com.stone.emeraldcomponents.basics.input
 
 import android.support.v4.app.FragmentActivity
 import android.util.AttributeSet
+import android.view.inputmethod.EditorInfo
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.input.EmeraldEditText
 import org.junit.Assert.assertEquals
@@ -105,5 +106,14 @@ class EmeraldEditTextTest {
         view.required = false
         view.text = ""
         assertTrue(view.isValid())
+    }
+
+    @Test
+    fun testNotRd() {
+        var x = 0
+        view.editText?.imeOptions = EditorInfo.IME_ACTION_DONE
+        view.setOnEditorActionDone { x = 1 }
+        view.editText?.onEditorAction(EditorInfo.IME_ACTION_DONE)
+        assertEquals(1, x)
     }
 }
