@@ -109,7 +109,7 @@ class EmeraldEditTextTest {
     }
 
     @Test
-    fun testNotRd() {
+    fun testOnEditActionDoneMethod() {
         var x = 0
         view.editText?.imeOptions = EditorInfo.IME_ACTION_DONE
         view.setOnEditorActionDone { x = 1 }
