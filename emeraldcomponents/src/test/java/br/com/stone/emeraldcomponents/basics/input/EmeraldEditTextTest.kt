@@ -110,11 +110,11 @@ class EmeraldEditTextTest {
 
     @Test
     fun testOnEditActionDoneMethod() {
-        val expectedResult = true
+        val EXPECTED_RESULT = true
         var actualResult = false
         view.editText?.imeOptions = EditorInfo.IME_ACTION_DONE
-        view.setOnEditorActionDone { actualResult = expectedResult }
+        view.setOnEditorActionDone { actualResult = EXPECTED_RESULT }
         view.editText?.onEditorAction(EditorInfo.IME_ACTION_DONE)
-        assertEquals(expectedResult, actualResult)
+        assertEquals(EXPECTED_RESULT, actualResult)
     }
 }
