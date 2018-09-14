@@ -39,7 +39,7 @@ class InputActivityTest {
                     isAssignableFrom(EditText::class.java)))
 
     @Test
-    fun shouldCellEditBeAbleToValidateInvalidAndValidInput() {
+    fun shouldCellPhoneEditBeAbleToValidateInvalidAndValidInput() {
         onEditText(withId(R.id.cellPhoneEditText))
                 .perform(scrollTo(), click())
                 .perform(scrollTo(), typeText("0000"))
@@ -65,24 +65,24 @@ class InputActivityTest {
 
     @Test
     fun shouldPhoneEditBeAbleToValidateInvalidAndValidInput() {
-        onEditText(withId(R.id.PhoneEditText))
+        onEditText(withId(R.id.phoneEditText))
                 .perform(scrollTo(), click())
                 .perform(scrollTo(), typeText("0000"))
 
         onEditText(withId(R.id.emeraldEditText))
                 .perform(scrollTo(), click())
 
-        onEditText(withId(R.id.PhoneEditText))
+        onEditText(withId(R.id.phoneEditText))
                 .check(
                         matches(CustomMatcher.hasTextInputLayoutErrorText("Valor inválido")))
 
-        onEditText(withId(R.id.PhoneEditText))
+        onEditText(withId(R.id.phoneEditText))
                 .perform(replaceText("0000000000"))
 
         onEditText(withId(R.id.emeraldEditText))
                 .perform(scrollTo(), click())
 
-        onEditText(withId(R.id.PhoneEditText))
+        onEditText(withId(R.id.phoneEditText))
                 .perform(scrollTo(), click())
                 .check(matches(CustomMatcher.hasTextInputLayoutErrorText("")))
                 .check(matches(withText("(00) 0000-0000")))
