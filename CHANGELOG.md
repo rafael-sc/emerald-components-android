@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## UNDEFINED
+- [Add Espresso tests on the Sample app][issue-22]
+
 ## 0.2.0 - 2018-09-06
 - [Added LifecycleOwnerConstraintLayout][issue-14]
 
@@ -12,3 +15,4 @@
 - Initial release
 
 [issue-14]:https://github.com/stone-payments/emerald-components-android/issues/14
+[issue-22]:https://github.com/stone-payments/emerald-components-android/issues/22
