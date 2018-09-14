@@ -13,13 +13,11 @@ import android.support.test.espresso.matcher.ViewMatchers.withText
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import android.view.View
-import android.view.ViewGroup
+import br.com.stone.emeraldcomponentsandroid.CustomMatcher
+import br.com.stone.emeraldcomponentsandroid.CustomMatcher.childAtPosition
 import br.com.stone.emeraldcomponentsandroid.R
 import org.hamcrest.CoreMatchers.anything
-import org.hamcrest.Description
-import org.hamcrest.Matcher
 import org.hamcrest.Matchers.`is`
-import org.hamcrest.TypeSafeMatcher
 import org.hamcrest.core.AllOf.allOf
 import org.hamcrest.core.IsInstanceOf
 import org.junit.Rule
@@ -75,7 +73,7 @@ class SpinnerActivityTest {
         val expectedOption = "Option 2"
         onView(allOf<View>(
                 withId(android.R.id.text1), withText(expectedOption),
-                childAtPosition(allOf<View>(
+                CustomMatcher.childAtPosition(allOf<View>(
                         withId(R.id.emeraldSpinner),
                         childAtPosition(
                                 IsInstanceOf.instanceOf(android.view.ViewGroup::class.java),
@@ -85,18 +83,6 @@ class SpinnerActivityTest {
         .check(matches(withText(expectedOption)))
     }
 
-    private fun childAtPosition(
-            parentMatcher: Matcher<View>, position: Int): Matcher<View> {
 
-        return object : TypeSafeMatcher<View>() {
-            override fun describeTo(description: Description) {}
-
-            public override fun matchesSafely(view: View): Boolean {
-                val parent = view.parent
-                return (parent is ViewGroup && parentMatcher.matches(parent)
-                        && view == parent.getChildAt(position))
-            }
-        }
-    }
 
 }

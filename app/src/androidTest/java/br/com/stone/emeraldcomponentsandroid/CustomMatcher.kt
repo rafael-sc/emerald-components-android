@@ -1,8 +1,10 @@
 package br.com.stone.emeraldcomponentsandroid
 
 import android.view.View
+import android.view.ViewGroup
 import br.com.stone.emeraldcomponents.basic.input.EmeraldMaskedEditText
 import org.hamcrest.Description
+import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
 
 
@@ -23,6 +25,20 @@ object CustomMatcher {
 
             val error = item.errorMessage ?: return false
             return expectedErrorText == error
+        }
+    }
+
+    fun childAtPosition(
+            parentMatcher: Matcher<View>, position: Int): Matcher<View> {
+
+        return object : TypeSafeMatcher<View>() {
+            override fun describeTo(description: Description) {}
+
+            public override fun matchesSafely(view: View): Boolean {
+                val parent = view.parent
+                return (parent is ViewGroup && parentMatcher.matches(parent)
+                        && view == parent.getChildAt(position))
+            }
         }
     }
 }
