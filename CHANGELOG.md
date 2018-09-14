@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## UNDEFINED
+- [Added setOnEditActionDone method to EmeraldBaseEditText][issue-20]
+
 ## 0.2.0 - 2018-09-06
 - [Added LifecycleOwnerConstraintLayout][issue-14]
 
@@ -12,3 +15,4 @@
 - Initial release
 
 [issue-14]:https://github.com/stone-payments/emerald-components-android/issues/14
+[issue-20]:https://github.com/stone-payments/emerald-components-android/issues/20
