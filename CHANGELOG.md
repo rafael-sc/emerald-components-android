@@ -2,8 +2,6 @@
 
 ## UNDEFINED
 - [Added setOnEditActionDone method to EmeraldBaseEditText][issue-20]
-
-## UNDEFINED
 - [Add Espresso tests on the Sample app][issue-22]
 
 ## 0.2.0 - 2018-09-06
