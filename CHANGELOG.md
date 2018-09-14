@@ -1,6 +1,9 @@
 # CHANGELOG
 
 ## UNDEFINED
+- [Added setOnEditActionDone method to EmeraldBaseEditText][issue-20]
+
+## UNDEFINED
 - [Add Espresso tests on the Sample app][issue-22]
 
 ## 0.2.0 - 2018-09-06
@@ -16,3 +19,4 @@
 
 [issue-14]:https://github.com/stone-payments/emerald-components-android/issues/14
 [issue-22]:https://github.com/stone-payments/emerald-components-android/issues/22
+[issue-20]:https://github.com/stone-payments/emerald-components-android/issues/20

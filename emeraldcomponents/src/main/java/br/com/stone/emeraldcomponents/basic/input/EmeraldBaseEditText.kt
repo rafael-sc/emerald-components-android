@@ -102,4 +102,18 @@ abstract class EmeraldBaseEditText : TextInputLayout, SelfValidatorField {
     }
 
     abstract fun validateEditText(): Pair<Boolean, String>
+
+    fun setOnEditorActionDone(action: () -> Unit) {
+        editText?.setOnEditorActionListener { _, actionId, _ ->
+            when (actionId) {
+                EditorInfo.IME_ACTION_DONE -> {
+                    action()
+                    true
+                }
+                else -> {
+                    false
+                }
+            }
+        }
+    }
 }
