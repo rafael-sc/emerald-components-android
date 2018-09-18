@@ -22,9 +22,7 @@ object CustomMatcher {
             if (item !is EmeraldMaskedEditText) {
                 return false
             }
-
-            val error = item.errorMessage ?: return false
-            return expectedErrorText == error
+            return expectedErrorText == item.errorMessage
         }
     }
 
