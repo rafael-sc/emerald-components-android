@@ -8,13 +8,15 @@ import android.support.test.espresso.action.ViewActions.replaceText
 import android.support.test.espresso.action.ViewActions.scrollTo
 import android.support.test.espresso.action.ViewActions.typeText
 import android.support.test.espresso.assertion.ViewAssertions.matches
+import android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom
+import android.support.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.espresso.matcher.ViewMatchers.withText
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import android.view.View
+import android.widget.EditText
 import br.com.stone.emeraldcomponentsandroid.CustomMatcher
-import br.com.stone.emeraldcomponentsandroid.CustomMatcher.childAtPosition
 import br.com.stone.emeraldcomponentsandroid.R
 import org.hamcrest.Matcher
 import org.hamcrest.core.AllOf.allOf
@@ -36,11 +38,9 @@ class InputActivityTest {
     val activityRule = ActivityTestRule(InputActivity::class.java)
 
     private fun onEditText(matcher: Matcher<View>) =
-        onView(allOf<View>(
-                withId(R.id.emeraldMaskedEditText),
-                childAtPosition(
-                        childAtPosition(matcher,0),0)
-        ))
+            onView(allOf(
+                    isDescendantOfA(matcher),
+                    isAssignableFrom(EditText::class.java)))
 
     @Test
     fun shouldCurrencyEditBeAbleToValidateInvalidAndValidInput() {

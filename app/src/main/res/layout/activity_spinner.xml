@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <br.com.stone.emeraldcomponents.basic.input.EmeraldAutoCompleteEditText
-        android:id="@+id/autoCompleteView"
+        android:id="@+id/emeraldAutoComplete"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"

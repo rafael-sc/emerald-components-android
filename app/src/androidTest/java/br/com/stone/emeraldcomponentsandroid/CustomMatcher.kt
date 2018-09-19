@@ -25,18 +25,4 @@ object CustomMatcher {
             return expectedErrorText == item.errorMessage
         }
     }
-
-    fun childAtPosition(
-            parentMatcher: Matcher<View>, position: Int): Matcher<View> {
-
-        return object : TypeSafeMatcher<View>() {
-            override fun describeTo(description: Description) {}
-
-            public override fun matchesSafely(view: View): Boolean {
-                val parent = view.parent
-                return (parent is ViewGroup && parentMatcher.matches(parent)
-                        && view == parent.getChildAt(position))
-            }
-        }
-    }
 }
