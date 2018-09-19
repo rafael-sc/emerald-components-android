@@ -3,6 +3,7 @@
 ## UNDEFINED
 - [Added setOnEditActionDone method to EmeraldBaseEditText][issue-20]
 - [Add Espresso tests on the Sample app][issue-22]
+- [Added EmeraldDateSelector UI tests][issue-24]
 
 ## 0.2.0 - 2018-09-06
 - [Added LifecycleOwnerConstraintLayout][issue-14]
@@ -18,3 +19,4 @@
 [issue-14]:https://github.com/stone-payments/emerald-components-android/issues/14
 [issue-22]:https://github.com/stone-payments/emerald-components-android/issues/22
 [issue-20]:https://github.com/stone-payments/emerald-components-android/issues/20
+[issue-24]:https://github.com/stone-payments/emerald-components-android/issues/24
