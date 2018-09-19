@@ -97,8 +97,10 @@ class EmeraldMaskedEditText : AppCompatEditText {
             if (type == MaskTypes.EMAIL && !UtilValidator.isEmailValid(text.toString())) {
                 errorMessage = context.getString(R.string.emerald_invalid_email)
                 false
-            } else
+            } else {
+                errorMessage = ""
                 true
+            }
 
         if (showError) {
             error = if (isValid) null else errorMessage
