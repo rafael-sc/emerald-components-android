@@ -2,7 +2,7 @@
 
 ## UNDEFINED
 - [Added setOnEditActionDone method to EmeraldBaseEditText][issue-20]
-- [Added input tests IO tests][issue-22]
+- [Added inputs (EmeraldEditTexts) components IO tests][issue-22]
 - [Added EmeraldDateSelector UI tests][issue-24]
 - [Added EmeraldCalendarView and DateEventList IU tests][issue-27]
 
