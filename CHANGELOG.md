@@ -2,7 +2,7 @@
 
 ## UNDEFINED
 - [Added setOnEditActionDone method to EmeraldBaseEditText][issue-20]
-- [Add Espresso tests on the Sample app][issue-22]
+- [Added inputs (EmeraldEditTexts) components IO tests][issue-22]
 - [Added EmeraldDateSelector UI tests][issue-24]
 
 ## 0.2.0 - 2018-09-06
