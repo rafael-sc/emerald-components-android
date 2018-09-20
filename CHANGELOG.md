@@ -1,10 +1,12 @@
 # CHANGELOG
 
-## UNDEFINED
+## 0.2.2 - 2018-09-20
+- [Added DateEventList IU tests][issue-27]
+
+## 0.2.1 - 2018-09-20
 - [Added setOnEditActionDone method to EmeraldBaseEditText][issue-20]
 - [Added inputs (EmeraldEditTexts) components IO tests][issue-22]
 - [Added EmeraldDateSelector UI and EmeraldDateFilter tests][issue-24]
-- [Added DateEventList IU tests][issue-27]
 
 ## 0.2.0 - 2018-09-06
 - [Added LifecycleOwnerConstraintLayout][issue-14]
