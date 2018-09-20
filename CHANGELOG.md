@@ -3,8 +3,8 @@
 ## UNDEFINED
 - [Added setOnEditActionDone method to EmeraldBaseEditText][issue-20]
 - [Added inputs (EmeraldEditTexts) components IO tests][issue-22]
-- [Added EmeraldDateSelector UI tests][issue-24]
-- [Added EmeraldCalendarView and DateEventList IU tests][issue-27]
+- [Added EmeraldDateSelector UI and EmeraldDateFilter tests][issue-24]
+- [Added DateEventList IU tests][issue-27]
 
 ## 0.2.0 - 2018-09-06
 - [Added LifecycleOwnerConstraintLayout][issue-14]
