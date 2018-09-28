@@ -9,15 +9,14 @@ import android.support.test.espresso.contrib.RecyclerViewActions
 import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.espresso.matcher.ViewMatchers.withText
-import android.support.test.rule.ActivityTestRule
-import android.support.test.runner.AndroidJUnit4
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
+import br.com.stone.emeraldcomponentsandroid.BaseScreenshotTest
 import br.com.stone.emeraldcomponentsandroid.R
 import org.hamcrest.CoreMatchers.allOf
 import org.hamcrest.CoreMatchers.anything
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
 
 
 /**
@@ -25,11 +24,13 @@ import org.junit.runner.RunWith
  * Copyright (c) Stone Co. All rights reserved.
  * lucas.amaral@stone.com.br
  */
-@RunWith(AndroidJUnit4::class)
-class CalendarActivityTest {
+class CalendarActivityTest: BaseScreenshotTest() {
+
+    override val activity: AppCompatActivity
+        get() = activityRule.activity
 
     @get:Rule
-    var activityRule = ActivityTestRule(CalendarActivity::class.java)
+    var activityRule = activityTestRule<CalendarActivity>()
 
     @Test
     fun shouldEventListAndFirstItemBeDisplayed() {
@@ -41,21 +42,25 @@ class CalendarActivityTest {
                 withText("1")))
                 .perform(click())
                 .check(matches(isDisplayed()))
+
+        screenShot("emerald-event-list-top")
     }
 
     @Test
     fun shouldEventListScrollAndClickOnLastPosition() {
         onView(withId(R.id.eventList))
-                .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(7, click()))
+                .perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(6, click()))
                 .check(matches(isDisplayed()))
 
         onData(anything())
                 .inAdapterView(withId(R.id.emeraldEventList))
-                .atPosition(7)
+                .atPosition(6)
                 .onChildView(allOf(
                         withId(R.id.emeraldEventTitle),
                         withText("String sem formato"),
                         isDisplayed())
                 )
+
+        screenShot("emerald-event-list-bottom")
     }
 }

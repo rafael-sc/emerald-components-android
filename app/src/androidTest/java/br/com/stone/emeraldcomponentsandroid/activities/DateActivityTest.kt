@@ -8,21 +8,20 @@ import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
 import android.support.test.espresso.matcher.ViewMatchers.withClassName
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.espresso.matcher.ViewMatchers.withText
-import android.support.test.rule.ActivityTestRule
-import android.support.test.runner.AndroidJUnit4
+import android.support.v7.app.AppCompatActivity
 import android.widget.DatePicker
 import br.com.stone.emeraldcomponents.basic.calendar.EmeraldDateFilterOptions
 import br.com.stone.emeraldcomponents.extension.day
 import br.com.stone.emeraldcomponents.extension.format
 import br.com.stone.emeraldcomponents.extension.month
 import br.com.stone.emeraldcomponents.extension.year
+import br.com.stone.emeraldcomponentsandroid.BaseScreenshotTest
 import br.com.stone.emeraldcomponentsandroid.R
 import org.hamcrest.CoreMatchers
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.CoreMatchers.not
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
 import java.util.Calendar
 
 /**
@@ -30,11 +29,13 @@ import java.util.Calendar
  * Copyright (c) Stone Co. All rights reserved.
  * lucas.amaral@stone.com.br
  */
-@RunWith(AndroidJUnit4::class)
-class DateActivityTest {
+class DateActivityTest: BaseScreenshotTest() {
+
+    override val activity: AppCompatActivity
+        get() = activityRule.activity
 
     @get:Rule
-    var activityRule = ActivityTestRule(DateActivity::class.java)
+    val activityRule = activityTestRule<DateActivity>()
 
     private val formatPatternSelector by lazy {
         activityRule.activity.getString(R.string.emerald_date_selector_pattern_day)
@@ -59,6 +60,8 @@ class DateActivityTest {
 
         onView(withId(R.id.emeraldTextDate))
                 .check(matches(withText(currentDate.format(formatPatternSelector))))
+
+        screenShot("emerald-date-selector")
     }
 
     @Test
@@ -67,6 +70,8 @@ class DateActivityTest {
                 .perform(click())
 
         onView(withClassName(equalTo(DatePicker::class.java.name))).check(matches(isDisplayed()))
+
+        screenShot("emerald-datepicker-selection")
     }
 
     @Test
@@ -84,6 +89,8 @@ class DateActivityTest {
 
         onView(withId(R.id.emeraldTextDate))
                 .check(matches(withText(cal.format(formatPatternSelector))))
+
+        screenShot("emerald-selected-date-from-picker")
     }
 
     @Test
@@ -101,6 +108,8 @@ class DateActivityTest {
         onView(withId(R.id.emeraldDateFilterEndDate)).perform(click())
         onView(withClassName(equalTo(DatePicker::class.java.name))).check(matches(isDisplayed()))
         onView(withId(android.R.id.button1)).perform(click())
+
+        screenShot("emerald-date-filter-personalized-dialog")
     }
 
     @Test
@@ -117,6 +126,8 @@ class DateActivityTest {
         onView(withId(R.id.emeraldTextDateRangeSubtitle)).check(matches(not(isDisplayed())))
         onView(withId(R.id.emeraldDateFilterStartDate)).check(matches(isDisplayed()))
         onView(withId(R.id.emeraldDateFilterEndDate)).check(matches(isDisplayed()))
+
+        screenShot("emerald-date-filter-personalized")
     }
 
     @Test
@@ -165,6 +176,7 @@ class DateActivityTest {
                         .check(matches(not(isDisplayed())))
             }
 
+            screenShot("emerald-date-filter-click-{${getString(it.textResId)}}")
         }
 
     }
