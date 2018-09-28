@@ -10,18 +10,14 @@ import android.support.v7.app.AppCompatActivity
  */
 abstract class BaseScreenshotTest {
 
-    protected var activity: AppCompatActivity? = null
+    abstract val activity: AppCompatActivity
 
-    protected inline fun <reified T: AppCompatActivity> activityTestRule(): ActivityTestRule<T> {
-        val rule = ActivityTestRule(T::class.java)
-        activity = rule.activity
-        return rule
-    }
+    protected inline fun <reified T: AppCompatActivity> activityTestRule() =
+            ActivityTestRule(T::class.java)
 
     fun screenShot(description: String = "", fromActivity: AppCompatActivity? = activity) {
         fromActivity?.let {
             //implements screenshot from chosen lib
         }
     }
-
 }
