@@ -11,6 +11,7 @@ import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.espresso.matcher.ViewMatchers.withSpinnerText
 import android.support.test.espresso.matcher.ViewMatchers.withText
+import android.support.v7.app.AppCompatActivity
 import android.widget.EditText
 import br.com.stone.emeraldcomponentsandroid.BaseScreenshotTest
 import br.com.stone.emeraldcomponentsandroid.R
@@ -29,6 +30,9 @@ import org.junit.Test
  */
 class SpinnerTestBase: BaseScreenshotTest() {
 
+    override val activity: AppCompatActivity
+        get() = activityRule.activity
+
     @get:Rule
     val activityRule = activityTestRule<SpinnerActivity>()
 
@@ -46,7 +50,7 @@ class SpinnerTestBase: BaseScreenshotTest() {
 
         screenShot("after-type")
 
-        onView(withText(query)).inRoot(withDecorView(not(`is`(activity?.window?.decorView))))
+        onView(withText(query)).inRoot(withDecorView(not(`is`(activity.window.decorView))))
                 .perform(click())
 
         autoCompleteView.check(matches(withText(query)))
