@@ -12,6 +12,7 @@ import android.support.test.espresso.matcher.ViewMatchers.withText
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import android.support.v7.widget.RecyclerView
+import br.com.stone.emeraldcomponentsandroid.BaseScreenshotTest
 import br.com.stone.emeraldcomponentsandroid.R
 import org.hamcrest.CoreMatchers.allOf
 import org.hamcrest.CoreMatchers.anything
@@ -25,11 +26,10 @@ import org.junit.runner.RunWith
  * Copyright (c) Stone Co. All rights reserved.
  * lucas.amaral@stone.com.br
  */
-@RunWith(AndroidJUnit4::class)
-class CalendarActivityTest {
+class CalendarActivityTest: BaseScreenshotTest() {
 
     @get:Rule
-    var activityRule = ActivityTestRule(CalendarActivity::class.java)
+    var activityRule = activityTestRule<CalendarActivity>()
 
     @Test
     fun shouldEventListAndFirstItemBeDisplayed() {
@@ -41,6 +41,8 @@ class CalendarActivityTest {
                 withText("1")))
                 .perform(click())
                 .check(matches(isDisplayed()))
+
+        screenShot()
     }
 
     @Test
@@ -57,5 +59,7 @@ class CalendarActivityTest {
                         withText("String sem formato"),
                         isDisplayed())
                 )
+
+        screenShot()
     }
 }
