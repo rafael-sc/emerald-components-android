@@ -162,9 +162,15 @@ class DateActivityTest: BaseScreenshotTest() {
                         EmeraldDateFilterOptions.YESTERDAY -> { it.calculate(Calendar.getInstance()).second.format(formatPatternFilterTitle) }
                         else -> {
                             val range = it.calculate(Calendar.getInstance())
-                            getString(R.string.emerald_date_filter_date_range,
-                                    range.first.format(formatPatternFilterTitle),
-                                    range.second.format(formatPatternFilterTitle))
+
+                            if(range.first == range.second) {
+                                it.calculate(Calendar.getInstance()).second.format(formatPatternFilterTitle)
+                            } else {
+                                getString(R.string.emerald_date_filter_date_range,
+                                        range.first.format(formatPatternFilterTitle),
+                                        range.second.format(formatPatternFilterTitle))
+
+                            }
                         }
                     }
 
