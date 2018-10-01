@@ -55,7 +55,7 @@ class SpinnerTestBase: BaseScreenshotTest() {
 
         autoCompleteView.check(matches(withText(query)))
 
-        screenShot("finished")
+        screenShot("finished-autocomplete")
     }
 
     @Test
@@ -63,12 +63,12 @@ class SpinnerTestBase: BaseScreenshotTest() {
         onView((withId(R.id.emeraldSpinner)))
                 .perform(click())
 
-        screenShot("initial state")
+        screenShot("initial-state")
 
         val expectedOption = "Option 2"
         onData(allOf(`is`(instanceOf(String::class.java)), `is`(expectedOption))).perform(click())
         onView((withId(R.id.emeraldSpinner))).check(matches(withSpinnerText(expectedOption)))
 
-        screenShot("finished")
+        screenShot("finished-spinner")
     }
 }

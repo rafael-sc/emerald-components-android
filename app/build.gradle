@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'shot'
 
 android {
     compileSdkVersion 27
@@ -12,7 +11,7 @@ android {
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "br.com.stone.emeraldcomponentsandroid.ShotTestRunner"
     }
     buildTypes {
         release {
@@ -21,7 +20,9 @@ android {
         }
     }
 }
-
+shot {
+    appId = "br.com.stone.emeraldcomponentsandroid"
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':emeraldcomponents')
