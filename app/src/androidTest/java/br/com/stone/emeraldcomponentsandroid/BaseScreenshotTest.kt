@@ -2,6 +2,7 @@ package br.com.stone.emeraldcomponentsandroid
 
 import android.support.test.rule.ActivityTestRule
 import android.support.v7.app.AppCompatActivity
+import com.facebook.testing.screenshot.Screenshot
 
 /**
  * Created by lucasdiego on 27/09/18.
@@ -15,9 +16,13 @@ abstract class BaseScreenshotTest {
     protected inline fun <reified T: AppCompatActivity> activityTestRule() =
             ActivityTestRule(T::class.java)
 
-    fun screenShot(description: String = "", fromActivity: AppCompatActivity? = activity) {
+    fun screenShot(uniqueName: String? = null, fromActivity: AppCompatActivity? = activity) {
         fromActivity?.let {
-            //implements screenshot from chosen lib
+            val recordBuilder = Screenshot.snapActivity(it)
+            uniqueName?.let {
+                recordBuilder.setName(it)
+            }
+            recordBuilder.record()
         }
     }
 }
