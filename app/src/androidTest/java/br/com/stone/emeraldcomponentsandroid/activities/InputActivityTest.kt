@@ -12,17 +12,16 @@ import android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import android.support.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.espresso.matcher.ViewMatchers.withText
-import android.support.test.rule.ActivityTestRule
-import android.support.test.runner.AndroidJUnit4
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.EditText
+import br.com.stone.emeraldcomponentsandroid.BaseScreenshotTest
 import br.com.stone.emeraldcomponentsandroid.CustomMatcher
 import br.com.stone.emeraldcomponentsandroid.R
 import org.hamcrest.Matcher
 import org.hamcrest.core.AllOf.allOf
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -31,11 +30,13 @@ import java.util.Locale
  * Copyright (c) Stone Co. All rights reserved.
  * lucas.amaral@stone.com.br
  */
-@RunWith(AndroidJUnit4::class)
-class InputActivityTest {
+class InputActivityTest: BaseScreenshotTest() {
+
+    override val activity: AppCompatActivity
+        get() = activityRule.activity
 
     @get:Rule
-    val activityRule = ActivityTestRule(InputActivity::class.java)
+    val activityRule = activityTestRule<InputActivity>()
 
     private fun onEditText(matcher: Matcher<View>) =
             onView(allOf(
@@ -58,6 +59,8 @@ class InputActivityTest {
                     .perform(closeSoftKeyboard())
                     .check(matches(withText(it.second)))
         }
+
+        screenShot("currency-edittext")
     }
 
     @Test
@@ -79,6 +82,8 @@ class InputActivityTest {
                 .perform(closeSoftKeyboard())
                 .perform(scrollTo(), replaceText("00000000000000"))
                 .check(matches(withText("00.000.000/0000-00")))
+
+        screenShot("cnpj-edittext")
     }
 
     @Test
@@ -97,6 +102,8 @@ class InputActivityTest {
                 .check(matches(CustomMatcher.hasTextInputLayoutErrorText("Valor inválido")))
                 .perform(scrollTo(), replaceText("00000000000"))
                 .check(matches(withText("000.000.000-00")))
+
+        screenShot("cpf-edittext")
     }
 
     @Test
@@ -112,6 +119,8 @@ class InputActivityTest {
                 .check(matches(CustomMatcher.hasTextInputLayoutErrorText("Valor inválido")))
                 .perform(replaceText("00000000000"))
                 .check(matches(withText("(00) 00000-0000")))
+
+        screenShot("cellphone-edittext")
     }
 
     @Test
@@ -127,6 +136,8 @@ class InputActivityTest {
                 .check(matches(CustomMatcher.hasTextInputLayoutErrorText("Valor inválido")))
                 .perform(replaceText("0000000000"))
                 .check(matches(withText("(00) 0000-0000")))
+
+        screenShot("phone-edittext")
     }
 
     @Test
@@ -142,6 +153,8 @@ class InputActivityTest {
                 .check(matches(CustomMatcher.hasTextInputLayoutErrorText("Email inválido")))
                 .perform(scrollTo(), replaceText("email@email.com"))
                 .check(matches(withText("email@email.com")))
+
+        screenShot("email-edittext")
     }
 
     @Test
@@ -157,5 +170,7 @@ class InputActivityTest {
                 .check(matches(CustomMatcher.hasTextInputLayoutErrorText("Valor inválido")))
                 .perform(scrollTo(), replaceText("21000000"))
                 .check(matches(withText("21000-000")))
+
+        screenShot("cep-edittext")
     }
 }
