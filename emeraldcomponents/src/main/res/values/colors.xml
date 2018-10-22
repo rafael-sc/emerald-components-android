@@ -4,7 +4,7 @@
     <!--Emerald Colors-->
     <color name="emerald_primary">#95C93D</color>
     <color name="emerald_secondary">#8036DC</color>
-    <color name="emerald_sucess">#2ECC71</color>
+    <color name="emerald_success">#2ECC71</color>
     <color name="emerald_error">#E74C3C</color>
     <color name="emerald_attention">#F9BF09</color>
     <color name="emerald_white_1">#FFFFFF</color>
@@ -25,7 +25,7 @@
     <!-- Sling Button -->
     <color name="emerald_button_primary">@color/emerald_primary</color>
     <color name="emerald_button_primary_pressed">#78A528</color>
-    <color name="emerald_button_confirm">@color/emerald_sucess</color>
+    <color name="emerald_button_confirm">@color/emerald_success</color>
     <color name="emerald_button_confirm_pressed">#30A75B</color>
     <color name="emerald_button_delete">@color/emerald_error</color>
     <color name="emerald_button_delete_pressed">#B54332</color>
