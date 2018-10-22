@@ -3,6 +3,7 @@ package br.com.stone.emeraldcomponents.basic.label
 import android.content.Context
 import android.support.v4.content.ContextCompat
 import android.util.AttributeSet
+import android.view.Gravity
 import android.widget.TextView
 import br.com.stone.emeraldcomponents.R
 
@@ -22,6 +23,7 @@ class EmeraldLabel : TextView {
 
     init {
         background = ContextCompat.getDrawable(context, R.drawable.label_border)
+        gravity = Gravity.CENTER
     }
 
     private fun setAttributes(attrs: AttributeSet) {
