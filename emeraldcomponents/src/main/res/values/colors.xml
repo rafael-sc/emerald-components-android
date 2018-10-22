@@ -1,38 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--Emerald Colors-->
+    <color name="emerald_primary">#95C93D</color>
+    <color name="emerald_secondary">#8036DC</color>
+    <color name="emerald_sucess">#2ECC71</color>
+    <color name="emerald_error">#E74C3C</color>
+    <color name="emerald_attention">#F9BF09</color>
+    <color name="emerald_white_1">#FFFFFF</color>
+    <color name="emerald_white_2">#FAFAFC</color>
+    <color name="emerald_white_3">#EBEBF0</color>
+    <color name="emerald_white_4">#C3C8D2</color>
+    <color name="emerald_white_5">#96A0AF</color>
+    <color name="emerald_black_1">#0C1219</color>
+    <color name="emerald_black_2">#181C24</color>
+    <color name="emerald_black_3">#242932</color>
+    <color name="emerald_black_4">#2D3844</color>
+    <color name="emerald_black_5">#424B54</color>
+
     <color name="emerald_textview_default_color">#060001</color>
     <color name="emerald_event_date_selected">#666666</color>
     <color name="emerald_gray">#666666</color>
 
     <!-- Sling Button -->
-    <color name="emerald_button_primary">#95C93D</color>
+    <color name="emerald_button_primary">@color/emerald_primary</color>
     <color name="emerald_button_primary_pressed">#78A528</color>
-    <color name="emerald_button_confirm">#2ECC71</color>
+    <color name="emerald_button_confirm">@color/emerald_sucess</color>
     <color name="emerald_button_confirm_pressed">#30A75B</color>
-    <color name="emerald_button_delete">#E74C3C</color>
+    <color name="emerald_button_delete">@color/emerald_error</color>
     <color name="emerald_button_delete_pressed">#B54332</color>
-    <color name="emerald_button_neutral_pressed">#FAFAFC</color>
-    <color name="emerald_button_neutral_text">#2D3844</color>
-    <color name="emerald_button_disabled">#FAFAFC</color>
-    <color name="emerald_button_disabled_text_and_icon">#C3C8D2</color>
-    <color name="emerald_button_border">#C3C8D2</color>
+    <color name="emerald_button_neutral_pressed">@color/emerald_white_2</color>
+    <color name="emerald_button_neutral_text">@color/emerald_black_4</color>
+    <color name="emerald_button_disabled">@color/emerald_white_2</color>
+    <color name="emerald_button_disabled_text_and_icon">@color/emerald_white_4</color>
+    <color name="emerald_button_border">@color/emerald_white_4</color>
     <color name="emerald_button_transparent_10percent_opacity">#1A000000</color>
     <color name="emerald_button_transparent_20percent_opacity">#33000000</color>
 
     <!--form colors-->
-    <color name="emerald_input_default">#96a0af</color>
-    <color name="emerald_input_error">#e74c3c</color>
-    <color name="emerald_input_warning">#f9bf09</color>
-    <color name="emerald_input_filled">#c3c8d2</color>
-    <color name="emerald_input_focused">#95c93d</color>
+    <color name="emerald_input_default">@color/emerald_white_5</color>
+    <color name="emerald_input_error">@color/emerald_error</color>
+    <color name="emerald_input_warning">@color/emerald_attention</color>
+    <color name="emerald_input_filled">@color/emerald_white_4</color>
+    <color name="emerald_input_focused">@color/emerald_primary</color>
     <color name="emerald_input_success">#81e0a1</color>
-    <color name="emerald_input_disabled">#ebebf0</color>
+    <color name="emerald_input_disabled">@color/emerald_white_3</color>
 
     <!-- Date Filter -->
-    <color name="emerald_date_filter_title">#2D3844</color>
-    <color name="emerald_date_filter_subtitle">#C3C8D2</color>
-    <color name="emerald_date_filter_green">#95C93D</color>
+    <color name="emerald_date_filter_title">@color/emerald_black_4</color>
+    <color name="emerald_date_filter_subtitle">@color/emerald_white_4</color>
+    <color name="emerald_date_filter_green">@color/emerald_primary</color>
 
-    <color name="emerald_date_view_text">#2d3844</color>
+    <color name="emerald_date_view_text">@color/emerald_black_4</color>
 </resources>
