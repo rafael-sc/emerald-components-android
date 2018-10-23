@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Emerald Basic Components</string>
     <string name="validate">validar</string>
-    <string name="label">LABEL</string>
+    <string name="label">label</string>
     <string name="filled_labels">Preenchido</string>
     <string name="outline_labels">Outline</string>
     <string name="text_only_labels">Somente Texto</string>

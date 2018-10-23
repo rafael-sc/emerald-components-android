@@ -19,7 +19,7 @@ class EmeraldLabel : ConstraintLayout {
 
     var text: String = ""
         set(newValue) {
-            field = newValue
+            field = newValue.toUpperCase()
             emeraldLabelText.text = field
         }
 
@@ -56,7 +56,7 @@ class EmeraldLabel : ConstraintLayout {
         args.recycle()
     }
 
-    fun setProperties(type: EmeraldLabelType, state: EmeraldLabelState, size: EmeraldLabelSize) {
+    fun setProperties(type: EmeraldLabelType, state: LabelStateHandler, size: LabelSizeHandler) {
         this.type = type
         state.setProperties(this, ContextCompat.getColor(context, type.color))
         size.setDimensions(emeraldLabelText)
