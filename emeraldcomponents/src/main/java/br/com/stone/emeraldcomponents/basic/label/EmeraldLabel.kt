@@ -59,6 +59,7 @@ class EmeraldLabel : ConstraintLayout {
     fun setProperties(type: EmeraldLabelType, state: EmeraldLabelState, size: EmeraldLabelSize) {
         this.type = type
         state.setProperties(this, ContextCompat.getColor(context, type.color))
+        size.setDimensions(emeraldLabelText)
     }
 
     fun setIcon(iconResource: Int) {

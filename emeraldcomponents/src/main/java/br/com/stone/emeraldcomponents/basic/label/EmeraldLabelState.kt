@@ -46,7 +46,3 @@ enum class EmeraldLabelState : LabelStateHandler {
     }
 
 }
-
-interface LabelStateHandler {
-    fun setProperties(label: EmeraldLabel, color: Int)
-}

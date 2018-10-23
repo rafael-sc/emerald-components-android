@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <br.com.stone.emeraldcomponents.basic.label.EmeraldLabel
+        android:id="@+id/emeraldLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        app:emeraldLabelSize="small"
+        app:layout_constraintEnd_toStartOf="@+id/emeraldLabel2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="@string/label" />
+
+    <br.com.stone.emeraldcomponents.basic.label.EmeraldLabel
+        android:id="@+id/emeraldLabel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        app:emeraldLabelSize="medium"
+        app:layout_constraintEnd_toStartOf="@+id/emeraldLabel3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/emeraldLabel"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="@string/label" />
+
+    <br.com.stone.emeraldcomponents.basic.label.EmeraldLabel
+        android:id="@+id/emeraldLabel3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        app:emeraldLabelSize="big"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/emeraldLabel2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="@string/label" />
+
+</android.support.constraint.ConstraintLayout>
