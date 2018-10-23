@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".activities.LabelActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <include
         android:id="@+id/include"
         layout="@layout/filled_label"
@@ -16,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <include
-        android:id="@+id/include3"
+        android:id="@+id/include2"
         layout="@layout/outline_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,8 +29,17 @@
         app:layout_constraintTop_toBottomOf="@+id/include" />
 
     <include
-        android:id="@+id/include2"
+        android:id="@+id/include3"
         layout="@layout/text_only_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include2" />
+
+    <include
+        android:id="@+id/include4"
+        layout="@layout/text_image_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

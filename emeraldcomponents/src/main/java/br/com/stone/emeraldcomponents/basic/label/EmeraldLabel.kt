@@ -1,10 +1,12 @@
 package br.com.stone.emeraldcomponents.basic.label
 
 import android.content.Context
+import android.graphics.PorterDuff
 import android.support.constraint.ConstraintLayout
 import android.support.v4.content.ContextCompat
 import android.util.AttributeSet
 import br.com.stone.emeraldcomponents.R
+import br.com.stone.emeraldcomponents.extension.show
 import kotlinx.android.synthetic.main.widget_emerald_label.view.*
 
 
@@ -30,7 +32,7 @@ class EmeraldLabel : ConstraintLayout {
     }
 
     init {
-        ConstraintLayout.inflate(context, R.layout.widget_emerald_label, this)
+        inflate(context, R.layout.widget_emerald_label, this)
         background = ContextCompat.getDrawable(context, R.drawable.label_border)
     }
 
@@ -45,8 +47,12 @@ class EmeraldLabel : ConstraintLayout {
                 args.getInt(R.styleable.EmeraldLabel_emeraldLabelState, EmeraldLabelState.FILLED.ordinal)]
         val size = EmeraldLabelSize.values()[
                 args.getInt(R.styleable.EmeraldLabel_emeraldLabelSize, EmeraldLabelSize.SMALL.ordinal)]
-
         setProperties(type, state, size)
+
+        val icon = args.getResourceId(R.styleable.EmeraldLabel_emeraldLabelIcon, 0)
+        if (icon != 0) setIcon(icon)
+
+
         args.recycle()
     }
 
@@ -54,4 +60,12 @@ class EmeraldLabel : ConstraintLayout {
         this.type = type
         state.setProperties(this, ContextCompat.getColor(context, type.color))
     }
+
+    fun setIcon(iconResource: Int) {
+        val drawable = ContextCompat.getDrawable(context, iconResource)
+        drawable?.setColorFilter(ContextCompat.getColor(context, type.color), PorterDuff.Mode.SRC_IN)
+        emeraldLabelImage.setImageDrawable(drawable)
+        emeraldLabelImage.show()
+    }
+
 }

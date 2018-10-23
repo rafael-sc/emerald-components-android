@@ -7,9 +7,10 @@
 
     <ImageView
         android:id="@+id/emeraldLabelImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:src="@drawable/dot_shape"
+        android:scaleType="center"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/emeraldLabelText"
         app:layout_constraintStart_toStartOf="parent"
