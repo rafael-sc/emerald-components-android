@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Emerald Basic Components</string>
     <string name="validate">validar</string>
+    <string name="label">LABEL</string>
 </resources>

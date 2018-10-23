@@ -105,10 +105,11 @@
     </attr>
 
     <declare-styleable name="EmeraldLabel">
+        <attr name="text" />
         <attr name="emeraldLabelType" />
         <attr name="emeraldLabelState" />
         <attr name="emeraldLabelSize" />
-        <attr name="image" format="reference" />
+        <attr name="emeraldLabelIcon" format="reference" />
     </declare-styleable>
 
 </resources>

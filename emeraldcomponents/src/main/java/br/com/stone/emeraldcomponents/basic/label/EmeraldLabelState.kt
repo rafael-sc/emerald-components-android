@@ -1,8 +1,11 @@
 package br.com.stone.emeraldcomponents.basic.label
 
+import android.graphics.PorterDuff
 import android.graphics.drawable.GradientDrawable
 import android.support.v4.content.ContextCompat
 import br.com.stone.emeraldcomponents.R
+import br.com.stone.emeraldcomponents.extension.show
+import kotlinx.android.synthetic.main.widget_emerald_label.view.*
 
 /**
  * Created by renan.silva on 22/10/2018.
@@ -12,31 +15,28 @@ import br.com.stone.emeraldcomponents.R
 enum class EmeraldLabelState : LabelStateHandler {
     FILLED {
         override fun setProperties(label: EmeraldLabel, color: Int) {
-            label.run {
+            label.emeraldLabelText.run {
                 setTextColor(ContextCompat.getColor(context, R.color.emerald_white_1))
-                getLabelDrawable(this)?.setColor(color)
+                getLabelDrawable(label)?.setColor(color)
             }
         }
     },
     OUTLINE {
         override fun setProperties(label: EmeraldLabel, color: Int) {
-            label.run {
+            label.emeraldLabelText.run {
                 setTextColor(color)
-                getLabelDrawable(this)?.setStroke(1, color)
+                getLabelDrawable(label)?.setStroke(1, color)
             }
         }
     },
     TEXT {
         override fun setProperties(label: EmeraldLabel, color: Int) {
             label.run {
-                setTextColor(color)
-            }
-        }
-    },
-    TEXT_WITH_IMAGE {
-        override fun setProperties(label: EmeraldLabel, color: Int) {
-            label.run {
-                setTextColor(color)
+                emeraldLabelText.setTextColor(color)
+                val drawable = ContextCompat.getDrawable(context, R.drawable.dot_shape)
+                drawable?.setColorFilter(color,PorterDuff.Mode.SRC_IN)
+                emeraldLabelImage.setImageDrawable(drawable)
+                emeraldLabelImage.show()
             }
         }
     };
