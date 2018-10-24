@@ -5,6 +5,7 @@ import android.graphics.PorterDuff
 import android.support.constraint.ConstraintLayout
 import android.support.v4.content.ContextCompat
 import android.util.AttributeSet
+import android.widget.TextView
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.extension.show
 import kotlinx.android.synthetic.main.widget_emerald_label.view.*
@@ -16,6 +17,8 @@ import kotlinx.android.synthetic.main.widget_emerald_label.view.*
  * renan.silva@stone.com.br
  */
 class EmeraldLabel : ConstraintLayout {
+
+    val emeraldLabelText: TextView by lazy { emeraldLabelTextLayout as TextView }
 
     var text: String = ""
         set(newValue) {

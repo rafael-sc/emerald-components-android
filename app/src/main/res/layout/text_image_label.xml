@@ -81,7 +81,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_weight="1"
-        app:emeraldLabelIcon="@drawable/ic_launcher_foreground"
+        app:emeraldLabelIcon="@drawable/ic_launcher_background"
         app:emeraldLabelState="text"
         app:emeraldLabelType="info"
         app:layout_constraintEnd_toEndOf="parent"

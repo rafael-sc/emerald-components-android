@@ -8,7 +8,9 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        >
 
         <TextView
             android:id="@+id/textView4"
@@ -21,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <include
-            android:id="@+id/include"
+            android:id="@+id/includeFilled"
             layout="@layout/filled_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,10 +39,10 @@
             android:layout_marginTop="16dp"
             android:text="@string/outline_labels"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include" />
+            app:layout_constraintTop_toBottomOf="@+id/includeFilled" />
 
         <include
-            android:id="@+id/include2"
+            android:id="@+id/includeOutline"
             layout="@layout/outline_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,10 +58,10 @@
             android:layout_marginTop="16dp"
             android:text="@string/text_only_labels"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include2" />
+            app:layout_constraintTop_toBottomOf="@+id/includeOutline" />
 
         <include
-            android:id="@+id/include3"
+            android:id="@+id/includeText"
             layout="@layout/text_only_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,10 +77,10 @@
             android:layout_marginTop="16dp"
             android:text="@string/icon_label"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include3" />
+            app:layout_constraintTop_toBottomOf="@+id/includeText" />
 
         <include
-            android:id="@+id/include4"
+            android:id="@+id/includeTextIcon"
             layout="@layout/text_image_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -94,10 +96,10 @@
             android:layout_marginTop="16dp"
             android:text="@string/label_size"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include4" />
+            app:layout_constraintTop_toBottomOf="@+id/includeTextIcon" />
 
         <include
-            android:id="@+id/include5"
+            android:id="@+id/includeSize"
             layout="@layout/size_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

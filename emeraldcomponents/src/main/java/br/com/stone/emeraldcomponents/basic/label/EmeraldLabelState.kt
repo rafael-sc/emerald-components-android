@@ -4,6 +4,7 @@ import android.graphics.PorterDuff
 import android.graphics.drawable.GradientDrawable
 import android.support.v4.content.ContextCompat
 import br.com.stone.emeraldcomponents.R
+import br.com.stone.emeraldcomponents.extension.dimen
 import br.com.stone.emeraldcomponents.extension.show
 import kotlinx.android.synthetic.main.widget_emerald_label.view.*
 
@@ -25,7 +26,7 @@ enum class EmeraldLabelState : LabelStateHandler {
         override fun setProperties(label: EmeraldLabel, color: Int) {
             label.emeraldLabelText.run {
                 setTextColor(color)
-                getLabelDrawable(label)?.setStroke(1, color)
+                getLabelDrawable(label)?.setStroke(context.dimen(R.dimen.label_border_width).toInt(), color)
             }
         }
     },
@@ -34,7 +35,7 @@ enum class EmeraldLabelState : LabelStateHandler {
             label.run {
                 emeraldLabelText.setTextColor(color)
                 val drawable = ContextCompat.getDrawable(context, R.drawable.dot_shape)
-                drawable?.setColorFilter(color,PorterDuff.Mode.SRC_IN)
+                drawable?.setColorFilter(color, PorterDuff.Mode.SRC_IN)
                 emeraldLabelImage.setImageDrawable(drawable)
                 emeraldLabelImage.show()
             }
