@@ -55,7 +55,6 @@ class EmeraldLabel : ConstraintLayout {
         val icon = args.getResourceId(R.styleable.EmeraldLabel_emeraldLabelIcon, 0)
         if (icon != 0) setIcon(icon)
 
-
         args.recycle()
     }
 
@@ -66,7 +65,7 @@ class EmeraldLabel : ConstraintLayout {
     }
 
     fun setIcon(iconResource: Int) {
-        val drawable = ContextCompat.getDrawable(context, iconResource)
+        val drawable = ContextCompat.getDrawable(context, iconResource)?.mutate()
         drawable?.setColorFilter(ContextCompat.getColor(context, type.color), PorterDuff.Mode.SRC_IN)
         emeraldLabelImage.setImageDrawable(drawable)
         emeraldLabelImage.show()

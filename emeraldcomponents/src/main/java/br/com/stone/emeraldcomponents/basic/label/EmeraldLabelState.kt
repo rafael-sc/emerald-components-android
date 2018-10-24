@@ -18,7 +18,7 @@ enum class EmeraldLabelState : LabelStateHandler {
         override fun setProperties(label: EmeraldLabel, color: Int) {
             label.emeraldLabelText.run {
                 setTextColor(ContextCompat.getColor(context, R.color.emerald_white_1))
-                getLabelDrawable(label)?.setColor(color)
+                getLabelBackgroundDrawable(label)?.setColor(color)
             }
         }
     },
@@ -26,7 +26,7 @@ enum class EmeraldLabelState : LabelStateHandler {
         override fun setProperties(label: EmeraldLabel, color: Int) {
             label.emeraldLabelText.run {
                 setTextColor(color)
-                getLabelDrawable(label)?.setStroke(context.dimen(R.dimen.label_border_width).toInt(), color)
+                getLabelBackgroundDrawable(label)?.setStroke(context.dimen(R.dimen.label_border_width).toInt(), color)
             }
         }
     },
@@ -34,7 +34,7 @@ enum class EmeraldLabelState : LabelStateHandler {
         override fun setProperties(label: EmeraldLabel, color: Int) {
             label.run {
                 emeraldLabelText.setTextColor(color)
-                val drawable = ContextCompat.getDrawable(context, R.drawable.dot_shape)
+                val drawable = ContextCompat.getDrawable(context, R.drawable.dot_shape)?.mutate()
                 drawable?.setColorFilter(color, PorterDuff.Mode.SRC_IN)
                 emeraldLabelImage.setImageDrawable(drawable)
                 emeraldLabelImage.show()
@@ -42,7 +42,7 @@ enum class EmeraldLabelState : LabelStateHandler {
         }
     };
 
-    fun getLabelDrawable(label: EmeraldLabel): GradientDrawable? {
+    fun getLabelBackgroundDrawable(label: EmeraldLabel): GradientDrawable? {
         return label.background.mutate() as? GradientDrawable
     }
 
