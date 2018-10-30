@@ -45,5 +45,4 @@ enum class EmeraldLabelState : LabelStateHandler {
     fun getLabelBackgroundDrawable(label: EmeraldLabel): GradientDrawable? {
         return label.background.mutate() as? GradientDrawable
     }
-
 }

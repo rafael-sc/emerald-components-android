@@ -24,7 +24,6 @@ class EmeraldLabelSizeTest {
     var mediumSize = 2f
     var bigSize = 3f
 
-
     @Before
     fun setup() {
         textView = mock(TextView::class.java)
@@ -55,5 +54,4 @@ class EmeraldLabelSizeTest {
         EmeraldLabelSize.BIG.setDimensions(textView)
         verify(textView).setTextSize(TypedValue.COMPLEX_UNIT_PX, bigSize)
     }
-
 }

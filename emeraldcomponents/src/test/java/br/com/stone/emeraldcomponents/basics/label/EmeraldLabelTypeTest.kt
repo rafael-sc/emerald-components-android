@@ -13,24 +13,24 @@ import org.junit.Test
 class EmeraldLabelTypeTest {
 
     @Test
-    fun testError(){
-        assertEquals(R.color.emerald_error,EmeraldLabelType.ERROR.color)
+    fun testError() {
+        assertEquals(R.color.emerald_error, EmeraldLabelType.ERROR.color)
     }
     @Test
-    fun testWarning(){
-        assertEquals(R.color.emerald_attention,EmeraldLabelType.WARNING.color)
+    fun testWarning() {
+        assertEquals(R.color.emerald_attention, EmeraldLabelType.WARNING.color)
     }
     @Test
-    fun testNeutral(){
-        assertEquals(R.color.emerald_white_4,EmeraldLabelType.NEUTRAL.color)
+    fun testNeutral() {
+        assertEquals(R.color.emerald_white_4, EmeraldLabelType.NEUTRAL.color)
     }
 
     @Test
-    fun testSuccess(){
-        assertEquals(R.color.emerald_success,EmeraldLabelType.SUCCESS.color)
+    fun testSuccess() {
+        assertEquals(R.color.emerald_success, EmeraldLabelType.SUCCESS.color)
     }
     @Test
-    fun testInfo(){
-        assertEquals(R.color.emerald_secondary,EmeraldLabelType.INFO.color)
+    fun testInfo() {
+        assertEquals(R.color.emerald_secondary, EmeraldLabelType.INFO.color)
     }
 }

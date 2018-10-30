@@ -10,7 +10,6 @@ import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.extension.show
 import kotlinx.android.synthetic.main.widget_emerald_label.view.*
 
-
 /**
  * Created by renan.silva on 22/10/2018.
  * Copyright (c) Stone Co. All rights reserved.
@@ -38,7 +37,6 @@ class EmeraldLabel : ConstraintLayout {
         inflate(context, R.layout.widget_emerald_label, this)
         background = ContextCompat.getDrawable(context, R.drawable.label_border)
     }
-
 
     private fun setAttributes(attrs: AttributeSet) {
         val args = context.theme.obtainStyledAttributes(attrs, R.styleable.EmeraldLabel, 0, 0)
@@ -70,5 +68,4 @@ class EmeraldLabel : ConstraintLayout {
         emeraldLabelImage.setImageDrawable(drawable)
         emeraldLabelImage.show()
     }
-
 }
