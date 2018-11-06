@@ -1,7 +1,8 @@
 # CHANGELOG
 
-## UNRELEASED
+## 0.3.0 - 2018-11-06
 - [Add emerald colors][issue-25]
+- New label component
 
 ## 0.2.3 - 2018-10-01
 - [Added Facebook lib to take screenshots][issue-33]
