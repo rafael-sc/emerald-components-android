@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.3.0 - 2018-11-06
+- [Add emerald colors][issue-25]
+- New label component
+
 ## 0.2.3 - 2018-10-01
 - [Added Facebook lib to take screenshots][issue-33]
 - [Abstract the usage of the screenshot lib][issue-34]
@@ -30,3 +34,5 @@
 [issue-27]:https://github.com/stone-payments/emerald-components-android/issues/27
 [issue-33]:https://github.com/stone-payments/emerald-components-android/issues/33
 [issue-34]:https://github.com/stone-payments/emerald-components-android/issues/34
+[issue-25]:https://github.com/stone-payments/emerald-components-android/issues/25
+

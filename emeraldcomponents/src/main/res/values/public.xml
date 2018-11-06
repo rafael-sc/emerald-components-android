@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <public name="emerald_button_primary" type="string" />
-    <public name="ic_calendar_green_24dp" type="drawable"/>
+    <public name="ic_calendar_green_24dp" type="drawable" />
+
+    <public name="emerald_primary" type="color" />
+    <public name="emerald_secondary" type="color" />
+    <public name="emerald_sucess" type="color" />
+    <public name="emerald_error" type="color" />
+    <public name="emerald_attention" type="color" />
+    <public name="emerald_white_1" type="color" />
+    <public name="emerald_white_2" type="color" />
+    <public name="emerald_white_3" type="color" />
+    <public name="emerald_white_4" type="color" />
+    <public name="emerald_white_5" type="color" />
+    <public name="emerald_black_1" type="color" />
+    <public name="emerald_black_2" type="color" />
+    <public name="emerald_black_3" type="color" />
+    <public name="emerald_black_4" type="color" />
+    <public name="emerald_black_5" type="color" />
 </resources>

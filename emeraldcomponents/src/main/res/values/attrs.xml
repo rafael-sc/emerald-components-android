@@ -82,5 +82,35 @@
         <attr name="showArrows" format="boolean" />
     </declare-styleable>
 
+    <!--Label-->
+    <attr name="emeraldLabelType" format="enum">
+        <enum name="error" value="0" />
+        <enum name="warning" value="1" />
+        <enum name="neutral" value="2" />
+        <enum name="success" value="3" />
+        <enum name="info" value="4" />
+    </attr>
+
+    <attr name="emeraldLabelState" format="enum">
+        <enum name="filled" value="0" />
+        <enum name="outline" value="1" />
+        <enum name="text" value="2" />
+        <enum name="textWithImage" value="3" />
+    </attr>
+
+    <attr name="emeraldLabelSize" format="enum">
+        <enum name="small" value="0" />
+        <enum name="medium" value="1" />
+        <enum name="big" value="2" />
+    </attr>
+
+    <declare-styleable name="EmeraldLabel">
+        <attr name="text" />
+        <attr name="emeraldLabelType" />
+        <attr name="emeraldLabelState" />
+        <attr name="emeraldLabelSize" />
+        <attr name="emeraldLabelIcon" format="reference" />
+    </declare-styleable>
+
 </resources>
 

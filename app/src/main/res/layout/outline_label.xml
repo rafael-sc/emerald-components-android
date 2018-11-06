@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:layout_editor_absoluteY="81dp">
+
+    <br.com.stone.emeraldcomponents.basic.label.EmeraldLabel
+        android:id="@+id/emeraldLabel6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:emeraldLabelState="outline"
+        app:emeraldLabelType="error"
+        app:layout_constraintEnd_toStartOf="@+id/emeraldLabel7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:emeraldLabelIcon="@drawable/ic_warning_24dp"
+        app:text="@string/label" />
+
+    <br.com.stone.emeraldcomponents.basic.label.EmeraldLabel
+        android:id="@+id/emeraldLabel7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:emeraldLabelState="outline"
+        app:emeraldLabelType="warning"
+        app:layout_constraintEnd_toStartOf="@+id/emeraldLabel8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/emeraldLabel6"
+        app:layout_constraintTop_toTopOf="@+id/emeraldLabel6"
+        app:text="@string/label" />
+
+    <br.com.stone.emeraldcomponents.basic.label.EmeraldLabel
+        android:id="@+id/emeraldLabel8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:emeraldLabelState="outline"
+        app:emeraldLabelType="neutral"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/emeraldLabel7"
+        app:layout_constraintTop_toTopOf="@+id/emeraldLabel6"
+        app:text="@string/label" />
+
+    <br.com.stone.emeraldcomponents.basic.label.EmeraldLabel
+        android:id="@+id/emeraldLabel9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:emeraldLabelState="outline"
+        app:emeraldLabelType="success"
+        app:layout_constraintEnd_toStartOf="@+id/emeraldLabel10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emeraldLabel6"
+        app:text="@string/label" />
+
+    <br.com.stone.emeraldcomponents.basic.label.EmeraldLabel
+        android:id="@+id/emeraldLabel10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:emeraldLabelState="outline"
+        app:emeraldLabelType="info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/emeraldLabel9"
+        app:layout_constraintTop_toTopOf="@+id/emeraldLabel9"
+        app:text="@string/label" />
+
+</android.support.constraint.ConstraintLayout>
