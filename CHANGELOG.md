@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## Unreleased
+- Add setCustomColor method to label component 
+
 ## 0.3.0 - 2018-11-06
 - [Add emerald colors][issue-25]
 - New label component
