@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.3.2 - 2018-11-30
+- Add setCustomColor method to label component 
+
 ## 0.3.1 - 2018-11-27
 - Fix label background and border colors when no other color is being set
 
