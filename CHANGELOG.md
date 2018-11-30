@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## 0.3.2 - 2018-11-30
 - Add setCustomColor method to label component 
 
 ## 0.3.1 - 2018-11-27
