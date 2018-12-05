@@ -17,10 +17,10 @@ import br.com.stone.emeraldcomponents.extension.dimen
 class EmeraldButton : AppCompatButton {
 
     var type: ButtonType = ButtonType.PRIMARY
-        set(buttonType) {
-            field = buttonType
+        set(newButtonType) {
+            field = newButtonType
             isClickable = true
-            when (buttonType) {
+            when (newButtonType) {
                 ButtonType.PRIMARY -> {
                     color = R.color.emerald_button_primary
                     drawable = R.drawable.button_primary
@@ -46,25 +46,18 @@ class EmeraldButton : AppCompatButton {
             }
         }
 
-    var style: ButtonStyle = ButtonStyle.FILLED
-        set(buttonStyle) {
-            field = buttonStyle
+    var style: ButtonStyle? = ButtonStyle.FILLED
+        set(newButtonStyle) {
+            field = newButtonStyle
             if (type != ButtonType.NEUTRAL && type != ButtonType.DISABLED) {
-                when (buttonStyle) {
+                when (newButtonStyle) {
                     ButtonStyle.FILLED -> {
-                        isStateOutline = false
-                        isStateText = false
-                        setStyleProperties(drawable, android.R.color.white)
+                        setTextColor(context.colorRes(android.R.color.white))
                     }
-                    ButtonStyle.OUTLINE -> {
-                        isStateOutline = true
-                        isStateText = false
+                    ButtonStyle.OUTLINE, ButtonStyle.TEXT -> {
                         setTextColor(context.colorRes(color))
                     }
-                    ButtonStyle.TEXT -> {
-                        isStateOutline = false
-                        isStateText = true
-                        setTextColor(context.colorRes(color))
+                    else -> {
                     }
                 }
             }
@@ -72,12 +65,6 @@ class EmeraldButton : AppCompatButton {
 
     private var color: Int = R.color.emerald_button_primary
     private var drawable: Int = R.drawable.button_primary
-
-    private var isStateOutline = false
-    private var isStateText = false
-
-    private val stateOutline = arrayOf(R.attr.state_outline)
-    private val stateText = arrayOf(R.attr.state_text)
 
     enum class ButtonType {
         PRIMARY,
@@ -93,9 +80,9 @@ class EmeraldButton : AppCompatButton {
         TEXT
     }
 
-    constructor(context: Context): super(context)
+    constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet): super(context, attrs) {
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         setAttributes(attrs)
     }
 
@@ -116,9 +103,16 @@ class EmeraldButton : AppCompatButton {
     }
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
+        val stateOutline = intArrayOf(R.attr.state_outline)
+        val stateText = intArrayOf(R.attr.state_text)
+
         val drawableState = super.onCreateDrawableState(extraSpace + 2)
-        if (isStateOutline) View.mergeDrawableStates(drawableState, stateOutline.toIntArray())
-        if (isStateText) View.mergeDrawableStates(drawableState, stateText.toIntArray())
+        when (style) {
+            ButtonStyle.OUTLINE -> View.mergeDrawableStates(drawableState, stateOutline)
+            ButtonStyle.TEXT -> View.mergeDrawableStates(drawableState, stateText)
+            else -> {
+            }
+        }
         return drawableState
     }
 
