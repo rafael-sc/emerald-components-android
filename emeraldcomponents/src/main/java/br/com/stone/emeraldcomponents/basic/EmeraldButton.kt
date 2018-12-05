@@ -17,7 +17,7 @@ import br.com.stone.emeraldcomponents.extension.dimen
 class EmeraldButton : AppCompatButton {
 
     var type: ButtonType = ButtonType.PRIMARY
-        private set(buttonType) {
+        set(buttonType) {
             field = buttonType
             isClickable = true
             when (buttonType) {
@@ -44,11 +44,10 @@ class EmeraldButton : AppCompatButton {
                     isClickable = false
                 }
             }
-            setButtonStyle(style)
         }
 
     var style: ButtonStyle = ButtonStyle.FILLED
-        private set(buttonStyle) {
+        set(buttonStyle) {
             field = buttonStyle
             if (type != ButtonType.NEUTRAL && type != ButtonType.DISABLED) {
                 when (buttonStyle) {
@@ -114,14 +113,6 @@ class EmeraldButton : AppCompatButton {
                 args.getInt(R.styleable.EmeraldButton_emeraldButtonStyle, EmeraldButton.ButtonStyle.FILLED.ordinal)]
 
         args.recycle()
-    }
-
-    fun setButtonType(buttonType: ButtonType) {
-        type = buttonType
-    }
-
-    fun setButtonStyle(buttonStyle: ButtonStyle) {
-        style = buttonStyle
     }
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {

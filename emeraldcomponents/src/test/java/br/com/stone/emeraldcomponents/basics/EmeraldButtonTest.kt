@@ -66,7 +66,7 @@ class EmeraldButtonTest {
     @Test
     fun testSetType() {
         val type = EmeraldButton.ButtonType.PRIMARY
-        button.setButtonType(type)
+        button.type = type
         Assert.assertEquals(type, button.type)
     }
 
@@ -74,8 +74,8 @@ class EmeraldButtonTest {
     fun testButtonTextColorByTypeAndStyle() {
         EmeraldButton.ButtonType.values().forEach { type ->
             EmeraldButton.ButtonStyle.values().forEach { style ->
-                button.setButtonType(type)
-                button.setButtonStyle(style)
+                button.type = type
+                button.style = style
                 when (type) {
                     EmeraldButton.ButtonType.PRIMARY -> {
                         if (style == EmeraldButton.ButtonStyle.FILLED) {
@@ -115,7 +115,7 @@ class EmeraldButtonTest {
         var type: EmeraldButton.ButtonType
         for (int in 1 until EmeraldButton.ButtonType.values().size) {
             type = EmeraldButton.ButtonType.values()[int]
-            button.setButtonType(type)
+            button.type = type
             when (type) {
                 EmeraldButton.ButtonType.PRIMARY -> Assert.assertEquals(button.background,
                         RuntimeEnvironment.application.getDrawable(R.drawable.button_primary))
