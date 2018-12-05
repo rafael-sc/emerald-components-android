@@ -1,12 +1,17 @@
 package br.com.stone.emeraldcomponents.basic
 
 import android.content.Context
+import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.StateListDrawable
+import android.support.v4.content.ContextCompat
+import android.support.v4.graphics.ColorUtils
 import android.support.v7.widget.AppCompatButton
 import android.util.AttributeSet
 import android.view.View
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.extension.colorRes
 import br.com.stone.emeraldcomponents.extension.dimen
+
 
 /**
  * Created on 25/05/2018
@@ -16,6 +21,8 @@ import br.com.stone.emeraldcomponents.extension.dimen
  */
 class EmeraldButton : AppCompatButton {
 
+    private var color: Int = R.color.emerald_button_primary
+
     var type: ButtonType = ButtonType.PRIMARY
         set(newButtonType) {
             field = newButtonType
@@ -23,18 +30,15 @@ class EmeraldButton : AppCompatButton {
             when (newButtonType) {
                 ButtonType.PRIMARY -> {
                     color = R.color.emerald_button_primary
-                    drawable = R.drawable.button_primary
-                    setStyleProperties(drawable, android.R.color.white)
+                    setStyleProperties(color, android.R.color.white)
                 }
                 ButtonType.CONFIRM -> {
                     color = R.color.emerald_button_confirm
-                    drawable = R.drawable.button_confirm
-                    setStyleProperties(drawable, android.R.color.white)
+                    setStyleProperties(color, android.R.color.white)
                 }
                 ButtonType.DELETE -> {
                     color = R.color.emerald_button_delete
-                    drawable = R.drawable.button_delete
-                    setStyleProperties(drawable, android.R.color.white)
+                    setStyleProperties(color, android.R.color.white)
                 }
                 ButtonType.NEUTRAL -> {
                     setStyleProperties(R.drawable.button_neutral, R.color.emerald_button_neutral_text)
@@ -62,9 +66,6 @@ class EmeraldButton : AppCompatButton {
                 }
             }
         }
-
-    private var color: Int = R.color.emerald_button_primary
-    private var drawable: Int = R.drawable.button_primary
 
     enum class ButtonType {
         PRIMARY,
@@ -122,8 +123,50 @@ class EmeraldButton : AppCompatButton {
         setPadding(sides, topBottom, sides, topBottom)
     }
 
-    private fun setStyleProperties(backgroundColorResId: Int, textColorResId: Int) {
-        setBackgroundResource(backgroundColorResId)
+    private fun setStyleProperties(color: Int, textColorResId: Int) {
+        background = getBackgroundDrawable(color)
         setTextColor(context.colorRes(textColorResId))
+    }
+
+    private fun getBackgroundDrawable(color: Int): StateListDrawable {
+        val states = StateListDrawable()
+        val colorRes = context.colorRes(color)
+
+        addOutlinePressedState(colorRes, states)
+
+        states.addState(intArrayOf(R.attr.state_text),
+                ContextCompat.getDrawable(context, android.R.color.transparent))
+
+        addOutlineState(colorRes, states)
+
+        //TODO UX problems
+        states.addState(intArrayOf(android.R.attr.state_pressed), getPressedDrawable(color))
+
+        states.addState(intArrayOf(),
+                ContextCompat.getDrawable(context, color))
+
+        return states
+    }
+
+    private fun addOutlineState(colorRes: Int, states: StateListDrawable) {
+        val drawable = ContextCompat.getDrawable(context, R.drawable.button_border)
+                ?.mutate() as? GradientDrawable
+        drawable?.setStroke(context.dimen(R.dimen.button_border_width).toInt(), colorRes)
+        states.addState(intArrayOf(R.attr.state_outline), drawable)
+    }
+
+    private fun addOutlinePressedState(colorRes: Int, states: StateListDrawable) {
+        val drawable = ContextCompat.getDrawable(context, R.drawable.button_border)
+                ?.mutate() as? GradientDrawable
+        drawable?.setStroke(context.dimen(R.dimen.button_border_width).toInt(), colorRes)
+        drawable?.setColor(context.colorRes(R.color.emerald_button_transparent_10percent_opacity))
+        states.addState(intArrayOf(android.R.attr.state_pressed, R.attr.state_outline), drawable)
+    }
+
+    private fun getPressedDrawable(color: Int): GradientDrawable? {
+        val resourceColor = context.colorRes(color)
+        val drawable = ContextCompat.getDrawable(context, color)?.mutate() as? GradientDrawable
+        drawable?.setColor(ColorUtils.setAlphaComponent(resourceColor, 200))
+        return drawable
     }
 }
