@@ -12,7 +12,6 @@ import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.extension.colorRes
 import br.com.stone.emeraldcomponents.extension.dimen
 
-
 /**
  * Created on 25/05/2018
  *
@@ -164,7 +163,8 @@ class EmeraldButton : AppCompatButton {
 
     private fun addPressedState(states: StateListDrawable, color: Int) {
         val colorDrawable = ContextCompat.getDrawable(context, color)?.mutate()
-        val blackLayer = ContextCompat.getDrawable(context, R.color.emerald_button_transparent_20percent_opacity)?.mutate()
+        val blackLayer = ContextCompat.getDrawable(context,
+                R.color.emerald_button_transparent_20percent_opacity)?.mutate()
         val layers = LayerDrawable(arrayOf(colorDrawable, blackLayer))
         states.addState(intArrayOf(android.R.attr.state_pressed), layers)
     }

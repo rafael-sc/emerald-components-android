@@ -72,25 +72,25 @@ class EmeraldButtonTest {
     }
 
     @Test
-    fun testStyleFilled(){
+    fun testStyleFilled() {
         button.style = EmeraldButton.ButtonStyle.FILLED
         assertEquals(button.currentTextColor, button.context.colorRes(android.R.color.white))
     }
 
     @Test
-    fun testStyleOutline(){
+    fun testStyleOutline() {
         button.style = EmeraldButton.ButtonStyle.OUTLINE
         assertEquals(button.currentTextColor, button.context.colorRes(R.color.emerald_button_primary))
     }
 
     @Test
-    fun testStyleText(){
+    fun testStyleText() {
         button.style = EmeraldButton.ButtonStyle.TEXT
         assertEquals(button.currentTextColor, button.context.colorRes(R.color.emerald_button_primary))
     }
 
     @Test
-    fun testSetStyleProperties(){
+    fun testSetStyleProperties() {
         val textColor = R.color.emerald_white_1
         button.setStyleProperties(R.color.emerald_black_1, textColor)
         assertEquals(button.currentTextColor, button.context.colorRes(textColor))
