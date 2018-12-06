@@ -123,9 +123,9 @@ class EmeraldButton : AppCompatButton {
         setPadding(sides, topBottom, sides, topBottom)
     }
 
-    private fun setStyleProperties(color: Int, textColorResId: Int) {
-        background = getBackgroundDrawable(color)
-        setTextColor(context.colorRes(textColorResId))
+    fun setStyleProperties(backgroundColorRes: Int, textColorRes: Int) {
+        background = getBackgroundDrawable(backgroundColorRes)
+        setTextColor(context.colorRes(textColorRes))
     }
 
     private fun getBackgroundDrawable(color: Int): StateListDrawable {
