@@ -2,9 +2,9 @@ package br.com.stone.emeraldcomponents.basic
 
 import android.content.Context
 import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.LayerDrawable
 import android.graphics.drawable.StateListDrawable
 import android.support.v4.content.ContextCompat
-import android.support.v4.graphics.ColorUtils
 import android.support.v7.widget.AppCompatButton
 import android.util.AttributeSet
 import android.view.View
@@ -139,8 +139,7 @@ class EmeraldButton : AppCompatButton {
 
         addOutlineState(colorRes, states)
 
-        //TODO UX problems
-        states.addState(intArrayOf(android.R.attr.state_pressed), getPressedDrawable(color))
+        addPressedState(states, color)
 
         states.addState(intArrayOf(),
                 ContextCompat.getDrawable(context, color))
@@ -163,10 +162,10 @@ class EmeraldButton : AppCompatButton {
         states.addState(intArrayOf(android.R.attr.state_pressed, R.attr.state_outline), drawable)
     }
 
-    private fun getPressedDrawable(color: Int): GradientDrawable? {
-        val resourceColor = context.colorRes(color)
-        val drawable = ContextCompat.getDrawable(context, color)?.mutate() as? GradientDrawable
-        drawable?.setColor(ColorUtils.setAlphaComponent(resourceColor, 200))
-        return drawable
+    private fun addPressedState(states: StateListDrawable, color: Int) {
+        val colorDrawable = ContextCompat.getDrawable(context, color)?.mutate()
+        val blackLayer = ContextCompat.getDrawable(context, R.color.emerald_button_transparent_20percent_opacity)?.mutate()
+        val layers = LayerDrawable(arrayOf(colorDrawable, blackLayer))
+        states.addState(intArrayOf(android.R.attr.state_pressed), layers)
     }
 }
