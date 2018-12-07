@@ -53,15 +53,11 @@ class EmeraldButton : AppCompatButton {
         set(newButtonStyle) {
             field = newButtonStyle
             if (type != ButtonType.NEUTRAL && type != ButtonType.DISABLED) {
-                when (newButtonStyle) {
-                    ButtonStyle.FILLED -> {
-                        setTextColor(context.colorRes(android.R.color.white))
-                    }
-                    ButtonStyle.OUTLINE, ButtonStyle.TEXT -> {
-                        setTextColor(context.colorRes(color))
-                    }
-                    else -> {
-                    }
+                if (newButtonStyle == ButtonStyle.FILLED) {
+                    setTextColor(context.colorRes(android.R.color.white))
+                }
+                if (newButtonStyle == ButtonStyle.OUTLINE || newButtonStyle == ButtonStyle.TEXT) {
+                    setTextColor(context.colorRes(color))
                 }
             }
         }
@@ -107,12 +103,12 @@ class EmeraldButton : AppCompatButton {
         val stateText = intArrayOf(R.attr.state_text)
 
         val drawableState = super.onCreateDrawableState(extraSpace + 2)
-        when (style) {
-            ButtonStyle.OUTLINE -> View.mergeDrawableStates(drawableState, stateOutline)
-            ButtonStyle.TEXT -> View.mergeDrawableStates(drawableState, stateText)
-            else -> {
-            }
-        }
+
+        var selectedStates: IntArray = intArrayOf()
+        if (style == ButtonStyle.OUTLINE) selectedStates = stateOutline
+        else if (style == ButtonStyle.TEXT) selectedStates = stateText
+
+        View.mergeDrawableStates(drawableState, selectedStates)
         return drawableState
     }
 
