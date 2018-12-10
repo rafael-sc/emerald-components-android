@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## 0.3.3 - 2018-12-10
 
 ### Modified
 - [Added button customizations][issue-52]
