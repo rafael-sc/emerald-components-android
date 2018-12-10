@@ -1,28 +1,49 @@
 # CHANGELOG
 
+## 0.3.3 - 2018-12-10
+
+### Modified
+- [Added button customizations][issue-52]
+
 ## 0.3.2 - 2018-11-30
+
+### Modified
 - Add setCustomColor method to label component 
 
 ## 0.3.1 - 2018-11-27
+
+### Fixed
 - Fix label background and border colors when no other color is being set
 
 ## 0.3.0 - 2018-11-06
+
+### Added
 - [Add emerald colors][issue-25]
 - New label component
 
 ## 0.2.3 - 2018-10-01
+
+### Modified
 - [Added Facebook lib to take screenshots][issue-33]
+
+### Modified
 - [Abstract the usage of the screenshot lib][issue-34]
 
 ## 0.2.2 - 2018-09-20
+
+### Modified
 - [Added DateEventList IU tests][issue-27]
 
 ## 0.2.1 - 2018-09-20
+
+### Modified
 - [Added setOnEditActionDone method to EmeraldBaseEditText][issue-20]
 - [Added inputs (EmeraldEditTexts) components IO tests][issue-22]
 - [Added EmeraldDateSelector UI and EmeraldDateFilter tests][issue-24]
 
 ## 0.2.0 - 2018-09-06
+
+### Added
 - [Added LifecycleOwnerConstraintLayout][issue-14]
 
 ## 0.1.1 - 2018-09-06
@@ -41,4 +62,5 @@
 [issue-33]:https://github.com/stone-payments/emerald-components-android/issues/33
 [issue-34]:https://github.com/stone-payments/emerald-components-android/issues/34
 [issue-25]:https://github.com/stone-payments/emerald-components-android/issues/25
+[issue-52]:https://github.com/stone-payments/emerald-components-android/issues/52
 
