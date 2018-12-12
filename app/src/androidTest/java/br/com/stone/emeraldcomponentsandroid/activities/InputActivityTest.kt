@@ -183,7 +183,5 @@ class InputActivityTest : BaseScreenshotTest() {
 
         activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-
-        screenShot("password-edittext")
     }
 }
