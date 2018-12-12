@@ -5,6 +5,9 @@
 ### Fixed
 - [NumberFormatException on EmeraldMaskedEditText][issue-58]
 
+### Modified
+- [Changed primary color from #95C93D to #0DB14B][issue-61]
+
 ## 0.3.3 - 2018-12-10
 
 ### Modified
@@ -69,4 +72,5 @@
 [issue-25]:https://github.com/stone-payments/emerald-components-android/issues/25
 [issue-52]:https://github.com/stone-payments/emerald-components-android/issues/52
 [issue-58]:https://github.com/stone-payments/emerald-components-android/issues/58
+[issue-61]:https://github.com/stone-payments/emerald-components-android/issues/61
 
