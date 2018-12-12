@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## UNRELEASED
+
+### Fixed
+- [NumberFormatException on EmeraldMaskedEditText][issue-58]
+
 ## 0.3.3 - 2018-12-10
 
 ### Modified
@@ -63,4 +68,5 @@
 [issue-34]:https://github.com/stone-payments/emerald-components-android/issues/34
 [issue-25]:https://github.com/stone-payments/emerald-components-android/issues/25
 [issue-52]:https://github.com/stone-payments/emerald-components-android/issues/52
+[issue-58]:https://github.com/stone-payments/emerald-components-android/issues/58
 
