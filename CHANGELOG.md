@@ -74,6 +74,6 @@
 [issue-25]:https://github.com/stone-payments/emerald-components-android/issues/25
 [issue-52]:https://github.com/stone-payments/emerald-components-android/issues/52
 [issue-58]:https://github.com/stone-payments/emerald-components-android/issues/58
+[issue-60]:https://github.com/stone-payments/emerald-components-android/issues/60
 [issue-61]:https://github.com/stone-payments/emerald-components-android/issues/61
-[issue-61]:https://github.com/stone-payments/emerald-components-android/issues/60
 
