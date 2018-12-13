@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.3.4 - 2018-12-13
+
+### Fixed
+- [NumberFormatException on EmeraldMaskedEditText][issue-58]
+- [Fix crash on EmeraldEditText Password toggle][issue-60]
+
+
+### Modified
+- [Changed primary color from #95C93D to #0DB14B][issue-61]
+
 ## 0.3.3 - 2018-12-10
 
 ### Modified
@@ -63,4 +73,7 @@
 [issue-34]:https://github.com/stone-payments/emerald-components-android/issues/34
 [issue-25]:https://github.com/stone-payments/emerald-components-android/issues/25
 [issue-52]:https://github.com/stone-payments/emerald-components-android/issues/52
+[issue-58]:https://github.com/stone-payments/emerald-components-android/issues/58
+[issue-60]:https://github.com/stone-payments/emerald-components-android/issues/60
+[issue-61]:https://github.com/stone-payments/emerald-components-android/issues/61
 
