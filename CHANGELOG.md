@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## 0.3.4 - 2018-12-13
 
 ### Fixed
 - [NumberFormatException on EmeraldMaskedEditText][issue-58]
