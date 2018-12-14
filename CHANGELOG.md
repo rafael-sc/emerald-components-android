@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## UNRELEASED
+
+### Fixed
+- Fix crash on api 17 on neutral button 
+
 ## 0.3.4 - 2018-12-13
 
 ### Fixed
