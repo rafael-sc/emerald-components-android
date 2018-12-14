@@ -40,7 +40,7 @@ class EmeraldButton : AppCompatButton {
                     setStyleProperties(color, android.R.color.white)
                 }
                 ButtonType.NEUTRAL -> {
-                    setStyleProperties(R.drawable.button_neutral, R.color.emerald_button_neutral_text)
+                    setStyleProperties(android.R.color.white, R.color.emerald_button_neutral_text)
                 }
                 ButtonType.DISABLED -> {
                     setStyleProperties(R.color.emerald_button_disabled, R.color.emerald_button_disabled_text_and_icon)
