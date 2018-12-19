@@ -133,53 +133,55 @@ class EmeraldButton : AppCompatButton {
         val colorRes = context.colorRes(color)
 
         addOutlinePressedState(colorRes, states, radius)
-
-        states.addState(intArrayOf(R.attr.state_text),
-                ContextCompat.getDrawable(context, android.R.color.transparent))
-
+        addTextState(states)
         addOutlineState(colorRes, states, radius)
-
-        addPressedState(states, color, radius)
-
-        addDefaultState(states, color, radius)
+        addFilledPressedState(states, color, radius)
+        addFilledState(states, color, radius)
 
         return states
     }
 
-    private fun addDefaultState(states: StateListDrawable, color: Int, radius: Float) {
-        val colorRes = context.colorRes(color)
-        val drawable = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(colorRes, colorRes))
-        drawable.cornerRadius = radius
+    private fun addFilledState(states: StateListDrawable, color: Int, radius: Float) {
+        val drawable = getFilledDrawable(color, radius)
         states.addState(intArrayOf(), drawable)
     }
 
-    private fun addPressedState(states: StateListDrawable, color: Int, radius: Float) {
-        val colorRes = context.colorRes(color)
-        val colorDrawable = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(colorRes, colorRes))
-        colorDrawable.cornerRadius = radius
-
-        val blackLayerColorRes = context.colorRes(R.color.emerald_button_transparent_20percent_opacity)
-        val blackLayer = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(blackLayerColorRes, blackLayerColorRes))
-        blackLayer.cornerRadius = radius
+    private fun addFilledPressedState(states: StateListDrawable, color: Int, radius: Float) {
+        val colorDrawable = getFilledDrawable(color, radius)
+        val blackLayer = getFilledDrawable(R.color.emerald_button_transparent_20percent_opacity, radius)
 
         val layers = LayerDrawable(arrayOf(colorDrawable, blackLayer))
         states.addState(intArrayOf(android.R.attr.state_pressed), layers)
     }
 
+    private fun getFilledDrawable(color: Int, radius: Float): GradientDrawable {
+        val colorRes = context.colorRes(color)
+        val drawable = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(colorRes, colorRes))
+        drawable.cornerRadius = radius
+        return drawable
+    }
+
     private fun addOutlineState(colorRes: Int, states: StateListDrawable, radius: Float) {
-        val drawable = ContextCompat.getDrawable(context, R.drawable.button_border)
-                ?.mutate() as? GradientDrawable
-        drawable?.cornerRadius = radius
-        drawable?.setStroke(context.dimen(R.dimen.button_border_width).toInt(), colorRes)
+        val drawable = getOutlineDrawable(radius, colorRes)
         states.addState(intArrayOf(R.attr.state_outline), drawable)
     }
 
     private fun addOutlinePressedState(colorRes: Int, states: StateListDrawable, radius: Float) {
+        val drawable = getOutlineDrawable(radius, colorRes)
+        drawable?.setColor(context.colorRes(R.color.emerald_button_transparent_10percent_opacity))
+        states.addState(intArrayOf(android.R.attr.state_pressed, R.attr.state_outline), drawable)
+    }
+
+    private fun getOutlineDrawable(radius: Float, colorRes: Int): GradientDrawable? {
         val drawable = ContextCompat.getDrawable(context, R.drawable.button_border)
                 ?.mutate() as? GradientDrawable
         drawable?.cornerRadius = radius
         drawable?.setStroke(context.dimen(R.dimen.button_border_width).toInt(), colorRes)
-        drawable?.setColor(context.colorRes(R.color.emerald_button_transparent_10percent_opacity))
-        states.addState(intArrayOf(android.R.attr.state_pressed, R.attr.state_outline), drawable)
+        return drawable
+    }
+
+    private fun addTextState(states: StateListDrawable) {
+        states.addState(intArrayOf(R.attr.state_text),
+                ContextCompat.getDrawable(context, android.R.color.transparent))
     }
 }
