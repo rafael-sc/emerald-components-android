@@ -41,6 +41,7 @@ class EmeraldButtonTest {
         val attrs = Robolectric.buildAttributeSet()
                 .addAttribute(R.attr.emeraldButtonStyle, EmeraldButton.ButtonStyle.FILLED.ordinal.toString())
                 .addAttribute(R.attr.emeraldButtonType, EmeraldButton.ButtonType.CONFIRM.ordinal.toString())
+                .addAttribute(R.attr.emeraldButtonRadius, "10")
                 .build()
 
         val view = EmeraldButton(RuntimeEnvironment.application, attrs)

@@ -163,8 +163,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginRight="16dp"
             android:text="@string/round"
-            app:emeraldButtonStyle="outline"
             app:emeraldButtonRadius="32"
+            app:emeraldButtonStyle="outline"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emeraldButtonOutline3" />
