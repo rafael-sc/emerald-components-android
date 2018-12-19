@@ -63,6 +63,8 @@ class EmeraldButton : AppCompatButton {
             }
         }
 
+    private var radius = 0f
+
     enum class ButtonType {
         PRIMARY,
         CONFIRM,
@@ -91,6 +93,7 @@ class EmeraldButton : AppCompatButton {
     private fun setAttributes(attributeSet: AttributeSet) {
         val args = context.theme.obtainStyledAttributes(attributeSet, R.styleable.EmeraldButton, 0, 0)
 
+        radius = args.getFloat(R.styleable.EmeraldButton_emeraldButtonRadius, 0f)
         type = EmeraldButton.ButtonType.values()[
                 args.getInt(R.styleable.EmeraldButton_emeraldButtonType, EmeraldButton.ButtonType.PRIMARY.ordinal)]
         style = EmeraldButton.ButtonStyle.values()[
@@ -119,7 +122,7 @@ class EmeraldButton : AppCompatButton {
         setPadding(sides, topBottom, sides, topBottom)
     }
 
-    fun setStyleProperties(backgroundColorRes: Int, textColorRes: Int, radius: Float = 0f) {
+    fun setStyleProperties(backgroundColorRes: Int, textColorRes: Int, radius: Float = this.radius) {
         val dpRadiusValue = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, radius, resources.displayMetrics)
         background = getBackgroundDrawable(backgroundColorRes, dpRadiusValue)
         setTextColor(context.colorRes(textColorRes))
