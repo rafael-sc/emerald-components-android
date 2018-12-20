@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.3.5 - 2018-12-13
+
+### Modified
+- [Add option to round emerald button][issue-68]
+
+### Fixed
+- [Fix crash on api 17 on neutral][issue-66]
+ 
+
 ## 0.3.4 - 2018-12-13
 
 ### Fixed
@@ -76,4 +85,6 @@
 [issue-58]:https://github.com/stone-payments/emerald-components-android/issues/58
 [issue-60]:https://github.com/stone-payments/emerald-components-android/issues/60
 [issue-61]:https://github.com/stone-payments/emerald-components-android/issues/61
+[issue-66]:https://github.com/stone-payments/emerald-components-android/issues/66
+[issue-68]:https://github.com/stone-payments/emerald-components-android/issues/68
 

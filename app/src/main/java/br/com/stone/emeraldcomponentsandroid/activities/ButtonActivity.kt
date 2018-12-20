@@ -11,5 +11,4 @@ class ButtonActivity : AppCompatActivity() {
         setContentView(R.layout.activity_emerald_button)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
-
 }
