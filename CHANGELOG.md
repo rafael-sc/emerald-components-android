@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## 0.3.5 - 2018-12-13
 
 ### Modified
 - [Add option to round emerald button][issue-68]
