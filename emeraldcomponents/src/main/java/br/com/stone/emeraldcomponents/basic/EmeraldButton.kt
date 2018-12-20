@@ -1,14 +1,12 @@
 package br.com.stone.emeraldcomponents.basic
 
 import android.content.Context
-import android.graphics.drawable.GradientDrawable
-import android.graphics.drawable.LayerDrawable
-import android.graphics.drawable.StateListDrawable
-import android.support.v4.content.ContextCompat
 import android.support.v7.widget.AppCompatButton
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.View
 import br.com.stone.emeraldcomponents.R
+import br.com.stone.emeraldcomponents.basic.button.ButtonStateHelper
 import br.com.stone.emeraldcomponents.extension.colorRes
 import br.com.stone.emeraldcomponents.extension.dimen
 
@@ -62,6 +60,8 @@ class EmeraldButton : AppCompatButton {
             }
         }
 
+    private var radius = 0f
+
     enum class ButtonType {
         PRIMARY,
         CONFIRM,
@@ -90,6 +90,7 @@ class EmeraldButton : AppCompatButton {
     private fun setAttributes(attributeSet: AttributeSet) {
         val args = context.theme.obtainStyledAttributes(attributeSet, R.styleable.EmeraldButton, 0, 0)
 
+        radius = args.getFloat(R.styleable.EmeraldButton_emeraldButtonRadius, 0f)
         type = EmeraldButton.ButtonType.values()[
                 args.getInt(R.styleable.EmeraldButton_emeraldButtonType, EmeraldButton.ButtonType.PRIMARY.ordinal)]
         style = EmeraldButton.ButtonStyle.values()[
@@ -118,50 +119,9 @@ class EmeraldButton : AppCompatButton {
         setPadding(sides, topBottom, sides, topBottom)
     }
 
-    fun setStyleProperties(backgroundColorRes: Int, textColorRes: Int) {
-        background = getBackgroundDrawable(backgroundColorRes)
+    fun setStyleProperties(backgroundColorRes: Int, textColorRes: Int, radius: Float = this.radius) {
+        val dpRadiusValue = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, radius, resources.displayMetrics)
+        background = ButtonStateHelper(context).getBackgroundDrawable(backgroundColorRes, dpRadiusValue)
         setTextColor(context.colorRes(textColorRes))
-    }
-
-    private fun getBackgroundDrawable(color: Int): StateListDrawable {
-        val states = StateListDrawable()
-        val colorRes = context.colorRes(color)
-
-        addOutlinePressedState(colorRes, states)
-
-        states.addState(intArrayOf(R.attr.state_text),
-                ContextCompat.getDrawable(context, android.R.color.transparent))
-
-        addOutlineState(colorRes, states)
-
-        addPressedState(states, color)
-
-        states.addState(intArrayOf(),
-                ContextCompat.getDrawable(context, color))
-
-        return states
-    }
-
-    private fun addOutlineState(colorRes: Int, states: StateListDrawable) {
-        val drawable = ContextCompat.getDrawable(context, R.drawable.button_border)
-                ?.mutate() as? GradientDrawable
-        drawable?.setStroke(context.dimen(R.dimen.button_border_width).toInt(), colorRes)
-        states.addState(intArrayOf(R.attr.state_outline), drawable)
-    }
-
-    private fun addOutlinePressedState(colorRes: Int, states: StateListDrawable) {
-        val drawable = ContextCompat.getDrawable(context, R.drawable.button_border)
-                ?.mutate() as? GradientDrawable
-        drawable?.setStroke(context.dimen(R.dimen.button_border_width).toInt(), colorRes)
-        drawable?.setColor(context.colorRes(R.color.emerald_button_transparent_10percent_opacity))
-        states.addState(intArrayOf(android.R.attr.state_pressed, R.attr.state_outline), drawable)
-    }
-
-    private fun addPressedState(states: StateListDrawable, color: Int) {
-        val colorDrawable = ContextCompat.getDrawable(context, color)?.mutate()
-        val blackLayer = ContextCompat.getDrawable(context,
-                R.color.emerald_button_transparent_20percent_opacity)?.mutate()
-        val layers = LayerDrawable(arrayOf(colorDrawable, blackLayer))
-        states.addState(intArrayOf(android.R.attr.state_pressed), layers)
     }
 }
