@@ -114,5 +114,10 @@
         <attr name="emeraldLabelIcon" format="reference" />
     </declare-styleable>
 
+    <!-- Emerald Spinner -->
+    <declare-styleable name="EmeraldSpinner">
+        <attr name="emeraldSpinnerPlaceholder" format="string" />
+    </declare-styleable>
+
 </resources>
 

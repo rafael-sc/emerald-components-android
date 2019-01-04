@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Unreleased
+
+### Modified
+- [Add placeholder to emerald spinner][issue-39]
+
 ## 0.3.5 - 2018-12-13
 
 ### Modified
@@ -87,4 +92,5 @@
 [issue-61]:https://github.com/stone-payments/emerald-components-android/issues/61
 [issue-66]:https://github.com/stone-payments/emerald-components-android/issues/66
 [issue-68]:https://github.com/stone-payments/emerald-components-android/issues/68
+[issue-39]:https://github.com/stone-payments/emerald-components-android/issues/39
 
