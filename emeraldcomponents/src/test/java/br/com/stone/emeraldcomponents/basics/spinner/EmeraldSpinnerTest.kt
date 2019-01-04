@@ -55,7 +55,6 @@ class EmeraldSpinnerTest {
         Assert.assertEquals(testList.first(), spinner.adapter.getItem(1))
     }
 
-
     @Test
     fun testSetOnItemSelectedListenerWithoutPlaceHolder() {
         val listener = mock(AdapterView.OnItemSelectedListener::class.java)

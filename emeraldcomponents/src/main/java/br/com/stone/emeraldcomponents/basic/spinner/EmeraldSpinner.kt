@@ -31,12 +31,10 @@ class EmeraldSpinner : AppCompatSpinner {
         args.recycle()
     }
 
-
     fun setItems(dataList: List<Any>) {
         val newAdapter = if (placeholder.isNullOrEmpty()) {
 
             ArrayAdapter<Any>(context, android.R.layout.simple_dropdown_item_1line, dataList)
-
         } else {
 
             val mutableList: MutableList<Any> = mutableListOf(placeholder as Any)
@@ -48,7 +46,7 @@ class EmeraldSpinner : AppCompatSpinner {
     }
 
     override fun setOnItemSelectedListener(listener: OnItemSelectedListener?) {
-        super.setOnItemSelectedListener(object: AdapterView.OnItemSelectedListener{
+        super.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 listener?.onNothingSelected(parent)
             }
@@ -56,7 +54,6 @@ class EmeraldSpinner : AppCompatSpinner {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 if (placeholder.isNullOrEmpty() || position != 0) listener?.onItemSelected(parent, view, position, id)
             }
-
         })
     }
 }

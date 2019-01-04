@@ -13,7 +13,7 @@ import android.widget.TextView
  * Copyright (c) Stone Co. All rights reserved.
  * victor.cruz@stone.com.br
  */
-class EmeraldSpinnerArrayAdapter(context: Context, @LayoutRes layout: Int, dataList: List<Any>):
+class EmeraldSpinnerArrayAdapter(context: Context, @LayoutRes layout: Int, dataList: List<Any>) :
         ArrayAdapter<Any>(context, layout, dataList) {
 
     override fun isEnabled(position: Int): Boolean {

@@ -40,26 +40,25 @@ class EmeraldSpinnerArrayAdapterTest {
 
     @Test
     fun testGetDropDownViewCasePositionZero() {
-        val textView= adapter.getDropDownView(0, null, null) as TextView
+        val textView = adapter.getDropDownView(0, null, null) as TextView
         assertEquals(textView.textColors.defaultColor, Color.GRAY)
     }
 
     @Test
     fun testGetDropDownViewCasePositionOne() {
-        val textView= adapter.getDropDownView(1, null, null) as TextView
+        val textView = adapter.getDropDownView(1, null, null) as TextView
         assertEquals(textView.textColors.defaultColor, Color.BLACK)
     }
 
     @Test
     fun testGetViewCasePositionZero() {
-        val textView= adapter.getView(0, null, null) as TextView
+        val textView = adapter.getView(0, null, null) as TextView
         assertEquals(textView.textColors.defaultColor, Color.GRAY)
     }
 
     @Test
     fun testGetViewCasePositionOne() {
-        val textView= adapter.getView(1, null, null) as TextView
+        val textView = adapter.getView(1, null, null) as TextView
         assertEquals(textView.textColors.defaultColor, Color.BLACK)
     }
-
 }
