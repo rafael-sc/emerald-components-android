@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## 0.4.0 - 2019-01-04
 
 ### Modified
 - [Add placeholder to emerald spinner][issue-39]
