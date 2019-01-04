@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activities.SpinnerActivity">
 
-    <br.com.stone.emeraldcomponents.basic.EmeraldSpinner
+    <br.com.stone.emeraldcomponents.basic.spinner.EmeraldSpinner
         android:id="@+id/emeraldSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,6 +16,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <br.com.stone.emeraldcomponents.basic.spinner.EmeraldSpinner
+        android:id="@+id/emeraldSpinnerWithPlaceholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:emeraldSpinnerPlaceholder="placeholder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emeraldSpinner" />
 
     <br.com.stone.emeraldcomponents.basic.input.EmeraldAutoCompleteEditText
         android:id="@+id/emeraldAutoComplete"
