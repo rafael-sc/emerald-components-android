@@ -12,6 +12,7 @@ class SpinnerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_spinner)
         emeraldSpinner.setItems(listOf("Option 1","Option 2"))
+        emeraldSpinnerWithPlaceholder.setItems(listOf("Option 1","Option 2"))
 
         emeraldAutoComplete.setItems(setOf(
                 Value("100", "Aaaaaaaaa"),
