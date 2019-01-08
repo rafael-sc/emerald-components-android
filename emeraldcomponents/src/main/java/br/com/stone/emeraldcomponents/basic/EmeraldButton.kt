@@ -124,4 +124,9 @@ class EmeraldButton : AppCompatButton {
         background = ButtonStateHelper(context).getBackgroundDrawable(backgroundColorRes, dpRadiusValue)
         setTextColor(context.colorRes(textColorRes))
     }
+
+    override fun setOnClickListener(l: OnClickListener?) {
+        super.setOnClickListener(l)
+        if (type == ButtonType.DISABLED) isClickable = false
+    }
 }
