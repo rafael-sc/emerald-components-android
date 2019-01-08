@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.4.1 - 2019-01-08
+
+### Fixed
+- [Fix disabled button problems][issue-75]
+
 ## 0.4.0 - 2019-01-04
 
 ### Modified
@@ -93,4 +98,6 @@
 [issue-66]:https://github.com/stone-payments/emerald-components-android/issues/66
 [issue-68]:https://github.com/stone-payments/emerald-components-android/issues/68
 [issue-39]:https://github.com/stone-payments/emerald-components-android/issues/39
+[issue-75]:https://github.com/stone-payments/emerald-components-android/issues/75
+
 
