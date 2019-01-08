@@ -45,20 +45,25 @@ class EmeraldButton : AppCompatButton {
                     isClickable = false
                 }
             }
+            setStyleProperties(style)
         }
 
     var style: ButtonStyle? = ButtonStyle.FILLED
         set(newButtonStyle) {
             field = newButtonStyle
-            if (type != ButtonType.NEUTRAL && type != ButtonType.DISABLED) {
-                if (newButtonStyle == ButtonStyle.FILLED) {
-                    setTextColor(context.colorRes(android.R.color.white))
-                }
-                if (newButtonStyle == ButtonStyle.OUTLINE || newButtonStyle == ButtonStyle.TEXT) {
-                    setTextColor(context.colorRes(color))
-                }
+            setStyleProperties(newButtonStyle)
+        }
+
+    private fun setStyleProperties(newButtonStyle: ButtonStyle?) {
+        if (type != ButtonType.NEUTRAL && type != ButtonType.DISABLED) {
+            if (newButtonStyle == ButtonStyle.FILLED) {
+                setTextColor(context.colorRes(android.R.color.white))
+            }
+            if (newButtonStyle == ButtonStyle.OUTLINE || newButtonStyle == ButtonStyle.TEXT) {
+                setTextColor(context.colorRes(color))
             }
         }
+    }
 
     private var radius = 0f
 
