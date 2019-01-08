@@ -2,7 +2,7 @@
 
 ## 0.4.1 - 2019-01-08
 
-### Modified
+### Fixed
 - [Fix disabled button problems][issue-75]
 
 ## 0.4.0 - 2019-01-04
