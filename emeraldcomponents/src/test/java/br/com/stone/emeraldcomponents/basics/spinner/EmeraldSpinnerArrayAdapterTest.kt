@@ -3,9 +3,9 @@ package br.com.stone.emeraldcomponents.basics.spinner
 import android.graphics.Color
 import android.widget.TextView
 import br.com.stone.emeraldcomponents.basic.spinner.EmeraldSpinnerArrayAdapter
-import junit.framework.Assert.assertEquals
-import junit.framework.Assert.assertFalse
-import junit.framework.Assert.assertTrue
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
