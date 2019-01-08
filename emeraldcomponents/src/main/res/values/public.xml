@@ -5,7 +5,7 @@
 
     <public name="emerald_primary" type="color" />
     <public name="emerald_secondary" type="color" />
-    <public name="emerald_sucess" type="color" />
+    <public name="emerald_success" type="color" />
     <public name="emerald_error" type="color" />
     <public name="emerald_attention" type="color" />
     <public name="emerald_white_1" type="color" />

@@ -6,6 +6,7 @@ import br.com.stone.emeraldcomponents.basic.EmeraldButton
 import br.com.stone.emeraldcomponents.extension.colorRes
 import org.junit.Assert
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -96,5 +97,12 @@ class EmeraldButtonTest {
         button.setStyleProperties(R.color.emerald_black_1, textColor)
         assertEquals(button.currentTextColor, button.context.colorRes(textColor))
         assertEquals((button.background as StateListDrawable).state.size, 4)
+    }
+
+    @Test
+    fun shouldClickBeDisabledWhenTypeIsSetToDisable() {
+        button.type = EmeraldButton.ButtonType.DISABLED
+        button.setOnClickListener { }
+        assertFalse(button.isClickable)
     }
 }

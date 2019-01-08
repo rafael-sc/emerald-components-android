@@ -45,20 +45,25 @@ class EmeraldButton : AppCompatButton {
                     isClickable = false
                 }
             }
+            setStyleProperties(style)
         }
 
     var style: ButtonStyle? = ButtonStyle.FILLED
         set(newButtonStyle) {
             field = newButtonStyle
-            if (type != ButtonType.NEUTRAL && type != ButtonType.DISABLED) {
-                if (newButtonStyle == ButtonStyle.FILLED) {
-                    setTextColor(context.colorRes(android.R.color.white))
-                }
-                if (newButtonStyle == ButtonStyle.OUTLINE || newButtonStyle == ButtonStyle.TEXT) {
-                    setTextColor(context.colorRes(color))
-                }
+            setStyleProperties(newButtonStyle)
+        }
+
+    private fun setStyleProperties(newButtonStyle: ButtonStyle?) {
+        if (type != ButtonType.NEUTRAL && type != ButtonType.DISABLED) {
+            if (newButtonStyle == ButtonStyle.FILLED) {
+                setTextColor(context.colorRes(android.R.color.white))
+            }
+            if (newButtonStyle == ButtonStyle.OUTLINE || newButtonStyle == ButtonStyle.TEXT) {
+                setTextColor(context.colorRes(color))
             }
         }
+    }
 
     private var radius = 0f
 
@@ -123,5 +128,10 @@ class EmeraldButton : AppCompatButton {
         val dpRadiusValue = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, radius, resources.displayMetrics)
         background = ButtonStateHelper(context).getBackgroundDrawable(backgroundColorRes, dpRadiusValue)
         setTextColor(context.colorRes(textColorRes))
+    }
+
+    override fun setOnClickListener(l: OnClickListener?) {
+        super.setOnClickListener(l)
+        if (type == ButtonType.DISABLED) isClickable = false
     }
 }
