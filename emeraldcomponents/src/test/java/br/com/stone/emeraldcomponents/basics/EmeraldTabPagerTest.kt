@@ -4,8 +4,8 @@ import android.support.v4.app.FragmentActivity
 import android.support.v4.content.ContextCompat
 import android.util.AttributeSet
 import br.com.stone.emeraldcomponents.R
-import br.com.stone.emeraldcomponents.basic.EmeraldTabItem
-import br.com.stone.emeraldcomponents.basic.EmeraldTabPager
+import br.com.stone.emeraldcomponents.basic.pager.EmeraldTabItem
+import br.com.stone.emeraldcomponents.basic.pager.EmeraldBulletPager
 import kotlinx.android.synthetic.main.widget_tab_pager.view.*
 import org.junit.Assert
 import org.junit.Assert.assertEquals
@@ -22,7 +22,7 @@ import org.robolectric.RobolectricTestRunner
 @RunWith(RobolectricTestRunner::class)
 class EmeraldTabPagerTest {
 
-    private lateinit var pager: EmeraldTabPager
+    private lateinit var pager: EmeraldBulletPager
 
     private lateinit var activity: FragmentActivity
 
@@ -30,7 +30,7 @@ class EmeraldTabPagerTest {
     fun setup() {
         activity = Robolectric.buildActivity(FragmentActivity::class.java).create().get()
         activity.setTheme(R.style.Base_Theme_AppCompat)
-        pager = EmeraldTabPager(activity)
+        pager = EmeraldBulletPager(activity)
     }
 
     @Test
@@ -40,7 +40,7 @@ class EmeraldTabPagerTest {
 
     @Test
     fun testInstanceWithAttributeSet() {
-        val pager = EmeraldTabPager(activity, Mockito.mock(AttributeSet::class.java))
+        val pager = EmeraldBulletPager(activity, Mockito.mock(AttributeSet::class.java))
         Assert.assertNotNull(pager)
     }
 

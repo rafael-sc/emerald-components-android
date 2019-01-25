@@ -3,8 +3,8 @@ package br.com.stone.emeraldcomponents.basics
 import android.support.constraint.ConstraintLayout
 import android.view.View
 import br.com.stone.emeraldcomponents.R
-import br.com.stone.emeraldcomponents.basic.EmeraldPagerAdapter
-import br.com.stone.emeraldcomponents.basic.EmeraldTabItem
+import br.com.stone.emeraldcomponents.basic.pager.EmeraldPagerAdapter
+import br.com.stone.emeraldcomponents.basic.pager.EmeraldTabItem
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue

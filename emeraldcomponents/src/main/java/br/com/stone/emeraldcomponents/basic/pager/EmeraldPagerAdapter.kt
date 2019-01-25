@@ -1,4 +1,4 @@
-package br.com.stone.emeraldcomponents.basic
+package br.com.stone.emeraldcomponents.basic.pager
 
 import android.content.Context
 import android.support.v4.view.PagerAdapter
@@ -29,9 +29,4 @@ class EmeraldPagerAdapter(private val context: Context, private val itemList: Li
     }
 
     override fun getCount() = itemList.size
-
-    override fun getPageTitle(position: Int): CharSequence? {
-        val item = itemList[position]
-        return item.title
-    }
 }

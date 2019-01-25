@@ -2,7 +2,7 @@ package br.com.stone.emeraldcomponentsandroid.activities
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import br.com.stone.emeraldcomponents.basic.EmeraldTabItem
+import br.com.stone.emeraldcomponents.basic.pager.EmeraldTabItem
 import br.com.stone.emeraldcomponentsandroid.R
 import kotlinx.android.synthetic.main.activity_pager_tabs.*
 import kotlinx.android.synthetic.main.pager_test_layout.view.*

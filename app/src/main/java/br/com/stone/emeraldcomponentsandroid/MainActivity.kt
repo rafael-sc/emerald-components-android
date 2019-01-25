@@ -9,6 +9,7 @@ import br.com.stone.emeraldcomponentsandroid.activities.CalendarActivity
 import br.com.stone.emeraldcomponentsandroid.activities.DateActivity
 import br.com.stone.emeraldcomponentsandroid.activities.InputActivity
 import br.com.stone.emeraldcomponentsandroid.activities.LabelActivity
+import br.com.stone.emeraldcomponentsandroid.activities.PagerTabsActivity
 import br.com.stone.emeraldcomponentsandroid.activities.SpinnerActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_activity_list.view.*
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
                 InputActivity::class.java to "Inputs",
                 SpinnerActivity::class.java to "Spinner",
                 DateActivity::class.java to "Date Selector and Filter",
+                PagerTabsActivity::class.java to "Pager",
                 LabelActivity::class.java to "Label")
 
         recyclerMain.setUp(activities,

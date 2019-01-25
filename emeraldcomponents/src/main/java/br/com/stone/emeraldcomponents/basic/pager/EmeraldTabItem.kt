@@ -1,4 +1,4 @@
-package br.com.stone.emeraldcomponents.basic
+package br.com.stone.emeraldcomponents.basic.pager
 
 import android.view.View
 

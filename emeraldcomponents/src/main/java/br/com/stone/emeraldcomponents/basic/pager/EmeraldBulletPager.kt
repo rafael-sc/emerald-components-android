@@ -1,4 +1,4 @@
-package br.com.stone.emeraldcomponents.basic
+package br.com.stone.emeraldcomponents.basic.pager
 
 import android.content.Context
 import android.support.constraint.ConstraintLayout
@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.widget_tab_pager.view.*
 /**
  * Created by renan.silva on 18/04/2018.
  */
-class EmeraldTabPager : ConstraintLayout {
+class EmeraldBulletPager : ConstraintLayout {
 
     init {
         inflate(context, R.layout.widget_tab_pager, this)
@@ -23,8 +23,5 @@ class EmeraldTabPager : ConstraintLayout {
     fun setAdapter(itemList: List<EmeraldTabItem>) {
         emeraldTabLayout.setupWithViewPager(emeraldViewPager)
         emeraldViewPager.adapter = EmeraldPagerAdapter(getActivity(), itemList)
-        itemList.forEachIndexed { position, item ->
-            item.iconId?.let { emeraldTabLayout.getTabAt(position)?.setIcon(it) }
-        }
     }
 }

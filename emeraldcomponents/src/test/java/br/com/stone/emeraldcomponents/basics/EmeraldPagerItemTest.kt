@@ -1,7 +1,7 @@
 package br.com.stone.emeraldcomponents.basics
 
 import android.view.View
-import br.com.stone.emeraldcomponents.basic.EmeraldPagerItem
+import br.com.stone.emeraldcomponents.basic.pager.EmeraldPagerItem
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

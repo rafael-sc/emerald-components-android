@@ -1,7 +1,7 @@
 package br.com.stone.emeraldcomponents.basics
 
 import android.view.View
-import br.com.stone.emeraldcomponents.basic.EmeraldTabItem
+import br.com.stone.emeraldcomponents.basic.pager.EmeraldTabItem
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
