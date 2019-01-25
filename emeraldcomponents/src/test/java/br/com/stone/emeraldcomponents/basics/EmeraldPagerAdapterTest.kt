@@ -4,7 +4,7 @@ import android.support.constraint.ConstraintLayout
 import android.view.View
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.pager.EmeraldPagerAdapter
-import br.com.stone.emeraldcomponents.basic.pager.EmeraldTabItem
+import br.com.stone.emeraldcomponents.basic.pager.EmeraldPagerItem
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
@@ -26,7 +26,7 @@ class EmeraldPagerAdapterTest {
 
     @Before
     fun setup() {
-        val item = EmeraldTabItem(R.layout.widget_infoblockview, { })
+        val item = EmeraldPagerItem(R.layout.widget_infoblockview, { })
         adapter = EmeraldPagerAdapter(RuntimeEnvironment.application, listOf(item))
         viewGroup = ConstraintLayout(RuntimeEnvironment.application)
     }
@@ -54,10 +54,5 @@ class EmeraldPagerAdapterTest {
     @Test
     fun testGetCount() {
         assertEquals(1, adapter.count)
-    }
-
-    @Test
-    fun testGetPageTitle() {
-        assertEquals("", adapter.getPageTitle(0))
     }
 }

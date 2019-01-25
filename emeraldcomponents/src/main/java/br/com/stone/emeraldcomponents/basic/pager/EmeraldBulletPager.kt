@@ -20,7 +20,7 @@ class EmeraldBulletPager : ConstraintLayout {
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
 
-    fun setAdapter(itemList: List<EmeraldTabItem>) {
+    fun setAdapter(itemList: List<EmeraldPagerItem>) {
         emeraldTabLayout.setupWithViewPager(emeraldViewPager)
         emeraldViewPager.adapter = EmeraldPagerAdapter(getActivity(), itemList)
     }

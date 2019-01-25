@@ -1,14 +1,11 @@
 package br.com.stone.emeraldcomponents.basics
 
 import android.support.v4.app.FragmentActivity
-import android.support.v4.content.ContextCompat
 import android.util.AttributeSet
 import br.com.stone.emeraldcomponents.R
-import br.com.stone.emeraldcomponents.basic.pager.EmeraldTabItem
 import br.com.stone.emeraldcomponents.basic.pager.EmeraldBulletPager
-import kotlinx.android.synthetic.main.widget_tab_pager.view.*
+import br.com.stone.emeraldcomponents.basic.pager.EmeraldPagerItem
 import org.junit.Assert
-import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -46,10 +43,7 @@ class EmeraldTabPagerTest {
 
     @Test
     fun testSetAdapter() {
-        val iconId = R.drawable.abc_ic_ab_back_material
-        val item = EmeraldTabItem(R.layout.widget_autocomplete, { }, "", iconId)
+        val item = EmeraldPagerItem(R.layout.widget_autocomplete) { }
         pager.setAdapter(listOf(item))
-        val expectedIcon = ContextCompat.getDrawable(pager.context, iconId)
-        assertEquals(expectedIcon, pager.emeraldTabLayout.getTabAt(0)?.icon)
     }
 }

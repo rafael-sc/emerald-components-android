@@ -14,11 +14,9 @@ class EmeraldPagerItemTest {
     fun testInstance() {
         val layoutId = 0
         val bindValues = { _: View -> }
-        val title = "title"
-        val item = EmeraldPagerItem(layoutId, bindValues, title)
+        val item = EmeraldPagerItem(layoutId, bindValues)
 
         assertEquals(layoutId, item.layoutId)
         assertEquals(bindValues, item.bindValues)
-        assertEquals(title, item.title)
     }
 }
