@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.PagerTabsActivity"
+            android:name=".activities.PagerActivity"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".activities.CalendarActivity"

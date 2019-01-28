@@ -5,14 +5,14 @@ import android.support.v7.app.AppCompatActivity
 import br.com.stone.emeraldcomponents.basic.pager.bullet.EmeraldBulletPagerItem
 import br.com.stone.emeraldcomponents.basic.pager.tabs.EmeraldTabPagerItem
 import br.com.stone.emeraldcomponentsandroid.R
-import kotlinx.android.synthetic.main.activity_pager_tabs.*
+import kotlinx.android.synthetic.main.activity_pager.*
 import kotlinx.android.synthetic.main.pager_test_layout.view.*
 
-class PagerTabsActivity : AppCompatActivity() {
+class PagerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pager_tabs)
+        setContentView(R.layout.activity_pager)
 
         setBulletPager()
 
