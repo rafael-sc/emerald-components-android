@@ -1,4 +1,4 @@
-package br.com.stone.emeraldcomponents.basics
+package br.com.stone.emeraldcomponents.basics.pager.tabs
 
 import android.support.v4.app.FragmentActivity
 import android.support.v4.content.ContextCompat
@@ -35,18 +35,18 @@ class EmeraldTabPagerTest {
     }
 
     @Test
-    fun testNotNull() {
+    fun `Should not be null when instanced with context`() {
         Assert.assertNotNull(pager)
     }
 
     @Test
-    fun testInstanceWithAttributeSet() {
+    fun `Should not be null when instanced with context and attribute set`() {
         val pager = EmeraldBulletPager(activity, Mockito.mock(AttributeSet::class.java))
         Assert.assertNotNull(pager)
     }
 
     @Test
-    fun testSetAdapter() {
+    fun `Should set tabs when set adapter is called`() {
         val iconId = R.drawable.abc_ic_ab_back_material
         val item = EmeraldTabPagerItem(R.layout.widget_autocomplete, { }, "", iconId)
         pager.setAdapter(listOf(item))

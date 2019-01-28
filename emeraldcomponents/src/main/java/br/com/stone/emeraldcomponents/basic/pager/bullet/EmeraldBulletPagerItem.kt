@@ -12,6 +12,4 @@ class EmeraldBulletPagerItem(override val layoutId: Int,
                              override val bindValues: (layout: View) -> Unit) : EmeraldPagerItem {
 
     override val title: String = ""
-    override val iconId: Int? = null
-
 }

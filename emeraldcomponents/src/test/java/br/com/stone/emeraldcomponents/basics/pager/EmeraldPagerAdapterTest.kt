@@ -1,4 +1,4 @@
-package br.com.stone.emeraldcomponents.basics
+package br.com.stone.emeraldcomponents.basics.pager
 
 import android.support.constraint.ConstraintLayout
 import android.view.View
@@ -32,13 +32,13 @@ class EmeraldPagerAdapterTest {
     }
 
     @Test
-    fun testInstantiateItem() {
+    fun `Should instantiate item`() {
         val layout = adapter.instantiateItem(viewGroup, 0)
         assertEquals(layout, viewGroup.getChildAt(0))
     }
 
     @Test
-    fun testDestroyItem() {
+    fun `Should destroy item`() {
         val layout = adapter.instantiateItem(viewGroup, 0)
         assertEquals(1, viewGroup.childCount)
         adapter.destroyItem(viewGroup, 0, layout)
@@ -46,13 +46,17 @@ class EmeraldPagerAdapterTest {
     }
 
     @Test
-    fun testIsViewFromObject() {
+    fun `Should return true when view is from object`() {
         assertTrue(adapter.isViewFromObject(viewGroup, viewGroup))
+    }
+
+    @Test
+    fun `Should return false when view is not from object`() {
         assertFalse(adapter.isViewFromObject(viewGroup, View(RuntimeEnvironment.application)))
     }
 
     @Test
-    fun testGetCount() {
+    fun `Should return 1 when adapter count is called`() {
         assertEquals(1, adapter.count)
     }
 }
