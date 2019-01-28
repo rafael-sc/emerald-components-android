@@ -9,6 +9,6 @@ import android.view.View
  */
 interface EmeraldPagerItem {
     val layoutId: Int
-    val bindValues: (layout: View) -> Unit
+    val bindValues: View.() -> Unit
     val title: String
 }

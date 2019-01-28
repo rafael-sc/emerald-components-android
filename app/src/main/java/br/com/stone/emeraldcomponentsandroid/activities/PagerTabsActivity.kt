@@ -21,16 +21,16 @@ class PagerTabsActivity : AppCompatActivity() {
 
     private fun setBulletPager() {
         val item = EmeraldBulletPagerItem(R.layout.pager_test_layout) {
-            it.testText.text = "left text"
-            it.testText2.text = "right text"
+            testText.text = "left text"
+            testText2.text = "right text"
         }
 
         val item2 = EmeraldBulletPagerItem(R.layout.pager_test_layout_image) {
         }
 
         val item3 = EmeraldBulletPagerItem(R.layout.pager_test_layout) {
-            it.testText.text = "I'm the same layout on the first tab"
-            it.testText2.text = "But cooler"
+            testText.text = "I'm the same layout on the first tab"
+            testText2.text = "But cooler"
         }
 
         emeraldBulletPager.setAdapter(listOf(item, item2, item3))
@@ -39,16 +39,16 @@ class PagerTabsActivity : AppCompatActivity() {
 
     private fun setTabPager() {
         val item = EmeraldTabPagerItem(R.layout.pager_test_layout, {
-            it.testText.text = "left text"
-            it.testText2.text = "right text"
+            testText.text = "left text"
+            testText2.text = "right text"
         }, "tab with only text")
 
         val item2 = EmeraldTabPagerItem(R.layout.pager_test_layout_image, {
         }, iconId = R.mipmap.ic_launcher)
 
         val item3 = EmeraldTabPagerItem(R.layout.pager_test_layout, {
-            it.testText.text = "I'm the same layout on the first tab"
-            it.testText2.text = "But cooler"
+            testText.text = "I'm the same layout on the first tab"
+            testText2.text = "But cooler"
         }, "tab with icon", R.drawable.ic_launcher_background)
 
         emeraldTabPager.setAdapter(listOf(item, item2, item3))

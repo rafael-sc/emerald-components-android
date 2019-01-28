@@ -9,6 +9,6 @@ import br.com.stone.emeraldcomponents.basic.pager.EmeraldPagerItem
  * renan.silva@stone.com.br
  */
 class EmeraldTabPagerItem(override val layoutId: Int,
-                          override val bindValues: (layout: View) -> Unit,
+                          override val bindValues: View.() -> Unit,
                           override val title: String = "",
                           val iconId: Int? = null) : EmeraldPagerItem

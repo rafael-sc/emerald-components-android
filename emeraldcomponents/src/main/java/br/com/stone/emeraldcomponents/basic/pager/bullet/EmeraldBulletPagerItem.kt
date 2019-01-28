@@ -9,7 +9,7 @@ import br.com.stone.emeraldcomponents.basic.pager.EmeraldPagerItem
  * renan.silva@stone.com.br
  */
 class EmeraldBulletPagerItem(override val layoutId: Int,
-                             override val bindValues: (layout: View) -> Unit) : EmeraldPagerItem {
+                             override val bindValues: View.() -> Unit) : EmeraldPagerItem {
 
     override val title: String = ""
 }
