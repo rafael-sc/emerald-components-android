@@ -1,4 +1,4 @@
-package br.com.stone.emeraldcomponents.basic.pager
+package br.com.stone.emeraldcomponents.basic.pager.tabs
 
 import android.content.Context
 import android.support.v4.view.PagerAdapter
@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 
 /**
- * Created by renan.silva on 18/04/2018.
+ * Created by renan.silva on 18/04/2019.
+ * Copyright (c) Stone Co. All rights reserved.
+ * renan.silva@stone.com.br
  */
-class EmeraldPagerAdapter(private val context: Context, private val itemList: List<EmeraldPagerItem>) : PagerAdapter() {
+class EmeraldTabPagerAdapter(private val context: Context, private val itemList: List<EmeraldTabPagerItem>) : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val item = itemList[position]
@@ -29,4 +31,9 @@ class EmeraldPagerAdapter(private val context: Context, private val itemList: Li
     }
 
     override fun getCount() = itemList.size
+
+    override fun getPageTitle(position: Int): CharSequence? {
+        val item = itemList[position]
+        return item.title
+    }
 }

@@ -3,22 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activities.PagerTabsActivity">
+    android:layout_height="match_parent">
 
-    <br.com.stone.emeraldcomponents.basic.pager.bullet.EmeraldBulletPager
-        android:id="@+id/emeraldBulletPager"
+    <br.com.stone.emeraldcomponents.basic.pager.EmeraldViewPager
+        android:id="@+id/emeraldViewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <br.com.stone.emeraldcomponents.basic.pager.tabs.EmeraldTabPager
-        android:id="@+id/emeraldTabPager"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/emeraldTabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emeraldBulletPager" />
+        app:layout_constraintTop_toBottomOf="@+id/emeraldViewPager"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp" />
+
 </android.support.constraint.ConstraintLayout>
