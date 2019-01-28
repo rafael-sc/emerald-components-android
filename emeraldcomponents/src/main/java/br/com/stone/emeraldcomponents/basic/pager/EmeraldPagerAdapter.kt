@@ -1,4 +1,4 @@
-package br.com.stone.emeraldcomponents.basic.pager.tabs
+package br.com.stone.emeraldcomponents.basic.pager
 
 import android.content.Context
 import android.support.v4.view.PagerAdapter
@@ -11,7 +11,7 @@ import android.view.ViewGroup
  * Copyright (c) Stone Co. All rights reserved.
  * renan.silva@stone.com.br
  */
-class EmeraldTabPagerAdapter(private val context: Context, private val itemList: List<EmeraldTabPagerItem>) : PagerAdapter() {
+class EmeraldPagerAdapter(private val context: Context, private val itemList: List<EmeraldPagerItem>) : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val item = itemList[position]

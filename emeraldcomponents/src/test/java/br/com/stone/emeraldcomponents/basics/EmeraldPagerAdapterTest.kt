@@ -3,7 +3,7 @@ package br.com.stone.emeraldcomponents.basics
 import android.support.constraint.ConstraintLayout
 import android.view.View
 import br.com.stone.emeraldcomponents.R
-import br.com.stone.emeraldcomponents.basic.pager.tabs.EmeraldTabPagerAdapter
+import br.com.stone.emeraldcomponents.basic.pager.EmeraldPagerAdapter
 import br.com.stone.emeraldcomponents.basic.pager.tabs.EmeraldTabPagerItem
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -20,14 +20,14 @@ import org.robolectric.RuntimeEnvironment
 @RunWith(RobolectricTestRunner::class)
 class EmeraldPagerAdapterTest {
 
-    private lateinit var adapter: EmeraldTabPagerAdapter
+    private lateinit var adapter: EmeraldPagerAdapter
 
     private lateinit var viewGroup: ConstraintLayout
 
     @Before
     fun setup() {
         val item = EmeraldTabPagerItem(R.layout.widget_infoblockview, { })
-        adapter = EmeraldTabPagerAdapter(RuntimeEnvironment.application, listOf(item))
+        adapter = EmeraldPagerAdapter(RuntimeEnvironment.application, listOf(item))
         viewGroup = ConstraintLayout(RuntimeEnvironment.application)
     }
 

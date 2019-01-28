@@ -3,7 +3,7 @@ package br.com.stone.emeraldcomponentsandroid.activities
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import br.com.stone.emeraldcomponents.basic.pager.bullet.EmeraldBulletPagerItem
-import br.com.stone.emeraldcomponents.basic.pager.tabs.EmeraldTabItem
+import br.com.stone.emeraldcomponents.basic.pager.tabs.EmeraldTabPagerItem
 import br.com.stone.emeraldcomponentsandroid.R
 import kotlinx.android.synthetic.main.activity_pager_tabs.*
 import kotlinx.android.synthetic.main.pager_test_layout.view.*
@@ -28,25 +28,25 @@ class PagerTabsActivity : AppCompatActivity() {
         val item2 = EmeraldBulletPagerItem(R.layout.pager_test_layout_image) {
         }
 
-        val item3 = EmeraldBulletPagerItem(R.layout.pager_test_layout, bindValues = {
+        val item3 = EmeraldBulletPagerItem(R.layout.pager_test_layout) {
             it.testText.text = "I'm the same layout on the first tab"
             it.testText2.text = "But cooler"
-        })
+        }
 
         emeraldBulletPager.setAdapter(listOf(item, item2, item3))
     }
 
 
     private fun setTabPager() {
-        val item = EmeraldTabItem(R.layout.pager_test_layout, {
+        val item = EmeraldTabPagerItem(R.layout.pager_test_layout, {
             it.testText.text = "left text"
             it.testText2.text = "right text"
         }, "tab with only text")
 
-        val item2 = EmeraldTabItem(R.layout.pager_test_layout_image, {
+        val item2 = EmeraldTabPagerItem(R.layout.pager_test_layout_image, {
         }, iconId = R.mipmap.ic_launcher)
 
-        val item3 = EmeraldTabItem(R.layout.pager_test_layout, {
+        val item3 = EmeraldTabPagerItem(R.layout.pager_test_layout, {
             it.testText.text = "I'm the same layout on the first tab"
             it.testText2.text = "But cooler"
         }, "tab with icon", R.drawable.ic_launcher_background)
