@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## UNRELEASED
+
+### Modified
+- [Updates android sdk to 28][issue-81]
+
 ## 0.4.1 - 2019-01-08
 
 ### Fixed
@@ -99,5 +104,5 @@
 [issue-68]:https://github.com/stone-payments/emerald-components-android/issues/68
 [issue-39]:https://github.com/stone-payments/emerald-components-android/issues/39
 [issue-75]:https://github.com/stone-payments/emerald-components-android/issues/75
-
+[issue-81]:https://github.com/stone-payments/emerald-components-android/issues/81
 
