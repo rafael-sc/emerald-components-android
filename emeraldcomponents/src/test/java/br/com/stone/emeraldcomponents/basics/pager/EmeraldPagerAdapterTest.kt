@@ -59,4 +59,12 @@ class EmeraldPagerAdapterTest {
     fun `Should return 1 when adapter count is called`() {
         assertEquals(1, adapter.count)
     }
+
+    @Test
+    fun `Should return 1 when pagedWidth is set to 1 on constructor`() {
+        val testWidth = 1f
+        val item = EmeraldTabPagerItem(R.layout.widget_infoblockview, { })
+        val adapter = EmeraldPagerAdapter(RuntimeEnvironment.application, listOf(item), testWidth)
+        assertEquals(testWidth, adapter.getPageWidth(0))
+    }
 }

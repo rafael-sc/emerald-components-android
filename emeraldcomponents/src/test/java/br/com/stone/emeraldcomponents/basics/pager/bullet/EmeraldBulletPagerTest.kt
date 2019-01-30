@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.pager.bullet.EmeraldBulletPager
 import br.com.stone.emeraldcomponents.basic.pager.bullet.EmeraldBulletPagerItem
+import br.com.stone.emeraldcomponents.extension.toDip
 import kotlinx.android.synthetic.main.widget_tab_pager.view.*
 import org.junit.Assert
 import org.junit.Assert.assertEquals
@@ -49,5 +50,22 @@ class EmeraldBulletPagerTest {
         val item = EmeraldBulletPagerItem(R.layout.widget_autocomplete) { }
         pager.setAdapter(listOf(item))
         assertEquals(1, pager.emeraldTabLayout.tabCount)
+    }
+
+
+    @Test
+    fun `Should change page width when set adapter is called with width`() {
+        val testWidth = 0.1f
+        val item = EmeraldBulletPagerItem(R.layout.widget_autocomplete) { }
+        pager.setAdapter(listOf(item), testWidth)
+        assertEquals(testWidth, pager.viewPager.adapter?.getPageWidth(0))
+    }
+
+    @Test
+    fun `Should change page margin when set adapter is called with margin`() {
+        val testMargin = 1
+        val item = EmeraldBulletPagerItem(R.layout.widget_autocomplete) { }
+        pager.setAdapter(listOf(item), pageMargin = testMargin)
+        assertEquals(testMargin.toDip(activity), pager.viewPager.pageMargin)
     }
 }

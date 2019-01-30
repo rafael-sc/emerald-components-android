@@ -11,7 +11,9 @@ import android.view.ViewGroup
  * Copyright (c) Stone Co. All rights reserved.
  * renan.silva@stone.com.br
  */
-class EmeraldPagerAdapter(private val context: Context, private val itemList: List<EmeraldPagerItem>) : PagerAdapter() {
+class EmeraldPagerAdapter(private val context: Context,
+                          private val itemList: List<EmeraldPagerItem>,
+                          private val pageWidth: Float = 1f) : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val item = itemList[position]
@@ -35,5 +37,9 @@ class EmeraldPagerAdapter(private val context: Context, private val itemList: Li
     override fun getPageTitle(position: Int): CharSequence? {
         val item = itemList[position]
         return item.title
+    }
+
+    override fun getPageWidth(position: Int): Float {
+        return pageWidth
     }
 }
