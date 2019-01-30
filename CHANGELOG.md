@@ -7,6 +7,11 @@
 
 ## 0.4.1 - 2019-01-08
 
+### Modified
+- [Add view pager with bullet indicator][issue-79]
+
+## 0.4.1 - 2019-01-08
+
 ### Fixed
 - [Fix disabled button problems][issue-75]
 
@@ -105,4 +110,5 @@
 [issue-39]:https://github.com/stone-payments/emerald-components-android/issues/39
 [issue-75]:https://github.com/stone-payments/emerald-components-android/issues/75
 [issue-81]:https://github.com/stone-payments/emerald-components-android/issues/81
+[issue-79]:https://github.com/stone-payments/emerald-components-android/issues/79
 
