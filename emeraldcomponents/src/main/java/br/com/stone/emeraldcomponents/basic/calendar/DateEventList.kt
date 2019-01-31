@@ -110,14 +110,12 @@ class DateEventList : RecyclerView {
                     }
                 }
             }, {
-                // TODO Achar uma forma de fazer o click na lista filha chamar o click da lista pai e nao repassar
                 itemClickListener(it)
             })
 
             emeraldDateContainer.isSelected = it.firstOrNull()?.day == selectedEvent?.day()
 
             if (emeraldDateContainer.isSelected) {
-                //TODO git issue https://github.com/stone-payments/emerald-android-basics-components/issues/21
                 emeraldDateContainer.background.colorFilter =
                         PorterDuffColorFilter(itemProperties.dateSelectedColor,
                                 PorterDuff.Mode.SRC_ATOP)
@@ -130,7 +128,7 @@ class DateEventList : RecyclerView {
         val dividerItemDecoration = DividerItemDecoration(context, LinearLayoutManager.VERTICAL)
         addItemDecoration(dividerItemDecoration)
 
-        itemAnimator.changeDuration = 0
+        itemAnimator?.changeDuration = 0
     }
 
     private fun applyStyle(view: View) {
@@ -182,7 +180,7 @@ class DateEventList : RecyclerView {
         events.clear()
         val eventsToAdd = getGroupedEvents(sortDates(newEvents)) as Collection<MutableList<DateEvent>>
         events.addAll(eventsToAdd)
-        adapter.notifyDataSetChanged()
+        adapter?.notifyDataSetChanged()
     }
 
     fun addEvent(newEvent: DateEvent) {
@@ -200,7 +198,7 @@ class DateEventList : RecyclerView {
         val latestPosition = events.indexOfFirst { it.firstOrNull()?.day == selectedEvent?.day() }
         val position = events.indexOfFirst { it.firstOrNull()?.day == eventDay.day() }
         if (position == NO_POSITION) {
-            adapter.notifyItemChanged(latestPosition)
+            adapter?.notifyItemChanged(latestPosition)
             selectedEvent = null
             return
         }
@@ -212,10 +210,10 @@ class DateEventList : RecyclerView {
             }
         }.apply { targetPosition = position }
 
-        layoutManager.startSmoothScroll(smoothScroller)
+        layoutManager?.startSmoothScroll(smoothScroller)
         //notify item
-        adapter.notifyItemChanged(position)
-        adapter.notifyItemChanged(latestPosition)
+        adapter?.notifyItemChanged(position)
+        adapter?.notifyItemChanged(latestPosition)
     }
 
     private class ItemProperties(
