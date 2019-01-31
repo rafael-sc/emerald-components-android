@@ -4,10 +4,6 @@
 
 ### Modified
 - [Updates android sdk to 28][issue-81]
-
-## 0.4.1 - 2019-01-08
-
-### Modified
 - [Add view pager with bullet indicator][issue-79]
 
 ## 0.4.1 - 2019-01-08
