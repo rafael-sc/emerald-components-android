@@ -15,15 +15,15 @@ def deployKey = System.env.PACKAGECLOUD_TOKEN != null ? System.env.PACKAGECLOUD_
 def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', '**/*$*', 'android/**/*.*', '**/*Function*', '**/*_impl*']
 def debugTree = fileTree(dir: "$project.buildDir/tmp/kotlin-classes/debug", excludes: fileFilter)
 def mainSrc = "$project.projectDir/src/main/kotlin"
-def version = '0.4.1'
+def version = '0.5.0'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion sdk_version
     testOptions.unitTests.includeAndroidResources true
 
     defaultConfig {
         minSdkVersion 17
-        targetSdkVersion 27
+        targetSdkVersion sdk_version
         versionCode 1
         versionName version
 

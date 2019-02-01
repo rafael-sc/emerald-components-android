@@ -90,7 +90,7 @@ class EmeraldMaskedEditText : AppCompatEditText {
     }
 
     fun isValid(): Boolean {
-        val isValid = if (text.length < acceptableTextLength) {
+        val isValid = if (text?.length ?: 0 < acceptableTextLength) {
             errorMessage = context.getString(R.string.emerald_mask_error)
             false
         } else
