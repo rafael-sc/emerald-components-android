@@ -53,20 +53,6 @@ class EmeraldButtonTest {
     }
 
     @Test
-    fun testInstanceWithAttributeSetInvalid() {
-        val attrs = Robolectric.buildAttributeSet()
-                .addAttribute(R.attr.emeraldButtonStyle, "teste")
-                .addAttribute(R.attr.emeraldButtonType, "valor invalido")
-                .build()
-
-        val view = EmeraldButton(RuntimeEnvironment.application, attrs)
-
-        Assert.assertEquals(view.type, EmeraldButton.ButtonType.PRIMARY)
-        Assert.assertEquals(view.style, EmeraldButton.ButtonStyle.FILLED)
-        Assert.assertNotNull(view)
-    }
-
-    @Test
     fun testTypePrimary() {
         button.type = EmeraldButton.ButtonType.PRIMARY
         assertEquals(button.currentTextColor, button.context.colorRes(android.R.color.white))
