@@ -19,7 +19,6 @@ class DipTest {
         assertEquals(1.0f, 1f.toDip(RuntimeEnvironment.systemContext))
     }
 
-
     @Test
     fun `Should int convert to Dip`() {
         assertEquals(1, 1.toDip(RuntimeEnvironment.systemContext))

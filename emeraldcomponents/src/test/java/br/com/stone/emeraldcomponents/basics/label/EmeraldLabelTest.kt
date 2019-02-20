@@ -2,6 +2,7 @@ package br.com.stone.emeraldcomponents.basics.label
 
 import android.content.res.Resources
 import android.support.v4.content.ContextCompat
+import android.view.View
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabel
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelType
@@ -98,6 +99,6 @@ class EmeraldLabelTest {
     fun testSetIcon() {
         val iconResource = R.drawable.ic_add_circle_white_24dp
         label.setIcon(iconResource)
-        assertEquals(ContextCompat.getDrawable(RuntimeEnvironment.application, iconResource), label.emeraldLabelImage.drawable)
+        assertEquals(View.VISIBLE, label.emeraldLabelImage.visibility)
     }
 }

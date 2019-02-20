@@ -15,7 +15,7 @@ def deployKey = System.env.PACKAGECLOUD_TOKEN != null ? System.env.PACKAGECLOUD_
 def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', '**/*$*', 'android/**/*.*', '**/*Function*', '**/*_impl*']
 def debugTree = fileTree(dir: "$project.buildDir/tmp/kotlin-classes/debug", excludes: fileFilter)
 def mainSrc = "$project.projectDir/src/main/kotlin"
-def version = '0.5.0'
+def version = '0.5.1'
 
 android {
     compileSdkVersion sdk_version
@@ -53,7 +53,7 @@ dependencies {
     deployerJars "io.packagecloud.maven.wagon:maven-packagecloud-wagon:0.0.6"
 
     testImplementation "junit:junit:$junit_version"
-    testImplementation "org.robolectric:robolectric:$roboletric_version"
+    testImplementation "org.robolectric:robolectric:4.1"
     testImplementation "org.powermock:powermock-module-junit4:$powermock_version"
     testImplementation "org.powermock:powermock-module-junit4-rule:$powermock_version"
     testImplementation "org.powermock:powermock-classloading-xstream:$powermock_version"

@@ -252,7 +252,7 @@ class EmeraldMaskedEditTextTest {
     fun testDefineMaskByTypeCurrency() {
         view.type = EmeraldMaskedEditText.MaskTypes.CURRENCY
         view.setText("123")
-        assertEquals('3', view.text.last())
+        assertEquals('3', view.text?.last())
     }
 
     @Test

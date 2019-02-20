@@ -52,7 +52,6 @@ class EmeraldBulletPagerTest {
         assertEquals(1, pager.emeraldTabLayout.tabCount)
     }
 
-
     @Test
     fun `Should change page width when set adapter is called with width`() {
         val testWidth = 0.1f
