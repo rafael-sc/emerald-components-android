@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 0.5.1 - 2019-01-31
+## 0.5.1 - 2019-02-20
 
 ### Modified
 - [Updates view pager layout][issue-85]
