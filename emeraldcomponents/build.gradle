@@ -53,7 +53,7 @@ dependencies {
     deployerJars "io.packagecloud.maven.wagon:maven-packagecloud-wagon:0.0.6"
 
     testImplementation "junit:junit:$junit_version"
-    testImplementation "org.robolectric:robolectric:$roboletric_version"
+    testImplementation "org.robolectric:robolectric:4.1"
     testImplementation "org.powermock:powermock-module-junit4:$powermock_version"
     testImplementation "org.powermock:powermock-module-junit4-rule:$powermock_version"
     testImplementation "org.powermock:powermock-classloading-xstream:$powermock_version"

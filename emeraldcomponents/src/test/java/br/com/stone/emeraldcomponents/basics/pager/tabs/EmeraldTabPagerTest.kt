@@ -1,7 +1,6 @@
 package br.com.stone.emeraldcomponents.basics.pager.tabs
 
 import android.support.v4.app.FragmentActivity
-import android.support.v4.content.ContextCompat
 import android.util.AttributeSet
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.pager.bullet.EmeraldBulletPager
@@ -47,10 +46,10 @@ class EmeraldTabPagerTest {
 
     @Test
     fun `Should set tabs when set adapter is called`() {
-        val iconId = R.drawable.abc_ic_ab_back_material
-        val item = EmeraldTabPagerItem(R.layout.widget_autocomplete, { }, "", iconId)
+        val testTitle = "test"
+        val item = EmeraldTabPagerItem(R.layout.widget_autocomplete,
+                { }, testTitle, R.drawable.abc_ic_ab_back_material)
         pager.setAdapter(listOf(item))
-        val expectedIcon = ContextCompat.getDrawable(pager.context, iconId)
-        assertEquals(expectedIcon, pager.emeraldTabLayout.getTabAt(0)?.icon)
+        assertEquals(testTitle, pager.emeraldTabLayout.getTabAt(0)?.text)
     }
 }
