@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 0.5.1 - 2019-01-31
+
+### Modified
+- [Updates view pager layout][issue-85]
+
 ## 0.5.0 - 2019-01-31
 
 ### Modified
@@ -107,4 +112,5 @@
 [issue-75]:https://github.com/stone-payments/emerald-components-android/issues/75
 [issue-81]:https://github.com/stone-payments/emerald-components-android/issues/81
 [issue-79]:https://github.com/stone-payments/emerald-components-android/issues/79
+[issue-85]:https://github.com/stone-payments/emerald-components-android/issues/85
 
