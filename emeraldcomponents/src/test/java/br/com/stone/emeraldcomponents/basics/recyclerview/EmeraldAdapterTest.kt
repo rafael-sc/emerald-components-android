@@ -1,6 +1,6 @@
 package br.com.stone.emeraldcomponents.basics.recyclerview
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.FrameLayout
 import br.com.stone.emeraldcomponents.R

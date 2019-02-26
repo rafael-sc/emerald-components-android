@@ -1,8 +1,7 @@
 package br.com.stone.emeraldcomponents.extension
 
-import android.support.v4.app.FragmentActivity
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -18,7 +17,7 @@ class ViewTest {
 
     @Test
     fun testViewGetActivity() {
-        val activity = Robolectric.buildActivity(FragmentActivity::class.java).create().get()
+        val activity = Robolectric.buildActivity(androidx.fragment.app.FragmentActivity::class.java).create().get()
         val view = View(activity)
         assertEquals(activity, view.getActivity())
     }

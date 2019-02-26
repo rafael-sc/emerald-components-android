@@ -1,7 +1,7 @@
 package br.com.stone.emeraldcomponents.basics.input
 
-import android.support.design.widget.TextInputLayout
-import android.support.v4.app.FragmentActivity
+import com.google.android.material.textfield.TextInputLayout
+import androidx.fragment.app.FragmentActivity
 import android.widget.EditText
 import android.widget.TextView
 import br.com.stone.emeraldcomponents.R

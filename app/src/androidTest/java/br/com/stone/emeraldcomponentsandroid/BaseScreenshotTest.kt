@@ -1,7 +1,7 @@
 package br.com.stone.emeraldcomponentsandroid
 
-import android.support.test.rule.ActivityTestRule
-import android.support.v7.app.AppCompatActivity
+import androidx.test.rule.ActivityTestRule
+import androidx.appcompat.app.AppCompatActivity
 import com.facebook.testing.screenshot.Screenshot
 
 /**

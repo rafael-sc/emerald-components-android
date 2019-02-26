@@ -1,7 +1,7 @@
 package br.com.stone.emeraldcomponents.basics.input
 
 import android.content.res.Configuration
-import android.support.v4.app.FragmentActivity
+import androidx.fragment.app.FragmentActivity
 import android.util.AttributeSet
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.input.EmeraldMaskedEditText

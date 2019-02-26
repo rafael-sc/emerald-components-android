@@ -1,8 +1,8 @@
 package br.com.stone.emeraldcomponents.basics.label
 
 import android.content.res.Resources
-import android.support.v4.content.ContextCompat
 import android.view.View
+import androidx.core.content.ContextCompat
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabel
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelType

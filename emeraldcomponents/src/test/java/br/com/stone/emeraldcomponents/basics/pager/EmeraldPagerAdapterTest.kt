@@ -1,6 +1,6 @@
 package br.com.stone.emeraldcomponents.basics.pager
 
-import android.support.constraint.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintLayout
 import android.view.View
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.pager.EmeraldPagerAdapter

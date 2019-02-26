@@ -1,8 +1,8 @@
 package br.com.stone.emeraldcomponents.basic.pager.tabs
 
 import android.content.Context
-import android.support.constraint.ConstraintLayout
 import android.util.AttributeSet
+import androidx.constraintlayout.widget.ConstraintLayout
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.pager.EmeraldPagerAdapter
 import br.com.stone.emeraldcomponents.extension.getActivity
