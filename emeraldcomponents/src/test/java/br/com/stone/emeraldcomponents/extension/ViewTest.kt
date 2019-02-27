@@ -2,12 +2,12 @@ package br.com.stone.emeraldcomponents.extension
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import androidx.test.core.app.ApplicationProvider
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 
 /**
  * Created by renan.silva on 19/04/2018.
@@ -24,13 +24,13 @@ class ViewTest {
 
     @Test(expected = Exception::class)
     fun testViewGetActivityWithoutFragmentActivity() {
-        val view = View(RuntimeEnvironment.application)
+        val view = View(ApplicationProvider.getApplicationContext())
         view.getActivity()
     }
 
     @Test
     fun testRecyclerViewSetUp() {
-        val recyclerView = RecyclerView(RuntimeEnvironment.application)
+        val recyclerView = RecyclerView(ApplicationProvider.getApplicationContext())
         val adapter = recyclerView.setUp(listOf(""), { 0 }, {})
         assertEquals(adapter.itemCount, 1)
     }

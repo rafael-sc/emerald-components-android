@@ -5,6 +5,7 @@ import android.content.res.Resources
 import android.graphics.drawable.GradientDrawable
 import android.view.View
 import android.widget.TextView
+import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabel
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelState
@@ -18,7 +19,6 @@ import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 
 /**
  * Created by renan.silva on 24/10/2018.
@@ -36,7 +36,7 @@ class EmeraldLabelStateTest {
     fun setup() {
         label = mock(EmeraldLabel::class.java)
         val textView = mock(TextView::class.java)
-        `when`(textView.context).thenReturn(RuntimeEnvironment.application)
+        `when`(textView.context).thenReturn(ApplicationProvider.getApplicationContext())
         `when`(label.emeraldLabelText).thenReturn(textView)
 
         background = mock(GradientDrawable::class.java)
@@ -65,14 +65,14 @@ class EmeraldLabelStateTest {
 
     @Test
     fun testSetPropertiesText() {
-        val label = EmeraldLabel(RuntimeEnvironment.application)
+        val label = EmeraldLabel(ApplicationProvider.getApplicationContext())
         EmeraldLabelState.TEXT.setProperties(label, testColor)
         assertEquals(View.VISIBLE, label.emeraldLabelImage.visibility)
     }
 
     @Test
     fun testGetLabelBackgroundDrawable() {
-        val label = EmeraldLabel(RuntimeEnvironment.application)
+        val label = EmeraldLabel(ApplicationProvider.getApplicationContext())
         val background = EmeraldLabelState.TEXT.getLabelBackgroundDrawable(label)
         assertNotNull(background)
     }

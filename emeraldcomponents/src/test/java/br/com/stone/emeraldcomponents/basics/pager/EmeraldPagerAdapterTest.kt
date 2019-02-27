@@ -1,7 +1,8 @@
 package br.com.stone.emeraldcomponents.basics.pager
 
-import androidx.constraintlayout.widget.ConstraintLayout
 import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.pager.EmeraldPagerAdapter
 import br.com.stone.emeraldcomponents.basic.pager.tabs.EmeraldTabPagerItem
@@ -12,7 +13,6 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 
 /**
  * Created by renan.silva on 19/04/2018.
@@ -27,8 +27,8 @@ class EmeraldPagerAdapterTest {
     @Before
     fun setup() {
         val item = EmeraldTabPagerItem(R.layout.widget_infoblockview, { })
-        adapter = EmeraldPagerAdapter(RuntimeEnvironment.application, listOf(item))
-        viewGroup = ConstraintLayout(RuntimeEnvironment.application)
+        adapter = EmeraldPagerAdapter(ApplicationProvider.getApplicationContext(), listOf(item))
+        viewGroup = ConstraintLayout(ApplicationProvider.getApplicationContext())
     }
 
     @Test
@@ -52,7 +52,7 @@ class EmeraldPagerAdapterTest {
 
     @Test
     fun `Should return false when view is not from object`() {
-        assertFalse(adapter.isViewFromObject(viewGroup, View(RuntimeEnvironment.application)))
+        assertFalse(adapter.isViewFromObject(viewGroup, View(ApplicationProvider.getApplicationContext())))
     }
 
     @Test
@@ -64,7 +64,7 @@ class EmeraldPagerAdapterTest {
     fun `Should return 1 when pagedWidth is set to 1 on constructor`() {
         val testWidth = 1f
         val item = EmeraldTabPagerItem(R.layout.widget_infoblockview, { })
-        val adapter = EmeraldPagerAdapter(RuntimeEnvironment.application, listOf(item), testWidth)
+        val adapter = EmeraldPagerAdapter(ApplicationProvider.getApplicationContext(), listOf(item), testWidth)
         assertEquals(testWidth, adapter.getPageWidth(0))
     }
 }

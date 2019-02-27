@@ -1,8 +1,9 @@
 package br.com.stone.emeraldcomponents.extension
 
 import android.annotation.TargetApi
-import androidx.test.InstrumentationRegistry
-import androidx.test.runner.AndroidJUnit4
+import android.content.Context
+import androidx.test.core.app.ApplicationProvider
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import br.com.stone.emeraldcomponents.R
 import org.junit.Assert
 import org.junit.Test
@@ -19,7 +20,7 @@ import java.util.Calendar
 @TargetApi(19)
 class CalendarAndroidTest {
 
-    private val context = InstrumentationRegistry.getContext()
+    private val context: Context = ApplicationProvider.getApplicationContext()
 
     @Test
     fun testFormatWithDateSelectorDayPattern() {

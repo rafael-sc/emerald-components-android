@@ -1,8 +1,9 @@
 package br.com.stone.emeraldcomponents.basics.recyclerview
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.widget.FrameLayout
+import androidx.recyclerview.widget.RecyclerView
+import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.recyclerview.AbstractAdapter
 import br.com.stone.emeraldcomponents.basic.recyclerview.SlingAdapter
@@ -13,7 +14,6 @@ import org.junit.runner.RunWith
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 
 @RunWith(RobolectricTestRunner::class)
 class EmeraldAdapterTest {
@@ -31,16 +31,16 @@ class EmeraldAdapterTest {
 
     @Test
     fun testOnBindViewHolder() {
-        adapter.onBindViewHolder(AbstractAdapter.Holder(View(RuntimeEnvironment.application)), 0)
+        adapter.onBindViewHolder(AbstractAdapter.Holder(View(ApplicationProvider.getApplicationContext())), 0)
         verify(mockObject).size
     }
 
     @Test
     fun testOnItemClick() {
-        val recyclerView = RecyclerView(RuntimeEnvironment.application)
+        val recyclerView = RecyclerView(ApplicationProvider.getApplicationContext())
         recyclerView.adapter = adapter
         val viewHolder = adapter.onCreateViewHolder(
-                FrameLayout(RuntimeEnvironment.application), R.layout.test_layout)
+                FrameLayout(ApplicationProvider.getApplicationContext()), R.layout.test_layout)
         adapter.onBindViewHolder(viewHolder, 0)
         viewHolder.itemView.performClick()
     }

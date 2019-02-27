@@ -3,6 +3,7 @@ package br.com.stone.emeraldcomponents.basics.label
 import android.content.res.Resources
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabel
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelType
@@ -19,7 +20,6 @@ import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 
 /**
  * Created by renan.silva on 23/10/2018.
@@ -33,12 +33,12 @@ class EmeraldLabelTest {
 
     @Before
     fun setup() {
-        label = EmeraldLabel(RuntimeEnvironment.application)
+        label = EmeraldLabel(ApplicationProvider.getApplicationContext())
     }
 
     @Test
     fun testInstanceWithContext() {
-        val view = EmeraldLabel(RuntimeEnvironment.application)
+        val view = EmeraldLabel(ApplicationProvider.getApplicationContext())
         Assert.assertNotNull(view)
     }
 
@@ -46,7 +46,7 @@ class EmeraldLabelTest {
     fun testInstanceWithAttributeSet() {
         val attrs = Robolectric.buildAttributeSet()
                 .build()
-        val view = EmeraldLabel(RuntimeEnvironment.application, attrs)
+        val view = EmeraldLabel(ApplicationProvider.getApplicationContext(), attrs)
         Assert.assertNotNull(view)
     }
 
@@ -71,7 +71,7 @@ class EmeraldLabelTest {
 
         verify(typeMock).color
         verify(stateMock).setProperties(label,
-                ContextCompat.getColor(RuntimeEnvironment.application, colorResource))
+                ContextCompat.getColor(ApplicationProvider.getApplicationContext(), colorResource))
         verify(sizeMock).setDimensions(label.emeraldLabelText)
     }
 
@@ -83,7 +83,7 @@ class EmeraldLabelTest {
         label.setCustomColor(stateMock, customColor)
 
         verify(stateMock).setProperties(label,
-                ContextCompat.getColor(RuntimeEnvironment.application, customColor))
+                ContextCompat.getColor(ApplicationProvider.getApplicationContext(), customColor))
     }
 
     @Test(expected = Resources.NotFoundException::class)
