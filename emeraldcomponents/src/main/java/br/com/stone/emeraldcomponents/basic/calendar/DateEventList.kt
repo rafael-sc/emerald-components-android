@@ -34,7 +34,7 @@ class DateEventList : RecyclerView {
     internal val events: MutableList<MutableList<DateEvent>> = mutableListOf()
 
     @Suppress("UNCHECKED_CAST")
-    var itemClickListener: List<DateEvent>.() -> Unit = {}
+    var itemClickListener: List<DateEvent>.(View) -> Unit = {}
         set(value) {
             field = value
             (adapter as SlingAdapter<List<DateEvent>>).itemClick = value
@@ -92,13 +92,13 @@ class DateEventList : RecyclerView {
     init {
         setUp(events, {
             R.layout.widget_event_list_item
-        }, {
+        }, { dateEventList ->
             applyStyle(this)
 
-            emeraldEventDay.text = it.firstOrNull()?.day.toString()
-            emeraldDayOfWeek.text = it.firstOrNull()?.date?.format(WEEK_PATTERN)
+            emeraldEventDay.text = dateEventList.firstOrNull()?.day.toString()
+            emeraldDayOfWeek.text = dateEventList.firstOrNull()?.date?.format(WEEK_PATTERN)
 
-            emeraldEventList.setUp(it, { R.layout.event_list_content_item }, {
+            emeraldEventList.setUp(dateEventList, { R.layout.event_list_content_item }, {
                 with(this.emeraldEventTitle) {
                     text = it.spannable ?: ( it.title ?: "")
                     setBackgroundColor(ContextCompat.getColor(context, it.color))
@@ -110,10 +110,10 @@ class DateEventList : RecyclerView {
                     }
                 }
             }, {
-                itemClickListener(it)
+                itemClickListener(dateEventList, it)
             })
 
-            emeraldDateContainer.isSelected = it.firstOrNull()?.day == selectedEvent?.day()
+            emeraldDateContainer.isSelected = dateEventList.firstOrNull()?.day == selectedEvent?.day()
 
             if (emeraldDateContainer.isSelected) {
                 emeraldDateContainer.background.colorFilter =
