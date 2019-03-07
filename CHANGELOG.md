@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## 0.6.0 - 2019-03-07
 
 ### Modified
 - [Provides view on recycler view click][issue-90]
