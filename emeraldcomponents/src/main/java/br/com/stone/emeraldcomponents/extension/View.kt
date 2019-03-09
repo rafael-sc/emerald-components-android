@@ -26,7 +26,7 @@ fun View.getActivity(): androidx.fragment.app.FragmentActivity {
 fun <ITEM> RecyclerView.setUp(items: List<ITEM>,
                               defineViewType: (Int) -> Int,
                               bindHolder: View.(ITEM) -> Unit,
-                              itemClick: ITEM.() -> Unit = {},
+                              itemClick: ITEM.(View) -> Unit = {},
                               manager: RecyclerView.LayoutManager =
                                       LinearLayoutManager(this.context)): SlingAdapter<ITEM> {
     val emeraldAdapter by lazy {

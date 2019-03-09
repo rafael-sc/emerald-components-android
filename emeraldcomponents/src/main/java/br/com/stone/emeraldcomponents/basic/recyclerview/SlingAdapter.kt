@@ -11,11 +11,11 @@ class SlingAdapter<ITEM>(
         private val bindHolder: View.(ITEM) -> Unit
 ) : AbstractAdapter<ITEM>() {
 
-    var itemClick: ITEM.() -> Unit = {}
+    var itemClick: ITEM.(View) -> Unit = {}
 
     constructor(defineViewType: (Int) -> Int,
                 bindHolder: View.(ITEM) -> Unit,
-                itemClick: ITEM.() -> Unit = {}) : this(defineViewType, bindHolder) {
+                itemClick: ITEM.(View) -> Unit = {}) : this(defineViewType, bindHolder) {
         this.itemClick = itemClick
     }
 
@@ -24,7 +24,7 @@ class SlingAdapter<ITEM>(
     }
 
     override fun onItemClick(itemView: View, position: Int) {
-        itemList[position].itemClick()
+        itemList[position].itemClick(itemView)
     }
 
     override fun getItemViewType(position: Int): Int {

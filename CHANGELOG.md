@@ -3,7 +3,12 @@
 ## UNRELEASED
 
 ### Modified
--Updates to AndroidX
+- Updates to AndroidX
+
+## 0.6.0 - 2019-03-07
+
+### Modified
+- [Provides view on recycler view click][issue-90]
 
 ## 0.5.1 - 2019-02-20
 
@@ -118,4 +123,5 @@
 [issue-81]:https://github.com/stone-payments/emerald-components-android/issues/81
 [issue-79]:https://github.com/stone-payments/emerald-components-android/issues/79
 [issue-85]:https://github.com/stone-payments/emerald-components-android/issues/85
+[issue-90]:https://github.com/stone-payments/emerald-components-android/issues/90
 
