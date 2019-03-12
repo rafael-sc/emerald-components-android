@@ -1,6 +1,7 @@
 package br.com.stone.emeraldcomponents.basics.spinner
 
 import android.widget.AdapterView
+import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.basic.spinner.EmeraldSpinner
 import org.junit.Assert
 import org.junit.Before
@@ -13,7 +14,6 @@ import org.mockito.Mockito.mock
 import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 
 /**
  * Created by renan.silva on 19/07/2018.
@@ -27,7 +27,7 @@ class EmeraldSpinnerTest {
 
     @Before
     fun setup() {
-        spinner = EmeraldSpinner(RuntimeEnvironment.application)
+        spinner = EmeraldSpinner(ApplicationProvider.getApplicationContext())
     }
 
     @Test

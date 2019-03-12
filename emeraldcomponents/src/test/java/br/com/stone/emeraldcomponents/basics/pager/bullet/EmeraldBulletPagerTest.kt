@@ -1,12 +1,12 @@
 package br.com.stone.emeraldcomponents.basics.pager.bullet
 
-import android.support.v4.app.FragmentActivity
 import android.util.AttributeSet
+import androidx.fragment.app.FragmentActivity
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.pager.bullet.EmeraldBulletPager
 import br.com.stone.emeraldcomponents.basic.pager.bullet.EmeraldBulletPagerItem
 import br.com.stone.emeraldcomponents.extension.toDip
-import kotlinx.android.synthetic.main.widget_tab_pager.view.*
+import kotlinx.android.synthetic.main.widget_bullet_pager.view.*
 import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Before

@@ -1,6 +1,6 @@
 package br.com.stone.emeraldcomponents.basics.calendar
 
-import android.support.v4.app.FragmentActivity
+import androidx.fragment.app.FragmentActivity
 import br.com.stone.emeraldcomponents.basic.calendar.EmeraldDateFilterOptions
 import br.com.stone.emeraldcomponents.extension.day
 import org.junit.Assert.assertEquals

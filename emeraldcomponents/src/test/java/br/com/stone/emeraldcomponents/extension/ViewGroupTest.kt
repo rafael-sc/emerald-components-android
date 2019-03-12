@@ -1,14 +1,15 @@
 package br.com.stone.emeraldcomponents.extension
 
+import android.content.Context
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.test.core.app.ApplicationProvider
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 
 /**
  * Created by renan.silva on 04/06/2018.
@@ -20,7 +21,7 @@ class ViewGroupTest {
 
     @Test
     fun testGetAllChildren() {
-        val context = RuntimeEnvironment.application
+        val context = ApplicationProvider.getApplicationContext<Context>()
         val viewgroup: ViewGroup = LinearLayout(context)
         val editText = EditText(context)
         val textView = TextView(context)

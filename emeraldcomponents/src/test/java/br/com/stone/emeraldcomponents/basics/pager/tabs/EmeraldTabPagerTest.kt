@@ -1,6 +1,6 @@
 package br.com.stone.emeraldcomponents.basics.pager.tabs
 
-import android.support.v4.app.FragmentActivity
+import androidx.fragment.app.FragmentActivity
 import android.util.AttributeSet
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.pager.bullet.EmeraldBulletPager

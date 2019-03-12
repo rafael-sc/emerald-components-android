@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.basic.forms.FormController
 import br.com.stone.emeraldcomponents.basic.input.SelfValidatorField
 import org.junit.Assert.assertFalse
@@ -15,7 +16,6 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 
 /**
  * Created by renan.silva on 04/06/2018.
@@ -37,7 +37,7 @@ class FormControllerTest {
 
     @Before
     fun setup() {
-        context = RuntimeEnvironment.application
+        context = ApplicationProvider.getApplicationContext()
         parentView = LinearLayout(context)
     }
 

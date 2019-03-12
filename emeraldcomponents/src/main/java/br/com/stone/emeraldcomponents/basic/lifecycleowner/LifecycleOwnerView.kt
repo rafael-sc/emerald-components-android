@@ -1,8 +1,8 @@
 package br.com.stone.emeraldcomponents.basic.lifecycleowner
 
-import android.arch.lifecycle.Lifecycle
-import android.arch.lifecycle.LifecycleOwner
-import android.arch.lifecycle.LifecycleRegistry
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LifecycleRegistry
 
 /**
  * Created by renan.silva on 02/02/2018.

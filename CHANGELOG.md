@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## UNRELEASED
+
+### Modified
+- Updates to AndroidX
+
 ## 0.6.0 - 2019-03-07
 
 ### Modified

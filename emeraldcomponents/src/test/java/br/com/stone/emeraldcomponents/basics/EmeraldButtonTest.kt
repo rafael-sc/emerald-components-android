@@ -1,6 +1,7 @@
 package br.com.stone.emeraldcomponents.basics
 
 import android.graphics.drawable.StateListDrawable
+import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.EmeraldButton
 import br.com.stone.emeraldcomponents.extension.colorRes
@@ -12,7 +13,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 
 /**
  * Created on 25/05/2018
@@ -28,12 +28,12 @@ class EmeraldButtonTest {
 
     @Before
     fun setup() {
-        button = EmeraldButton(RuntimeEnvironment.application)
+        button = EmeraldButton(ApplicationProvider.getApplicationContext())
     }
 
     @Test
     fun testInstanceWithContext() {
-        val view = EmeraldButton(RuntimeEnvironment.application)
+        val view = EmeraldButton(ApplicationProvider.getApplicationContext())
         Assert.assertNotNull(view)
     }
 
@@ -45,7 +45,7 @@ class EmeraldButtonTest {
                 .addAttribute(R.attr.emeraldButtonRadius, "10")
                 .build()
 
-        val view = EmeraldButton(RuntimeEnvironment.application, attrs)
+        val view = EmeraldButton(ApplicationProvider.getApplicationContext(), attrs)
 
         Assert.assertEquals(view.type, EmeraldButton.ButtonType.CONFIRM)
         Assert.assertEquals(view.style, EmeraldButton.ButtonStyle.FILLED)
