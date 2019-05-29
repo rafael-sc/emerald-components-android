@@ -1,7 +1,6 @@
 package br.com.stone.emeraldcomponents.basics.input
 
 import android.support.v4.app.FragmentActivity
-import android.util.AttributeSet
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.input.EmeraldAutoCompleteEditText
 import kotlinx.android.synthetic.main.widget_autocomplete.view.*
@@ -12,7 +11,6 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
 
@@ -22,7 +20,7 @@ import org.robolectric.RobolectricTestRunner
  * renan.silva@stone.com.br
  */
 @RunWith(RobolectricTestRunner::class)
-class SlingAutoCompleteTextViewTest {
+class EmeraldAutoCompleteEditTextTest {
 
     private lateinit var view: EmeraldAutoCompleteEditText
 
@@ -43,7 +41,7 @@ class SlingAutoCompleteTextViewTest {
     @Test
     fun testInstanceWithAttributeSet() {
         val emeraldAutoCompleteTextView = EmeraldAutoCompleteEditText(activity,
-                Mockito.mock(AttributeSet::class.java))
+                Robolectric.buildAttributeSet().build())
         Assert.assertNotNull(emeraldAutoCompleteTextView)
     }
 

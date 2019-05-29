@@ -1,12 +1,11 @@
 package br.com.stone.emeraldcomponents.basics.pager
 
-import android.util.AttributeSet
 import br.com.stone.emeraldcomponents.basic.pager.EmeraldViewPager
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito
+import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
 
@@ -33,7 +32,7 @@ class EmeraldViewPagerTest {
 
     @Test
     fun `Should not be null when instanced with context and attribute set`() {
-        val view = EmeraldViewPager(RuntimeEnvironment.application, Mockito.mock(AttributeSet::class.java))
+        val view = EmeraldViewPager(RuntimeEnvironment.application, Robolectric.buildAttributeSet().build())
         Assert.assertNotNull(view)
     }
 }
