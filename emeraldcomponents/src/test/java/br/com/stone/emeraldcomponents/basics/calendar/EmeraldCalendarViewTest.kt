@@ -1,6 +1,5 @@
 package br.com.stone.emeraldcomponents.basics.calendar
 
-import android.util.AttributeSet
 import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.calendar.EmeraldCalendarView
@@ -25,7 +24,7 @@ class EmeraldCalendarViewTest {
 
     @Test
     fun testInstanceWithAttributeSet() {
-        val view = EmeraldCalendarView(context, Robolectric.buildAttributeSet().build())
+        val view = EmeraldCalendarView(ApplicationProvider.getApplicationContext(), Robolectric.buildAttributeSet().build())
         Assert.assertNotNull(view)
     }
 
