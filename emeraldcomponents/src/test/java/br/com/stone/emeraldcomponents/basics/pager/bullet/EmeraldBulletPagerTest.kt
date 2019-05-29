@@ -1,7 +1,6 @@
 package br.com.stone.emeraldcomponents.basics.pager.bullet
 
 import android.support.v4.app.FragmentActivity
-import android.util.AttributeSet
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.pager.bullet.EmeraldBulletPager
 import br.com.stone.emeraldcomponents.basic.pager.bullet.EmeraldBulletPagerItem
@@ -12,7 +11,6 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
 
@@ -41,7 +39,7 @@ class EmeraldBulletPagerTest {
 
     @Test
     fun `Should not be null when instanced with context and attribute set`() {
-        val pager = EmeraldBulletPager(activity, Mockito.mock(AttributeSet::class.java))
+        val pager = EmeraldBulletPager(activity, Robolectric.buildAttributeSet().build())
         Assert.assertNotNull(pager)
     }
 

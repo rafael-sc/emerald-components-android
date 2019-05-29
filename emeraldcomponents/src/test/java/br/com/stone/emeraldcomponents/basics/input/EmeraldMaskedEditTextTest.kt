@@ -2,7 +2,6 @@ package br.com.stone.emeraldcomponents.basics.input
 
 import android.content.res.Configuration
 import android.support.v4.app.FragmentActivity
-import android.util.AttributeSet
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.input.EmeraldMaskedEditText
 import org.junit.Assert
@@ -10,7 +9,6 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito.mock
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.RuntimeEnvironment
@@ -37,7 +35,8 @@ class EmeraldMaskedEditTextTest {
 
     @Test
     fun testInstanceWithAttributeSet() {
-        val view = EmeraldMaskedEditText(RuntimeEnvironment.application, mock(AttributeSet::class.java))
+        val view = EmeraldMaskedEditText(RuntimeEnvironment.application,
+                Robolectric.buildAttributeSet().build())
         Assert.assertNotNull(view)
     }
 
