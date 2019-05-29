@@ -38,7 +38,7 @@ class EmeraldTabPagerTest {
 
     @Test
     fun `Should not be null when instanced with context and attribute set`() {
-        val pager = EmeraldBulletPager(activity,Robolectric.buildAttributeSet().build())
+        val pager = EmeraldBulletPager(activity, Robolectric.buildAttributeSet().build())
         Assert.assertNotNull(pager)
     }
 
