@@ -1,10 +1,10 @@
 package br.com.stone.emeraldcomponentsandroid.activities
 
-import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.action.ViewActions.swipeLeft
-import android.support.test.espresso.action.ViewActions.swipeRight
-import android.support.test.espresso.matcher.ViewMatchers.withId
-import android.support.v7.app.AppCompatActivity
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.swipeLeft
+import androidx.test.espresso.action.ViewActions.swipeRight
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.appcompat.app.AppCompatActivity
 import br.com.stone.emeraldcomponentsandroid.BaseScreenshotTest
 import br.com.stone.emeraldcomponentsandroid.R
 import org.junit.Rule

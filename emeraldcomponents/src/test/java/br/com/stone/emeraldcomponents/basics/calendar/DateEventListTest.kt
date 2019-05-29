@@ -4,6 +4,7 @@ import android.graphics.Typeface
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.StyleSpan
+import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.calendar.DateEvent
 import br.com.stone.emeraldcomponents.basic.calendar.DateEventList
@@ -18,7 +19,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 import java.util.Calendar
 
 @RunWith(RobolectricTestRunner::class)
@@ -28,7 +28,7 @@ class DateEventListTest {
 
     @Before
     fun setup() {
-        eventList = DateEventList(RuntimeEnvironment.application)
+        eventList = DateEventList(ApplicationProvider.getApplicationContext())
     }
 
     @Test
@@ -76,7 +76,7 @@ class DateEventListTest {
                 .addAttribute(R.attr.color, "@android:color/white")
                 .build()
 
-        val view = DateEventList(RuntimeEnvironment.application, attrs)
+        val view = DateEventList(ApplicationProvider.getApplicationContext(), attrs)
         Assert.assertNotNull(view)
     }
 

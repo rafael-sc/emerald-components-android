@@ -2,12 +2,12 @@ package br.com.stone.emeraldcomponentsandroid.activities
 
 import android.graphics.Typeface
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.StyleSpan
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import br.com.stone.emeraldcomponents.basic.calendar.DateEvent
 import br.com.stone.emeraldcomponents.extension.day
 import br.com.stone.emeraldcomponents.extension.format

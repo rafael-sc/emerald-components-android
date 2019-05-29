@@ -1,8 +1,8 @@
 package br.com.stone.emeraldcomponents.basics.calendar
 
 import android.app.DatePickerDialog
-import android.support.v4.app.FragmentActivity
 import android.view.View
+import androidx.fragment.app.FragmentActivity
 import br.com.stone.emeraldcomponents.basic.calendar.EmeraldDateSelector
 import br.com.stone.emeraldcomponents.extension.format
 import br.com.stone.emeraldcomponents.extension.month

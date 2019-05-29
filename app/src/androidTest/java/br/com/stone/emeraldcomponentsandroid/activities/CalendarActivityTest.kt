@@ -1,16 +1,16 @@
 package br.com.stone.emeraldcomponentsandroid.activities
 
 
-import android.support.test.espresso.Espresso.onData
-import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.action.ViewActions.click
-import android.support.test.espresso.assertion.ViewAssertions.matches
-import android.support.test.espresso.contrib.RecyclerViewActions
-import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
-import android.support.test.espresso.matcher.ViewMatchers.withId
-import android.support.test.espresso.matcher.ViewMatchers.withText
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
+import androidx.test.espresso.Espresso.onData
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import br.com.stone.emeraldcomponentsandroid.BaseScreenshotTest
 import br.com.stone.emeraldcomponentsandroid.R
 import org.hamcrest.CoreMatchers.allOf

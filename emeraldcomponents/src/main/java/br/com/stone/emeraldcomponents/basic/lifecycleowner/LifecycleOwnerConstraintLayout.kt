@@ -1,8 +1,8 @@
 package br.com.stone.emeraldcomponents.basic.lifecycleowner
 
-import android.arch.lifecycle.LifecycleRegistry
+import androidx.lifecycle.LifecycleRegistry
 import android.content.Context
-import android.support.constraint.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintLayout
 import android.util.AttributeSet
 
 /**

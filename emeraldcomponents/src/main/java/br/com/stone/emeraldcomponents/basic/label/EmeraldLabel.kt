@@ -2,10 +2,10 @@ package br.com.stone.emeraldcomponents.basic.label
 
 import android.content.Context
 import android.graphics.PorterDuff
-import android.support.constraint.ConstraintLayout
-import android.support.v4.content.ContextCompat
 import android.util.AttributeSet
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.extension.show
 import kotlinx.android.synthetic.main.widget_emerald_label.view.*

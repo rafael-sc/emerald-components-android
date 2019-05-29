@@ -2,13 +2,13 @@ package br.com.stone.emeraldcomponents.basics.input
 
 import android.text.SpannableStringBuilder
 import android.widget.EditText
+import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.basic.input.CurrencyTextWatcher
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 import java.util.Locale
 
 /**
@@ -25,7 +25,7 @@ class CurrencyTextWatcherTest {
 
     @Before
     fun setup() {
-        editText = EditText(RuntimeEnvironment.application)
+        editText = EditText(ApplicationProvider.getApplicationContext())
         textWatcher = CurrencyTextWatcher(editText, Locale("pt", "BR"))
     }
 

@@ -1,10 +1,9 @@
 package br.com.stone.emeraldcomponents.extension
 
 import android.content.ContextWrapper
-import android.support.v4.app.FragmentActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import br.com.stone.emeraldcomponents.basic.recyclerview.SlingAdapter
 import br.com.stone.emeraldcomponents.common.ParentActivityException
 
@@ -12,11 +11,11 @@ import br.com.stone.emeraldcomponents.common.ParentActivityException
  * Created by renan.silva on 18/04/2018.
  */
 
-fun View.getActivity(): FragmentActivity {
+fun View.getActivity(): androidx.fragment.app.FragmentActivity {
     // encontra a activity para criar o viewmodel, segundo o https://twitter.com/ubiratanfsoares vai dar certo
     var context = context
     while (context is ContextWrapper) {
-        if (context is FragmentActivity) {
+        if (context is androidx.fragment.app.FragmentActivity) {
             return context
         }
         context = context.baseContext
