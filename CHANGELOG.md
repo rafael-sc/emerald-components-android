@@ -5,6 +5,11 @@
 ### Modified
 - Updates to AndroidX
 
+## 0.6.1 - 2019-05-29
+
+### Fixed
+- [Fix NumberFormatException on CurrencyTextWatcher][issue-95]
+
 ## 0.6.0 - 2019-03-07
 
 ### Modified
@@ -124,4 +129,5 @@
 [issue-79]:https://github.com/stone-payments/emerald-components-android/issues/79
 [issue-85]:https://github.com/stone-payments/emerald-components-android/issues/85
 [issue-90]:https://github.com/stone-payments/emerald-components-android/issues/90
+[issue-95]:https://github.com/stone-payments/emerald-components-android/issues/95
 

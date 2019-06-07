@@ -12,7 +12,6 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito.mock
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
 import java.util.Locale
@@ -39,7 +38,8 @@ class EmeraldMaskedEditTextTest {
 
     @Test
     fun testInstanceWithAttributeSet() {
-        val view = EmeraldMaskedEditText(ApplicationProvider.getApplicationContext(), mock(AttributeSet::class.java))
+        val view = EmeraldMaskedEditText(ApplicationProvider.getApplicationContext(),
+                Robolectric.buildAttributeSet().build())
         Assert.assertNotNull(view)
     }
 

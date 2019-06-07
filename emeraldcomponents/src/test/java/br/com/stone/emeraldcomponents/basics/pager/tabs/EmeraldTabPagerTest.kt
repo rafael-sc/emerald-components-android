@@ -12,7 +12,6 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
 
@@ -40,7 +39,7 @@ class EmeraldTabPagerTest {
 
     @Test
     fun `Should not be null when instanced with context and attribute set`() {
-        val pager = EmeraldBulletPager(activity, Mockito.mock(AttributeSet::class.java))
+        val pager = EmeraldBulletPager(activity, Robolectric.buildAttributeSet().build())
         Assert.assertNotNull(pager)
     }
 

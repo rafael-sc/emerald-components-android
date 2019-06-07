@@ -1,6 +1,5 @@
 package br.com.stone.emeraldcomponents.basics.calendar
 
-import android.util.AttributeSet
 import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.calendar.EmeraldCalendarView
@@ -8,10 +7,10 @@ import com.prolificinteractive.materialcalendarview.CalendarDay
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito
 import org.mockito.Mockito.any
 import org.mockito.Mockito.spy
 import org.mockito.Mockito.verify
+import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
 
 @RunWith(RobolectricTestRunner::class)
@@ -25,7 +24,7 @@ class EmeraldCalendarViewTest {
 
     @Test
     fun testInstanceWithAttributeSet() {
-        val view = EmeraldCalendarView(ApplicationProvider.getApplicationContext(), Mockito.mock(AttributeSet::class.java))
+        val view = EmeraldCalendarView(ApplicationProvider.getApplicationContext(), Robolectric.buildAttributeSet().build())
         Assert.assertNotNull(view)
     }
 

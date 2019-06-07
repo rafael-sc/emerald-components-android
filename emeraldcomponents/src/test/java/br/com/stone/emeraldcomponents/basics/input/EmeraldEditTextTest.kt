@@ -44,7 +44,7 @@ class EmeraldEditTextTest {
     @Test
     fun testInstanceWithAttributeSet() {
         val emeraldAutoCompleteTextView = EmeraldEditText(activity,
-                Mockito.mock(AttributeSet::class.java))
+                Robolectric.buildAttributeSet().build())
         assertNotNull(emeraldAutoCompleteTextView)
     }
 
