@@ -2,6 +2,9 @@
 
 ## UNRELEASED
 
+### Added
+- [Variable MaxDateRange to DateFilterComponent][issue-99]
+
 ### Modified
 - Updates to AndroidX
 
@@ -130,4 +133,5 @@
 [issue-85]:https://github.com/stone-payments/emerald-components-android/issues/85
 [issue-90]:https://github.com/stone-payments/emerald-components-android/issues/90
 [issue-95]:https://github.com/stone-payments/emerald-components-android/issues/95
+[issue-99]:https://github.com/stone-payments/emerald-components-android/issues/99
 
