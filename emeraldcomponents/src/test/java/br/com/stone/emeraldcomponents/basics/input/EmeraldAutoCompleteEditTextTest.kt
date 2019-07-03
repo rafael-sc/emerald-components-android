@@ -1,6 +1,5 @@
 package br.com.stone.emeraldcomponents.basics.input
 
-import android.util.AttributeSet
 import androidx.fragment.app.FragmentActivity
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.input.EmeraldAutoCompleteEditText
