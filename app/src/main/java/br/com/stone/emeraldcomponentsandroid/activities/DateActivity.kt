@@ -27,5 +27,7 @@ class DateActivity : AppCompatActivity() {
                     startDate.format("dd/MM/yy") + " até " + endDate.format("dd/MM/yy")
                     , Toast.LENGTH_SHORT).show()
         }
+
+        emeraldDateFilter.maxDaysRange = 31
     }
 }

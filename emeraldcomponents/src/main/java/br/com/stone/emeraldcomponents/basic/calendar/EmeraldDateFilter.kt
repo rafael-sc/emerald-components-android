@@ -14,6 +14,7 @@ import br.com.stone.emeraldcomponents.extension.format
 import br.com.stone.emeraldcomponents.extension.hide
 import br.com.stone.emeraldcomponents.extension.month
 import br.com.stone.emeraldcomponents.extension.show
+import br.com.stone.emeraldcomponents.extension.toStartOfDay
 import br.com.stone.emeraldcomponents.extension.year
 import kotlinx.android.synthetic.main.widget_date_filter.view.*
 import java.util.Calendar
@@ -41,6 +42,8 @@ class EmeraldDateFilter : ConstraintLayout {
 
     var currentFilterType: EmeraldDateFilterOptions = EmeraldDateFilterOptions.TODAY
         private set
+
+    var maxDaysRange: Int? = null
 
     private var filterChangedListener: (startDate: Calendar, endDate: Calendar) -> Unit = { _, _ -> }
 
@@ -106,9 +109,11 @@ class EmeraldDateFilter : ConstraintLayout {
         emeraldDateFilterStartDate.setOnClickListener {
             val datePickerDialogListener = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
                 val selected = Calendar.getInstance().apply { set(year, month, dayOfMonth) }
-                startDate = if (isValidDateRange(selected, endDate)) selected else endDate
-                emeraldDateFilterStartDate.text = startDate.format(datePatternString)
-                filterChangedListener(startDate, endDate)
+                if (isValidDateRange(selected, endDate)) {
+                    startDate = selected
+                    emeraldDateFilterStartDate.text = startDate.format(datePatternString)
+                    filterChangedListener(startDate, endDate)
+                }
             }
             DatePickerDialog(context, 0, datePickerDialogListener,
                     startDate.year(), startDate.month(), startDate.day()).show()
@@ -117,9 +122,11 @@ class EmeraldDateFilter : ConstraintLayout {
         emeraldDateFilterEndDate.setOnClickListener {
             val datePickerDialogListener = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
                 val selected = Calendar.getInstance().apply { set(year, month, dayOfMonth) }
-                endDate = if (isValidDateRange(startDate, selected)) selected else startDate
-                emeraldDateFilterEndDate.text = endDate.format(datePatternString)
-                filterChangedListener(startDate, endDate)
+                if (isValidDateRange(startDate, selected)) {
+                    endDate = selected
+                    emeraldDateFilterEndDate.text = endDate.format(datePatternString)
+                    filterChangedListener(startDate, endDate)
+                }
             }
             DatePickerDialog(context, 0, datePickerDialogListener,
                     endDate.year(), endDate.month(), endDate.day()).show()
@@ -127,12 +134,19 @@ class EmeraldDateFilter : ConstraintLayout {
     }
 
     internal fun isValidDateRange(start: Calendar, end: Calendar): Boolean {
-        return if (start.time.after(end.time)) {
-            showInvalidCustomDateFilterMessage()
-            false
-        } else {
-            true
+        val differenceBetweenDates = end.toStartOfDay().timeInMillis - start.toStartOfDay().timeInMillis
+        val amountOfDays = end.get(Calendar.DAY_OF_YEAR) - start.get(Calendar.DAY_OF_YEAR) + 1
+
+        when {
+            differenceBetweenDates < 0 ->
+                showToastError(context.getString(R.string.emerald_date_filter_startdate_after_enddate_error))
+            maxDaysRange != null && amountOfDays > maxDaysRange?.toLong() ?: 0L ->
+                showToastError(context.getString(R.string.emerald_date_filter_range_bigger_then_range_error))
+            else ->
+                return true
         }
+
+        return false
     }
 
     private fun refreshTitleAndDate() {
@@ -165,9 +179,8 @@ class EmeraldDateFilter : ConstraintLayout {
         }
     }
 
-    private fun showInvalidCustomDateFilterMessage() {
-        Toast.makeText(context, context.getString(R.string.emerald_date_filter_invalid_custom_date_message),
-                Toast.LENGTH_SHORT).show()
+    private fun showToastError(message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun onSaveInstanceState(): Parcelable {

@@ -12,3 +12,14 @@ fun Calendar.year(): Int = get(Calendar.YEAR)
 
 fun Calendar.format(pattern: String, locale: Locale = Locale("PT", "BR")): String =
         SimpleDateFormat(pattern, locale).format(this.time)
+
+fun Calendar.toStartOfDay(): Calendar {
+    val calendar = clone() as Calendar
+    calendar.apply {
+        set(Calendar.HOUR_OF_DAY, 0)
+        set(Calendar.MINUTE, 0)
+        set(Calendar.SECOND, 0)
+        set(Calendar.MILLISECOND, 0)
+    }
+    return calendar
+}
