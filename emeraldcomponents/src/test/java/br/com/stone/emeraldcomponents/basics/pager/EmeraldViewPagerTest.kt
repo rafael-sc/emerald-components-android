@@ -1,6 +1,5 @@
 package br.com.stone.emeraldcomponents.basics.pager
 
-import android.util.AttributeSet
 import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.basic.pager.EmeraldViewPager
 import org.junit.Assert

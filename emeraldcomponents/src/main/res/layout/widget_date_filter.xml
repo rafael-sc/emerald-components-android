@@ -75,9 +75,10 @@
 
         <TextView
             android:id="@+id/emeraldDateFilterStartDate"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:paddingBottom="16dp"
+            android:gravity="center"
             android:textColor="@color/emerald_date_filter_green"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/emeraldDateSeparationView"
@@ -90,6 +91,7 @@
             android:layout_width="5dp"
             android:layout_height="1dp"
             android:background="@color/emerald_date_filter_title"
+            app:layout_constraintVertical_bias="0.3"
             app:layout_constraintBottom_toBottomOf="@id/emeraldDateFilterEndDate"
             app:layout_constraintEnd_toStartOf="@id/emeraldDateFilterEndDate"
             app:layout_constraintStart_toEndOf="@id/emeraldDateFilterStartDate"
@@ -97,9 +99,10 @@
 
         <TextView
             android:id="@+id/emeraldDateFilterEndDate"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:paddingBottom="16dp"
+            android:gravity="center"
             android:textColor="@color/emerald_date_filter_green"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

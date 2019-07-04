@@ -1,7 +1,6 @@
 package br.com.stone.emeraldcomponents.basics.input
 
 import androidx.fragment.app.FragmentActivity
-import android.util.AttributeSet
 import android.view.inputmethod.EditorInfo
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.input.EmeraldEditText
@@ -12,7 +11,6 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
 

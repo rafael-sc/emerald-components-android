@@ -1,6 +1,5 @@
 package br.com.stone.emeraldcomponents.basics.pager.bullet
 
-import android.util.AttributeSet
 import androidx.fragment.app.FragmentActivity
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.pager.bullet.EmeraldBulletPager
@@ -12,7 +11,6 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
 
