@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## 1.0.0 - 2019-07-05
 
 ### Fixed
 - [DateFilterComponent error message wasn't showing the max days range][issue-101]
