@@ -21,5 +21,5 @@
     <string name="emerald_date_filter_date_range">%1$s a %2$s</string>
     <string name="emerald_date_filter_button">FILTRAR</string>
     <string name="emerald_date_filter_startdate_after_enddate_error">A data inicial não pode ser maior que a data final</string>
-    <string name="emerald_date_filter_range_bigger_then_range_error">Por favor, escolha um período de até %d dias.</string>
+    <string name="emerald_date_filter_range_bigger_then_range_error">Por favor, escolha um período de até %1$d dias.</string>
 </resources>
