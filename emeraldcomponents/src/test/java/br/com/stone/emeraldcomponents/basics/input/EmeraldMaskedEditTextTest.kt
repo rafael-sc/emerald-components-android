@@ -1,7 +1,9 @@
 package br.com.stone.emeraldcomponents.basics.input
 
+import android.content.Context
 import android.content.res.Configuration
-import android.support.v4.app.FragmentActivity
+import androidx.fragment.app.FragmentActivity
+import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.input.EmeraldMaskedEditText
 import org.junit.Assert
@@ -11,7 +13,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 import java.util.Locale
 
 @RunWith(RobolectricTestRunner::class)
@@ -23,19 +24,20 @@ class EmeraldMaskedEditTextTest {
 
     @Before
     fun setup() {
-        view = EmeraldMaskedEditText(RuntimeEnvironment.application)
-        defaultErrorMessage = RuntimeEnvironment.application.getString(R.string.emerald_mask_error)
+        view = EmeraldMaskedEditText(ApplicationProvider.getApplicationContext())
+        defaultErrorMessage = ApplicationProvider.getApplicationContext<Context>()
+                .getString(R.string.emerald_mask_error)
     }
 
     @Test
     fun testInstanceWithContext() {
-        val view = EmeraldMaskedEditText(RuntimeEnvironment.application)
+        val view = EmeraldMaskedEditText(ApplicationProvider.getApplicationContext())
         Assert.assertNotNull(view)
     }
 
     @Test
     fun testInstanceWithAttributeSet() {
-        val view = EmeraldMaskedEditText(RuntimeEnvironment.application,
+        val view = EmeraldMaskedEditText(ApplicationProvider.getApplicationContext(),
                 Robolectric.buildAttributeSet().build())
         Assert.assertNotNull(view)
     }
@@ -127,27 +129,29 @@ class EmeraldMaskedEditTextTest {
 
         view.setText("email")
         view.onFocusChangeListener.onFocusChange(view, false)
-        Assert.assertEquals(view.errorMessage, RuntimeEnvironment.application.getString(R.string.emerald_invalid_email))
+
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        Assert.assertEquals(view.errorMessage, context.getString(R.string.emerald_invalid_email))
         Assert.assertFalse(view.isValid())
 
         view.setText("email@email")
         view.onFocusChangeListener.onFocusChange(view, false)
-        Assert.assertEquals(view.errorMessage, RuntimeEnvironment.application.getString(R.string.emerald_invalid_email))
+        Assert.assertEquals(view.errorMessage, context.getString(R.string.emerald_invalid_email))
         Assert.assertFalse(view.isValid())
 
         view.setText("email@email.")
         view.onFocusChangeListener.onFocusChange(view, false)
-        Assert.assertEquals(view.errorMessage, RuntimeEnvironment.application.getString(R.string.emerald_invalid_email))
+        Assert.assertEquals(view.errorMessage, context.getString(R.string.emerald_invalid_email))
         Assert.assertFalse(view.isValid())
 
         view.setText("@email.com")
         view.onFocusChangeListener.onFocusChange(view, false)
-        Assert.assertEquals(view.errorMessage, RuntimeEnvironment.application.getString(R.string.emerald_invalid_email))
+        Assert.assertEquals(view.errorMessage, context.getString(R.string.emerald_invalid_email))
         Assert.assertFalse(view.isValid())
 
         view.setText("email@.com")
         view.onFocusChangeListener.onFocusChange(view, false)
-        Assert.assertEquals(view.errorMessage, RuntimeEnvironment.application.getString(R.string.emerald_invalid_email))
+        Assert.assertEquals(view.errorMessage, context.getString(R.string.emerald_invalid_email))
         Assert.assertFalse(view.isValid())
     }
 

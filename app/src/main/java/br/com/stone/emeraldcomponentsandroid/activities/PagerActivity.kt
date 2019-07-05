@@ -1,7 +1,7 @@
 package br.com.stone.emeraldcomponentsandroid.activities
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import br.com.stone.emeraldcomponents.basic.pager.bullet.EmeraldBulletPagerItem
 import br.com.stone.emeraldcomponents.basic.pager.tabs.EmeraldTabPagerItem
 import br.com.stone.emeraldcomponents.extension.toDip

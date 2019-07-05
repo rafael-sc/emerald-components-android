@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 1.0.0 - 2019-07-05
+
+### Fixed
+- [DateFilterComponent error message wasn't showing the max days range][issue-101]
+
+### Added
+- [Variable MaxDateRange to DateFilterComponent][issue-99]
+
+### Modified
+- Updates to AndroidX
+
 ## 0.6.1 - 2019-05-29
 
 ### Fixed
@@ -125,4 +136,5 @@
 [issue-85]:https://github.com/stone-payments/emerald-components-android/issues/85
 [issue-90]:https://github.com/stone-payments/emerald-components-android/issues/90
 [issue-95]:https://github.com/stone-payments/emerald-components-android/issues/95
-
+[issue-99]:https://github.com/stone-payments/emerald-components-android/issues/99
+[issue-101]:https://github.com/stone-payments/emerald-components-android/issues/101

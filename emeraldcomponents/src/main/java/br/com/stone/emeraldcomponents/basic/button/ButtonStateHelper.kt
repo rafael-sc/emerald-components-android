@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.LayerDrawable
 import android.graphics.drawable.StateListDrawable
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.extension.colorRes
 import br.com.stone.emeraldcomponents.extension.dimen

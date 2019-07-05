@@ -1,6 +1,6 @@
 package br.com.stone.emeraldcomponentsandroid.activities
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import br.com.stone.emeraldcomponentsandroid.BaseScreenshotTest
 import org.junit.Rule
 import org.junit.Test

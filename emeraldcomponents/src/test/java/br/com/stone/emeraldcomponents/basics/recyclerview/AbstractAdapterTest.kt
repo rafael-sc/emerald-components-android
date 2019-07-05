@@ -2,6 +2,7 @@ package br.com.stone.emeraldcomponents.basics.recyclerview
 
 import android.view.View
 import android.widget.FrameLayout
+import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.recyclerview.AbstractAdapter
 import kotlinx.android.synthetic.main.test_layout.view.*
@@ -11,7 +12,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 
 @RunWith(RobolectricTestRunner::class)
 class AbstractAdapterTest {
@@ -36,12 +36,12 @@ class AbstractAdapterTest {
 
     @Test
     fun testOnCreateViewHolder() {
-        val viewHolder = adapter.onCreateViewHolder(FrameLayout(RuntimeEnvironment.application), R.layout.test_layout)
+        val viewHolder = adapter.onCreateViewHolder(FrameLayout(ApplicationProvider.getApplicationContext()), R.layout.test_layout)
         Assert.assertNotNull(viewHolder.itemView.test_text)
     }
 
     @Test
     fun testOnBindViewHolder() {
-        adapter.onBindViewHolder(AbstractAdapter.Holder(View(RuntimeEnvironment.application)), 0)
+        adapter.onBindViewHolder(AbstractAdapter.Holder(View(ApplicationProvider.getApplicationContext())), 0)
     }
 }

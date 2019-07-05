@@ -1,9 +1,9 @@
 package br.com.stone.emeraldcomponents.basic.calendar
 
 import android.content.Context
-import android.support.v4.content.ContextCompat
 import android.util.AttributeSet
 import android.util.TypedValue
+import androidx.core.content.ContextCompat
 import br.com.stone.emeraldcomponents.R
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView

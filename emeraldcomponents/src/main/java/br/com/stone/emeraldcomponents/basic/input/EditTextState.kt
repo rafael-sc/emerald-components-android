@@ -1,9 +1,9 @@
 package br.com.stone.emeraldcomponents.basic.input
 
 import android.content.res.ColorStateList
-import android.support.design.widget.TextInputLayout
-import android.support.v4.content.ContextCompat
-import android.support.v4.view.ViewCompat
+import com.google.android.material.textfield.TextInputLayout
+import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
 import android.widget.EditText
 import android.widget.TextView
 import br.com.stone.emeraldcomponents.R

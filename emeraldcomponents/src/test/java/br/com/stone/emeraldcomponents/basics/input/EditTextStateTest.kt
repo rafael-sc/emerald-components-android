@@ -1,17 +1,17 @@
 package br.com.stone.emeraldcomponents.basics.input
 
-import android.support.design.widget.TextInputLayout
-import android.support.v4.app.FragmentActivity
 import android.widget.EditText
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
+import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.input.EditTextState
+import com.google.android.material.textfield.TextInputLayout
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
-import org.robolectric.RuntimeEnvironment
 
 /**
  * Created by renan.silva on 18/06/2018.
@@ -23,8 +23,8 @@ class EditTextStateTest {
 
     @Test
     fun testSetStateWithEditText() {
-        val editText = EditText(RuntimeEnvironment.application)
-        val messageView = TextView(RuntimeEnvironment.application)
+        val editText = EditText(ApplicationProvider.getApplicationContext())
+        val messageView = TextView(ApplicationProvider.getApplicationContext())
         val editTextState = EditTextState(editText, messageView)
         val testState = EditTextState.InputState.SUCCESS
         editTextState.setState(testState)

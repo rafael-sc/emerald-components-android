@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/shape_date_filter_border" >
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/emeraldDateFilterConstraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,9 +62,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/emeraldDateFilterExpandConstraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -75,9 +75,10 @@
 
         <TextView
             android:id="@+id/emeraldDateFilterStartDate"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:paddingBottom="16dp"
+            android:gravity="center"
             android:textColor="@color/emerald_date_filter_green"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/emeraldDateSeparationView"
@@ -90,6 +91,7 @@
             android:layout_width="5dp"
             android:layout_height="1dp"
             android:background="@color/emerald_date_filter_title"
+            app:layout_constraintVertical_bias="0.3"
             app:layout_constraintBottom_toBottomOf="@id/emeraldDateFilterEndDate"
             app:layout_constraintEnd_toStartOf="@id/emeraldDateFilterEndDate"
             app:layout_constraintStart_toEndOf="@id/emeraldDateFilterStartDate"
@@ -97,9 +99,10 @@
 
         <TextView
             android:id="@+id/emeraldDateFilterEndDate"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:paddingBottom="16dp"
+            android:gravity="center"
             android:textColor="@color/emerald_date_filter_green"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -107,5 +110,5 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="01/08/2018" />
 
-    </android.support.constraint.ConstraintLayout>
-</android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

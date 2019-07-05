@@ -1,6 +1,6 @@
 package br.com.stone.emeraldcomponents.basics.input
 
-import android.support.v4.app.FragmentActivity
+import androidx.fragment.app.FragmentActivity
 import android.view.inputmethod.EditorInfo
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.input.EmeraldEditText

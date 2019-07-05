@@ -1,10 +1,10 @@
 package br.com.stone.emeraldcomponents.basic
 
 import android.content.Context
-import android.support.v7.widget.AppCompatButton
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
+import androidx.appcompat.widget.AppCompatButton
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.button.ButtonStateHelper
 import br.com.stone.emeraldcomponents.extension.colorRes

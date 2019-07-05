@@ -1,7 +1,7 @@
 package br.com.stone.emeraldcomponents.basic.recyclerview
 
-import android.support.v7.util.DiffUtil
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * Created by lucas.amaral on 03/04/2018.
