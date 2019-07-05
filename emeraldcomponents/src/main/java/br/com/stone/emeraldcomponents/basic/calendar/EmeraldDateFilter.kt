@@ -141,7 +141,8 @@ class EmeraldDateFilter : ConstraintLayout {
             differenceBetweenDates < 0 ->
                 showToastError(context.getString(R.string.emerald_date_filter_startdate_after_enddate_error))
             maxDaysRange != null && amountOfDays > maxDaysRange?.toLong() ?: 0L ->
-                showToastError(context.getString(R.string.emerald_date_filter_range_bigger_then_range_error))
+                showToastError(context.getString(R.string.emerald_date_filter_range_bigger_then_range_error,
+                        maxDaysRange))
             else ->
                 return true
         }
