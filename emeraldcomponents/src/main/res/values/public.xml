@@ -18,4 +18,5 @@
     <public name="emerald_black_3" type="color" />
     <public name="emerald_black_4" type="color" />
     <public name="emerald_black_5" type="color" />
+    <public name="emerald_dark_green" type="color" />
 </resources>
