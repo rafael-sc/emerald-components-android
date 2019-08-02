@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## 1.1.0 - 2019-08-02
 
 ### Added
 - [Adds emerald dark green][issue-25]
