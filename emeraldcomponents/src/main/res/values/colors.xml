@@ -17,6 +17,7 @@
     <color name="emerald_black_3">#242932</color>
     <color name="emerald_black_4">#2D3844</color>
     <color name="emerald_black_5">#424B54</color>
+    <color name="emerald_dark_green">#013920</color>
 
     <color name="emerald_textview_default_color">#060001</color>
     <color name="emerald_event_date_selected">#666666</color>
