@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.1.1 - 2019-08-05
+
+### Fixed
+- [Exposes emerald dark green][issue-25]
+
 ## 1.1.0 - 2019-08-02
 
 ### Added
