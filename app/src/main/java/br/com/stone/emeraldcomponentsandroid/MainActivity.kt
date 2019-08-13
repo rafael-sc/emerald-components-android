@@ -7,6 +7,7 @@ import br.com.stone.emeraldcomponents.extension.setUp
 import br.com.stone.emeraldcomponentsandroid.activities.ButtonActivity
 import br.com.stone.emeraldcomponentsandroid.activities.CalendarActivity
 import br.com.stone.emeraldcomponentsandroid.activities.DateActivity
+import br.com.stone.emeraldcomponentsandroid.activities.EndlessRecyclerActivity
 import br.com.stone.emeraldcomponentsandroid.activities.InputActivity
 import br.com.stone.emeraldcomponentsandroid.activities.LabelActivity
 import br.com.stone.emeraldcomponentsandroid.activities.PagerActivity
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val activities = listOf(
+                EndlessRecyclerActivity::class.java to "Endless Recycler",
                 ButtonActivity::class.java to "Button",
                 CalendarActivity::class.java to "Calendar + Date Event List",
                 InputActivity::class.java to "Inputs",
