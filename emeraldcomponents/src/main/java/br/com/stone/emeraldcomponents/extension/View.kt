@@ -5,6 +5,8 @@ import android.view.View
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import br.com.stone.emeraldcomponents.basic.recyclerview.AbstractAdapter
+import br.com.stone.emeraldcomponents.basic.recyclerview.EndlessRecyclerViewManager
 import br.com.stone.emeraldcomponents.basic.recyclerview.SlingAdapter
 import br.com.stone.emeraldcomponents.common.ParentActivityException
 
@@ -24,6 +26,18 @@ fun View.getActivity(): FragmentActivity {
     throw ParentActivityException()
 }
 
+fun View.hide() {
+    visibility = View.GONE
+}
+
+fun View.show() {
+    visibility = View.VISIBLE
+}
+
+fun View.invisible() {
+    visibility = View.INVISIBLE
+}
+
 fun <ITEM> RecyclerView.setUp(items: List<ITEM>,
                               defineViewType: (Int) -> Int,
                               bindHolder: View.(ITEM) -> Unit,
@@ -41,14 +55,18 @@ fun <ITEM> RecyclerView.setUp(items: List<ITEM>,
     return emeraldAdapter
 }
 
-fun View.hide() {
-    visibility = View.GONE
-}
+fun <ITEM> EndlessRecyclerViewManager.addItems(itemsToAdd: List<ITEM>,
+                                               abstractAdapter: AbstractAdapter<ITEM>) {
+    defineIfLastPage(itemsToAdd.size)
 
-fun View.show() {
-    visibility = View.VISIBLE
-}
+    val newItems = abstractAdapter.itemList.toMutableSet()
+    newItems.addAll(itemsToAdd)
+    val newItemsList = if (lastPageReached) {
+        newItems.toList()
+    } else {
+        newItems.toMutableList().apply { add(newItems.first()) }
+    }
 
-fun View.invisible() {
-    visibility = View.INVISIBLE
+    abstractAdapter.itemList = newItemsList
+    isLoading = false
 }

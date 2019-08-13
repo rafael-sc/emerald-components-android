@@ -3,7 +3,9 @@ package br.com.stone.emeraldcomponentsandroid.activities
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import br.com.stone.emeraldcomponents.basic.recyclerview.AbstractAdapter
 import br.com.stone.emeraldcomponents.basic.recyclerview.EndlessRecyclerViewManager
+import br.com.stone.emeraldcomponents.extension.addItems
 import br.com.stone.emeraldcomponents.extension.setUp
 import br.com.stone.emeraldcomponentsandroid.R
 import kotlinx.android.synthetic.main.activity_endless_recycler.*
@@ -39,7 +41,7 @@ class EndlessRecyclerActivity : AppCompatActivity() {
     private fun updateData(page: Int) {
         loadData(page) {
             CoroutineScope(Dispatchers.Main).launch {
-                endlessRecyclerViewManager.addItems(it)
+                endlessRecyclerViewManager.addItems(it,recyclerView.adapter as AbstractAdapter<Int>)
             }
         }
     }
