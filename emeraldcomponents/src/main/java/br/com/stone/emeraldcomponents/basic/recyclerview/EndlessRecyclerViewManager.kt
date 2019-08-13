@@ -12,8 +12,8 @@ class EndlessRecyclerViewManager(private val recyclerView: RecyclerView,
                                  private val shouldLoadMore: (pageToLoad: Int) -> Unit) {
 
     private var nextPage = 1
-    private var isLoading = false
     private var lastPageReached = false
+    private var isLoading = false
 
     init {
         recyclerView.addOnScrollListener(EndlessScrollListener {
@@ -25,16 +25,26 @@ class EndlessRecyclerViewManager(private val recyclerView: RecyclerView,
     }
 
     fun <ITEM> addItems(itemsToAdd: List<ITEM>) {
-        checkIfIsLastPage(itemsToAdd.size)
+        lastPageReached = isLastPage(itemsToAdd.size)
 
         val newItems = (recyclerView.adapter as AbstractAdapter<ITEM>).itemList.toMutableSet()
         newItems.addAll(itemsToAdd)
-        (recyclerView.adapter as AbstractAdapter<ITEM>).itemList = newItems.toList()
+        val newItemsList = if (lastPageReached) {
+            newItems.toList()
+        } else {
+            newItems.toMutableList().apply { add(newItems.first()) }
+        }
+
+        (recyclerView.adapter as AbstractAdapter<ITEM>).itemList = newItemsList
         isLoading = false
     }
 
-    private fun checkIfIsLastPage(newItemsAmount: Int) {
-        lastPageReached = pageSize > newItemsAmount
+    fun shouldShowLoading(position: Int): Boolean {
+        return !lastPageReached && position == recyclerView.adapter?.itemCount?.minus(1)
+    }
+
+    private fun isLastPage(newItemsAmount: Int): Boolean {
+        return pageSize > newItemsAmount
     }
 
 }

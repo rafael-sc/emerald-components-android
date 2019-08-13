@@ -22,10 +22,15 @@ class EndlessRecyclerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_endless_recycler)
-        recyclerView.setUp(emptyList<Int>(), { R.layout.item_endless_recycler }, {
-            textView.text = it.toString()
+        recyclerView.setUp(emptyList<Int>(), {
+            if (endlessRecyclerViewManager.shouldShowLoading(it))
+                R.layout.item_loading
+            else
+                R.layout.item_endless_recycler
+        }, {
+            textView?.text = it.toString()
         })
-        endlessRecyclerViewManager = EndlessRecyclerViewManager(recyclerView, 10) {
+        endlessRecyclerViewManager = EndlessRecyclerViewManager(recyclerView, pageSize = 10) {
             updateData(it)
         }
         updateData(0)
