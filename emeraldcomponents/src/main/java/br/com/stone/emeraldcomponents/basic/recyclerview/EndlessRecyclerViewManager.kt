@@ -8,29 +8,23 @@ import androidx.recyclerview.widget.RecyclerView
  * renan.silva@stone.com.br
  */
 class EndlessRecyclerViewManager(private val recyclerView: RecyclerView,
-                                 private val pageSize: Int,
+                                 private var currentPage: Int = 0,
                                  private val shouldLoadMore: (pageToLoad: Int) -> Unit) {
 
-    private var nextPage = 1
     var lastPageReached = false
-        private set
     var isLoading = false
 
     init {
         recyclerView.addOnScrollListener(EndlessScrollListener {
             if (!lastPageReached && !isLoading) {
                 isLoading = true
-                shouldLoadMore(nextPage++)
+                shouldLoadMore(currentPage++)
             }
         })
     }
 
     fun shouldShowLoading(position: Int): Boolean {
         return !lastPageReached && position == recyclerView.adapter?.itemCount?.minus(1)
-    }
-
-    fun defineIfLastPage(newItemsAmount: Int) {
-        lastPageReached = pageSize > newItemsAmount
     }
 
 }

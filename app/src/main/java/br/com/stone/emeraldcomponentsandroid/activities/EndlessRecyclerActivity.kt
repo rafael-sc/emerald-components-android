@@ -32,7 +32,7 @@ class EndlessRecyclerActivity : AppCompatActivity() {
         }, {
             textView?.text = it.toString()
         })
-        endlessRecyclerViewManager = EndlessRecyclerViewManager(recyclerView, pageSize = 10) {
+        endlessRecyclerViewManager = EndlessRecyclerViewManager(recyclerView) {
             updateData(it)
         }
         updateData(0)
@@ -41,7 +41,8 @@ class EndlessRecyclerActivity : AppCompatActivity() {
     private fun updateData(page: Int) {
         loadData(page) {
             CoroutineScope(Dispatchers.Main).launch {
-                endlessRecyclerViewManager.addItems(it,recyclerView.adapter as AbstractAdapter<Int>)
+                val isLastPage = page >= 2
+                endlessRecyclerViewManager.addItems(it, recyclerView.adapter as AbstractAdapter<Int>,isLastPage)
             }
         }
     }

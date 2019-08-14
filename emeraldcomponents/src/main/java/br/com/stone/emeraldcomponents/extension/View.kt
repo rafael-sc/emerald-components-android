@@ -56,12 +56,13 @@ fun <ITEM> RecyclerView.setUp(items: List<ITEM>,
 }
 
 fun <ITEM> EndlessRecyclerViewManager.addItems(itemsToAdd: List<ITEM>,
-                                               abstractAdapter: AbstractAdapter<ITEM>) {
-    defineIfLastPage(itemsToAdd.size)
+                                               abstractAdapter: AbstractAdapter<ITEM>,
+                                               isLastPage: Boolean = false) {
+    this.lastPageReached = isLastPage
 
     val newItems = abstractAdapter.itemList.toMutableSet()
     newItems.addAll(itemsToAdd)
-    val newItemsList = if (lastPageReached) {
+    val newItemsList = if (isLastPage) {
         newItems.toList()
     } else {
         newItems.toMutableList().apply { add(newItems.first()) }
