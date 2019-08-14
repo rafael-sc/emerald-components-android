@@ -58,7 +58,9 @@ fun <ITEM> RecyclerView.setUp(items: List<ITEM>,
 fun <ITEM> EndlessRecyclerViewManager.addItems(itemsToAdd: List<ITEM>,
                                                abstractAdapter: AbstractAdapter<ITEM>,
                                                isLastPage: Boolean = false) {
-    this.lastPageReached = isLastPage
+    lastPageReached = isLastPage
+    isLoading = false
+    pageToLoad++
 
     val newItems = abstractAdapter.itemList.toMutableSet()
     newItems.addAll(itemsToAdd)
@@ -69,5 +71,4 @@ fun <ITEM> EndlessRecyclerViewManager.addItems(itemsToAdd: List<ITEM>,
     }
 
     abstractAdapter.itemList = newItemsList
-    isLoading = false
 }
