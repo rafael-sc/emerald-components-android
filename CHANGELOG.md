@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.2.0 - 2019-08-15
+
+### Added
+- [Adds endless recycler view][issue-111]
+
 ## 1.1.1 - 2019-08-05
 
 ### Fixed
@@ -148,3 +153,4 @@
 [issue-95]:https://github.com/stone-payments/emerald-components-android/issues/95
 [issue-99]:https://github.com/stone-payments/emerald-components-android/issues/99
 [issue-101]:https://github.com/stone-payments/emerald-components-android/issues/101
+[issue-111]:https://github.com/stone-payments/emerald-components-android/issues/111
