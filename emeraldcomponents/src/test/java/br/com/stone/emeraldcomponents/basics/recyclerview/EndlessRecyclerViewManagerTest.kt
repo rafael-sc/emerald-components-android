@@ -63,5 +63,4 @@ class EndlessRecyclerViewManagerTest {
         manager.addItems(listOf(expected), adapter)
         assertEquals(expected, adapter.itemList.first())
     }
-
 }

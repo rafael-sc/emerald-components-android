@@ -35,7 +35,6 @@ class EndlessRecyclerViewManager(private val recyclerView: RecyclerView,
                 && isLoading
     }
 
-
     fun <ITEM> addItems(itemsToAdd: List<ITEM>,
                         abstractAdapter: AbstractAdapter<ITEM>,
                         isLastPage: Boolean = false) {

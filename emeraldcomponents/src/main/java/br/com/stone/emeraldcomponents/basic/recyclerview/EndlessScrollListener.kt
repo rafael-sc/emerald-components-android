@@ -16,5 +16,4 @@ class EndlessScrollListener(val onEndReached: () -> Unit) : RecyclerView.OnScrol
             onEndReached()
         }
     }
-
 }
