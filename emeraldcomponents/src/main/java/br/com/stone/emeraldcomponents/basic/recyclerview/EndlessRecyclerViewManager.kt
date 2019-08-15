@@ -12,7 +12,13 @@ class EndlessRecyclerViewManager(private val recyclerView: RecyclerView,
                                  private val shouldLoadMore: (pageToLoad: Int) -> Unit) {
 
     var lastPageReached = false
-    var isLoading = false
+    var isLoading = true
+        set(value) {
+            field = value
+            @Suppress("UNCHECKED_CAST")
+            val adapter = recyclerView.adapter as AbstractAdapter<Any>
+            if (field) addLoading(adapter) else removeLoading(adapter)
+        }
 
     init {
         recyclerView.addOnScrollListener(EndlessScrollListener {
@@ -24,7 +30,37 @@ class EndlessRecyclerViewManager(private val recyclerView: RecyclerView,
     }
 
     fun shouldShowLoading(position: Int): Boolean {
-        return !lastPageReached && position == recyclerView.adapter?.itemCount?.minus(1)
+        return !lastPageReached
+                && position == recyclerView.adapter?.itemCount?.minus(1)
+                && isLoading
     }
 
+
+    fun <ITEM> addItems(itemsToAdd: List<ITEM>,
+                        abstractAdapter: AbstractAdapter<ITEM>,
+                        isLastPage: Boolean = false) {
+        lastPageReached = isLastPage
+        isLoading = false
+        pageToLoad++
+
+        val newItems = abstractAdapter.itemList.toMutableSet()
+        newItems.addAll(itemsToAdd)
+
+        abstractAdapter.itemList = newItems.toList()
+    }
+
+    private fun addLoading(adapter: AbstractAdapter<Any>) {
+        val currentList = adapter.itemList.toMutableList()
+        val newItems = currentList.apply { add(currentList.first()) }
+        adapter.itemList = newItems
+        recyclerView.smoothScrollToPosition(adapter.itemCount - 1)
+    }
+
+    private fun removeLoading(adapter: AbstractAdapter<Any>) {
+        if (adapter.itemList.isEmpty()) return
+        val loadingPosition = adapter.itemCount - 1
+        val currentList = adapter.itemList.toMutableList()
+        val newItems = currentList.apply { removeAt(loadingPosition) }
+        adapter.itemList = newItems
+    }
 }

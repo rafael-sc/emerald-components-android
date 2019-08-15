@@ -5,8 +5,6 @@ import android.view.View
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import br.com.stone.emeraldcomponents.basic.recyclerview.AbstractAdapter
-import br.com.stone.emeraldcomponents.basic.recyclerview.EndlessRecyclerViewManager
 import br.com.stone.emeraldcomponents.basic.recyclerview.SlingAdapter
 import br.com.stone.emeraldcomponents.common.ParentActivityException
 
@@ -53,22 +51,4 @@ fun <ITEM> RecyclerView.setUp(items: List<ITEM>,
     emeraldAdapter.itemList = items
     adapter = emeraldAdapter
     return emeraldAdapter
-}
-
-fun <ITEM> EndlessRecyclerViewManager.addItems(itemsToAdd: List<ITEM>,
-                                               abstractAdapter: AbstractAdapter<ITEM>,
-                                               isLastPage: Boolean = false) {
-    lastPageReached = isLastPage
-    isLoading = false
-    pageToLoad++
-
-    val newItems = abstractAdapter.itemList.toMutableSet()
-    newItems.addAll(itemsToAdd)
-    val newItemsList = if (isLastPage) {
-        newItems.toList()
-    } else {
-        newItems.toMutableList().apply { add(newItems.first()) }
-    }
-
-    abstractAdapter.itemList = newItemsList
 }
