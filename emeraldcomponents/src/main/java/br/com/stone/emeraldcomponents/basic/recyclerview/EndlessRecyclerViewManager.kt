@@ -14,10 +14,10 @@ class EndlessRecyclerViewManager(private val recyclerView: RecyclerView,
     var lastPageReached = false
     var isLoading = true
         set(value) {
-            field = value
             @Suppress("UNCHECKED_CAST")
             val adapter = recyclerView.adapter as AbstractAdapter<Any>
-            if (field) addLoading(adapter) else removeLoading(adapter)
+            if (value) addLoading(adapter) else removeLoading(adapter)
+            field = value
         }
 
     init {
@@ -53,7 +53,6 @@ class EndlessRecyclerViewManager(private val recyclerView: RecyclerView,
         val currentList = adapter.itemList.toMutableList()
         val newItems = currentList.apply { add(currentList.first()) }
         adapter.itemList = newItems
-        recyclerView.smoothScrollToPosition(adapter.itemCount - 1)
     }
 
     private fun removeLoading(adapter: AbstractAdapter<Any>) {
