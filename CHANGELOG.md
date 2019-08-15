@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## 1.2.0 - 2019-08-15
 
 ### Added
 - [Adds endless recycler view][issue-111]
