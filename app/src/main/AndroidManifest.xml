@@ -42,7 +42,12 @@
         <activity
             android:name=".activities.DateActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".activities.LabelActivity"></activity>
+        <activity
+            android:name=".activities.LabelActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.EndlessRecyclerActivity"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>
