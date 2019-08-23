@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## 1.2.1 - 2019-08-23
 
 ### Modified
 - [Updated Material Calendar library][issue-115]
