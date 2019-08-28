@@ -40,4 +40,9 @@
         android:layout_height="wrap_content"
         app:maskType="currency"/>
 
+    <br.com.stone.emeraldcomponents.basic.input.EmeraldMaskedEditText
+        android:id="@+id/emerald_masked_edit_text_autofill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

@@ -33,6 +33,9 @@ class EmeraldMaskedEditText : AppCompatEditText {
 
     private var textListener: MaskedTextChangedListener? = null
 
+    var autofillSequence = "a"
+    var autofillLength = 1
+
     constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
@@ -64,10 +67,16 @@ class EmeraldMaskedEditText : AppCompatEditText {
     }
 
     fun defineMask(mask: String?) {
-        if (type == MaskTypes.CURRENCY) {
-            addTextChangedListener(CurrencyTextWatcher(this, valueListener = { unmaskedText = it }))
-            setText("0")
-            inputType = InputType.TYPE_CLASS_NUMBER
+        when (type) {
+            MaskTypes.CURRENCY -> {
+                addTextChangedListener(CurrencyTextWatcher(this, valueListener = { unmaskedText = it }))
+                setText("0")
+                inputType = InputType.TYPE_CLASS_NUMBER
+            }
+            MaskTypes.AUTO_FILL -> {
+                addTextChangedListener(AutoFillTextWatcher(this, autofillSequence, autofillLength, { unmaskedText = it }))
+            }
+            else -> {}
         }
         textListener = mask?.let { addMask(it) }
         acceptableTextLength = textListener?.acceptableTextLength() ?: 0
@@ -123,6 +132,7 @@ class EmeraldMaskedEditText : AppCompatEditText {
         private const val CEP_ID = 6
         private const val TEXT_ID = 7
         private const val CURRENCY_ID = 8
+        private const val AUTO_FILL_ID = 9
     }
 
     enum class MaskTypes(val id: Int, val mask: String?) {
@@ -134,7 +144,8 @@ class EmeraldMaskedEditText : AppCompatEditText {
         CNPJ(CNPJ_ID, "[00].[000].[000]/[0000]-[00]"),
         CEP(CEP_ID, "[00000]-[000]"),
         TEXT(TEXT_ID, "[…]"),
-        CURRENCY(CURRENCY_ID, null);
+        CURRENCY(CURRENCY_ID, null),
+        AUTO_FILL(AUTO_FILL_ID, null);
 
         companion object {
             fun getById(id: Int?) = values().firstOrNull { it.id == id } ?: NONE
