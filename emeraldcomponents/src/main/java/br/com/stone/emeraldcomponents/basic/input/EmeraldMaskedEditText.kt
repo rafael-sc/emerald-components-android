@@ -1,10 +1,10 @@
 package br.com.stone.emeraldcomponents.basic.input
 
 import android.content.Context
-import androidx.appcompat.widget.AppCompatEditText
 import android.text.InputType
 import android.util.AttributeSet
 import android.view.View.OnFocusChangeListener
+import androidx.appcompat.widget.AppCompatEditText
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.common.UtilValidator
 import com.redmadrobot.inputmask.MaskedTextChangedListener
@@ -30,6 +30,8 @@ class EmeraldMaskedEditText : AppCompatEditText {
 
     var errorMessage: String = ""
         private set
+
+    private var textListener: MaskedTextChangedListener? = null
 
     constructor(context: Context) : super(context)
 
@@ -67,8 +69,8 @@ class EmeraldMaskedEditText : AppCompatEditText {
             setText("0")
             inputType = InputType.TYPE_CLASS_NUMBER
         }
-        val listener = mask?.let { addMask(it) }
-        acceptableTextLength = listener?.acceptableTextLength() ?: 0
+        textListener = mask?.let { addMask(it) }
+        acceptableTextLength = textListener?.acceptableTextLength() ?: 0
     }
 
     private fun addMask(mask: String): MaskedTextChangedListener {
@@ -84,6 +86,7 @@ class EmeraldMaskedEditText : AppCompatEditText {
                     }
                 }
         )
+        removeTextChangedListener(textListener)
         addTextChangedListener(listener)
         if (hint == null && showHint) hint = listener.placeholder()
         return listener
