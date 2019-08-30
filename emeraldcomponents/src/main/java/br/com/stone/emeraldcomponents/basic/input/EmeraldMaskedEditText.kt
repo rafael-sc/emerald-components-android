@@ -33,7 +33,7 @@ class EmeraldMaskedEditText : AppCompatEditText {
 
     private var textListener: MaskedTextChangedListener? = null
 
-    var autofillSequence = "a"
+    var autofillSequence = 'a'
     var autofillLength = 1
 
     constructor(context: Context) : super(context)

@@ -3,8 +3,6 @@ package br.com.stone.emeraldcomponents.basic.input
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
-import java.text.NumberFormat
-import java.util.Locale
 import kotlin.math.absoluteValue
 
 /**
@@ -13,30 +11,30 @@ import kotlin.math.absoluteValue
  * victor.cruz@stone.com.br
  */
 class AutoFillTextWatcher(val editText: EditText,
-                          private val autoFillSequence: CharSequence,
+                          private val autoFillSequence: Char,
                           private val autoFillLength: Int,
                           private val valueListener: (unmaskedText: String) -> Unit = {}) : TextWatcher {
 
     override fun afterTextChanged(text: Editable?) {
         editText.removeTextChangedListener(this)
 
-        val aux = text
-        val lengthDifference = (aux?.length ?: 0) - autoFillLength
-        if (lengthDifference < 0) {
-            for (i in 1..lengthDifference.absoluteValue) {
-                aux?.insert(0, autoFillSequence)
+        var aux = text.toString()
+        val difference = autoFillLength - aux.length
+        if (difference > 0) {
+            for (i in 1..difference) {
+                aux = autoFillSequence + aux
             }
-        } else if (lengthDifference > 0) {
-            for (i in 1..lengthDifference) {
-                aux?.replace(0, 1, "")
+        } else if (difference < 0) {
+            for (i in 1..difference.absoluteValue) {
+                aux = aux.substring(1)
             }
         }
 
-        editText.text = aux
-        editText.setSelection(aux?.length ?: 0)
+        editText.setText(aux)
+        editText.setSelection(aux.length)
         editText.addTextChangedListener(this)
 
-        valueListener(removeAutoFillMask(aux.toString()))
+        valueListener(removeAutoFillMask(text.toString()))
     }
 
     override fun beforeTextChanged(text: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -44,6 +42,6 @@ class AutoFillTextWatcher(val editText: EditText,
     override fun onTextChanged(text: CharSequence?, start: Int, before: Int, count: Int) {}
 
     private fun removeAutoFillMask(text: String): String {
-        return text.apply { while (startsWith(autoFillSequence)) removePrefix(autoFillSequence) }
+        return text.apply { while (startsWith(autoFillSequence)) replaceRange(0..0, "") }
     }
 }
