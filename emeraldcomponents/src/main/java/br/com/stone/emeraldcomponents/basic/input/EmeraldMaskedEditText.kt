@@ -67,14 +67,16 @@ class EmeraldMaskedEditText : AppCompatEditText {
     }
 
     fun defineMask(mask: String?) {
+        val valueListener : (String) -> Unit = { unmaskedText = it }
         when (type) {
             MaskTypes.CURRENCY -> {
-                addTextChangedListener(CurrencyTextWatcher(this, valueListener = { unmaskedText = it }))
+                addTextChangedListener(CurrencyTextWatcher(this, valueListener = valueListener))
                 setText("0")
                 inputType = InputType.TYPE_CLASS_NUMBER
             }
             MaskTypes.AUTO_FILL -> {
-                addTextChangedListener(AutoFillTextWatcher(this, autofillSequence, autofillLength, { unmaskedText = it }))
+                addTextChangedListener(AutoFillTextWatcher(this, autofillSequence, autofillLength, valueListener))
+                text = text
             }
             else -> {}
         }

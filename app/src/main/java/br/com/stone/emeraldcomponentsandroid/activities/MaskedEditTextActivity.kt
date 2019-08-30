@@ -13,13 +13,12 @@ class MaskedEditTextActivity : AppCompatActivity() {
         setContentView(R.layout.activity_emerald_masked_edit_text)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        emerald_masked_edit_text_autofill.setText("123")
+
         emerald_masked_edit_text_autofill.autofillLength = 4
         emerald_masked_edit_text_autofill.autofillSequence = '0'
         emerald_masked_edit_text_autofill.type = EmeraldMaskedEditText.MaskTypes.AUTO_FILL
 
-        botao.setOnClickListener {
-            emerald_masked_edit_text_phone.defineMask("[00]")
-        }
     }
 
 }

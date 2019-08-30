@@ -11,37 +11,40 @@ import kotlin.math.absoluteValue
  * victor.cruz@stone.com.br
  */
 class AutoFillTextWatcher(val editText: EditText,
-                          private val autoFillSequence: Char,
+                          private val autoFillChar: Char,
                           private val autoFillLength: Int,
                           private val valueListener: (unmaskedText: String) -> Unit = {}) : TextWatcher {
+
+    var fullString: String? = null
 
     override fun afterTextChanged(text: Editable?) {
         editText.removeTextChangedListener(this)
 
-        var aux = text.toString()
-        val difference = autoFillLength - aux.length
-        if (difference > 0) {
-            for (i in 1..difference) {
-                aux = autoFillSequence + aux
-            }
-        } else if (difference < 0) {
-            for (i in 1..difference.absoluteValue) {
-                aux = aux.substring(1)
+        var str = text.toString()
+        if (str.firstOrNull() != autoFillChar && str.length > autoFillLength) {
+            str = fullString ?: str.substring(0, autoFillLength)
+        } else {
+            val difference = autoFillLength - str.length
+            if (difference > 0) {
+                for (i in 1..difference) {
+                    str = autoFillChar + str
+                }
+            } else if (difference < 0) {
+                for (i in 1..difference.absoluteValue) {
+                    str = str.substring(1)
+                }
+                fullString = str
             }
         }
 
-        editText.setText(aux)
-        editText.setSelection(aux.length)
+        editText.setText(str)
+        editText.setSelection(str.length)
         editText.addTextChangedListener(this)
 
-        valueListener(removeAutoFillMask(text.toString()))
+        valueListener(str)
     }
 
     override fun beforeTextChanged(text: CharSequence?, start: Int, count: Int, after: Int) {}
 
     override fun onTextChanged(text: CharSequence?, start: Int, before: Int, count: Int) {}
-
-    private fun removeAutoFillMask(text: String): String {
-        return text.apply { while (startsWith(autoFillSequence)) replaceRange(0..0, "") }
-    }
 }
