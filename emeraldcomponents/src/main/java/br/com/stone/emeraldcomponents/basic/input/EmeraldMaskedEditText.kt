@@ -62,6 +62,7 @@ class EmeraldMaskedEditText : AppCompatEditText {
         mask = args.getString(R.styleable.EmeraldMaskedEditText_mask) ?: type.mask
         showHint = args.getBoolean(R.styleable.EmeraldMaskedEditText_showHint, true)
         showError = args.getBoolean(R.styleable.EmeraldMaskedEditText_showError, true)
+        fillLength = args.getInt(R.styleable.EmeraldMaskedEditText_fillLength, 1)
 
         args.recycle()
     }
