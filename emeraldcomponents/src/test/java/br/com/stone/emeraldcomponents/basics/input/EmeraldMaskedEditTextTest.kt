@@ -262,7 +262,6 @@ class EmeraldMaskedEditTextTest {
         view.setText("test")
         assertNull(view.error)
         assertTrue(view.isValid())
-
     }
 
     @Test

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Unreleased
+
+### Added
+- [Adds pre fill edit text][issue-119]
+
 ## 1.2.0 - 2019-08-15
 
 ### Added
