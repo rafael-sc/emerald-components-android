@@ -70,9 +70,7 @@ dependencies {
 
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
 
-    api ("com.prolificinteractive:material-calendarview:$calendarview_version"){
-        exclude module: 'support-v4'
-    }
+    api 'com.github.prolificinteractive:material-calendarview:1.6.1'
     api "com.redmadrobot:inputmask:$inputmask_versoin"
 }
 

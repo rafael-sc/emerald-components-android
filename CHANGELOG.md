@@ -5,6 +5,11 @@
 ### Added
 - [Adds pre fill edit text][issue-119]
 
+## 1.2.1 - 2019-08-23
+
+### Modified
+- [Updated Material Calendar library][issue-115]
+
 ## 1.2.0 - 2019-08-15
 
 ### Added
@@ -159,3 +164,4 @@
 [issue-99]:https://github.com/stone-payments/emerald-components-android/issues/99
 [issue-101]:https://github.com/stone-payments/emerald-components-android/issues/101
 [issue-111]:https://github.com/stone-payments/emerald-components-android/issues/111
+[issue-115]:https://github.com/stone-payments/emerald-components-android/issues/115
