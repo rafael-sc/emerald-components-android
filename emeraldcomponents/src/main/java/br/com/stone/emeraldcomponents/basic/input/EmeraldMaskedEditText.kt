@@ -33,8 +33,8 @@ class EmeraldMaskedEditText : AppCompatEditText {
 
     private var textListener: MaskedTextChangedListener? = null
 
-    var fillSequence = 'a'
-    var fillLength = 1
+    var fillSequence = DEFAULT_FILL_SEQUENCE
+    var fillLength = DEFAULT_FILL_LENGTH
 
     constructor(context: Context) : super(context)
 
@@ -125,6 +125,8 @@ class EmeraldMaskedEditText : AppCompatEditText {
 
     companion object {
         const val MAX_CURRENCY_LENGTH = 14
+        private const val DEFAULT_FILL_SEQUENCE = '0'
+        private const val DEFAULT_FILL_LENGTH = 1
 
         private const val NONE_ID = 0
         private const val PHONENUMBER_ID = 1
