@@ -26,13 +26,9 @@ class PreFillTextWatcher(val editText: EditText,
         } else {
             val difference = preFillLength - str.length
             if (difference > 0) {
-                for (i in 1..difference) {
-                    str = preFillChar + str
-                }
+                str = str.padStart(preFillLength, preFillChar)
             } else if (difference < 0) {
-                for (i in 1..difference.absoluteValue) {
-                    str = str.substring(1)
-                }
+                str = str.substring(difference.absoluteValue)
                 fullString = str
             }
         }
