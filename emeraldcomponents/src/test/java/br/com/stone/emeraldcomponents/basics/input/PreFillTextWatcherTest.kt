@@ -3,7 +3,7 @@ package br.com.stone.emeraldcomponents.basics.input
 import android.text.SpannableStringBuilder
 import android.widget.EditText
 import androidx.test.core.app.ApplicationProvider
-import br.com.stone.emeraldcomponents.basic.input.AutoFillTextWatcher
+import br.com.stone.emeraldcomponents.basic.input.PreFillTextWatcher
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -16,16 +16,16 @@ import org.robolectric.RobolectricTestRunner
  * victor.cruz@stone.com.br
  */
 @RunWith(RobolectricTestRunner::class)
-class AutoFillTextWatcherTest {
+class PreFillTextWatcherTest {
 
-    private lateinit var textWatcher: AutoFillTextWatcher
+    private lateinit var textWatcher: PreFillTextWatcher
 
     private lateinit var editText: EditText
 
     @Before
     fun setup() {
         editText = EditText(ApplicationProvider.getApplicationContext())
-        textWatcher = AutoFillTextWatcher(editText, '0', 4)
+        textWatcher = PreFillTextWatcher(editText, '0', 4)
     }
 
     @Test
@@ -41,11 +41,23 @@ class AutoFillTextWatcherTest {
     }
 
     @Test
-    fun `Should remove chars from the beginning when input is bigger than length limit`() {
+    fun `Should remove chars from the end when input is bigger than length limit`() {
         textWatcher.afterTextChanged(SpannableStringBuilder("12345"))
-        assertEquals("2345", editText.text.toString())
+        assertEquals("1234", editText.text.toString())
     }
 
+    @Test
+    fun `Should remove chars from the beginning when input is bigger and starts with fill char`() {
+        textWatcher.afterTextChanged(SpannableStringBuilder("00345"))
+        assertEquals("0345", editText.text.toString())
+    }
+
+    @Test
+    fun `Should not include character after text is full`() {
+        textWatcher.afterTextChanged(SpannableStringBuilder("01234"))
+        textWatcher.afterTextChanged(SpannableStringBuilder("56789"))
+        assertEquals("1234", editText.text.toString())
+    }
 
     @Test
     fun `Should beforeTextChanged be called`() {

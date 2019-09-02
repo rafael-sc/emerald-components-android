@@ -33,8 +33,8 @@ class EmeraldMaskedEditText : AppCompatEditText {
 
     private var textListener: MaskedTextChangedListener? = null
 
-    var autofillSequence = 'a'
-    var autofillLength = 1
+    var fillSequence = 'a'
+    var fillLength = 1
 
     constructor(context: Context) : super(context)
 
@@ -74,8 +74,8 @@ class EmeraldMaskedEditText : AppCompatEditText {
                 setText("0")
                 inputType = InputType.TYPE_CLASS_NUMBER
             }
-            MaskTypes.AUTO_FILL -> {
-                addTextChangedListener(AutoFillTextWatcher(this, autofillSequence, autofillLength, valueListener))
+            MaskTypes.PRE_FILL -> {
+                addTextChangedListener(PreFillTextWatcher(this, fillSequence, fillLength, valueListener))
                 text = text
             }
             else -> {}
@@ -134,7 +134,7 @@ class EmeraldMaskedEditText : AppCompatEditText {
         private const val CEP_ID = 6
         private const val TEXT_ID = 7
         private const val CURRENCY_ID = 8
-        private const val AUTO_FILL_ID = 9
+        private const val PRE_FILL_ID = 9
     }
 
     enum class MaskTypes(val id: Int, val mask: String?) {
@@ -147,7 +147,7 @@ class EmeraldMaskedEditText : AppCompatEditText {
         CEP(CEP_ID, "[00000]-[000]"),
         TEXT(TEXT_ID, "[…]"),
         CURRENCY(CURRENCY_ID, null),
-        AUTO_FILL(AUTO_FILL_ID, null);
+        PRE_FILL(PRE_FILL_ID, null);
 
         companion object {
             fun getById(id: Int?) = values().firstOrNull { it.id == id } ?: NONE
