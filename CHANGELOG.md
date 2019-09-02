@@ -165,3 +165,4 @@
 [issue-101]:https://github.com/stone-payments/emerald-components-android/issues/101
 [issue-111]:https://github.com/stone-payments/emerald-components-android/issues/111
 [issue-115]:https://github.com/stone-payments/emerald-components-android/issues/115
+[issue-119]:https://github.com/stone-payments/emerald-components-android/issues/119
