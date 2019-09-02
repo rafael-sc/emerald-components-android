@@ -28,12 +28,6 @@
         android:layout_height="wrap_content"
         app:maskType="phoneNumber"/>
 
-    <br.com.stone.emeraldcomponents.basic.EmeraldButton
-        android:id="@+id/botao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="oi"/>
-
     <br.com.stone.emeraldcomponents.basic.input.EmeraldMaskedEditText
         android:id="@+id/emerald_masked_edit_text_currency"
         android:layout_width="match_parent"
