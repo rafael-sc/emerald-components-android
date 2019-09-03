@@ -15,7 +15,7 @@ class PreFillTextWatcher(val editText: EditText,
                          private val preFillLength: Int,
                          private val valueListener: (unmaskedText: String) -> Unit = {}) : TextWatcher {
 
-    var fullString: String? = null
+    private var fullString: String? = null
 
     override fun afterTextChanged(text: Editable?) {
         editText.removeTextChangedListener(this)
