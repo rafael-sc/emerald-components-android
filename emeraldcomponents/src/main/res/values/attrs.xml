@@ -30,6 +30,7 @@
         <attr name="maskType" />
         <attr name="showHint" format="boolean" />
         <attr name="showError" format="boolean" />
+        <attr name="fillLength" format="integer" />
     </declare-styleable>
 
     <!-- Event list -->

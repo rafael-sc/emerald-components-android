@@ -1,10 +1,10 @@
 package br.com.stone.emeraldcomponents.basic.input
 
 import android.content.Context
-import androidx.appcompat.widget.AppCompatEditText
 import android.text.InputType
 import android.util.AttributeSet
 import android.view.View.OnFocusChangeListener
+import androidx.appcompat.widget.AppCompatEditText
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.common.UtilValidator
 import com.redmadrobot.inputmask.MaskedTextChangedListener
@@ -30,6 +30,11 @@ class EmeraldMaskedEditText : AppCompatEditText {
 
     var errorMessage: String = ""
         private set
+
+    private var textListener: MaskedTextChangedListener? = null
+
+    var fillSequence = DEFAULT_FILL_SEQUENCE
+    var fillLength = DEFAULT_FILL_LENGTH
 
     constructor(context: Context) : super(context)
 
@@ -57,18 +62,27 @@ class EmeraldMaskedEditText : AppCompatEditText {
         mask = args.getString(R.styleable.EmeraldMaskedEditText_mask) ?: type.mask
         showHint = args.getBoolean(R.styleable.EmeraldMaskedEditText_showHint, true)
         showError = args.getBoolean(R.styleable.EmeraldMaskedEditText_showError, true)
+        fillLength = args.getInt(R.styleable.EmeraldMaskedEditText_fillLength, 1)
 
         args.recycle()
     }
 
     fun defineMask(mask: String?) {
-        if (type == MaskTypes.CURRENCY) {
-            addTextChangedListener(CurrencyTextWatcher(this, valueListener = { unmaskedText = it }))
-            setText("0")
-            inputType = InputType.TYPE_CLASS_NUMBER
+        val valueListener: (String) -> Unit = { unmaskedText = it }
+        when (type) {
+            MaskTypes.CURRENCY -> {
+                addTextChangedListener(CurrencyTextWatcher(this, valueListener = valueListener))
+                setText("0")
+                inputType = InputType.TYPE_CLASS_NUMBER
+            }
+            MaskTypes.PRE_FILL -> {
+                addTextChangedListener(PreFillTextWatcher(this, fillSequence, fillLength, valueListener))
+                text = text
+            }
+            else -> {}
         }
-        val listener = mask?.let { addMask(it) }
-        acceptableTextLength = listener?.acceptableTextLength() ?: 0
+        textListener = mask?.let { addMask(it) }
+        acceptableTextLength = textListener?.acceptableTextLength() ?: 0
     }
 
     private fun addMask(mask: String): MaskedTextChangedListener {
@@ -84,6 +98,7 @@ class EmeraldMaskedEditText : AppCompatEditText {
                     }
                 }
         )
+        removeTextChangedListener(textListener)
         addTextChangedListener(listener)
         if (hint == null && showHint) hint = listener.placeholder()
         return listener
@@ -110,6 +125,8 @@ class EmeraldMaskedEditText : AppCompatEditText {
 
     companion object {
         const val MAX_CURRENCY_LENGTH = 14
+        private const val DEFAULT_FILL_SEQUENCE = '0'
+        private const val DEFAULT_FILL_LENGTH = 1
 
         private const val NONE_ID = 0
         private const val PHONENUMBER_ID = 1
@@ -120,6 +137,7 @@ class EmeraldMaskedEditText : AppCompatEditText {
         private const val CEP_ID = 6
         private const val TEXT_ID = 7
         private const val CURRENCY_ID = 8
+        private const val PRE_FILL_ID = 9
     }
 
     enum class MaskTypes(val id: Int, val mask: String?) {
@@ -131,7 +149,8 @@ class EmeraldMaskedEditText : AppCompatEditText {
         CNPJ(CNPJ_ID, "[00].[000].[000]/[0000]-[00]"),
         CEP(CEP_ID, "[00000]-[000]"),
         TEXT(TEXT_ID, "[…]"),
-        CURRENCY(CURRENCY_ID, null);
+        CURRENCY(CURRENCY_ID, null),
+        PRE_FILL(PRE_FILL_ID, null);
 
         companion object {
             fun getById(id: Int?) = values().firstOrNull { it.id == id } ?: NONE
