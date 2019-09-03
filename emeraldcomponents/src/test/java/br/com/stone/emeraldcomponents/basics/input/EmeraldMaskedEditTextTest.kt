@@ -372,4 +372,22 @@ class EmeraldMaskedEditTextTest {
         assertEquals(text, view.text.toString())
         assertEquals("", view.unmaskedText)
     }
+
+    @Test
+    fun `Should remove old text watchers when a new one is selected`() {
+        view.run {
+            fillLength = 1
+            fillSequence = '0'
+            type = PRE_FILL
+        }
+
+        view.run {
+            fillLength = 3
+            fillSequence = 'a'
+            type = PRE_FILL
+        }
+
+        view.setText("23")
+        assertEquals("a23", view.text.toString())
+    }
 }

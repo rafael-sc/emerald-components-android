@@ -34,7 +34,7 @@ class PreFillTextWatcher(val editText: EditText,
         }
 
         editText.setText(str)
-        editText.setSelection(str.length)
+        editText.setSelection(editText.text.length)
         editText.addTextChangedListener(this)
 
         valueListener(str)
