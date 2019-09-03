@@ -2,7 +2,6 @@ package br.com.stone.emeraldcomponents.basics.input
 
 import android.content.Context
 import android.content.res.Configuration
-import android.widget.Button
 import androidx.fragment.app.FragmentActivity
 import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
