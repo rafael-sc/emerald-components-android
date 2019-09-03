@@ -278,6 +278,15 @@ class EmeraldMaskedEditTextTest {
     }
 
     @Test
+    fun `Should use default value when it is not set by the user`() {
+        view.type = PRE_FILL
+
+        view.setText("")
+
+        assertEquals("0", view.text.toString())
+    }
+
+    @Test
     fun `Should set mask`() {
         view.type = EmeraldMaskedEditText.MaskTypes.NONE
         assertEquals(EmeraldMaskedEditText.MaskTypes.NONE, view.type)
