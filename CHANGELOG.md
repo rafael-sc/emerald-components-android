@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## 1.3.0 - 2019-09-03
 
 ### Added
 - [Adds pre fill edit text][issue-119]
