@@ -2,6 +2,7 @@ package br.com.stone.emeraldcomponents.basic.input
 
 import android.content.Context
 import android.text.InputType
+import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View.OnFocusChangeListener
 import androidx.appcompat.widget.AppCompatEditText
@@ -31,7 +32,7 @@ class EmeraldMaskedEditText : AppCompatEditText {
     var errorMessage: String = ""
         private set
 
-    private var textListener: MaskedTextChangedListener? = null
+    private var textListener: TextWatcher? = null
 
     var fillSequence = DEFAULT_FILL_SEQUENCE
     var fillLength = DEFAULT_FILL_LENGTH
@@ -68,21 +69,28 @@ class EmeraldMaskedEditText : AppCompatEditText {
     }
 
     fun defineMask(mask: String?) {
+        removeTextChangedListener(textListener)
         val valueListener: (String) -> Unit = { unmaskedText = it }
-        when (type) {
+        textListener = when (type) {
             MaskTypes.CURRENCY -> {
-                addTextChangedListener(CurrencyTextWatcher(this, valueListener = valueListener))
-                setText("0")
-                inputType = InputType.TYPE_CLASS_NUMBER
+                CurrencyTextWatcher(this, valueListener = valueListener).apply {
+                    addTextChangedListener(this)
+                    setText("0")
+                    inputType = InputType.TYPE_CLASS_NUMBER
+                }
             }
             MaskTypes.PRE_FILL -> {
-                addTextChangedListener(PreFillTextWatcher(this, fillSequence, fillLength, valueListener))
-                text = text
+                PreFillTextWatcher(this, fillSequence, fillLength, valueListener).apply {
+                    addTextChangedListener(this)
+                    text = text
+                }
             }
-            else -> {}
+            else -> {
+                mask?.let { addMask(it) }.apply {
+                    acceptableTextLength = this?.acceptableTextLength() ?: 0
+                }
+            }
         }
-        textListener = mask?.let { addMask(it) }
-        acceptableTextLength = textListener?.acceptableTextLength() ?: 0
     }
 
     private fun addMask(mask: String): MaskedTextChangedListener {
@@ -98,7 +106,6 @@ class EmeraldMaskedEditText : AppCompatEditText {
                     }
                 }
         )
-        removeTextChangedListener(textListener)
         addTextChangedListener(listener)
         if (hint == null && showHint) hint = listener.placeholder()
         return listener
