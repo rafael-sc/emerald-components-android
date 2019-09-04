@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.3.0 - 2019-09-03
+
+### Added
+- [Adds pre fill edit text][issue-119]
+
+### Fixed
+- [Bug where masked edit text was not removing old text watchers][issue-121]
+
 ## 1.2.1 - 2019-08-23
 
 ### Modified
@@ -160,3 +168,5 @@
 [issue-101]:https://github.com/stone-payments/emerald-components-android/issues/101
 [issue-111]:https://github.com/stone-payments/emerald-components-android/issues/111
 [issue-115]:https://github.com/stone-payments/emerald-components-android/issues/115
+[issue-119]:https://github.com/stone-payments/emerald-components-android/issues/119
+[issue-121]:https://github.com/stone-payments/emerald-components-android/issues/121

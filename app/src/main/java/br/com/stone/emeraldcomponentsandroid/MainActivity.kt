@@ -10,6 +10,7 @@ import br.com.stone.emeraldcomponentsandroid.activities.DateActivity
 import br.com.stone.emeraldcomponentsandroid.activities.EndlessRecyclerActivity
 import br.com.stone.emeraldcomponentsandroid.activities.InputActivity
 import br.com.stone.emeraldcomponentsandroid.activities.LabelActivity
+import br.com.stone.emeraldcomponentsandroid.activities.MaskedEditTextActivity
 import br.com.stone.emeraldcomponentsandroid.activities.PagerActivity
 import br.com.stone.emeraldcomponentsandroid.activities.SpinnerActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         val activities = listOf(
                 EndlessRecyclerActivity::class.java to "Endless Recycler",
+                MaskedEditTextActivity::class.java to "Masked",
                 ButtonActivity::class.java to "Button",
                 CalendarActivity::class.java to "Calendar + Date Event List",
                 InputActivity::class.java to "Inputs",
