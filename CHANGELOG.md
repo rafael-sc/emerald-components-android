@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## 1.4.0 - 2019-09-11
 
 ### Added
 - [EmeraldHideableLable component to hide value if desired][issue-125]
