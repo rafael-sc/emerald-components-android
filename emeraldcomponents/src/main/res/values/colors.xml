@@ -2,7 +2,7 @@
 <resources>
 
     <!--Emerald Colors-->
-    <color name="emerald_primary">#088037</color>
+    <color name="emerald_primary">#0DB14B</color>
     <color name="emerald_secondary">#8036DC</color>
     <color name="emerald_success">#2ECC71</color>
     <color name="emerald_error">#E74C3C</color>
