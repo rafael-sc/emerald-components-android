@@ -8,6 +8,7 @@ import br.com.stone.emeraldcomponentsandroid.activities.ButtonActivity
 import br.com.stone.emeraldcomponentsandroid.activities.CalendarActivity
 import br.com.stone.emeraldcomponentsandroid.activities.DateActivity
 import br.com.stone.emeraldcomponentsandroid.activities.EndlessRecyclerActivity
+import br.com.stone.emeraldcomponentsandroid.activities.HideableLabelActivity
 import br.com.stone.emeraldcomponentsandroid.activities.InputActivity
 import br.com.stone.emeraldcomponentsandroid.activities.LabelActivity
 import br.com.stone.emeraldcomponentsandroid.activities.MaskedEditTextActivity
@@ -31,7 +32,9 @@ class MainActivity : AppCompatActivity() {
                 SpinnerActivity::class.java to "Spinner",
                 DateActivity::class.java to "Date Selector and Filter",
                 PagerActivity::class.java to "Pager",
-                LabelActivity::class.java to "Label")
+                LabelActivity::class.java to "Label",
+                HideableLabelActivity::class.java to "Hidealbe Label"
+                )
 
         recyclerMain.setUp(activities,
                 { R.layout.item_activity_list },
