@@ -1,6 +1,7 @@
 package br.com.stone.emeraldcomponentsandroid.activities
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.com.stone.emeraldcomponentsandroid.R
@@ -15,9 +16,10 @@ class HideableLabelActivity : AppCompatActivity() {
         emeraldHideableLabel.text = "100.111.221,99"
         button3.setOnClickListener {
             emeraldHideableLabel.hidden = !emeraldHideableLabel.hidden
+            val visible = emeraldHideableLabel.emeraldHideableLabel.visibility == View.VISIBLE
             Toast.makeText(
                     this@HideableLabelActivity,
-                    "${emeraldHideableLabel.emeraldHideableLabel.visibility}",
+                    "Text is $visible",
                     Toast.LENGTH_SHORT).show()
         }
     }
