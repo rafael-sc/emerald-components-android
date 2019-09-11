@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                 DateActivity::class.java to "Date Selector and Filter",
                 PagerActivity::class.java to "Pager",
                 LabelActivity::class.java to "Label",
-                HideableLabelActivity::class.java to "Hidealbe Label"
+                HideableLabelActivity::class.java to "Hideable Label"
                 )
 
         recyclerMain.setUp(activities,
