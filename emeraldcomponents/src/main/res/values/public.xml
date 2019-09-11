@@ -19,4 +19,13 @@
     <public name="emerald_black_4" type="color" />
     <public name="emerald_black_5" type="color" />
     <public name="emerald_dark_green" type="color" />
+
+    <public name="emerald_purple" type="color" />
+    <public name="emerald_light_purple" type="color" />
+    <public name="emerald_stone_green" type="color" />
+    <public name="emerald_light_green" type="color" />
+
+    <public name="emerald_medium_grey_1" type="color" />
+    <public name="emerald_dark_grey_1" type="color" />
+    <public name="emerald_light_grey_1" type="color" />
 </resources>
