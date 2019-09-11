@@ -85,6 +85,13 @@
         <attr name="showArrows" format="boolean" />
     </declare-styleable>
 
+    <!--EmeraldHideableLable-->
+    <declare-styleable name="EmeraldHideableLabel">
+        <attr name="hidden" format="boolean" />
+        <attr name="textSize" format="dimension" />
+        <attr name="text" />
+    </declare-styleable>
+
     <!--Label-->
     <attr name="emeraldLabelType" format="enum">
         <enum name="error" value="0" />

@@ -48,6 +48,9 @@
         <activity
             android:name=".activities.EndlessRecyclerActivity"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activities.HideableLabelActivity"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

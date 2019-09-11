@@ -5,6 +5,7 @@
     <dimen name="emerald_small_text">13sp</dimen>
     <dimen name="emerald_medium_text">15sp</dimen>
     <dimen name="emerald_large_text">18sp</dimen>
+    <dimen name="emerald_hideable_lable_text_size">20dp</dimen>
 
     <dimen name="button_padding_default_icon">8sp</dimen>
     <dimen name="button_padding_default_top_bottom">16sp</dimen>
@@ -14,4 +15,5 @@
     <dimen name="button_border_width">1dp</dimen>
 
     <dimen name="label_border_width">1dp</dimen>
+
 </resources>
