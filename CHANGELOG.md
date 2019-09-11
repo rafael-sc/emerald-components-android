@@ -3,7 +3,7 @@
 ## Unreleased
 
 ### Added
-- [EmeraldHideableLable component to hide value if is intended][issue-125]
+- [EmeraldHideableLable component to hide value if desired][issue-125]
 
 ## 1.3.0 - 2019-09-03
 
