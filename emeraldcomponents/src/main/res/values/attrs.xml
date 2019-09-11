@@ -88,6 +88,7 @@
     <!--EmeraldHideableLable-->
     <declare-styleable name="EmeraldHideableLabel">
         <attr name="hidden" format="boolean" />
+        <attr name="textSize" format="dimension" />
         <attr name="text" />
     </declare-styleable>
 

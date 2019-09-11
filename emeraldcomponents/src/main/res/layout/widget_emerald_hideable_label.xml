@@ -20,7 +20,7 @@
     <View
         android:id="@+id/hiddenView"
         android:layout_width="0dp"
-        android:layout_height="24dp"
+        android:layout_height="0dp"
         android:visibility="gone"
         android:background="@drawable/emerald_rounded_border"
         app:layout_constraintBottom_toBottomOf="@+id/textView4"

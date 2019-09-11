@@ -2,10 +2,12 @@ package br.com.stone.emeraldcomponents.basic.label
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import br.com.stone.emeraldcomponents.R
+import br.com.stone.emeraldcomponents.extension.dimen
 import kotlinx.android.synthetic.main.widget_emerald_hideable_label.view.*
 
 /**
@@ -36,6 +38,12 @@ class EmeraldHideableLabel : ConstraintLayout {
         val args = context.theme.obtainStyledAttributes(attrs, R.styleable.EmeraldHideableLabel, 0, 0)
         hidden = args.getBoolean(R.styleable.EmeraldHideableLabel_hidden, false)
         text = args.getString(R.styleable.EmeraldHideableLabel_text) ?: ""
+
+        val textSize = Pair(TypedValue.COMPLEX_UNIT_PX,
+                args.getDimension(R.styleable.EmeraldHideableLabel_textSize,
+                context.dimen(R.dimen.emerald_hideable_lable_text_size)))
+
+        emeraldHideableLabel.setTextSize(textSize.first, textSize.second)
 
         args.recycle()
     }
