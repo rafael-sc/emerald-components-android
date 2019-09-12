@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.4.0 - 2019-09-12
+
+### Added
+- [EmeraldHideableLable component to hide value if desired][issue-125]
+
 ## 1.3.0 - 2019-09-03
 
 ### Added
@@ -170,3 +175,4 @@
 [issue-115]:https://github.com/stone-payments/emerald-components-android/issues/115
 [issue-119]:https://github.com/stone-payments/emerald-components-android/issues/119
 [issue-121]:https://github.com/stone-payments/emerald-components-android/issues/121
+[issue-125]:https://github.com/stone-payments/emerald-components-android/issues/125
