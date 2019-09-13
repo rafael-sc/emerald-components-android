@@ -8,6 +8,7 @@ import br.com.stone.emeraldcomponentsandroid.activities.ButtonActivity
 import br.com.stone.emeraldcomponentsandroid.activities.CalendarActivity
 import br.com.stone.emeraldcomponentsandroid.activities.DateActivity
 import br.com.stone.emeraldcomponentsandroid.activities.EndlessRecyclerActivity
+import br.com.stone.emeraldcomponentsandroid.activities.FontActivity
 import br.com.stone.emeraldcomponentsandroid.activities.HideableLabelActivity
 import br.com.stone.emeraldcomponentsandroid.activities.InputActivity
 import br.com.stone.emeraldcomponentsandroid.activities.LabelActivity
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val activities = listOf(
+                FontActivity::class.java to "Emerald Font",
                 EndlessRecyclerActivity::class.java to "Endless Recycler",
                 MaskedEditTextActivity::class.java to "Masked",
                 ButtonActivity::class.java to "Button",
