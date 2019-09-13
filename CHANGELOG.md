@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 1.4.1 - 2019-09-13
+## 1.5.0 - 2019-09-13
 
 ### Added
 - [Emerald font family][issue-129]
