@@ -28,4 +28,7 @@
     <public name="emerald_medium_grey_1" type="color" />
     <public name="emerald_dark_grey_1" type="color" />
     <public name="emerald_light_grey_1" type="color" />
+
+    <!--fonts-->
+    <public name="emerald_font_family" type="font"/>
 </resources>
