@@ -31,4 +31,5 @@
 
     <!--fonts-->
     <public name="emerald_font_family" type="font"/>
+    <public name="emerald_medium_font_family" type="font"/>
 </resources>
