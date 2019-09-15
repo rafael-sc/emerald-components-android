@@ -4,6 +4,7 @@
 
 ### Added
 - [Emerald font family][issue-129]
+- Emerald new color to be exposed
 
 ## 1.4.0 - 2019-09-12
 
