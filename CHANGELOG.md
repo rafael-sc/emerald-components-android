@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Unreleased
+
+### Added
+
+- Emerald new color to be exposed
+
 ## 1.5.0 - 2019-09-13
 
 ### Added
