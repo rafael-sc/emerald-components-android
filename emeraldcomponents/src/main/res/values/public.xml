@@ -26,6 +26,7 @@
     <public name="emerald_light_green" type="color" />
 
     <public name="emerald_medium_grey_1" type="color" />
+    <public name="emerald_medium_grey_4" type="color" />
     <public name="emerald_dark_grey_1" type="color" />
     <public name="emerald_light_grey_1" type="color" />
 
