@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## 1.5.1 - 2019-09-16
 
 ### Added
 
