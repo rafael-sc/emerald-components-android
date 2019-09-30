@@ -7,7 +7,7 @@ import androidx.core.content.ContextCompat
 import br.com.stone.emeraldcomponents.R
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
-import java.util.Calendar
+import org.threeten.bp.format.TextStyle
 import java.util.Locale
 
 class EmeraldCalendarView : MaterialCalendarView {
@@ -19,9 +19,7 @@ class EmeraldCalendarView : MaterialCalendarView {
     init {
         topbarVisible = false
         setWeekDayFormatter {
-            val calendar = Calendar.getInstance()
-            calendar.set(Calendar.DAY_OF_WEEK, it)
-            calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale("PT", "BR"))
+            it.getDisplayName(TextStyle.SHORT, Locale("PT", "BR"))
         }
     }
 

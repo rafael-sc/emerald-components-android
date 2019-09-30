@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import br.com.stone.emeraldcomponents.basic.calendar.DateEvent
 import br.com.stone.emeraldcomponents.extension.day
 import br.com.stone.emeraldcomponents.extension.format
+import br.com.stone.emeraldcomponents.extension.toCalendar
+import br.com.stone.emeraldcomponents.extension.toLocalDate
 import br.com.stone.emeraldcomponentsandroid.R
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import kotlinx.android.synthetic.main.activity_calendar.*
@@ -23,18 +25,18 @@ class CalendarActivity : AppCompatActivity() {
         setContentView(R.layout.activity_calendar)
 
         val dates = listOf(
-                CalendarDay.from(2018, 4, 2),
-                CalendarDay.from(2018, 4, 2),
-                CalendarDay.from(2018, 4, 2),
-                CalendarDay.from(2018, 4, 2),
-                CalendarDay.from(2018, 4, 2),
-                CalendarDay.from(2018, 4, 2),
-                CalendarDay.from(2018, 4, 6),
-                CalendarDay.from(2018, 4, 6),
-                CalendarDay.from(2018, 4, 6),
                 CalendarDay.from(2018, 4, 1),
-                CalendarDay.from(2018, 4, 7),
+                CalendarDay.from(2018, 4, 2),
+                CalendarDay.from(2018, 4, 2),
+                CalendarDay.from(2018, 4, 2),
+                CalendarDay.from(2018, 4, 2),
+                CalendarDay.from(2018, 4, 2),
+                CalendarDay.from(2018, 4, 2),
                 CalendarDay.from(2018, 4, 5),
+                CalendarDay.from(2018, 4, 6),
+                CalendarDay.from(2018, 4, 6),
+                CalendarDay.from(2018, 4, 6),
+                CalendarDay.from(2018, 4, 7),
                 CalendarDay.from(2018, 4, 13),
                 CalendarDay.from(2018, 4, 28)
         )
@@ -43,7 +45,7 @@ class CalendarActivity : AppCompatActivity() {
         calendar.highlightDays(R.color.colorPrimary, dates.filter { it.day % 2 != 0 }.toSet())
 
         calendar.setOnDateChangedListener { _, selectedDate, _ ->
-            eventList.selectEvent(selectedDate.calendar)
+            eventList.selectEvent(selectedDate.date.toCalendar())
             Log.i("Calendar", "event " + eventList.selectedEvent?.toString())
             Log.i("Calendar", eventList.selectedEvent?.day().toString())
         }
@@ -64,7 +66,7 @@ class CalendarActivity : AppCompatActivity() {
         dates.forEach {
             eventList.addEvent(
                     DateEvent(
-                            it.calendar,
+                            it.date.toCalendar(),
                             spannable = spannableString,
                             color = android.R.color.holo_green_light))
         }
@@ -88,7 +90,7 @@ class CalendarActivity : AppCompatActivity() {
         }
 
         dateView.setDateChangedListener {
-            calendar.setCurrentDate(it)
+            calendar.setCurrentDate(it.toLocalDate())
         }
     }
 }
