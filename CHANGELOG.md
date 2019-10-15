@@ -1,9 +1,13 @@
 # CHANGELOG
 
+## 1.6.0 - 2019-10-14
+
+### Removed
+- [circularstd font][issue-129]
+
 ## 1.5.1 - 2019-09-16
 
 ### Added
-
 - Emerald new color to be exposed
 
 ## 1.5.0 - 2019-09-13
