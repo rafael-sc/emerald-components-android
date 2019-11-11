@@ -1,5 +1,10 @@
 # CHANGELOG
 
+##Unreleased
+
+### Added
+- Counter component
+
 ## 1.6.0 - 2019-10-14
 
 ### Removed

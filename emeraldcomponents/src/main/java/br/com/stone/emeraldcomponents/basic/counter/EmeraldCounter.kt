@@ -9,39 +9,51 @@ import kotlinx.android.synthetic.main.widget_counter.view.*
 
 class EmeraldCounter : ConstraintLayout {
 
+    private var counter: Int = 0
+
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
 
     init {
         inflate(context, R.layout.widget_counter, this)
+    }
 
-        counterTextView.text = "1"
+    fun setup(leftLimiter: Int, rightLimiter: Int, startValue: Int) {
+
+        counterTextView.text = startValue.toString()
+        counter = startValue
 
         minusSign.setOnClickListener {
-            var decrement: Int = counterTextView.text.toString().toInt()
-            if (decrement > 0) {
-                decrement--
-                if (decrement == 0) {
+            if (counter > leftLimiter) {
+                counter--
+                if (counter == leftLimiter) {
                     minusSign.isClickable = false
                     minusSign.setTextColor(ContextCompat.getColor(context, R.color.emerald_gray))
 
                 }
-                counterTextView.text = decrement.toString()
+                if (counter < rightLimiter) {
+                    plusSign.isClickable = true
+                    plusSign.setTextColor(ContextCompat.getColor(context, R.color.emerald_button_primary))
+                }
+                counterTextView.text = counter.toString()
             }
         }
 
         plusSign.setOnClickListener {
-            var increment: Int = counterTextView.text.toString().toInt()
-            increment++
-            if (increment > 0 && !minusSign.isClickable) {
+            counter++
+            if (counter > leftLimiter && !minusSign.isClickable) {
                 minusSign.isClickable = true
                 minusSign.setTextColor(ContextCompat.getColor(context, R.color.emerald_button_primary))
             }
-            counterTextView.text = increment.toString()
+            if (counter == rightLimiter) {
+                plusSign.isClickable = false
+                plusSign.setTextColor(ContextCompat.getColor(context, R.color.emerald_gray))
+            }
+            counterTextView.text = counter.toString()
         }
     }
 
     fun getCounterValue(): Int {
-        return counterTextView.text.toString().toInt()
+        return counter
     }
 }
