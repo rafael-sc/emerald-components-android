@@ -9,7 +9,8 @@ import kotlinx.android.synthetic.main.widget_counter.view.*
 
 class EmeraldCounter : ConstraintLayout {
 
-    private var counter: Int = 0
+    var counter: Int = 0
+        private set
 
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
@@ -51,9 +52,5 @@ class EmeraldCounter : ConstraintLayout {
             }
             counterTextView.text = counter.toString()
         }
-    }
-
-    fun getCounterValue(): Int {
-        return counter
     }
 }
