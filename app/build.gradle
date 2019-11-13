@@ -31,8 +31,8 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$support_version"
     implementation "androidx.recyclerview:recyclerview:$support_version"
     implementation "androidx.cardview:cardview:1.0.0"
-    implementation "com.google.android.material:material:1.1.0-alpha03"
-    implementation "androidx.constraintlayout:constraintlayout:2.0.0-alpha3"
+    implementation "com.google.android.material:material:1.1.0-beta02"
+    implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta3"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.1'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.1"
 
