@@ -2,8 +2,8 @@ package br.com.stone.emeraldcomponents.basic.counter
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import br.com.stone.emeraldcomponents.R
 import kotlinx.android.synthetic.main.widget_counter.view.*
 
@@ -24,33 +24,18 @@ class EmeraldCounter : ConstraintLayout {
         counterTextView.text = startValue.toString()
         counter = startValue
 
-        minusSign.setOnClickListener {
-            if (counter > leftLimiter) {
-                counter--
-                if (counter == leftLimiter) {
-                    minusSign.isClickable = false
-                    minusSign.setTextColor(ContextCompat.getColor(context, R.color.emerald_gray))
+        fun click(view: View) {
+            if(counter in leftLimiter..rightLimiter) {
+                counter += (if (view == minusSign) -1 else 1)
+            }
 
-                }
-                if (counter < rightLimiter) {
-                    plusSign.isClickable = true
-                    plusSign.setTextColor(ContextCompat.getColor(context, R.color.emerald_button_primary))
-                }
-                counterTextView.text = counter.toString()
-            }
-        }
-
-        plusSign.setOnClickListener {
-            counter++
-            if (counter > leftLimiter && !minusSign.isClickable) {
-                minusSign.isClickable = true
-                minusSign.setTextColor(ContextCompat.getColor(context, R.color.emerald_button_primary))
-            }
-            if (counter == rightLimiter) {
-                plusSign.isClickable = false
-                plusSign.setTextColor(ContextCompat.getColor(context, R.color.emerald_gray))
-            }
             counterTextView.text = counter.toString()
+
+            minusSign.isEnabled = counter > leftLimiter
+            plusSign.isEnabled = counter < rightLimiter
         }
+
+        minusSign.setOnClickListener(::click)
+        plusSign.setOnClickListener(::click)
     }
 }
