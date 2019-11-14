@@ -28,8 +28,6 @@ class EmeraldEditText : EmeraldBaseEditText {
         editText.inputType = inputType
         editText.setText(textAttribute)
         addView(editText)
-
-        state.setState(EditTextState.InputState.ERROR, "Error message")
     }
 
     fun setMaskType(type: EmeraldMaskedEditText.MaskTypes) {
