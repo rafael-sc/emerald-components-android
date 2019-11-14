@@ -55,7 +55,7 @@ class EditTextState {
             val colorStateList = ColorStateList.valueOf(ContextCompat.getColor(context, state.color))
             editText?.let {
                 ViewCompat.setBackgroundTintList(it, colorStateList)
-                it.setCompoundDrawablesWithIntrinsicBounds(0, 0, state.drawable, 0)
+                if (this.errorIconDrawable != null) it.setCompoundDrawablesWithIntrinsicBounds(0, 0, state.drawable, 0)
             }
 
             if (message.isBlank()) {
