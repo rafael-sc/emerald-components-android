@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.widget.EditText
 import br.com.stone.emeraldcomponents.R
 import kotlinx.android.synthetic.main.widget_edittextview.view.*
-import kotlinx.android.synthetic.main.widget_emerald_hideable_label.view.*
 
 /**
  * Created by renan.silva on 18/06/2018.
