@@ -1,7 +1,9 @@
 package br.com.stone.emeraldcomponents.basics.counter
 
+import android.widget.TextView
 import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.basic.counter.EmeraldCounter
+import kotlinx.android.synthetic.main.widget_counter.view.*
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
@@ -37,6 +39,24 @@ class EmeraldCounterTest {
     fun testSetParam() {
         val expectedValue = 1
         counter.setup(0, 3, expectedValue)
+        Assert.assertEquals(expectedValue, counter.counter)
+    }
+
+    @Test
+    fun testMinusSign() {
+        val expectedValue = 0
+        val startValue = 1
+        counter.setup(0, 3, startValue)
+        counter.minusSign.performClick()
+        Assert.assertEquals(expectedValue, counter.counter)
+    }
+
+    @Test
+    fun testPlusSign() {
+        val expectedValue = 2
+        val startValue = 1
+        counter.setup(0, 3, startValue)
+        counter.plusSign.performClick()
         Assert.assertEquals(expectedValue, counter.counter)
     }
 }
