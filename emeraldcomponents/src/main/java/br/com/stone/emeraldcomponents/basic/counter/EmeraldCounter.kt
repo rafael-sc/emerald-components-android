@@ -19,20 +19,20 @@ class EmeraldCounter : ConstraintLayout {
         inflate(context, R.layout.widget_counter, this)
     }
 
-    fun setup(leftLimiter: Int, rightLimiter: Int, startValue: Int) {
+    fun setup(minValue: Int, maxValue: Int, startValue: Int) {
 
         counterTextView.text = startValue.toString()
         counter = startValue
 
         fun click(view: View) {
-            if(counter in leftLimiter..rightLimiter) {
+            if(counter in minValue..maxValue) {
                 counter += (if (view == minusSign) -1 else 1)
             }
 
             counterTextView.text = counter.toString()
 
-            minusSign.isEnabled = counter > leftLimiter
-            plusSign.isEnabled = counter < rightLimiter
+            minusSign.isEnabled = counter > minValue
+            plusSign.isEnabled = counter < maxValue
         }
 
         minusSign.setOnClickListener(::click)
