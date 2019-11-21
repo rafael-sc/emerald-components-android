@@ -116,4 +116,18 @@ abstract class EmeraldBaseEditText : TextInputLayout, SelfValidatorField {
             }
         }
     }
+
+    fun setOnEditorActionSearch(action: () -> Unit) {
+        editText?.setOnEditorActionListener { _, actionId, _ ->
+            when (actionId) {
+                EditorInfo.IME_ACTION_SEARCH -> {
+                    action()
+                    true
+                }
+                else -> {
+                    false
+                }
+            }
+        }
+    }
 }
