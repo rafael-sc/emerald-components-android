@@ -9,6 +9,21 @@
         android:layout_height="wrap_content">
 
         <br.com.stone.emeraldcomponents.basic.input.EmeraldEditText
+            android:id="@+id/creditCardEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Credit Card"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:maskType="credit_card"
+            app:required="true" />
+
+        <br.com.stone.emeraldcomponents.basic.input.EmeraldEditText
             android:id="@+id/emeraldEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -19,7 +34,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/creditCardEditText"
             app:maskType="text"
             app:required="true" />
 

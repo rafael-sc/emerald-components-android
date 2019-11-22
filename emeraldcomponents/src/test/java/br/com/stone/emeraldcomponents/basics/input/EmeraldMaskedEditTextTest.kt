@@ -374,6 +374,15 @@ class EmeraldMaskedEditTextTest {
     }
 
     @Test
+    fun `Should be valid credit card`() {
+        view.type = (EmeraldMaskedEditText.MaskTypes.CREDIT_CARD)
+        val text = "1111222233334444"
+        view.setText(text)
+        assertEquals("1111 2222 3333 4444", view.text.toString())
+        assertEquals("1111222233334444", view.unmaskedText)
+    }
+
+    @Test
     fun `Should remove old text watchers when a new one is selected`() {
         view.run {
             fillLength = 1
