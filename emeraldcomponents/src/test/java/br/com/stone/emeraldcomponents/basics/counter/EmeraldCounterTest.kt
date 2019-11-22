@@ -59,4 +59,24 @@ class EmeraldCounterTest {
         counter.plusSign.performClick()
         Assert.assertEquals(expectedValue, counter.counter)
     }
+
+    @Test
+    fun testMinusSignExceed() {
+        val expectedValue = 0
+        val startValue = 0
+        counter.setup(0, 3, startValue)
+        if (counter.minusSign.isEnabled) //performClick() does not verify it
+            counter.minusSign.performClick()
+        Assert.assertEquals(expectedValue, counter.counter)
+    }
+
+    @Test
+    fun testPlusSignExceed() {
+        val expectedValue = 3
+        val startValue = 3
+        counter.setup(0, 3, startValue)
+        if (counter.plusSign.isEnabled) //performClick() does not verify it
+            counter.plusSign.performClick()
+        Assert.assertEquals(expectedValue, counter.counter)
+    }
 }

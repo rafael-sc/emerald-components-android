@@ -21,18 +21,22 @@ class EmeraldCounter : ConstraintLayout {
 
     fun setup(minValue: Int, maxValue: Int, startValue: Int) {
 
-        counterTextView.text = startValue.toString()
+        fun verify() {
+            counterTextView.text = counter.toString()
+
+            minusSign.isEnabled = counter > minValue
+            plusSign.isEnabled = counter < maxValue
+        }
+
         counter = startValue
+        verify()
 
         fun click(view: View) {
             if(counter in minValue..maxValue) {
                 counter += (if (view == minusSign) -1 else 1)
             }
 
-            counterTextView.text = counter.toString()
-
-            minusSign.isEnabled = counter > minValue
-            plusSign.isEnabled = counter < maxValue
+            verify()
         }
 
         minusSign.setOnClickListener(::click)
