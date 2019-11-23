@@ -7,17 +7,13 @@ import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.input.EmeraldMaskedEditText
 import br.com.stone.emeraldcomponents.basic.input.EmeraldMaskedEditText.MaskTypes.PRE_FILL
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
-import org.junit.Assert.assertNull
-import org.junit.Assert.assertNotNull
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
-import java.util.Locale
+import java.util.*
 
 @RunWith(RobolectricTestRunner::class)
 class EmeraldMaskedEditTextTest {
@@ -380,6 +376,15 @@ class EmeraldMaskedEditTextTest {
         view.setText(text)
         assertEquals("1111 2222 3333 4444", view.text.toString())
         assertEquals("1111222233334444", view.unmaskedText)
+    }
+
+    @Test
+    fun `Should be valid credit card expiration date`() {
+        view.type = (EmeraldMaskedEditText.MaskTypes.CREDIT_CARD_EXP_DATE)
+        val text = "1221"
+        view.setText(text)
+        assertEquals("12/21", view.text.toString())
+        assertEquals("1221", view.unmaskedText)
     }
 
     @Test

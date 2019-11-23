@@ -145,6 +145,7 @@ class EmeraldMaskedEditText : AppCompatEditText {
         private const val CURRENCY_ID = 8
         private const val PRE_FILL_ID = 9
         private const val CREDIT_CARD_ID = 10
+        private const val CREDIT_CARD_EXP_DATE_ID = 11
     }
 
     enum class MaskTypes(val id: Int, val mask: String?) {
@@ -158,7 +159,8 @@ class EmeraldMaskedEditText : AppCompatEditText {
         TEXT(TEXT_ID, "[…]"),
         CURRENCY(CURRENCY_ID, null),
         PRE_FILL(PRE_FILL_ID, null),
-        CREDIT_CARD(CREDIT_CARD_ID, "[0000] [0000] [0000] [0000]");
+        CREDIT_CARD(CREDIT_CARD_ID, "[0000] [0000] [0000] [0000]"),
+        CREDIT_CARD_EXP_DATE(CREDIT_CARD_EXP_DATE_ID, "[00]/[00]");
 
         companion object {
             fun getById(id: Int?) = values().firstOrNull { it.id == id } ?: NONE

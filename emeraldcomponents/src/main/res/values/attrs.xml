@@ -24,6 +24,7 @@
         <enum name="text" value="7" />
         <enum name="currency" value="8" />
         <enum name="credit_card" value="10" />
+        <enum name="credit_card_expiration_date" value="11" />
     </attr>
 
     <declare-styleable name="EmeraldMaskedEditText">
