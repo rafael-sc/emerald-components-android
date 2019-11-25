@@ -14,6 +14,7 @@ import br.com.stone.emeraldcomponentsandroid.activities.LabelActivity
 import br.com.stone.emeraldcomponentsandroid.activities.MaskedEditTextActivity
 import br.com.stone.emeraldcomponentsandroid.activities.PagerActivity
 import br.com.stone.emeraldcomponentsandroid.activities.SpinnerActivity
+import br.com.stone.emeraldcomponentsandroid.activities.CounterActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_activity_list.view.*
 
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val activities = listOf(
+                CounterActivity::class.java to "Counter",
                 EndlessRecyclerActivity::class.java to "Endless Recycler",
                 MaskedEditTextActivity::class.java to "Masked",
                 ButtonActivity::class.java to "Button",
