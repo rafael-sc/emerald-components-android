@@ -388,6 +388,15 @@ class EmeraldMaskedEditTextTest {
     }
 
     @Test
+    fun `Should be valid credit card cvv`() {
+        view.type = (EmeraldMaskedEditText.MaskTypes.CREDIT_CARD_CVV)
+        val text = "000"
+        view.setText(text)
+        assertEquals("000", view.text.toString())
+        assertEquals("000", view.unmaskedText)
+    }
+
+    @Test
     fun `Should remove old text watchers when a new one is selected`() {
         view.run {
             fillLength = 1
