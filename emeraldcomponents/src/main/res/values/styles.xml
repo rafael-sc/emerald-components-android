@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="Emerald" parent="Theme.AppCompat.Light" />
+    <style name="Emerald" parent="Theme.MaterialComponents.Light.Bridge" />
 
     <style name="Emerald.TextFloatLabelAppearance" parent="TextAppearance.AppCompat">
         <!-- Floating label appearance here -->
