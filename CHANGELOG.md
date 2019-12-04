@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.7.0 - 2019-12-04
+
+### Added
+- [Support to Material styles][issue-142]
+- [Counter component][issue-141]
+
 ## 1.6.0 - 2019-10-14
 
 ### Removed
@@ -192,4 +198,5 @@
 [issue-121]:https://github.com/stone-payments/emerald-components-android/issues/121
 [issue-125]:https://github.com/stone-payments/emerald-components-android/issues/125
 [issue-129]:https://github.com/stone-payments/emerald-components-android/issues/129
-
+[issue-141]:https://github.com/stone-payments/emerald-components-android/issues/141
+[issue-142]:https://github.com/stone-payments/emerald-components-android/issues/142

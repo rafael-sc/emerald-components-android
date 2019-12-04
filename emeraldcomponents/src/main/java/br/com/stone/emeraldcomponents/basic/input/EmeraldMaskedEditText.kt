@@ -115,8 +115,7 @@ class EmeraldMaskedEditText : AppCompatEditText {
         val isValid = if (text?.length ?: 0 < acceptableTextLength) {
             errorMessage = context.getString(R.string.emerald_mask_error)
             false
-        } else
-            if (type == MaskTypes.EMAIL && !UtilValidator.isEmailValid(text.toString())) {
+        } else if (type == MaskTypes.EMAIL && !UtilValidator.isEmailValid(text.toString())) {
                 errorMessage = context.getString(R.string.emerald_invalid_email)
                 false
             } else {
@@ -145,6 +144,9 @@ class EmeraldMaskedEditText : AppCompatEditText {
         private const val TEXT_ID = 7
         private const val CURRENCY_ID = 8
         private const val PRE_FILL_ID = 9
+        private const val CREDIT_CARD_ID = 10
+        private const val CREDIT_CARD_EXP_DATE_ID = 11
+        private const val CREDIT_CARD_CVV_ID = 12
     }
 
     enum class MaskTypes(val id: Int, val mask: String?) {
@@ -157,7 +159,10 @@ class EmeraldMaskedEditText : AppCompatEditText {
         CEP(CEP_ID, "[00000]-[000]"),
         TEXT(TEXT_ID, "[…]"),
         CURRENCY(CURRENCY_ID, null),
-        PRE_FILL(PRE_FILL_ID, null);
+        PRE_FILL(PRE_FILL_ID, null),
+        CREDIT_CARD(CREDIT_CARD_ID, "[0000] [0000] [0000] [0000]"),
+        CREDIT_CARD_EXP_DATE(CREDIT_CARD_EXP_DATE_ID, "[00]/[00]"),
+        CREDIT_CARD_CVV(CREDIT_CARD_CVV_ID, "[000]");
 
         companion object {
             fun getById(id: Int?) = values().firstOrNull { it.id == id } ?: NONE
