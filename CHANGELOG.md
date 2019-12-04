@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## 1.7.0 - 2019-12-04
 
 ### Added
 - [Support to Material styles][issue-142]
