@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## 1.8.0 - 2019-12-16
 
 ### Added
 - [Spinner text customization][issue-145]
