@@ -11,8 +11,8 @@ class SpinnerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_spinner)
-        emeraldSpinner.setItems(listOf("Option 1","Option 2"))
-        emeraldSpinnerWithPlaceholder.setItems(listOf("Option 1","Option 2"))
+        emeraldSpinner.setItems(listOf("Option 1", "Option 2"))
+        emeraldSpinnerWithPlaceholder.setItems(listOf("Option 1", "Option 2"))
 
         emeraldAutoComplete.setItems(setOf(
                 Value("100", "Aaaaaaaaa"),
@@ -27,6 +27,7 @@ class SpinnerActivity : AppCompatActivity() {
                 callback = {
                     Log.i("AUTOCOMPLETE", it.desc)
                 })
+        emeraldSpinnerWithCustomLayout.setItems(listOf("Option 1", "Option 2"), R.layout.spinner_text)
     }
 
 

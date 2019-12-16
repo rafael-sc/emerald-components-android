@@ -32,7 +32,7 @@ class EmeraldCounter : ConstraintLayout {
         verify()
 
         fun click(view: View) {
-            if(counter in minValue..maxValue) {
+            if (counter in minValue..maxValue) {
                 counter += (if (view == minusSign) -1 else 1)
             }
 
