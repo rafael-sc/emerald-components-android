@@ -1,11 +1,11 @@
 package br.com.stone.emeraldcomponents.basic.spinner
 
 import android.content.Context
-import androidx.appcompat.widget.AppCompatSpinner
 import android.util.AttributeSet
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.appcompat.widget.AppCompatSpinner
 import br.com.stone.emeraldcomponents.R
 
 /**
@@ -31,15 +31,14 @@ class EmeraldSpinner : AppCompatSpinner {
         args.recycle()
     }
 
-    fun setItems(dataList: List<Any>) {
+    fun setItems(dataList: List<Any>, layout: Int = android.R.layout.simple_dropdown_item_1line) {
         val newAdapter = if (placeholder.isNullOrEmpty()) {
-
-            ArrayAdapter<Any>(context, android.R.layout.simple_dropdown_item_1line, dataList)
+            ArrayAdapter<Any>(context, layout, dataList)
         } else {
 
             val mutableList: MutableList<Any> = mutableListOf(placeholder as Any)
             mutableList.addAll(dataList)
-            EmeraldSpinnerArrayAdapter(context, android.R.layout.simple_dropdown_item_1line, mutableList.toList())
+            EmeraldSpinnerArrayAdapter(context, layout, mutableList.toList())
         }
 
         adapter = newAdapter
