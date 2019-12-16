@@ -7,13 +7,17 @@ import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.input.EmeraldMaskedEditText
 import br.com.stone.emeraldcomponents.basic.input.EmeraldMaskedEditText.MaskTypes.PRE_FILL
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
 import org.robolectric.RobolectricTestRunner
-import java.util.*
+import java.util.Locale
 
 @RunWith(RobolectricTestRunner::class)
 class EmeraldMaskedEditTextTest {

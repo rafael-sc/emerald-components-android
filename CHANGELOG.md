@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## UNRELEASED
+
+### Added
+- [Spinner text customization][issue-145]
+
+
 ## 1.7.0 - 2019-12-04
 
 ### Added
@@ -200,3 +206,4 @@
 [issue-129]:https://github.com/stone-payments/emerald-components-android/issues/129
 [issue-141]:https://github.com/stone-payments/emerald-components-android/issues/141
 [issue-142]:https://github.com/stone-payments/emerald-components-android/issues/142
+[issue-145]:https://github.com/stone-payments/emerald-components-android/issues/145

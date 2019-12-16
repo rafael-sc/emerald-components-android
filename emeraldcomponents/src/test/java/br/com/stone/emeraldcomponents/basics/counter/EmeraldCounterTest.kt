@@ -1,6 +1,5 @@
 package br.com.stone.emeraldcomponents.basics.counter
 
-import android.widget.TextView
 import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.basic.counter.EmeraldCounter
 import kotlinx.android.synthetic.main.widget_counter.view.*
