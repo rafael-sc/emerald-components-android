@@ -1,12 +1,12 @@
 package br.com.stone.emeraldcomponents.basic.input
 
 import android.content.res.ColorStateList
-import com.google.android.material.textfield.TextInputLayout
-import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
 import br.com.stone.emeraldcomponents.R
+import com.google.android.material.textfield.TextInputLayout
 
 /**
  * Created by renan.silva on 18/06/2018.
@@ -58,11 +58,11 @@ class EditTextState {
                 it.setCompoundDrawablesWithIntrinsicBounds(0, 0, state.drawable, 0)
             }
 
-            if (message.isBlank()) {
-                isErrorEnabled = false
+            error = if (message.isBlank()) {
+                null
             } else {
                 setErrorTextAppearance(state.textAppearance)
-                error = message
+                message
             }
 
             refreshDrawableState()
