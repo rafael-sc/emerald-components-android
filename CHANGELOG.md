@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## 1.8.1 - 2020-01-14
 
 ### Fixed
 - [Edit text error state][issue-149]
