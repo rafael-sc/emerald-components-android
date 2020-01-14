@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.8.1 - 2020-01-14
+
+### Fixed
+- [Edit text error state][issue-149]
+
 ## 1.8.0 - 2019-12-16
 
 ### Added
@@ -207,3 +212,4 @@
 [issue-141]:https://github.com/stone-payments/emerald-components-android/issues/141
 [issue-142]:https://github.com/stone-payments/emerald-components-android/issues/142
 [issue-145]:https://github.com/stone-payments/emerald-components-android/issues/145
+[issue-149]:https://github.com/stone-payments/emerald-components-android/issues/149

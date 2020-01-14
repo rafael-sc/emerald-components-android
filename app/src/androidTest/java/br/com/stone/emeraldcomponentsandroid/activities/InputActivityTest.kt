@@ -1,6 +1,8 @@
 package br.com.stone.emeraldcomponentsandroid.activities
 
-import android.content.pm.ActivityInfo
+import android.view.View
+import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.clearText
 import androidx.test.espresso.action.ViewActions.click
@@ -13,9 +15,6 @@ import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
-import androidx.appcompat.app.AppCompatActivity
-import android.view.View
-import android.widget.EditText
 import br.com.stone.emeraldcomponentsandroid.BaseScreenshotTest
 import br.com.stone.emeraldcomponentsandroid.CustomMatcher
 import br.com.stone.emeraldcomponentsandroid.R
@@ -173,15 +172,5 @@ class InputActivityTest : BaseScreenshotTest() {
                 .check(matches(withText("21000-000")))
 
         screenShot("cep-edittext")
-    }
-
-
-    @Test
-    fun shouldPasswordEditNotCrashWhenToggleIsClickedAndOrientationChanges(){
-        onView(withId((R.id.text_input_password_toggle)))
-                .perform(click())
-
-        activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-        activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 }
