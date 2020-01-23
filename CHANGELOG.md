@@ -1,7 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
-<p>
+## 1.8.2 - 2020-01-23
 
 ### Fixed
 - [Form Controller Validations][issue-153]
