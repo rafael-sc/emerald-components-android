@@ -1,12 +1,12 @@
 package br.com.stone.emeraldcomponents.basic.input
 
 import android.content.Context
-import com.google.android.material.textfield.TextInputLayout
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.inputmethod.EditorInfo
 import br.com.stone.emeraldcomponents.R
+import com.google.android.material.textfield.TextInputLayout
 
 /**
  * Created by renan.silva on 20/06/2018.
@@ -85,15 +85,17 @@ abstract class EmeraldBaseEditText : TextInputLayout, SelfValidatorField {
     }
 
     private fun setValidationState(isValid: Boolean, message: String) {
-        if (isValid)
-        // TODO esperar definição do emerald state.setState(EditTextState.InputState.SUCCESS)
+        if (isValid) state.setState(EditTextState.InputState.DEFAULT)
         else state.setState(EditTextState.InputState.ERROR, message)
     }
 
     override fun isValid(): Boolean {
         var (isValid, message) = validateEditText()
 
-        if (required && text.isEmpty()) isValid = false
+        if (required && text.isEmpty()) {
+            isValid = false
+            message = context.getString(R.string.emerald_empty_field)
+        }
         if (!required && text.isEmpty()) isValid = true
 
         setValidationState(isValid, message)
