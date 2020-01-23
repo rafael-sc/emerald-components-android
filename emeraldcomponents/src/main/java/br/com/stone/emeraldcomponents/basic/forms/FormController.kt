@@ -16,7 +16,8 @@ object FormController {
         val childList = parentView.getAllChildren()
         childList.forEach {
             if (it is SelfValidatorField) {
-                isValid = isValid && it.isValid()
+                val isFieldValid = it.isValid()
+                isValid = isValid && isFieldValid
             }
         }
         return isValid

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## UNRELEASED
+<p>
+
+### Fixed
+- [Form Controller Validations][issue-153]
+
 ## 1.8.1 - 2020-01-14
 
 ### Fixed
@@ -213,3 +219,4 @@
 [issue-142]:https://github.com/stone-payments/emerald-components-android/issues/142
 [issue-145]:https://github.com/stone-payments/emerald-components-android/issues/145
 [issue-149]:https://github.com/stone-payments/emerald-components-android/issues/149
+[issue-153]:https://github.com/stone-payments/emerald-components-android/issues/153
