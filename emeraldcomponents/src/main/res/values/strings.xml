@@ -4,6 +4,7 @@
 
     <!--Login component strings-->
     <string name="emerald_mask_error">Valor inválido</string>
+    <string name="emerald_empty_field">Campo não pode ser vazio</string>
     <string name="emerald_invalid_email">Email inválido</string>
     <string name="emerald_invalid_auto_complete_text">Valor não condiz com nenhuma opção</string>
 
