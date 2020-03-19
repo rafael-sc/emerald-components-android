@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## 1.9.0 - 2020-03-19
 
 - [Exposes pager tab layout and adds item selection][issue-158]
 
