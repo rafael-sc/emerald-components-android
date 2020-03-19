@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.pager.EmeraldPagerAdapter
 import br.com.stone.emeraldcomponents.extension.getActivity
+import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.widget_tab_pager.view.*
 
 /**
@@ -14,6 +15,8 @@ import kotlinx.android.synthetic.main.widget_tab_pager.view.*
  * renan.silva@stone.com.br
  */
 class EmeraldTabPager : ConstraintLayout {
+
+    val tabLayout: TabLayout by lazy { emeraldTabLayout }
 
     init {
         inflate(context, R.layout.widget_tab_pager, this)
@@ -29,5 +32,9 @@ class EmeraldTabPager : ConstraintLayout {
         itemList.forEachIndexed { position, item ->
             item.iconId?.let { emeraldTabLayout.getTabAt(position)?.setIcon(it) }
         }
+    }
+
+    fun selectTab(index: Int) {
+        emeraldViewPager.setCurrentItem(index, true)
     }
 }

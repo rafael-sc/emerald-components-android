@@ -46,8 +46,18 @@ class EmeraldTabPagerTest {
     fun `Should set tabs when set adapter is called`() {
         val testTitle = "test"
         val item = EmeraldTabPagerItem(R.layout.widget_autocomplete,
-                { }, testTitle, R.drawable.abc_ic_ab_back_material)
+            { }, testTitle, R.drawable.abc_ic_ab_back_material)
         pager.setAdapter(listOf(item))
         assertEquals(testTitle, pager.emeraldTabLayout.getTabAt(0)?.text)
+    }
+
+    @Test
+    fun `Should select tab`() {
+        val item = EmeraldTabPagerItem(R.layout.widget_autocomplete,
+            { }, "testTitle", R.drawable.abc_ic_ab_back_material)
+        pager.setAdapter(listOf(item, item))
+        val expectedIndex = 1
+        pager.selectTab(expectedIndex)
+        assertEquals(expectedIndex, pager.emeraldViewPager.currentItem)
     }
 }
