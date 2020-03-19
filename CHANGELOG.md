@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## UNRELEASED
+
+- [Exposes pager tab layout and adds item selection][issue-158]
+
 ## 1.8.2 - 2020-01-23
 
 ### Fixed
@@ -219,3 +223,4 @@
 [issue-145]:https://github.com/stone-payments/emerald-components-android/issues/145
 [issue-149]:https://github.com/stone-payments/emerald-components-android/issues/149
 [issue-153]:https://github.com/stone-payments/emerald-components-android/issues/153
+[issue-158]:https://github.com/stone-payments/emerald-components-android/issues/158
