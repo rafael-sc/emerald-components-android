@@ -1,9 +1,11 @@
 package br.com.stone.emeraldcomponentsandroid.activities
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.com.stone.emeraldcomponents.basic.pager.bullet.EmeraldBulletPagerItem
 import br.com.stone.emeraldcomponents.basic.pager.tabs.EmeraldTabPagerItem
+import br.com.stone.emeraldcomponents.extension.colorRes
 import br.com.stone.emeraldcomponents.extension.toDip
 import br.com.stone.emeraldcomponentsandroid.R
 import kotlinx.android.synthetic.main.activity_pager.*
@@ -54,5 +56,12 @@ class PagerActivity : AppCompatActivity() {
         }, "tab with icon", R.drawable.ic_launcher_background)
 
         emeraldTabPager.setAdapter(listOf(item, item2, item3))
+
+        emeraldTabPager.tabLayout.run {
+            setBackgroundColor(colorRes(R.color.emerald_primary))
+            setSelectedTabIndicatorColor(colorRes(R.color.emerald_attention))
+            setTabTextColors(Color.BLACK, Color.WHITE)
+        }
+        emeraldTabPager.selectTab(1)
     }
 }
