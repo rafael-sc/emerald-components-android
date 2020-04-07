@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.10.0 - 2020-04-07
+- [Adds new colors][issue-162]
+
 ## 1.9.0 - 2020-03-19
 
 - [Exposes pager tab layout and adds item selection][issue-158]
@@ -224,3 +227,4 @@
 [issue-149]:https://github.com/stone-payments/emerald-components-android/issues/149
 [issue-153]:https://github.com/stone-payments/emerald-components-android/issues/153
 [issue-158]:https://github.com/stone-payments/emerald-components-android/issues/158
+[issue-162]:https://github.com/stone-payments/emerald-components-android/issues/162
