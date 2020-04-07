@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## UNRELEASED
+## 1.10.0 - 2020-04-07
 - [Adds new colors][issue-162]
 
 ## 1.9.0 - 2020-03-19
