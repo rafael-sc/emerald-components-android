@@ -4,15 +4,18 @@
     <!--Emerald Colors-->
     <color name="emerald_primary">#0DB14B</color>
     <color name="emerald_secondary">#8036DC</color>
-    <color name="emerald_success">#2ECC71</color>
+    <color name="emerald_success">#14AA4B</color>
+    <color name="emerald_success_light">#34E073</color>
     <color name="emerald_error">#E74C3C</color>
+    <color name="emerald_error_light">#FFC9C3</color>
     <color name="emerald_attention">#F9BF09</color>
+    <color name="emerald_attention_light">#FFD962</color>
     <color name="emerald_white_1">#FFFFFF</color>
     <color name="emerald_white_2">#FAFAFC</color>
     <color name="emerald_white_3">#EBEBF0</color>
     <color name="emerald_white_4">#C3C8D2</color>
     <color name="emerald_white_5">#96A0AF</color>
-    <color name="emerald_black_1">#0C1219</color>
+    <color name="emerald_black_1">#1D242B</color>
     <color name="emerald_black_2">#181C24</color>
     <color name="emerald_black_3">#242932</color>
     <color name="emerald_black_4">#2D3844</color>
@@ -21,12 +24,18 @@
     <color name="emerald_light_purple">#AC9FE3</color>
     <color name="emerald_stone_green">#14AA4B</color>
     <color name="emerald_light_green">#DCF2E4</color>
-    <color name="emerald_dark_green">#013920</color>
+    <color name="emerald_dark_green">#088037</color>
+    <color name="emerald_blue">#3C75D8</color>
+    <color name="emerald_blue_light">#6C9EF6</color>
 
     <color name="emerald_medium_grey_1">#677481</color>
+    <color name="emerald_medium_grey_2">#96A0AF</color>
+    <color name="emerald_medium_grey_3">#C3C8D2</color>
     <color name="emerald_medium_grey_4">#DCE0E9</color>
     <color name="emerald_dark_grey_1">#2D3844</color>
+    <color name="emerald_dark_grey_2">#5A6872</color>
     <color name="emerald_light_grey_1">#F4F4F9</color>
+    <color name="emerald_light_grey_4">#F8F9FD</color>
 
 
     <color name="emerald_textview_default_color">#060001</color>

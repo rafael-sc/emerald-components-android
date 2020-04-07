@@ -6,8 +6,11 @@
     <public name="emerald_primary" type="color" />
     <public name="emerald_secondary" type="color" />
     <public name="emerald_success" type="color" />
+    <public name="emerald_success_light" type="color" />
     <public name="emerald_error" type="color" />
+    <public name="emerald_error_light" type="color" />
     <public name="emerald_attention" type="color" />
+    <public name="emerald_attention_light" type="color" />
     <public name="emerald_white_1" type="color" />
     <public name="emerald_white_2" type="color" />
     <public name="emerald_white_3" type="color" />
@@ -19,6 +22,8 @@
     <public name="emerald_black_4" type="color" />
     <public name="emerald_black_5" type="color" />
     <public name="emerald_dark_green" type="color" />
+    <public name="emerald_blue" type="color" />
+    <public name="emerald_blue_light" type="color" />
 
     <public name="emerald_purple" type="color" />
     <public name="emerald_light_purple" type="color" />
@@ -26,9 +31,13 @@
     <public name="emerald_light_green" type="color" />
 
     <public name="emerald_medium_grey_1" type="color" />
+    <public name="emerald_medium_grey_2" type="color" />
+    <public name="emerald_medium_grey_3" type="color" />
     <public name="emerald_medium_grey_4" type="color" />
     <public name="emerald_dark_grey_1" type="color" />
+    <public name="emerald_dark_grey_2" type="color" />
     <public name="emerald_light_grey_1" type="color" />
+    <public name="emerald_light_grey_4" type="color" />
 
     <!--fonts-->
     <public name="emerald_font_family" type="font"/>
