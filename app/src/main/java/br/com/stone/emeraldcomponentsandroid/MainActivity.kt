@@ -4,17 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.com.stone.emeraldcomponents.extension.setUp
-import br.com.stone.emeraldcomponentsandroid.activities.ButtonActivity
-import br.com.stone.emeraldcomponentsandroid.activities.CalendarActivity
-import br.com.stone.emeraldcomponentsandroid.activities.DateActivity
-import br.com.stone.emeraldcomponentsandroid.activities.EndlessRecyclerActivity
-import br.com.stone.emeraldcomponentsandroid.activities.HideableLabelActivity
-import br.com.stone.emeraldcomponentsandroid.activities.InputActivity
-import br.com.stone.emeraldcomponentsandroid.activities.LabelActivity
-import br.com.stone.emeraldcomponentsandroid.activities.MaskedEditTextActivity
-import br.com.stone.emeraldcomponentsandroid.activities.PagerActivity
-import br.com.stone.emeraldcomponentsandroid.activities.SpinnerActivity
-import br.com.stone.emeraldcomponentsandroid.activities.CounterActivity
+import br.com.stone.emeraldcomponentsandroid.activities.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_activity_list.view.*
 
@@ -35,7 +25,8 @@ class MainActivity : AppCompatActivity() {
                 DateActivity::class.java to "Date Selector and Filter",
                 PagerActivity::class.java to "Pager",
                 LabelActivity::class.java to "Label",
-                HideableLabelActivity::class.java to "Hideable Label"
+                HideableLabelActivity::class.java to "Hideable Label",
+                SeekBarActivity::class.java to "SeekBar"
                 )
 
         recyclerMain.setUp(activities,
