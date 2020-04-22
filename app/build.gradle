@@ -36,7 +36,6 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.1'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.1"
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test:rules:$support_test_runner_version"
     androidTestImplementation "androidx.test:runner:$support_test_runner_version"
