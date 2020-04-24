@@ -18,13 +18,13 @@ class EmeraldScoreSeekBar : ConstraintLayout {
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
 
-    var setChangeProgress: (Int) -> Unit = {  }
+    var setChangeProgress: (Int) -> Unit = { }
     val bgDrawable = ContextCompat.getDrawable(context, R.drawable.custom_thumb) as LayerDrawable
 
     init {
         inflate(context, R.layout.widget_score_seek_bar, this)
 
-        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 changeProgressThumb(p1)
             }
@@ -35,7 +35,7 @@ class EmeraldScoreSeekBar : ConstraintLayout {
     }
 
     private fun changeProgressThumb(progress: Int) {
-        when(progress) {
+        when (progress) {
             0 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_zero))
             1 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_one))
             2 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_two))
