@@ -51,8 +51,6 @@ class EmeraldScoreSeekBar : ConstraintLayout {
         }
         seekBar.thumb = bgDrawable
 
-        if (progress <= 10) {
-            setChangeProgress(progress)
-        }
+        setChangeProgress(progress)
     }
 }
