@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".activities.SeekBarActivity">
 
-    <br.com.stone.emeraldcomponents.basic.seekBar.EmeraldSeekBar
-        android:id="@+id/emeraldSeekbar"
+    <br.com.stone.emeraldcomponents.basic.seekBar.EmeraldScoreSeekBar
+        android:id="@+id/emeraldScoreSeekbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
