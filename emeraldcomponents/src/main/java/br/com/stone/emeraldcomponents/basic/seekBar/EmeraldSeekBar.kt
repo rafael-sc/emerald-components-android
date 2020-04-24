@@ -1,6 +1,8 @@
 package br.com.stone.emeraldcomponents.basic.seekBar
 
 import android.content.Context
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.LayerDrawable
 import android.util.AttributeSet
 import android.widget.SeekBar
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -19,29 +21,30 @@ class EmeraldSeekBar : ConstraintLayout {
 
     init {
         inflate(context, R.layout.widget_seek_bar, this)
+        val bgDrawable = ContextCompat.getDrawable(context, R.drawable.custom_thumb) as LayerDrawable
 
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                 when(p1) {
-                    0 -> seekBar.setThumb(ContextCompat.getDrawable(context, R.drawable.ic_selector_zero))
-                    1 -> seekBar.setThumb(ContextCompat.getDrawable(context, R.drawable.ic_selector_one))
-                    2 -> seekBar.setThumb(ContextCompat.getDrawable(context, R.drawable.ic_selector_two))
-                    3 -> seekBar.setThumb(ContextCompat.getDrawable(context, R.drawable.ic_selector_three))
-                    4 -> seekBar.setThumb(ContextCompat.getDrawable(context, R.drawable.ic_selector_four))
-                    5 -> seekBar.setThumb(ContextCompat.getDrawable(context, R.drawable.ic_selector_five))
-                    6 -> seekBar.setThumb(ContextCompat.getDrawable(context, R.drawable.ic_selector_six))
-                    7 -> seekBar.setThumb(ContextCompat.getDrawable(context, R.drawable.ic_selector_seven))
-                    8 -> seekBar.setThumb(ContextCompat.getDrawable(context, R.drawable.ic_selector_eight))
-                    9 -> seekBar.setThumb(ContextCompat.getDrawable(context, R.drawable.ic_selector_nine))
-                    10 -> seekBar.setThumb(ContextCompat.getDrawable(context, R.drawable.ic_selector_ten))
-                    else -> seekBar.setThumb(ContextCompat.getDrawable(context, R.drawable.ic_selector_neutral))
+                    0 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_zero))
+                    1 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_one))
+                    2 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_two))
+                    3 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_three))
+                    4 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_four))
+                    5 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_five))
+                    6 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_six))
+                    7 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_seven))
+                    8 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_eight))
+                    9 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_nine))
+                    10 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_ten))
+                    else -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_neutral))
                 }
+                seekBar.thumb = bgDrawable
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {}
 
             override fun onStopTrackingTouch(p0: SeekBar?) {}
-
         })
     }
 }
