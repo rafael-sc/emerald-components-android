@@ -23,6 +23,7 @@ class EmeraldScoreSeekBar : ConstraintLayout {
 
     init {
         inflate(context, R.layout.widget_score_seek_bar, this)
+        changeProgressThumb(-1)
 
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
@@ -36,20 +37,9 @@ class EmeraldScoreSeekBar : ConstraintLayout {
     }
 
     private fun changeProgressThumb(progress: Int) {
-        when (progress) {
-            0 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_zero))
-            1 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_one))
-            2 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_two))
-            3 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_three))
-            4 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_four))
-            5 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_five))
-            6 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_six))
-            7 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_seven))
-            8 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_eight))
-            9 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_nine))
-            10 -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_ten))
-            else -> bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, R.drawable.ic_selector_neutral))
-        }
+        val scoreEnum = ScoreSeekBarEnum.getScoreImageByProgress(progress)
+        bgDrawable.setDrawableByLayerId(R.id.customThumb, ContextCompat.getDrawable(context, scoreEnum.iconId))
+
         seekBar.thumb = bgDrawable
     }
 }
