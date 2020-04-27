@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:max="10"
-        android:min="0"
         android:splitTrack="false"
         android:thumb="@drawable/custom_thumb"
         android:progress="5"

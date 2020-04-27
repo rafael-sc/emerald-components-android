@@ -12,7 +12,7 @@ class SeekBarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seek_bar)
 
-        emeraldScoreSeekbar.setChangeProgress = {
+        emeraldScoreSeekbar.onProgressChanged = {
             Toast.makeText(
                     this,
                     "Selected Value $it",

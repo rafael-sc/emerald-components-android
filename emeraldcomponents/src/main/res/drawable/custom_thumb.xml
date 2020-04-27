@@ -3,10 +3,10 @@
     android:layout_height="wrap_content"
     android:layout_width="wrap_content">
     <item android:id="@+id/customThumb"
-        android:width="33dp"
-        android:height="62dp"
+        android:width="26dp"
+        android:height="50dp"
         android:top="0dp"
         android:left="1dp"
-        android:bottom="50dp"
+        android:bottom="41dp"
         android:drawable="@drawable/ic_selector_neutral"/>
 </layer-list>
