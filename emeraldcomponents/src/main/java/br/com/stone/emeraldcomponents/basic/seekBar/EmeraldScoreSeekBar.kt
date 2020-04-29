@@ -1,4 +1,4 @@
-package br.com.stone.emeraldcomponents.basic.seekBar
+package br.com.stone.emeraldcomponents.basic.seekbar
 
 import android.content.Context
 import android.graphics.drawable.Drawable

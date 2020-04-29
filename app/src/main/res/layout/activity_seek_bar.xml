@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activities.SeekBarActivity">
 
-    <br.com.stone.emeraldcomponents.basic.seekBar.EmeraldScoreSeekBar
+    <br.com.stone.emeraldcomponents.basic.seekbar.EmeraldScoreSeekBar
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:id="@+id/emeraldScoreSeekbar"
         android:layout_width="match_parent"

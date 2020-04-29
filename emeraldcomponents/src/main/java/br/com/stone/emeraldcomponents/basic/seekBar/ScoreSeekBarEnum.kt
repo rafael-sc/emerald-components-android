@@ -1,4 +1,4 @@
-package br.com.stone.emeraldcomponents.basic.seekBar
+package br.com.stone.emeraldcomponents.basic.seekbar
 
 import br.com.stone.emeraldcomponents.R
 /**
