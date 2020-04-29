@@ -6,7 +6,6 @@ import br.com.stone.emeraldcomponents.R
  * Copyright (c) Stone Co. All rights reserved.
  * daniele.freitas@stone.com.br
  */
-
 enum class ScoreSeekBarEnum(val value: Int, val iconId: Int) {
 
     SCORE_ZERO(0, R.drawable.ic_selector_score_zero),
