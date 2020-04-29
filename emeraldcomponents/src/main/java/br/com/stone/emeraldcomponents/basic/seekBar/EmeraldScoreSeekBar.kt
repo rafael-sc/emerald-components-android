@@ -1,7 +1,6 @@
 package br.com.stone.emeraldcomponents.basic.seekbar
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
 import android.util.AttributeSet
 import android.widget.SeekBar
@@ -22,12 +21,9 @@ class EmeraldScoreSeekBar : AppCompatSeekBar {
 
     var onProgressChanged: (Int) -> Unit = { }
 
-    override fun setThumb(thumb: Drawable?) {
-        val thumb = ContextCompat.getDrawable(context, R.drawable.custom_thumb) as LayerDrawable
-        super.setThumb(thumb)
-    }
-
     private fun init() {
+        changeProgressThumb(-1)
+
         setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
             override fun onProgressChanged(seekbar: SeekBar?, progress: Int, p2: Boolean) {
                 changeProgressThumb(progress)
