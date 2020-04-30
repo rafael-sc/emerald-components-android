@@ -15,6 +15,7 @@ import br.com.stone.emeraldcomponentsandroid.activities.MaskedEditTextActivity
 import br.com.stone.emeraldcomponentsandroid.activities.PagerActivity
 import br.com.stone.emeraldcomponentsandroid.activities.SpinnerActivity
 import br.com.stone.emeraldcomponentsandroid.activities.CounterActivity
+import br.com.stone.emeraldcomponentsandroid.activities.SeekBarActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_activity_list.view.*
 
@@ -35,7 +36,8 @@ class MainActivity : AppCompatActivity() {
                 DateActivity::class.java to "Date Selector and Filter",
                 PagerActivity::class.java to "Pager",
                 LabelActivity::class.java to "Label",
-                HideableLabelActivity::class.java to "Hideable Label"
+                HideableLabelActivity::class.java to "Hideable Label",
+                SeekBarActivity::class.java to "SeekBar"
                 )
 
         recyclerMain.setUp(activities,
