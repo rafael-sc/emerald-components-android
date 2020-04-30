@@ -1,7 +1,11 @@
 package br.com.stone.emeraldcomponents.basics.seekbar
 
+import android.graphics.drawable.LayerDrawable
+import androidx.core.content.ContextCompat
 import androidx.test.core.app.ApplicationProvider
+import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.seekbar.EmeraldScoreSeekBar
+import br.com.stone.emeraldcomponents.basic.seekbar.ScoreSeekBarEnum
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -38,5 +42,17 @@ class EmeraldScoreSeekBarTest {
         scoreSeekBar.onProgressChanged = { calledMethod = true }
         scoreSeekBar.progress = 5
         Assert.assertTrue(calledMethod)
+    }
+
+    @Test
+    fun testGetScoreItemByProgressProgress() {
+        val scoreItem = ScoreSeekBarEnum.getScoreImageByProgress(5)
+        Assert.assertEquals(ScoreSeekBarEnum.SCORE_FIVE, scoreItem)
+    }
+
+    @Test
+    fun testGetScoreImageByProgressProgress() {
+        val scoreImage = ScoreSeekBarEnum.getScoreImageByProgress(5)
+        Assert.assertEquals(R.drawable.ic_selector_score_five, scoreImage.iconId)
     }
 }
