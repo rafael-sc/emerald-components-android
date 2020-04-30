@@ -3,7 +3,6 @@ package br.com.stone.emeraldcomponents.basics.seekbar
 import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.basic.seekbar.EmeraldScoreSeekBar
 import org.junit.Assert
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
@@ -17,13 +16,6 @@ import org.robolectric.RobolectricTestRunner
 
 @RunWith(RobolectricTestRunner::class)
 class EmeraldScoreSeekBarTest {
-
-    lateinit var scoreSeekBar: EmeraldScoreSeekBar
-
-    @Before
-    fun setup() {
-        scoreSeekBar = EmeraldScoreSeekBar(ApplicationProvider.getApplicationContext())
-    }
 
     @Test
     fun testInstanceWithContext() {
@@ -41,6 +33,7 @@ class EmeraldScoreSeekBarTest {
 
     @Test
     fun testProgress() {
+        var scoreSeekBar = EmeraldScoreSeekBar(ApplicationProvider.getApplicationContext())
         var calledMethod = false
         scoreSeekBar.onProgressChanged = { calledMethod = true }
         scoreSeekBar.progress = 5
