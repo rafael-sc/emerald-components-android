@@ -1,7 +1,7 @@
-package br.com.stone.emeraldcomponents.basics.input
+package br.com.stone.emeraldcomponents.basics.seekbar
 
 import androidx.test.core.app.ApplicationProvider
-import br.com.stone.emeraldcomponents.basic.seekBar.EmeraldScoreSeekBar
+import br.com.stone.emeraldcomponents.basic.seekbar.EmeraldScoreSeekBar
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
