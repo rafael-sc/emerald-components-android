@@ -41,7 +41,9 @@ class EmeraldScoreSeekBarTest {
 
     @Test
     fun testProgress() {
+        var calledMethod = false
+        scoreSeekBar.onProgressChanged = { calledMethod = true }
         scoreSeekBar.progress = 5
-        Assert.assertEquals(scoreSeekBar.progress, 5)
+        Assert.assertTrue(calledMethod)
     }
 }

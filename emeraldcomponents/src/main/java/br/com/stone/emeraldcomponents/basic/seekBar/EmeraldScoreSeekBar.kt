@@ -14,7 +14,9 @@ import br.com.stone.emeraldcomponents.R
 //
 class EmeraldScoreSeekBar : AppCompatSeekBar {
 
-    constructor(context: Context?) : super(context)
+    constructor(context: Context?) : super(context){
+        init()
+    }
     constructor(context: Context?, attrs: AttributeSet) : super(context, attrs) {
         init()
     }
