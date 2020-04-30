@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### Added
+- [Adds new EmeraldScoreSeekBar][issue-167]
+
 ## 1.10.0 - 2020-04-07
 - [Adds new colors][issue-162]
 
@@ -228,3 +231,4 @@
 [issue-153]:https://github.com/stone-payments/emerald-components-android/issues/153
 [issue-158]:https://github.com/stone-payments/emerald-components-android/issues/158
 [issue-162]:https://github.com/stone-payments/emerald-components-android/issues/162
+[issue-167]:https://github.com/stone-payments/emerald-components-android/issues/167
