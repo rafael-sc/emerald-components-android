@@ -1,5 +1,7 @@
 # CHANGELOG
 
+## 1.11.0 - 2020-04-30
+
 ### Added
 - [Adds new EmeraldScoreSeekBar][issue-167]
 
