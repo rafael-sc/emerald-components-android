@@ -16,3 +16,4 @@ fun Float.toDip(context: Context): Float {
 fun Int.toDip(context: Context): Int {
     return this.toFloat().toDip(context).toInt()
 }
+

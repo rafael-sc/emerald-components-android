@@ -132,7 +132,6 @@
 
     <declare-styleable name="EmeraldPinView">
         <attr name="itemCount" format="integer" />
-        <attr name="maxLengthPerItem" format="integer" />
         <attr name="isNumeric" format="boolean" />
     </declare-styleable>
 
