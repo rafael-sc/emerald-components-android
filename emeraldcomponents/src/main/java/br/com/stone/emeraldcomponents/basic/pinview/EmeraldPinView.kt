@@ -3,6 +3,7 @@ package br.com.stone.emeraldcomponents.basic.pinview
 
 import android.content.Context
 import android.text.Editable
+import android.text.InputType
 import android.text.Selection
 import android.text.TextWatcher
 import android.util.AttributeSet
@@ -10,7 +11,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
-import androidx.appcompat.view.ContextThemeWrapper
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.view.ViewCompat
 import br.com.stone.emeraldcomponents.R
@@ -45,39 +45,56 @@ class EmeraldPinView @JvmOverloads constructor(
                 for (index in 0 until maxItems) {
                     val editText = createPinItem()
                     editTextList.add(editText)
+
+                    editTextList.forEachIndexed { index, editText ->
+                        editText.setListener(object : PinItemEventListener {
+                            override fun onTextPasted(text: String) {
+                                handlePasteText(text)
+                            }
+
+                            override fun onDelPressed() {
+                                if (index > 0)
+                                    if (editText.text?.length == 0) {
+                                        editTextList[index - 1].apply {
+                                            Selection.setSelection(text, text!!.length)
+                                            requestFocus()
+                                        }
+                                    }
+                            }
+
+                            override fun requestFocusOnNext() {
+                                if (index < maxItems - 1)
+                                    editTextList[index + 1].apply {
+                                        Selection.setSelection(text, text!!.length)
+                                        requestFocus()
+                                    }
+                            }
+                        })
+
+                        editText.handleFocus(
+                                editTextList.getOrNull(index + 1),
+                                editTextList.getOrNull(index - 1)
+                        )
+
+                    }
+
                     this.addView(editText, index)
                 }
             }
             attributes.recycle()
         }
-        editTextList.forEachIndexed { index, editText ->
-            editText.setListener(object : PinItemEventListener {
-                override fun onTextPasted(text: String) {
-                    handlePasteText(text)
-                }
-
-                override fun onDelPressed() {
-                    if (index > 0)
-                        if (editText.text?.length == 0) {
-                            editTextList[index - 1].apply {
-                                Selection.setSelection(text, text!!.length)
-                                requestFocus()
-                            }
-                        }
-                }
-            })
-
-            editText.handleFocus(
-                    editTextList.getOrNull(index + 1),
-                    editTextList.getOrNull(index - 1)
-            )
-
-        }
     }
 
     fun createPinItem(): EmeraldPinItem {
-        val editText = EmeraldPinItem(ContextThemeWrapper(context, R.style.PinItem))
+        val editText: EmeraldPinItem = LayoutInflater.from(context).inflate(R.layout.emerald_pin_item, null) as EmeraldPinItem
+
+        if (isNumeric)
+            editText.inputType = InputType.TYPE_CLASS_NUMBER
+        else
+            editText.inputType = InputType.TYPE_CLASS_TEXT
+
         editText.id = ViewCompat.generateViewId()
+
         return editText
     }
 
@@ -94,14 +111,17 @@ class EmeraldPinView @JvmOverloads constructor(
             previousEditText: AppCompatEditText?
     ) {
 
+
         this.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                if (nextEditText == null && text?.length == maxPinLengthPerView) {
-                    Log.d(TAG, "validate")
-                }
+                if (nextEditText == null)
+                    if (text?.length == maxPinLengthPerView && allItemsFilled()) {
+                        Log.d(TAG, "validate")
+                    }
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 when {
                     text.toString().length == maxPinLengthPerView -> {
@@ -120,4 +140,13 @@ class EmeraldPinView @JvmOverloads constructor(
         })
 
     }
+
+    private fun allItemsFilled(): Boolean {
+        editTextList.forEach {
+            if (it.text?.length == 0)
+                return false
+        }
+        return true
+    }
+
 }

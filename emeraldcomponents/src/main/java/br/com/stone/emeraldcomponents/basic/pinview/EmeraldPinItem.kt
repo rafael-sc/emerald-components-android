@@ -1,6 +1,5 @@
 package br.com.stone.emeraldcomponents.basic.pinview
 
-
 import android.content.ClipDescription
 import android.content.ClipboardManager
 import android.content.Context
@@ -48,12 +47,15 @@ class EmeraldPinItem : AppCompatEditText {
     }
 
     override fun dispatchKeyEvent(event: KeyEvent?): Boolean {
-        if (event?.keyCode == KeyEvent.KEYCODE_DEL) {
-            pinItemEventListener.onDelPressed()
-            return false
-        }
-        return super.dispatchKeyEventPreIme(event)
-    }
 
+        if (event?.keyCode != KeyEvent.KEYCODE_DEL && text?.length == 1) {
+            pinItemEventListener.requestFocusOnNext()
+        }
+        if (event?.keyCode == KeyEvent.KEYCODE_DEL && text?.length == 0) {
+            pinItemEventListener.onDelPressed()
+            return super.dispatchKeyEvent(event)
+        }
+        return super.dispatchKeyEvent(event)
+    }
 
 }
