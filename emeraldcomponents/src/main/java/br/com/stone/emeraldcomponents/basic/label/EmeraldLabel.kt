@@ -35,7 +35,6 @@ class EmeraldLabel : ConstraintLayout {
 
     init {
         inflate(context, R.layout.widget_emerald_label, this)
-        background = ContextCompat.getDrawable(context, R.drawable.label_border)
     }
 
     private fun setAttributes(attrs: AttributeSet) {
@@ -48,7 +47,9 @@ class EmeraldLabel : ConstraintLayout {
                 args.getInt(R.styleable.EmeraldLabel_emeraldLabelState, EmeraldLabelState.FILLED.ordinal)]
         val size = EmeraldLabelSize.values()[
                 args.getInt(R.styleable.EmeraldLabel_emeraldLabelSize, EmeraldLabelSize.SMALL.ordinal)]
-        setProperties(type, state, size)
+        val shape = EmeraldLabelShape.values()[
+                args.getInt(R.styleable.EmeraldLabel_emeraldLabelShape, EmeraldLabelShape.ROUNDED.ordinal)]
+        setProperties(type, state, size, shape)
 
         val icon = args.getResourceId(R.styleable.EmeraldLabel_emeraldLabelIcon, 0)
         if (icon != 0) setIcon(icon)
@@ -56,8 +57,9 @@ class EmeraldLabel : ConstraintLayout {
         args.recycle()
     }
 
-    fun setProperties(type: EmeraldLabelType, state: LabelStateHandler, size: LabelSizeHandler) {
+    fun setProperties(type: EmeraldLabelType, state: LabelStateHandler, size: LabelSizeHandler, shape: EmeraldLabelShape = EmeraldLabelShape.ROUNDED) {
         this.type = type
+        shape.setBackground(this)
         state.setProperties(this, ContextCompat.getColor(context, type.color))
         size.setDimensions(emeraldLabelText)
     }
