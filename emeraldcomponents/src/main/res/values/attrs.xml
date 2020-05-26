@@ -122,12 +122,18 @@
         <enum name="squared" value="1" />
     </attr>
 
+    <attr name="emeraldLabelIconPosition" format="enum">
+        <enum name="start" value="0" />
+        <enum name="end" value="1" />
+    </attr>
+
     <declare-styleable name="EmeraldLabel">
         <attr name="text" />
         <attr name="emeraldLabelType" />
         <attr name="emeraldLabelState" />
         <attr name="emeraldLabelSize" />
         <attr name="emeraldLabelShape" />
+        <attr name="emeraldLabelIconPosition" />
         <attr name="emeraldLabelIcon" format="reference" />
     </declare-styleable>
 

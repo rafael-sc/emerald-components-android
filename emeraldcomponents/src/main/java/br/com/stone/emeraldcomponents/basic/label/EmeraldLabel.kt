@@ -9,6 +9,9 @@ import androidx.core.content.ContextCompat
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.extension.show
 import kotlinx.android.synthetic.main.widget_emerald_label.view.*
+import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelIconPosition.START
+import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelIconPosition.END
+import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelShape.ROUNDED
 
 /**
  * Created by renan.silva on 22/10/2018.
@@ -48,16 +51,19 @@ class EmeraldLabel : ConstraintLayout {
         val size = EmeraldLabelSize.values()[
                 args.getInt(R.styleable.EmeraldLabel_emeraldLabelSize, EmeraldLabelSize.SMALL.ordinal)]
         val shape = EmeraldLabelShape.values()[
-                args.getInt(R.styleable.EmeraldLabel_emeraldLabelShape, EmeraldLabelShape.ROUNDED.ordinal)]
+                args.getInt(R.styleable.EmeraldLabel_emeraldLabelShape, ROUNDED.ordinal)]
         setProperties(type, state, size, shape)
 
+        val iconPosition = EmeraldLabelIconPosition.values()[
+                args.getResourceId(R.styleable.EmeraldLabel_emeraldLabelIcon, START.ordinal)]
         val icon = args.getResourceId(R.styleable.EmeraldLabel_emeraldLabelIcon, 0)
-        if (icon != 0) setIcon(icon)
+        if (icon != 0) setIcon(icon, iconPosition)
+
 
         args.recycle()
     }
 
-    fun setProperties(type: EmeraldLabelType, state: LabelStateHandler, size: LabelSizeHandler, shape: EmeraldLabelShape = EmeraldLabelShape.ROUNDED) {
+    fun setProperties(type: EmeraldLabelType, state: LabelStateHandler, size: LabelSizeHandler, shape: EmeraldLabelShape = ROUNDED) {
         this.type = type
         shape.setBackground(this)
         state.setProperties(this, ContextCompat.getColor(context, type.color))
@@ -68,10 +74,18 @@ class EmeraldLabel : ConstraintLayout {
         state.setProperties(this, ContextCompat.getColor(context, customColorId))
     }
 
-    fun setIcon(iconResource: Int) {
+    fun setIcon(iconResource: Int, position: EmeraldLabelIconPosition = START) {
         val drawable = ContextCompat.getDrawable(context, iconResource)?.mutate()
         drawable?.setColorFilter(ContextCompat.getColor(context, type.color), PorterDuff.Mode.SRC_IN)
-        emeraldLabelImage.setImageDrawable(drawable)
-        emeraldLabelImage.show()
+        when (position) {
+            START -> {
+                emeraldLabelImage.setImageDrawable(drawable)
+                emeraldLabelImage.show()
+            }
+            END -> {
+                emeraldLabelImageEnd.setImageDrawable(drawable)
+                emeraldLabelImageEnd.show()
+            }
+        }
     }
 }
