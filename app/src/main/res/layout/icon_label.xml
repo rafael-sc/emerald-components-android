@@ -24,7 +24,6 @@
         android:id="@+id/emeraldLabel11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:emeraldLabelShape="squared"
         app:emeraldLabelState="outline"
         app:emeraldLabelIcon="@drawable/ic_check_circle_white_24dp"
         app:emeraldLabelIconPosition="end"
