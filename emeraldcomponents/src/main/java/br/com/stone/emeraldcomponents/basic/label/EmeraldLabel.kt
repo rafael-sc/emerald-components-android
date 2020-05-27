@@ -68,8 +68,8 @@ class EmeraldLabel : ConstraintLayout {
     fun setProperties(type: EmeraldLabelType,
                       state: LabelStateHandler,
                       size: LabelSizeHandler,
-                      shape: EmeraldLabelShape = ROUNDED,
-                      textMargin: EmeraldLabelMargin = SMALL) {
+                      shape: LabelShapeHandler = ROUNDED,
+                      textMargin: LabelMarginHandler = SMALL) {
         this.type = type
         shape.setBackground(this)
         state.setProperties(this, ContextCompat.getColor(context, type.color))

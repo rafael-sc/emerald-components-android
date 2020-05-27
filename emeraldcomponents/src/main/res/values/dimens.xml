@@ -16,6 +16,8 @@
 
     <dimen name="label_border_width">1dp</dimen>
 
+    <dimen name="label_margin_top_small">4dp</dimen>
+    <dimen name="label_margin_start_small">8dp</dimen>
     <dimen name="label_margin_top_medium">6dp</dimen>
     <dimen name="label_margin_start_medium">12dp</dimen>
     <dimen name="label_margin_top_big">8dp</dimen>

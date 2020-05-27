@@ -11,7 +11,9 @@ import br.com.stone.emeraldcomponents.R
  */
 enum class EmeraldLabelMargin : LabelMarginHandler {
     SMALL {
-        override fun setMargin(labelText: TextView) {}
+        override fun setMargin(labelText: TextView) {
+            applyMarginToTextView(labelText, R.dimen.label_margin_top_small, R.dimen.label_margin_start_small)
+        }
     },
     MEDIUM {
         override fun setMargin(labelText: TextView) {
