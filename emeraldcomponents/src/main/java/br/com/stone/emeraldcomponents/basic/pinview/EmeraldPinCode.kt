@@ -1,6 +1,5 @@
 package br.com.stone.emeraldcomponents.basic.pinview
 
-
 import android.annotation.SuppressLint
 import android.content.Context
 import android.text.Editable
@@ -25,11 +24,12 @@ class EmeraldPinCode @JvmOverloads constructor(
     private var maxPinLengthPerView: Int = 1
     private var pinCodeEventListener: PinCodeEventListener? = null
     private var editTextList = mutableListOf<EmeraldPinItem>()
+    private val defaultPinCount = 6
 
     init {
         if (attrs != null) {
             var isNumeric = false
-            var pinCount = 6
+            var pinCount = defaultPinCount
 
             val attributes = context.obtainStyledAttributes(attrs, R.styleable.EmeraldPinCode)
 
@@ -38,7 +38,7 @@ class EmeraldPinCode @JvmOverloads constructor(
             }
 
             if (attributes.hasValue(R.styleable.EmeraldPinCode_itemCount)) {
-                pinCount = attributes.getInteger(R.styleable.EmeraldPinCode_itemCount, 6)
+                pinCount = attributes.getInteger(R.styleable.EmeraldPinCode_itemCount, defaultPinCount)
             }
             attributes.recycle()
             setEditTextList(createItems(pinCount, isNumeric))
@@ -89,10 +89,8 @@ class EmeraldPinCode @JvmOverloads constructor(
                     editTextList.getOrNull(index + 1),
                     editTextList.getOrNull(index - 1)
             )
-
         }
     }
-
 
     @SuppressLint("InflateParams") //there´s no rootview at this time
     fun createPinItem(index: Int, isNumeric: Boolean): EmeraldPinItem {
@@ -126,7 +124,6 @@ class EmeraldPinCode @JvmOverloads constructor(
         }
     }
 
-
     private fun AppCompatEditText.handleFocus(
             nextEditText: AppCompatEditText?,
             previousEditText: AppCompatEditText?
@@ -136,7 +133,6 @@ class EmeraldPinCode @JvmOverloads constructor(
 
             if (hasFocus && this.text.toString().isEmpty() && previousEditText != null && previousEditText.text.toString().isEmpty())
                 previousEditText.requestFocus()
-
         }
 
         this.addTextChangedListener(object : TextWatcher {
@@ -159,7 +155,6 @@ class EmeraldPinCode @JvmOverloads constructor(
             }
         })
     }
-
 
     private fun allItemsFilled(): Boolean {
         editTextList.forEach {
@@ -197,5 +192,4 @@ class EmeraldPinCode @JvmOverloads constructor(
     fun setEditTextList(itemList: MutableList<EmeraldPinItem>) {
         editTextList = itemList
     }
-
 }

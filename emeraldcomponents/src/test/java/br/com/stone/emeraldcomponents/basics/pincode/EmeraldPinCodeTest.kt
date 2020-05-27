@@ -7,7 +7,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 
-
 @RunWith(RobolectricTestRunner::class)
 class EmeraldPinCodeTest {
 
@@ -31,7 +30,6 @@ class EmeraldPinCodeTest {
         Assert.assertTrue(maxItems == itemList.size)
     }
 
-
     @Test
     fun `test paste text`() {
         val emeraldPinCode = EmeraldPinCode(ApplicationProvider.getApplicationContext())
@@ -41,7 +39,6 @@ class EmeraldPinCodeTest {
         val textToPaste = "123456"
         emeraldPinCode.handlePasteText(textToPaste, itemList)
         Assert.assertTrue(emeraldPinCode.getCode() == textToPaste)
-
     }
 
     @Test
@@ -59,5 +56,4 @@ class EmeraldPinCodeTest {
 
         Assert.assertTrue(view.getCode() == textToPaste)
     }
-
 }

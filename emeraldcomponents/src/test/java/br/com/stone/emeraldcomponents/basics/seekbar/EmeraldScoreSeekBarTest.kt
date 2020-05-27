@@ -1,7 +1,5 @@
 package br.com.stone.emeraldcomponents.basics.seekbar
 
-import android.graphics.drawable.LayerDrawable
-import androidx.core.content.ContextCompat
 import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.seekbar.EmeraldScoreSeekBar
@@ -37,7 +35,7 @@ class EmeraldScoreSeekBarTest {
 
     @Test
     fun testProgress() {
-        var scoreSeekBar = EmeraldScoreSeekBar(ApplicationProvider.getApplicationContext())
+        val scoreSeekBar = EmeraldScoreSeekBar(ApplicationProvider.getApplicationContext())
         var calledMethod = false
         scoreSeekBar.onProgressChanged = { calledMethod = true }
         scoreSeekBar.progress = 5
