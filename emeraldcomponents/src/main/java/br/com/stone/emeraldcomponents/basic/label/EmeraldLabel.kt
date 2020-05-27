@@ -55,7 +55,7 @@ class EmeraldLabel : ConstraintLayout {
         setProperties(type, state, size, shape)
 
         val iconPosition = EmeraldLabelIconPosition.values()[
-                args.getResourceId(R.styleable.EmeraldLabel_emeraldLabelIcon, START.ordinal)]
+                args.getInt(R.styleable.EmeraldLabel_emeraldLabelIconPosition, START.ordinal)]
         val icon = args.getResourceId(R.styleable.EmeraldLabel_emeraldLabelIcon, 0)
         if (icon != 0) setIcon(icon, iconPosition)
 
