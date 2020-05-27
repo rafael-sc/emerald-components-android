@@ -177,6 +177,18 @@ class EmeraldPinCode @JvmOverloads constructor(
         return code
     }
 
+    fun setErrorState() {
+        editTextList.forEach {
+            it.setBackgroundResource(R.drawable.stroke_box_red)
+        }
+    }
+
+    fun setDefaultState() {
+        editTextList.forEach {
+            it.setBackgroundResource(R.drawable.stroke_box_gray)
+        }
+    }
+
     fun setListener(listener: PinCodeEventListener) {
         pinCodeEventListener = listener
     }
