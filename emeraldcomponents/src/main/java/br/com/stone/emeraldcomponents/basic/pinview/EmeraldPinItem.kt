@@ -58,4 +58,8 @@ class EmeraldPinItem : AppCompatEditText {
         return super.dispatchKeyEvent(event)
     }
 
+    override fun onSelectionChanged(selStart: Int, selEnd: Int) {
+        this.setSelection(this.text.toString().length)
+        super.onSelectionChanged(selStart, selEnd)
+    }
 }

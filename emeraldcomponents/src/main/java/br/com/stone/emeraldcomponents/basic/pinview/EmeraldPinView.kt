@@ -10,6 +10,7 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnFocusChangeListener
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.view.ViewCompat
@@ -23,6 +24,8 @@ class EmeraldPinView @JvmOverloads constructor(
     private val TAG = "EmeraldPinView"
     val view: View? = LayoutInflater.from(context).inflate(R.layout.emerald_pin_view, this, true)
     private var maxPinLengthPerView: Int = 1
+
+    private var editTextList = mutableListOf<EmeraldPinItem>()
 
 
     init {
@@ -40,7 +43,7 @@ class EmeraldPinView @JvmOverloads constructor(
                 pinCount = attributes.getInteger(R.styleable.EmeraldPinView_itemCount, 6)
             }
             attributes.recycle()
-            val editTextList = createItems(pinCount, isNumeric)
+            editTextList = createItems(pinCount, isNumeric)
             setListener(editTextList)
         }
     }
@@ -129,10 +132,18 @@ class EmeraldPinView @JvmOverloads constructor(
             nextEditText: AppCompatEditText?,
             previousEditText: AppCompatEditText?
     ) {
+
+        this.onFocusChangeListener = OnFocusChangeListener { view, hasFocus ->
+
+            if (hasFocus && this.text.toString().isEmpty() && previousEditText != null && previousEditText.text.toString().isEmpty())
+                previousEditText.requestFocus()
+
+        }
+
         this.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (nextEditText == null)
-                    if (text?.length == maxPinLengthPerView) {
+                    if (text?.length == maxPinLengthPerView && allItemsFilled()) {
                         Log.d(TAG, "validate")
                     }
             }
@@ -141,28 +152,30 @@ class EmeraldPinView @JvmOverloads constructor(
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 when {
                     text.toString().length == maxPinLengthPerView -> {
-                        nextEditText?.let {
-                            Selection.setSelection(it.text, it.text!!.length)
-                            it.requestFocus()
-                        }
+                        nextEditText?.requestFocus()
                     }
                     text.toString().isEmpty() ->
-                        previousEditText?.let {
-                            Selection.setSelection(it.text, it.text!!.length)
-                            it.requestFocus()
-                        }
+                        previousEditText?.requestFocus()
                 }
             }
         })
     }
 
 
-    private fun allItemsFilled(editTextList: MutableList<EmeraldPinItem>): Boolean {
+    private fun allItemsFilled(): Boolean {
         editTextList.forEach {
             if (it.text?.length == 0)
                 return false
         }
         return true
+    }
+
+    fun getText(): String {
+        var code = ""
+        editTextList.forEach {
+            code = code.plus(it.text)
+        }
+        return code
     }
 
 }
