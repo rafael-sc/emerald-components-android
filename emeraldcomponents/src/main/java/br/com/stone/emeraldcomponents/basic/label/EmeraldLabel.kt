@@ -62,7 +62,6 @@ class EmeraldLabel : ConstraintLayout {
         val icon = args.getResourceId(R.styleable.EmeraldLabel_emeraldLabelIcon, 0)
         if (icon != 0) setIcon(icon, iconPosition)
 
-
         args.recycle()
     }
 
