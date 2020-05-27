@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## UNRELEASED
+
+### Added
+- [Adds PinCode View][issue-170
+
 ## 1.11.0 - 2020-04-30
 
 ### Added
