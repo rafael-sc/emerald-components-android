@@ -23,12 +23,10 @@ class PinViewActivity : AppCompatActivity() {
 
         buttonValidate.setOnClickListener {
             validate(emeraldPinCode.getCode())
-
         }
     }
 
     fun validate(code: String) {
-
         if (code != "1234") {
             emeraldPinCode.setErrorState()
             Toast.makeText(this, "this code is invalid, try 1234. typed code:$code", Toast.LENGTH_SHORT).show()
