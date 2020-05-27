@@ -1,22 +1,16 @@
 package br.com.stone.emeraldcomponents.basics.label
 
 import android.content.Context
-import android.content.res.Resources
-import android.util.TypedValue
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabel
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelMargin
-import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelSize
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.mock
-import org.mockito.Mockito.verify
 import org.robolectric.RobolectricTestRunner
 
 /**

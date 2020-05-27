@@ -1,7 +1,5 @@
 package br.com.stone.emeraldcomponents.basics.seekbar
 
-import android.graphics.drawable.LayerDrawable
-import androidx.core.content.ContextCompat
 import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.seekbar.EmeraldScoreSeekBar
