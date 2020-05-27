@@ -13,10 +13,16 @@ class PinViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pin_view)
 
+//        emeraldPinCode.setListener(object : PinCodeEventListener {
+//            override fun onCodeFilled(code: String) {
+//                Toast.makeText(applicationContext, "pin code text: $code", Toast.LENGTH_SHORT).show()
+//            }
+//        })
+
 
         buttonValidate.setOnClickListener {
 
-            val pinCodeText = emeraldPinVIew.getText()
+            val pinCodeText = emeraldPinCode.getCode()
             Toast.makeText(this, "pin code text: $pinCodeText", Toast.LENGTH_SHORT).show()
         }
     }

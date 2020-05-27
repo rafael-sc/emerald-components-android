@@ -7,7 +7,6 @@ import android.text.InputType
 import android.text.Selection
 import android.text.TextWatcher
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnFocusChangeListener
@@ -17,30 +16,28 @@ import androidx.core.view.ViewCompat
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.extension.dimen
 
-class EmeraldPinView @JvmOverloads constructor(
+class EmeraldPinCode @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
-    private val TAG = "EmeraldPinView"
     val view: View? = LayoutInflater.from(context).inflate(R.layout.emerald_pin_view, this, true)
     private var maxPinLengthPerView: Int = 1
-
+    private var pinCodeEventListener: PinCodeEventListener? = null
     private var editTextList = mutableListOf<EmeraldPinItem>()
-
 
     init {
         if (attrs != null) {
             var isNumeric = false
             var pinCount = 6
 
-            val attributes = context.obtainStyledAttributes(attrs, R.styleable.EmeraldPinView)
+            val attributes = context.obtainStyledAttributes(attrs, R.styleable.EmeraldPinCode)
 
-            if (attributes.hasValue(R.styleable.EmeraldPinView_isNumeric)) {
-                isNumeric = attributes.getBoolean(R.styleable.EmeraldPinView_isNumeric, true)
+            if (attributes.hasValue(R.styleable.EmeraldPinCode_isNumeric)) {
+                isNumeric = attributes.getBoolean(R.styleable.EmeraldPinCode_isNumeric, true)
             }
 
-            if (attributes.hasValue(R.styleable.EmeraldPinView_itemCount)) {
-                pinCount = attributes.getInteger(R.styleable.EmeraldPinView_itemCount, 6)
+            if (attributes.hasValue(R.styleable.EmeraldPinCode_itemCount)) {
+                pinCount = attributes.getInteger(R.styleable.EmeraldPinCode_itemCount, 6)
             }
             attributes.recycle()
             editTextList = createItems(pinCount, isNumeric)
@@ -144,7 +141,7 @@ class EmeraldPinView @JvmOverloads constructor(
             override fun afterTextChanged(s: Editable?) {
                 if (nextEditText == null)
                     if (text?.length == maxPinLengthPerView && allItemsFilled()) {
-                        Log.d(TAG, "validate")
+                        pinCodeEventListener?.onCodeFilled(getCode())
                     }
             }
 
@@ -170,12 +167,16 @@ class EmeraldPinView @JvmOverloads constructor(
         return true
     }
 
-    fun getText(): String {
+    fun getCode(): String {
         var code = ""
         editTextList.forEach {
             code = code.plus(it.text)
         }
         return code
+    }
+
+    fun setListener(listener: PinCodeEventListener) {
+        pinCodeEventListener = listener
     }
 
 }
