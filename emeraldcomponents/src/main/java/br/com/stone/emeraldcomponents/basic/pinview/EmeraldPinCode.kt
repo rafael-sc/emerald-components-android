@@ -1,6 +1,7 @@
 package br.com.stone.emeraldcomponents.basic.pinview
 
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.text.Editable
 import android.text.InputType
@@ -40,12 +41,12 @@ class EmeraldPinCode @JvmOverloads constructor(
                 pinCount = attributes.getInteger(R.styleable.EmeraldPinCode_itemCount, 6)
             }
             attributes.recycle()
-            editTextList = createItems(pinCount, isNumeric)
+            setEditTextList(createItems(pinCount, isNumeric))
             setListener(editTextList)
         }
     }
 
-    private fun createItems(maxItems: Int, isNumeric: Boolean): MutableList<EmeraldPinItem> {
+    fun createItems(maxItems: Int, isNumeric: Boolean): MutableList<EmeraldPinItem> {
         val editTextList: MutableList<EmeraldPinItem> = mutableListOf()
         for (index in 0 until maxItems) {
             val editText = createPinItem(index, isNumeric)
@@ -93,6 +94,7 @@ class EmeraldPinCode @JvmOverloads constructor(
     }
 
 
+    @SuppressLint("InflateParams") //there´s no rootview at this time
     fun createPinItem(index: Int, isNumeric: Boolean): EmeraldPinItem {
         val editText: EmeraldPinItem = LayoutInflater.from(context).inflate(R.layout.emerald_pin_item, null) as EmeraldPinItem
 
@@ -177,6 +179,11 @@ class EmeraldPinCode @JvmOverloads constructor(
 
     fun setListener(listener: PinCodeEventListener) {
         pinCodeEventListener = listener
+    }
+
+    //needed to implement tests
+    fun setEditTextList(itemList: MutableList<EmeraldPinItem>) {
+        editTextList = itemList
     }
 
 }
