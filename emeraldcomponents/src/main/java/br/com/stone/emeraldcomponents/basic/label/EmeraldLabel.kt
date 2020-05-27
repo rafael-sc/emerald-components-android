@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.widget_emerald_label.view.*
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelIconPosition.START
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelIconPosition.END
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelShape.ROUNDED
+import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelMargin.SMALL
 
 /**
  * Created by renan.silva on 22/10/2018.
@@ -52,7 +53,9 @@ class EmeraldLabel : ConstraintLayout {
                 args.getInt(R.styleable.EmeraldLabel_emeraldLabelSize, EmeraldLabelSize.SMALL.ordinal)]
         val shape = EmeraldLabelShape.values()[
                 args.getInt(R.styleable.EmeraldLabel_emeraldLabelShape, ROUNDED.ordinal)]
-        setProperties(type, state, size, shape)
+        val margin = EmeraldLabelMargin.values()[
+                args.getInt(R.styleable.EmeraldLabel_emeraldLabelTextMargin, SMALL.ordinal)]
+        setProperties(type, state, size, shape, margin)
 
         val iconPosition = EmeraldLabelIconPosition.values()[
                 args.getInt(R.styleable.EmeraldLabel_emeraldLabelIconPosition, START.ordinal)]
@@ -63,11 +66,16 @@ class EmeraldLabel : ConstraintLayout {
         args.recycle()
     }
 
-    fun setProperties(type: EmeraldLabelType, state: LabelStateHandler, size: LabelSizeHandler, shape: EmeraldLabelShape = ROUNDED) {
+    fun setProperties(type: EmeraldLabelType,
+                      state: LabelStateHandler,
+                      size: LabelSizeHandler,
+                      shape: EmeraldLabelShape = ROUNDED,
+                      textMargin: EmeraldLabelMargin = SMALL) {
         this.type = type
         shape.setBackground(this)
         state.setProperties(this, ContextCompat.getColor(context, type.color))
         size.setDimensions(emeraldLabelText)
+        textMargin.setMargin(emeraldLabelText)
     }
 
     fun setCustomColor(state: LabelStateHandler, customColorId: Int) {

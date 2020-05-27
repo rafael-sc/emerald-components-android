@@ -127,6 +127,12 @@
         <enum name="end" value="1" />
     </attr>
 
+    <attr name="emeraldLabelTextMargin" format="enum">
+        <enum name="small" value="0" />
+        <enum name="medium" value="1" />
+        <enum name="big" value="2" />
+    </attr>
+
     <declare-styleable name="EmeraldLabel">
         <attr name="text" />
         <attr name="emeraldLabelType" />
@@ -134,6 +140,7 @@
         <attr name="emeraldLabelSize" />
         <attr name="emeraldLabelShape" />
         <attr name="emeraldLabelIconPosition" />
+        <attr name="emeraldLabelTextMargin" />
         <attr name="emeraldLabelIcon" format="reference" />
     </declare-styleable>
 
