@@ -19,8 +19,9 @@ class EmeraldPinCodeView @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
+    var pinCodeCompleteListener: (code: String) -> Unit = {}
+
     private var maxPinLengthPerView: Int = 1
-    private var pinCodeEventListener: PinCodeCompleteListener? = null
     private var editTextList = mutableListOf<EmeraldPinItemView>()
     private val defaultPinCount = 6
 
@@ -129,7 +130,7 @@ class EmeraldPinCodeView @JvmOverloads constructor(
             override fun afterTextChanged(s: Editable?) {
                 if (nextEditText == null)
                     if (text?.length == maxPinLengthPerView && allItemsFilled()) {
-                        pinCodeEventListener?.onCodeComplete(getCode())
+                        pinCodeCompleteListener(getCode())
                     }
             }
 
@@ -173,11 +174,6 @@ class EmeraldPinCodeView @JvmOverloads constructor(
             it.setBackgroundResource(R.drawable.stroke_box_gray)
         }
     }
-
-    fun setListener(listener: PinCodeCompleteListener) {
-        pinCodeEventListener = listener
-    }
-
     //needed to implement tests
     fun setEditTextList(itemViewList: MutableList<EmeraldPinItemView>) {
         editTextList = itemViewList
