@@ -3,7 +3,7 @@ package br.com.stone.emeraldcomponentsandroid.activities
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import br.com.stone.emeraldcomponents.basic.pinview.PinCodeEventListener
+import br.com.stone.emeraldcomponents.basic.pinview.PinCodeCompleteListener
 import br.com.stone.emeraldcomponentsandroid.R
 import kotlinx.android.synthetic.main.activity_pin_view.*
 
@@ -14,10 +14,8 @@ class PinViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pin_view)
 
-        emeraldPinCode.setListener(object : PinCodeEventListener {
-            override fun onCodeFilled(code: String) {
-                validate(code)
-            }
+        emeraldPinCode.setListener(object : PinCodeCompleteListener {
+            override fun onCodeComplete(code: String) = validate(code)
         })
 
 

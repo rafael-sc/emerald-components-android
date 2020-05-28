@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.view.KeyEvent
 import androidx.appcompat.widget.AppCompatEditText
 
-class EmeraldPinItem : AppCompatEditText {
+class EmeraldPinItemView : AppCompatEditText {
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(
             context,
@@ -40,8 +40,9 @@ class EmeraldPinItem : AppCompatEditText {
 
         clipboard.apply {
             if (hasPrimaryClip() && primaryClipDescription?.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)!!) {
-                val text = primaryClip!!.getItemAt(0).text.toString()
-                pinItemEventListener.onTextPasted(text)
+                val text = primaryClip!!.getItemAt(0).text.toString().trim()
+                if (text.isNotBlank())
+                    pinItemEventListener.onTextPasted(text)
             }
         }
     }

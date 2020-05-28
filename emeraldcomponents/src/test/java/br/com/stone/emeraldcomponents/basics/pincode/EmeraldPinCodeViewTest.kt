@@ -1,30 +1,30 @@
 package br.com.stone.emeraldcomponents.basics.pincode
 
 import androidx.test.core.app.ApplicationProvider
-import br.com.stone.emeraldcomponents.basic.pinview.EmeraldPinCode
+import br.com.stone.emeraldcomponents.basic.pinview.EmeraldPinCodeView
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 
 @RunWith(RobolectricTestRunner::class)
-class EmeraldPinCodeTest {
+class EmeraldPinCodeViewTest {
 
     @Test
     fun `test create pin code`() {
-        val view = EmeraldPinCode(ApplicationProvider.getApplicationContext())
+        val view = EmeraldPinCodeView(ApplicationProvider.getApplicationContext())
         Assert.assertNotNull(view)
     }
 
     @Test
     fun `test create pin item`() {
-        val view = EmeraldPinCode(ApplicationProvider.getApplicationContext())
+        val view = EmeraldPinCodeView(ApplicationProvider.getApplicationContext())
         Assert.assertNotNull(view.createPinItem(0, false))
     }
 
     @Test
     fun `test correct amount of items created`() {
-        val emeraldPinCode = EmeraldPinCode(ApplicationProvider.getApplicationContext())
+        val emeraldPinCode = EmeraldPinCodeView(ApplicationProvider.getApplicationContext())
         val maxItems = 6
         val itemList = emeraldPinCode.createItems(maxItems, true)
         Assert.assertTrue(maxItems == itemList.size)
@@ -32,7 +32,7 @@ class EmeraldPinCodeTest {
 
     @Test
     fun `test paste text`() {
-        val emeraldPinCode = EmeraldPinCode(ApplicationProvider.getApplicationContext())
+        val emeraldPinCode = EmeraldPinCodeView(ApplicationProvider.getApplicationContext())
         val maxItems = 6
         val itemList = emeraldPinCode.createItems(maxItems, true)
         emeraldPinCode.setEditTextList(itemList)
@@ -43,7 +43,7 @@ class EmeraldPinCodeTest {
 
     @Test
     fun `test paste partial text`() {
-        val view = EmeraldPinCode(ApplicationProvider.getApplicationContext())
+        val view = EmeraldPinCodeView(ApplicationProvider.getApplicationContext())
         val maxItems = 6
         val itemList = view.createItems(maxItems, true)
         view.setEditTextList(itemList)
