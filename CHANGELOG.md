@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Unreleased </mi>
+
+### Modified
+- [Shape, margin and icon position parameters to the EmeraldLabel component][issue-172]
+
 ## UNRELEASED
 
 ### Added

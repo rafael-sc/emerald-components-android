@@ -7,6 +7,9 @@
     <string name="text_only_labels">Somente Texto</string>
     <string name="icon_label">Texto + ícone</string>
     <string name="label_size">Tamanhos</string>
+    <string name="label_margin">Margens</string>
+    <string name="label_shape">Formatos</string>
+    <string name="label_icons">Imagens</string>
     <string name="defaultButton">Default</string>
     <string name="neutral">Neutral</string>
     <string name="confirm">Confirm</string>

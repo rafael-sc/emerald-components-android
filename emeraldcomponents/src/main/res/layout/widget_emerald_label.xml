@@ -29,8 +29,23 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/emeraldLabelImageEnd"
         app:layout_constraintStart_toEndOf="@+id/emeraldLabelImage"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/emeraldLabelImageEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="true"
+        android:maxWidth="24dp"
+        android:maxHeight="24dp"
+        android:scaleType="center"
+        android:src="@drawable/dot_shape"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/emeraldLabelTextLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/emeraldLabelTextLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

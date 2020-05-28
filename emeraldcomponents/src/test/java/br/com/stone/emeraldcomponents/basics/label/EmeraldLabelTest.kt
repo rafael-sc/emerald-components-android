@@ -6,7 +6,10 @@ import androidx.core.content.ContextCompat
 import androidx.test.core.app.ApplicationProvider
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabel
+import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelIconPosition
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelType
+import br.com.stone.emeraldcomponents.basic.label.LabelMarginHandler
+import br.com.stone.emeraldcomponents.basic.label.LabelShapeHandler
 import br.com.stone.emeraldcomponents.basic.label.LabelSizeHandler
 import br.com.stone.emeraldcomponents.basic.label.LabelStateHandler
 import kotlinx.android.synthetic.main.widget_emerald_label.view.*
@@ -37,13 +40,13 @@ class EmeraldLabelTest {
     }
 
     @Test
-    fun testInstanceWithContext() {
+    fun `Should instance with context`() {
         val view = EmeraldLabel(ApplicationProvider.getApplicationContext())
         Assert.assertNotNull(view)
     }
 
     @Test
-    fun testInstanceWithAttributeSet() {
+    fun `Should instance with attributeSet`() {
         val attrs = Robolectric.buildAttributeSet()
                 .build()
         val view = EmeraldLabel(ApplicationProvider.getApplicationContext(), attrs)
@@ -51,7 +54,7 @@ class EmeraldLabelTest {
     }
 
     @Test
-    fun testSetText() {
+    fun `Should set text`() {
         val testValue = "test"
         val expectedValue = "TEST"
         label.text = testValue
@@ -60,23 +63,27 @@ class EmeraldLabelTest {
     }
 
     @Test
-    fun testSetProperties() {
+    fun `Should set properties`() {
         val typeMock = mock(EmeraldLabelType::class.java)
         val stateMock = mock(LabelStateHandler::class.java)
         val sizeMock = mock(LabelSizeHandler::class.java)
+        val marginMock = mock(LabelMarginHandler::class.java)
+        val shapeMock = mock(LabelShapeHandler::class.java)
         val colorResource = android.R.color.black
         `when`(typeMock.color).thenReturn(colorResource)
 
-        label.setProperties(typeMock, stateMock, sizeMock)
+        label.setProperties(typeMock, stateMock, sizeMock, shapeMock, marginMock)
 
         verify(typeMock).color
         verify(stateMock).setProperties(label,
                 ContextCompat.getColor(ApplicationProvider.getApplicationContext(), colorResource))
         verify(sizeMock).setDimensions(label.emeraldLabelText)
+        verify(marginMock).setMargin(label.emeraldLabelText)
+        verify(shapeMock).setBackground(label)
     }
 
     @Test
-    fun testSetCustomColor() {
+    fun `Should set custom color`() {
         val customColor = android.R.color.black
         val stateMock = mock(LabelStateHandler::class.java)
 
@@ -87,7 +94,7 @@ class EmeraldLabelTest {
     }
 
     @Test(expected = Resources.NotFoundException::class)
-    fun testSetPropertiesWithInvalidResource() {
+    fun `Should not set properties with invalid resource`() {
         val typeMock = mock(EmeraldLabelType::class.java)
         val stateMock = mock(LabelStateHandler::class.java)
         val sizeMock = mock(LabelSizeHandler::class.java)
@@ -96,9 +103,18 @@ class EmeraldLabelTest {
     }
 
     @Test
-    fun testSetIcon() {
+    fun `Should set icon in start`() {
         val iconResource = R.drawable.ic_add_circle_white_24dp
         label.setIcon(iconResource)
         assertEquals(View.VISIBLE, label.emeraldLabelImage.visibility)
+        assertEquals(View.GONE, label.emeraldLabelImageEnd.visibility)
+    }
+
+    @Test
+    fun `Should set icon in end`() {
+        val iconResource = R.drawable.ic_add_circle_white_24dp
+        label.setIcon(iconResource, EmeraldLabelIconPosition.END)
+        assertEquals(View.GONE, label.emeraldLabelImage.visibility)
+        assertEquals(View.VISIBLE, label.emeraldLabelImageEnd.visibility)
     }
 }
