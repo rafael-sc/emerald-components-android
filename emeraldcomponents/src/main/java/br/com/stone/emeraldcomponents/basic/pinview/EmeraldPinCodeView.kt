@@ -36,6 +36,7 @@ class EmeraldPinCodeView @JvmOverloads constructor(
         }
     }
 
+    //used in tests
     fun createItems(maxItems: Int, isNumeric: Boolean): MutableList<EmeraldPinItemView> {
         val editTextList: MutableList<EmeraldPinItemView> = mutableListOf()
         for (index in 0 until maxItems) {
