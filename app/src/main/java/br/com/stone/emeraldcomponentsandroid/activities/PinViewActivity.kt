@@ -3,6 +3,7 @@ package br.com.stone.emeraldcomponentsandroid.activities
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import br.com.stone.emeraldcomponents.basic.pinview.PinCodeState
 import br.com.stone.emeraldcomponentsandroid.R
 import kotlinx.android.synthetic.main.activity_pin_view.*
 
@@ -24,11 +25,11 @@ class PinViewActivity : AppCompatActivity() {
 
     private fun validate(code: String) {
         if (code != "1234") {
-            emeraldPinCodeView.setErrorState()
+            emeraldPinCodeView.setState(PinCodeState.ERROR)
             Toast.makeText(this, "this code is invalid, try 1234. typed code:$code", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(this, "this code is valid. typed code:$code", Toast.LENGTH_SHORT).show()
-            emeraldPinCodeView.setDefaultState()
+            emeraldPinCodeView.setState(PinCodeState.DEFAULT)
         }
     }
 }

@@ -31,17 +31,16 @@ class EmeraldPinCodeView @JvmOverloads constructor(
             val isNumeric = attributes.getBoolean(R.styleable.EmeraldPinCodeView_isNumeric, true)
             val pinCount = attributes.getInteger(R.styleable.EmeraldPinCodeView_itemCount, defaultPinCount)
             attributes.recycle()
-
             setEditTextList(createItems(pinCount, isNumeric))
+
             setListener(editTextList)
         }
     }
 
-    //used in tests
-    fun createItems(maxItems: Int, isNumeric: Boolean): MutableList<EmeraldPinItemView> {
+    internal fun createItems(maxItems: Int, isNumeric: Boolean): MutableList<EmeraldPinItemView> {
         val editTextList: MutableList<EmeraldPinItemView> = mutableListOf()
-        for (index in 0 until maxItems) {
-            val editText = createPinItem(index, isNumeric)
+        repeat((0 until maxItems).count()) {
+            val editText = createPinItem(isNumeric)
             editTextList.add(editText)
             this.addView(editText)
         }
@@ -49,7 +48,6 @@ class EmeraldPinCodeView @JvmOverloads constructor(
     }
 
     private fun setListener(editTextList: MutableList<EmeraldPinItemView>) {
-
         val maxItems = editTextList.size
         editTextList.forEachIndexed { index, editText ->
             editText.setListener(object : PinItemEventListener {
@@ -83,19 +81,20 @@ class EmeraldPinCodeView @JvmOverloads constructor(
         }
     }
 
-    @SuppressLint("InflateParams") //there´s no rootview at this time
-    fun createPinItem(index: Int, isNumeric: Boolean): EmeraldPinItemView {
-        val editText: EmeraldPinItemView = LayoutInflater.from(context).inflate(R.layout.emerald_pin_item, null) as EmeraldPinItemView
+    internal fun createPinItem(isNumeric: Boolean): EmeraldPinItemView {
+        @SuppressLint("InflateParams")
+        val editText: EmeraldPinItemView = LayoutInflater.from(context)
+                .inflate(R.layout.emerald_pin_item, null) as EmeraldPinItemView
 
         val layoutParams = LayoutParams(
                 context.dimen(R.dimen.pin_item_height).toInt(),
                 context.dimen(R.dimen.pin_item_width).toInt())
-        if (index != 0) { //prevent margin on first item
-            layoutParams.setMargins(context.dimen(R.dimen.pin_item_margin_start).toInt(),
-                    0,
-                    0,
-                    0)
-        }
+
+        layoutParams.setMargins(context.dimen(R.dimen.pin_item_margin).toInt(),
+                0,
+                context.dimen(R.dimen.pin_item_margin).toInt(),
+                0)
+
         editText.layoutParams = layoutParams
 
         if (isNumeric)
@@ -119,10 +118,9 @@ class EmeraldPinCodeView @JvmOverloads constructor(
             nextEditText: AppCompatEditText?,
             previousEditText: AppCompatEditText?
     ) {
-
-        this.onFocusChangeListener = OnFocusChangeListener { view, hasFocus ->
-
-            if (hasFocus && this.text.toString().isEmpty() && previousEditText != null && previousEditText.text.toString().isEmpty())
+        this.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
+            if (hasFocus && this.text.toString().isEmpty() && previousEditText != null
+                    && previousEditText.text.toString().isEmpty())
                 previousEditText.requestFocus()
         }
 
@@ -163,19 +161,29 @@ class EmeraldPinCodeView @JvmOverloads constructor(
         return code
     }
 
-    fun setErrorState() {
+    var state: (sate: PinCodeState) -> Unit= {
+        val background = when (it) {
+            PinCodeState.DEFAULT -> R.drawable.stroke_box_gray
+            PinCodeState.ERROR -> R.drawable.stroke_box_red
+        }
         editTextList.forEach {
-            it.setBackgroundResource(R.drawable.stroke_box_red)
+            it.setBackgroundResource(background)
         }
     }
 
-    fun setDefaultState() {
-        editTextList.forEach {
-            it.setBackgroundResource(R.drawable.stroke_box_gray)
-        }
-    }
-    //needed to implement tests
-    fun setEditTextList(itemViewList: MutableList<EmeraldPinItemView>) {
+//    fun setState(state: PinCodeState)
+//
+//    {
+//        val background = when (state) {
+//            PinCodeState.DEFAULT -> R.drawable.stroke_box_gray
+//            PinCodeState.ERROR -> R.drawable.stroke_box_red
+//        }
+//        editTextList.forEach {
+//            it.setBackgroundResource(background)
+//        }
+//    }
+
+    internal fun setEditTextList(itemViewList: MutableList<EmeraldPinItemView>) {
         editTextList = itemViewList
     }
 }
