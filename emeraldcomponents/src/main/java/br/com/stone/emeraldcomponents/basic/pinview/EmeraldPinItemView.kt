@@ -48,15 +48,16 @@ class EmeraldPinItemView : AppCompatEditText {
     }
 
     override fun dispatchKeyEvent(event: KeyEvent?): Boolean {
-
-        if (event?.keyCode != KeyEvent.KEYCODE_DEL && text?.length == 1) {
+        if (event?.action != KeyEvent.ACTION_DOWN)
+            return true
+        return if (event.keyCode != KeyEvent.KEYCODE_DEL && text?.length == 1) {
             pinItemEventListener.requestFocusOnNext()
-        }
-        if (event?.keyCode == KeyEvent.KEYCODE_DEL && text?.length == 0) {
+            false
+        } else if (event.keyCode == KeyEvent.KEYCODE_DEL && text?.length == 0) {
             pinItemEventListener.onDelPressed()
-            return super.dispatchKeyEvent(event)
-        }
-        return super.dispatchKeyEvent(event)
+            false
+        } else
+            super.dispatchKeyEvent(event)
     }
 
     override fun onSelectionChanged(selStart: Int, selEnd: Int) {
