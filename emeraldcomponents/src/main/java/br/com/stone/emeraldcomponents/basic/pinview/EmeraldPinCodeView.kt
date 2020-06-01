@@ -14,16 +14,25 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.view.ViewCompat
 import br.com.stone.emeraldcomponents.R
 import br.com.stone.emeraldcomponents.extension.dimen
+import kotlin.properties.Delegates
 
 class EmeraldPinCodeView @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
-    var pinCodeCompleteListener: (code: String) -> Unit = {}
-
     private var maxPinLengthPerView: Int = 1
     private var editTextList = mutableListOf<EmeraldPinItemView>()
     private val defaultPinCount = 6
+    var pinCodeCompleteListener: (code: String) -> Unit = {}
+    var state: PinCodeState by Delegates.observable(PinCodeState.DEFAULT) { _, _, newValue ->
+        val background = when (newValue) {
+            PinCodeState.DEFAULT -> R.drawable.stroke_box_gray
+            PinCodeState.ERROR -> R.drawable.stroke_box_red
+        }
+        editTextList.forEach {
+            it.setBackgroundResource(background)
+        }
+    }
 
     init {
         if (attrs != null) {
@@ -59,7 +68,7 @@ class EmeraldPinCodeView @JvmOverloads constructor(
                     if (index > 0)
                         if (editText.text?.length == 0) {
                             editTextList[index - 1].apply {
-                                Selection.setSelection(text, text!!.length)
+                                this.text?.clear()
                                 requestFocus()
                             }
                         }
@@ -119,6 +128,10 @@ class EmeraldPinCodeView @JvmOverloads constructor(
             previousEditText: AppCompatEditText?
     ) {
         this.onFocusChangeListener = OnFocusChangeListener { _, hasFocus ->
+
+            if (hasFocus && this.text.toString().isNotEmpty() && nextEditText != null)
+                nextEditText.requestFocus()
+
             if (hasFocus && this.text.toString().isEmpty() && previousEditText != null
                     && previousEditText.text.toString().isEmpty())
                 previousEditText.requestFocus()
@@ -126,13 +139,16 @@ class EmeraldPinCodeView @JvmOverloads constructor(
 
         this.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                if (nextEditText == null)
-                    if (text?.length == maxPinLengthPerView && allItemsFilled()) {
-                        pinCodeCompleteListener(getCode())
-                    }
+                if (text?.length == maxPinLengthPerView && allItemsFilled()) {
+                    pinCodeCompleteListener(getCode())
+                }
             }
 
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                if (text?.length == maxPinLengthPerView)
+                    nextEditText?.requestFocus()
+            }
+
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 when {
                     text.toString().length == maxPinLengthPerView -> {
@@ -160,28 +176,6 @@ class EmeraldPinCodeView @JvmOverloads constructor(
         }
         return code
     }
-
-    var state: (sate: PinCodeState) -> Unit= {
-        val background = when (it) {
-            PinCodeState.DEFAULT -> R.drawable.stroke_box_gray
-            PinCodeState.ERROR -> R.drawable.stroke_box_red
-        }
-        editTextList.forEach {
-            it.setBackgroundResource(background)
-        }
-    }
-
-//    fun setState(state: PinCodeState)
-//
-//    {
-//        val background = when (state) {
-//            PinCodeState.DEFAULT -> R.drawable.stroke_box_gray
-//            PinCodeState.ERROR -> R.drawable.stroke_box_red
-//        }
-//        editTextList.forEach {
-//            it.setBackgroundResource(background)
-//        }
-//    }
 
     internal fun setEditTextList(itemViewList: MutableList<EmeraldPinItemView>) {
         editTextList = itemViewList

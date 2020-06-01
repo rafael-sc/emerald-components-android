@@ -19,7 +19,7 @@ class EmeraldPinCodeViewTest {
     @Test
     fun `test create pin item`() {
         val view = EmeraldPinCodeView(ApplicationProvider.getApplicationContext())
-        Assert.assertNotNull(view.createPinItem(0, false))
+        Assert.assertNotNull(view.createPinItem( false))
     }
 
     @Test
