@@ -1,6 +1,6 @@
 package br.com.stone.emeraldcomponents.basic.pinview
 
-enum class PinCodeState() {
+enum class PinCodeState {
     DEFAULT,
     ERROR;
 }
