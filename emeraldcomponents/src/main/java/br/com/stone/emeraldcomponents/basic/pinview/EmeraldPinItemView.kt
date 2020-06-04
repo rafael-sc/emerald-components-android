@@ -3,6 +3,7 @@ package br.com.stone.emeraldcomponents.basic.pinview
 import android.content.ClipDescription
 import android.content.ClipboardManager
 import android.content.Context
+import android.text.InputType
 import android.util.AttributeSet
 import android.view.KeyEvent
 import androidx.appcompat.widget.AppCompatEditText
@@ -22,8 +23,8 @@ class EmeraldPinItemView : AppCompatEditText {
     ) : super(context, attrs, defStyleAttr)
 
     var onTextPasted: (code: String) -> Unit = {}
-    var requestFocusOnNext:() -> Unit = {}
-    var onDelPressed:() -> Unit = {}
+    var requestFocusOnNext: () -> Unit = {}
+    var onDelPressed: () -> Unit = {}
 
     override fun onTextContextMenuItem(id: Int): Boolean {
         val consumed = super.onTextContextMenuItem(id)
@@ -40,9 +41,17 @@ class EmeraldPinItemView : AppCompatEditText {
         clipboard.apply {
             if (hasPrimaryClip() && primaryClipDescription?.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)!!) {
                 val text = primaryClip!!.getItemAt(0).text.toString().trim()
-                if (text.isNotBlank())
+                if (isValidPastedText(text))
                     onTextPasted(text)
             }
+        }
+    }
+
+    private fun isValidPastedText(text: String): Boolean {
+        return when {
+            inputType == InputType.TYPE_CLASS_NUMBER && text.toIntOrNull() == null -> false
+            text.isBlank() -> false
+            else -> true
         }
     }
 

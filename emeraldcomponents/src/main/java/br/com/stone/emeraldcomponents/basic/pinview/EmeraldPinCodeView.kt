@@ -80,7 +80,6 @@ class EmeraldPinCodeView @JvmOverloads constructor(
                         Selection.setSelection(text, text!!.length)
                         requestFocus()
                     }
-
             }
 
             editText.handleFocus(
@@ -116,12 +115,10 @@ class EmeraldPinCodeView @JvmOverloads constructor(
         return editText
     }
 
-    private fun handlePasteText(text: String, editTextList: MutableList<EmeraldPinItemView>) {
+    internal fun handlePasteText(text: String, editTextList: MutableList<EmeraldPinItemView>) {
         editTextList.forEachIndexed { index, editText ->
             if (text.length > index) {
-                if (!(editText.inputType == InputType.TYPE_CLASS_NUMBER
-                        && text[index].toString().toIntOrNull() == null))
-                    editText.setText(text[index].toString())
+                editText.setText(text[index].toString())
             }
         }
     }
