@@ -19,7 +19,7 @@ class EmeraldPinCodeViewTest {
     @Test
     fun `test create pin item`() {
         val view = EmeraldPinCodeView(ApplicationProvider.getApplicationContext())
-        Assert.assertNotNull(view.createPinItem( false))
+        Assert.assertNotNull(view.createPinItem(false))
     }
 
     @Test
@@ -39,21 +39,5 @@ class EmeraldPinCodeViewTest {
         val textToPaste = "123456"
         emeraldPinCode.handlePasteText(textToPaste, itemList)
         Assert.assertTrue(emeraldPinCode.getCode() == textToPaste)
-    }
-
-    @Test
-    fun `test paste partial text`() {
-        val view = EmeraldPinCodeView(ApplicationProvider.getApplicationContext())
-        val maxItems = 6
-        val itemList = view.createItems(maxItems, true)
-        view.setEditTextList(itemList)
-        val textToPaste = "1234"
-        view.handlePasteText(textToPaste, itemList)
-
-        for (index in 0 until textToPaste.length - 1)
-            Assert.assertEquals(itemList[index].text.toString(),
-                    textToPaste.substring(index, index + 1))
-
-        Assert.assertTrue(view.getCode() == textToPaste)
     }
 }

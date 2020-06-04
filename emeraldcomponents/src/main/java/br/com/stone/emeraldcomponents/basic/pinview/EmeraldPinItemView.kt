@@ -8,6 +8,7 @@ import android.util.AttributeSet
 import android.view.KeyEvent
 import androidx.appcompat.widget.AppCompatEditText
 import br.com.stone.emeraldcomponents.R
+import br.com.stone.emeraldcomponents.extension.numberfy
 
 class EmeraldPinItemView : AppCompatEditText {
     constructor(context: Context?) : super(context)
@@ -40,19 +41,19 @@ class EmeraldPinItemView : AppCompatEditText {
 
         clipboard.apply {
             if (hasPrimaryClip() && primaryClipDescription?.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)!!) {
-                val text = primaryClip!!.getItemAt(0).text.toString().trim()
-                if (isValidPastedText(text))
+                var text = primaryClip!!.getItemAt(0).text.toString().trim()
+                text = validatePastedText(text)
+                if (text.isNotEmpty())
                     onTextPasted(text)
             }
         }
     }
 
-    private fun isValidPastedText(text: String): Boolean {
-        return when {
-            inputType == InputType.TYPE_CLASS_NUMBER && text.toIntOrNull() == null -> false
-            text.isBlank() -> false
-            else -> true
-        }
+    private fun validatePastedText(text: String): String {
+        return if (inputType == InputType.TYPE_CLASS_NUMBER)
+            text.numberfy()
+        else
+            text
     }
 
     override fun dispatchKeyEvent(event: KeyEvent?): Boolean {
