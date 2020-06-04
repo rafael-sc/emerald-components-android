@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased </mi>
+## 1.12.0 - 2020-06-03
 
 ### Modified
 - [Shape, margin and icon position parameters to the EmeraldLabel component][issue-172]
