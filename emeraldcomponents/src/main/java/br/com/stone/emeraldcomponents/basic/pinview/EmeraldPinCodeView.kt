@@ -59,29 +59,30 @@ class EmeraldPinCodeView @JvmOverloads constructor(
     private fun setListener(editTextList: MutableList<EmeraldPinItemView>) {
         val maxItems = editTextList.size
         editTextList.forEachIndexed { index, editText ->
-            editText.setListener(object : PinItemEventListener {
-                override fun onTextPasted(text: String) {
-                    handlePasteText(text, editTextList)
-                }
 
-                override fun onDelPressed() {
-                    if (index > 0)
-                        if (editText.text?.length == 0) {
-                            editTextList[index - 1].apply {
-                                this.text?.clear()
-                                requestFocus()
-                            }
-                        }
-                }
-
-                override fun requestFocusOnNext() {
-                    if (index < maxItems - 1)
-                        editTextList[index + 1].apply {
-                            Selection.setSelection(text, text!!.length)
+            editText.onDelPressed = {
+                if (index > 0)
+                    if (editText.text?.length == 0) {
+                        editTextList[index - 1].apply {
+                            this.text?.clear()
                             requestFocus()
                         }
-                }
-            })
+                    }
+            }
+
+            editText.onTextPasted = {
+                handlePasteText(it, editTextList)
+
+            }
+
+            editText.requestFocusOnNext = {
+                if (index < maxItems - 1)
+                    editTextList[index + 1].apply {
+                        Selection.setSelection(text, text!!.length)
+                        requestFocus()
+                    }
+
+            }
 
             editText.handleFocus(
                     editTextList.getOrNull(index + 1),

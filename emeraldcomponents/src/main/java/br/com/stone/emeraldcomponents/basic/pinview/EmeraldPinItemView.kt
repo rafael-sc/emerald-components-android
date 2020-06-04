@@ -6,6 +6,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.KeyEvent
 import androidx.appcompat.widget.AppCompatEditText
+import br.com.stone.emeraldcomponents.R
 
 class EmeraldPinItemView : AppCompatEditText {
     constructor(context: Context?) : super(context)
@@ -17,14 +18,12 @@ class EmeraldPinItemView : AppCompatEditText {
     constructor(
             context: Context?,
             attrs: AttributeSet?,
-            defStyleAttr: Int
+            defStyleAttr: Int = R.style.PinItem
     ) : super(context, attrs, defStyleAttr)
 
-    private lateinit var pinItemEventListener: PinItemEventListener
-
-    fun setListener(listener: PinItemEventListener) {
-        pinItemEventListener = listener
-    }
+    var onTextPasted: (code: String) -> Unit = {}
+    var requestFocusOnNext:() -> Unit = {}
+    var onDelPressed:() -> Unit = {}
 
     override fun onTextContextMenuItem(id: Int): Boolean {
         val consumed = super.onTextContextMenuItem(id)
@@ -42,7 +41,7 @@ class EmeraldPinItemView : AppCompatEditText {
             if (hasPrimaryClip() && primaryClipDescription?.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)!!) {
                 val text = primaryClip!!.getItemAt(0).text.toString().trim()
                 if (text.isNotBlank())
-                    pinItemEventListener.onTextPasted(text)
+                    onTextPasted(text)
             }
         }
     }
@@ -51,10 +50,10 @@ class EmeraldPinItemView : AppCompatEditText {
         if (event?.action != KeyEvent.ACTION_DOWN)
             return true
         return if (event.keyCode != KeyEvent.KEYCODE_DEL && text?.length == 1) {
-            pinItemEventListener.requestFocusOnNext()
+            requestFocusOnNext()
             false
         } else if (event.keyCode == KeyEvent.KEYCODE_DEL && text?.length == 0) {
-            pinItemEventListener.onDelPressed()
+            onDelPressed()
             false
         } else
             super.dispatchKeyEvent(event)
