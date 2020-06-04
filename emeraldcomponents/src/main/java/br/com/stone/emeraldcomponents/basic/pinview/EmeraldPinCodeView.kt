@@ -117,7 +117,7 @@ class EmeraldPinCodeView @JvmOverloads constructor(
         return editText
     }
 
-    fun handlePasteText(text: String, editTextList: MutableList<EmeraldPinItemView>) {
+    private fun handlePasteText(text: String, editTextList: MutableList<EmeraldPinItemView>) {
         editTextList.forEachIndexed { index, editText ->
             if (text.length > index)
                 editText.setText(text[index].toString())
