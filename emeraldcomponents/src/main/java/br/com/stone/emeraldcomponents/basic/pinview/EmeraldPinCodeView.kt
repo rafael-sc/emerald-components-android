@@ -72,7 +72,6 @@ class EmeraldPinCodeView @JvmOverloads constructor(
 
             editText.onTextPasted = {
                 handlePasteText(it, editTextList)
-
             }
 
             editText.requestFocusOnNext = {
@@ -119,8 +118,11 @@ class EmeraldPinCodeView @JvmOverloads constructor(
 
     fun handlePasteText(text: String, editTextList: MutableList<EmeraldPinItemView>) {
         editTextList.forEachIndexed { index, editText ->
-            if (text.length > index)
-                editText.setText(text[index].toString())
+            if (text.length > index) {
+                if (!(editText.inputType == InputType.TYPE_CLASS_NUMBER
+                        && text[index].toString().toIntOrNull() == null))
+                    editText.setText(text[index].toString())
+            }
         }
     }
 
