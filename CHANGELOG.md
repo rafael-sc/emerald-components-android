@@ -1,14 +1,14 @@
 # CHANGELOG
 
+## 1.13.0 - 2020-06-08
+
+### Added
+- [Adds PinCode View][issue-170]
+
 ## 1.12.0 - 2020-06-03
 
 ### Modified
 - [Shape, margin and icon position parameters to the EmeraldLabel component][issue-172]
-
-## UNRELEASED
-
-### Added
-- [Adds PinCode View][issue-170]
 
 ## 1.11.0 - 2020-04-30
 
