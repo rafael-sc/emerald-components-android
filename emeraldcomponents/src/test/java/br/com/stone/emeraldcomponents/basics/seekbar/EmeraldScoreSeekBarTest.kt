@@ -35,7 +35,7 @@ class EmeraldScoreSeekBarTest {
 
     @Test
     fun testProgress() {
-        var scoreSeekBar = EmeraldScoreSeekBar(ApplicationProvider.getApplicationContext())
+        val scoreSeekBar = EmeraldScoreSeekBar(ApplicationProvider.getApplicationContext())
         var calledMethod = false
         scoreSeekBar.onProgressChanged = { calledMethod = true }
         scoreSeekBar.progress = 5

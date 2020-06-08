@@ -5,6 +5,11 @@
 ### Modified
 - [Shape, margin and icon position parameters to the EmeraldLabel component][issue-172]
 
+## UNRELEASED
+
+### Added
+- [Adds PinCode View][issue-170]
+
 ## 1.11.0 - 2020-04-30
 
 ### Added
@@ -239,3 +244,4 @@
 [issue-158]:https://github.com/stone-payments/emerald-components-android/issues/158
 [issue-162]:https://github.com/stone-payments/emerald-components-android/issues/162
 [issue-167]:https://github.com/stone-payments/emerald-components-android/issues/167
+[issue-170]:https://github.com/stone-payments/emerald-components-android/issues/170
