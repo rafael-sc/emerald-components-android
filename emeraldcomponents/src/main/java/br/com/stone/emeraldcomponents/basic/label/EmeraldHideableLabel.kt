@@ -41,7 +41,7 @@ class EmeraldHideableLabel : ConstraintLayout {
 
         val textSize = Pair(TypedValue.COMPLEX_UNIT_PX,
                 args.getDimension(R.styleable.EmeraldHideableLabel_textSize,
-                context.dimen(R.dimen.emerald_hideable_lable_text_size)))
+                        context.dimen(R.dimen.emerald_hideable_label_text_size)))
 
         emeraldHideableLabel.setTextSize(textSize.first, textSize.second)
 

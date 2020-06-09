@@ -149,5 +149,10 @@
         <attr name="emeraldSpinnerPlaceholder" format="string" />
     </declare-styleable>
 
+    <declare-styleable name="EmeraldPinCodeView">
+        <attr name="itemCount" format="integer" />
+        <attr name="isNumeric" format="boolean" />
+    </declare-styleable>
+
 </resources>
 

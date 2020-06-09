@@ -61,6 +61,7 @@
     <color name="emerald_input_focused">@color/emerald_primary</color>
     <color name="emerald_input_success">#81e0a1</color>
     <color name="emerald_input_disabled">@color/emerald_white_3</color>
+    <color name="emerald_pin_border">#D6DDE4</color>
 
     <!-- Date Filter -->
     <color name="emerald_date_filter_title">@color/emerald_black_4</color>

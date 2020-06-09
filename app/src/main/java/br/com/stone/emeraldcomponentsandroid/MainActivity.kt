@@ -16,6 +16,7 @@ import br.com.stone.emeraldcomponentsandroid.activities.PagerActivity
 import br.com.stone.emeraldcomponentsandroid.activities.SpinnerActivity
 import br.com.stone.emeraldcomponentsandroid.activities.CounterActivity
 import br.com.stone.emeraldcomponentsandroid.activities.SeekBarActivity
+import br.com.stone.emeraldcomponentsandroid.activities.PinViewActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_activity_list.view.*
 
@@ -37,8 +38,9 @@ class MainActivity : AppCompatActivity() {
                 PagerActivity::class.java to "Pager",
                 LabelActivity::class.java to "Label",
                 HideableLabelActivity::class.java to "Hideable Label",
-                SeekBarActivity::class.java to "SeekBar"
-                )
+                SeekBarActivity::class.java to "SeekBar",
+                PinViewActivity::class.java to "PinView"
+        )
 
         recyclerMain.setUp(activities,
                 { R.layout.item_activity_list },

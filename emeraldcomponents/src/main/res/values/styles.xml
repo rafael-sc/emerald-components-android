@@ -25,4 +25,18 @@
         <item name="android:textColor">@color/emerald_input_success</item>
     </style>
 
+    <style name="PinItem">
+        <item name="android:height">@dimen/pin_item_height</item>
+        <item name="android:width">@dimen/pin_item_width</item>
+        <item name="android:layout_marginStart">@dimen/pin_item_margin</item>
+        <item name="android:layout_marginEnd">@dimen/pin_item_margin</item>
+        <item name="android:maxLength">1</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/stroke_box_gray</item>
+    </style>
+
 </resources>
