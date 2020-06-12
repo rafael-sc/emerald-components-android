@@ -1,5 +1,6 @@
 package br.com.stone.emeraldcomponents.basics.label
 
+import android.content.Context
 import android.content.res.Resources
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -33,6 +34,7 @@ import org.robolectric.RobolectricTestRunner
 class EmeraldLabelTest {
 
     lateinit var label: EmeraldLabel
+    val context: Context = ApplicationProvider.getApplicationContext()
 
     @Before
     fun setup() {
@@ -116,5 +118,19 @@ class EmeraldLabelTest {
         label.setIcon(iconResource, EmeraldLabelIconPosition.END)
         assertEquals(View.GONE, label.emeraldLabelImage.visibility)
         assertEquals(View.VISIBLE, label.emeraldLabelImageEnd.visibility)
+    }
+
+    @Test
+    fun `Should set icon as drawable`() {
+        val icon = context.getDrawable(R.drawable.ic_add_circle_white_24dp)
+        label.setIcon(icon, EmeraldLabelIconPosition.END)
+        assertEquals(View.VISIBLE, label.emeraldLabelImageEnd.visibility)
+    }
+
+    @Test
+    fun `Should hide icons`() {
+        label.removeIcons()
+        assertEquals(View.GONE, label.emeraldLabelImage.visibility)
+        assertEquals(View.GONE, label.emeraldLabelImageEnd.visibility)
     }
 }

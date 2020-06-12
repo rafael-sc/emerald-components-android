@@ -2,6 +2,7 @@ package br.com.stone.emeraldcomponents.basic.label
 
 import android.content.Context
 import android.graphics.PorterDuff
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -13,6 +14,7 @@ import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelIconPosition.START
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelIconPosition.END
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelShape.ROUNDED
 import br.com.stone.emeraldcomponents.basic.label.EmeraldLabelMargin.SMALL
+import br.com.stone.emeraldcomponents.extension.hide
 
 /**
  * Created by renan.silva on 22/10/2018.
@@ -84,15 +86,24 @@ class EmeraldLabel : ConstraintLayout {
     fun setIcon(iconResource: Int, position: EmeraldLabelIconPosition = START) {
         val drawable = ContextCompat.getDrawable(context, iconResource)?.mutate()
         drawable?.setColorFilter(ContextCompat.getColor(context, type.color), PorterDuff.Mode.SRC_IN)
+        setIcon(drawable, position)
+    }
+
+    fun setIcon(icon: Drawable?, position: EmeraldLabelIconPosition = START) {
         when (position) {
             START -> {
-                emeraldLabelImage.setImageDrawable(drawable)
+                emeraldLabelImage.setImageDrawable(icon)
                 emeraldLabelImage.show()
             }
             END -> {
-                emeraldLabelImageEnd.setImageDrawable(drawable)
+                emeraldLabelImageEnd.setImageDrawable(icon)
                 emeraldLabelImageEnd.show()
             }
         }
+    }
+
+    fun removeIcons() {
+        emeraldLabelImage.hide()
+        emeraldLabelImageEnd.hide()
     }
 }
