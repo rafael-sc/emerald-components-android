@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Unreleased
+
+### Modified
+- [EmeraldLabel accepts drawables to set as icons][issue-178]
+
 ## 1.13.0 - 2020-06-08
 
 ### Added
