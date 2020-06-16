@@ -23,14 +23,6 @@ class EmeraldPinCodeViewTest {
     }
 
     @Test
-    fun `test correct amount of items created`() {
-        val emeraldPinCode = EmeraldPinCodeView(ApplicationProvider.getApplicationContext())
-        val maxItems = 6
-        val itemList = emeraldPinCode.createItems(maxItems, true)
-        Assert.assertTrue(maxItems == itemList.size)
-    }
-
-    @Test
     fun `test paste text`() {
         val emeraldPinCode = EmeraldPinCodeView(ApplicationProvider.getApplicationContext())
         val maxItems = 6
@@ -39,5 +31,16 @@ class EmeraldPinCodeViewTest {
         val textToPaste = "123456"
         emeraldPinCode.handlePasteText(textToPaste, itemList)
         Assert.assertTrue(emeraldPinCode.getCode() == textToPaste)
+    }
+
+    @Test
+    fun `test correct amount of items created`() {
+        val emeraldPinCode = EmeraldPinCodeView(ApplicationProvider.getApplicationContext())
+        var itemCount = 6
+        emeraldPinCode.init(true, itemCount)
+        Assert.assertEquals(emeraldPinCode.childCount, itemCount)
+        itemCount = 3
+        emeraldPinCode.init(false, itemCount)
+        Assert.assertEquals(emeraldPinCode.childCount, itemCount)
     }
 }
