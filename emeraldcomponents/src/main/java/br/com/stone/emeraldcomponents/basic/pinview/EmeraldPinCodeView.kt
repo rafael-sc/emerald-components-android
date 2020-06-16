@@ -46,6 +46,17 @@ class EmeraldPinCodeView @JvmOverloads constructor(
         }
     }
 
+    fun init(isNumeric: Boolean, itemCount: Int) {
+        resetPinView()
+        setEditTextList(createItems(itemCount, isNumeric))
+        setListener(editTextList)
+    }
+
+    private fun resetPinView() {
+        editTextList.clear()
+        this.removeAllViews()
+    }
+
     internal fun createItems(maxItems: Int, isNumeric: Boolean): MutableList<EmeraldPinItemView> {
         val editTextList: MutableList<EmeraldPinItemView> = mutableListOf()
         repeat((0 until maxItems).count()) {

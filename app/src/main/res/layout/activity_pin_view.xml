@@ -5,12 +5,10 @@
     android:layout_height="match_parent">
 
 
-    <br.com.stone.emeraldcomponents.basic.pinview.EmeraldPinCodeView
-        android:id="@+id/emeraldPinCodeView"
+    <FrameLayout
+        android:id="@+id/emeraldPinCodeContainer"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        app:isNumeric="true"
-        app:itemCount="4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -25,6 +23,6 @@
         android:text="@string/validate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emeraldPinCodeView" />
+        app:layout_constraintTop_toBottomOf="@id/emeraldPinCodeContainer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
