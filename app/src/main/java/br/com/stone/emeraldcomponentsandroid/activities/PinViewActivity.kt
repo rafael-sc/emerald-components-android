@@ -11,20 +11,17 @@ import kotlinx.android.synthetic.main.activity_pin_view.*
 
 class PinViewActivity : AppCompatActivity() {
 
-    private lateinit var emeraldPinCodeView: EmeraldPinCodeView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pin_view)
 
-        emeraldPinCodeView = EmeraldPinCodeView(this)
         emeraldPinCodeView.apply {
             init(true, 4)
             pinCodeCompleteListener = {
                 validate(it)
             }
         }
-        emeraldPinCodeContainer.addView(emeraldPinCodeView)
 
         buttonValidate.setOnClickListener {
             validate(emeraldPinCodeView.getCode())

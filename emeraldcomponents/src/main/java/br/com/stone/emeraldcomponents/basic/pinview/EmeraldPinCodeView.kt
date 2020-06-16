@@ -22,7 +22,6 @@ class EmeraldPinCodeView @JvmOverloads constructor(
 
     private var maxPinLengthPerView: Int = 1
     private var editTextList = mutableListOf<EmeraldPinItemView>()
-    private val defaultPinCount = 6
     var pinCodeCompleteListener: (code: String) -> Unit = {}
     var state: PinCodeState by Delegates.observable(PinCodeState.DEFAULT) { _, _, newValue ->
         val background = when (newValue) {
@@ -31,18 +30,6 @@ class EmeraldPinCodeView @JvmOverloads constructor(
         }
         editTextList.forEach {
             it.setBackgroundResource(background)
-        }
-    }
-
-    init {
-        if (attrs != null) {
-            val attributes = context.obtainStyledAttributes(attrs, R.styleable.EmeraldPinCodeView)
-            val isNumeric = attributes.getBoolean(R.styleable.EmeraldPinCodeView_isNumeric, true)
-            val pinCount = attributes.getInteger(R.styleable.EmeraldPinCodeView_itemCount, defaultPinCount)
-            attributes.recycle()
-            setEditTextList(createItems(pinCount, isNumeric))
-
-            setListener(editTextList)
         }
     }
 
