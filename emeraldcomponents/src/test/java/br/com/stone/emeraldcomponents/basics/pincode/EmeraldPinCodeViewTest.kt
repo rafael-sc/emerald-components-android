@@ -23,13 +23,12 @@ class EmeraldPinCodeViewTest {
     }
 
     @Test
-    fun `test paste text`() {
+    fun `test set code`() {
         val emeraldPinCode = EmeraldPinCodeView(ApplicationProvider.getApplicationContext())
-        val maxItems = 6
-        val itemList = emeraldPinCode.createItems(maxItems, true)
-        emeraldPinCode.setEditTextList(itemList)
+        val itemCount = 6
+        emeraldPinCode.init(true, itemCount)
         val textToPaste = "123456"
-        emeraldPinCode.handlePasteText(textToPaste, itemList)
+        emeraldPinCode.setCode(textToPaste)
         Assert.assertTrue(emeraldPinCode.getCode() == textToPaste)
     }
 
