@@ -95,7 +95,7 @@ class EmeraldPinCodeView @JvmOverloads constructor(
         }
     }
 
-    internal fun createPinItem(isNumeric: Boolean): EmeraldPinItemView {
+    private fun createPinItem(isNumeric: Boolean): EmeraldPinItemView {
         @SuppressLint("InflateParams")
         val editText: EmeraldPinItemView = LayoutInflater.from(context)
                 .inflate(R.layout.emerald_pin_item, null) as EmeraldPinItemView
