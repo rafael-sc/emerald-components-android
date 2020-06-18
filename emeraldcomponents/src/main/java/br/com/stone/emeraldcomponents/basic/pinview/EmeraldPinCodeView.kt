@@ -21,6 +21,7 @@ class EmeraldPinCodeView @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
     private var maxPinLengthPerView: Int = 1
+    private var defaultPinCount: Int = 6
     private var editTextList = mutableListOf<EmeraldPinItemView>()
     var pinCodeCompleteListener: (code: String) -> Unit = {}
     var state: PinCodeState by Delegates.observable(PinCodeState.DEFAULT) { _, _, newValue ->
@@ -33,18 +34,25 @@ class EmeraldPinCodeView @JvmOverloads constructor(
         }
     }
 
+    init {
+        if (attrs != null) {
+            val attributes = context.obtainStyledAttributes(attrs, R.styleable.EmeraldPinCodeView)
+            val isNumeric = attributes.getBoolean(R.styleable.EmeraldPinCodeView_isNumeric, true)
+            val pinCount = attributes.getInteger(R.styleable.EmeraldPinCodeView_itemCount, defaultPinCount)
+            attributes.recycle()
+
+            init(isNumeric, pinCount)
+        }
+    }
+
     fun init(isNumeric: Boolean, itemCount: Int) {
-        resetPinView()
+        editTextList.clear()
+        removeAllViews()
         setEditTextList(createItems(itemCount, isNumeric))
         setListener(editTextList)
     }
 
-    private fun resetPinView() {
-        editTextList.clear()
-        removeAllViews()
-    }
-
-    internal fun createItems(maxItems: Int, isNumeric: Boolean): MutableList<EmeraldPinItemView> {
+    private fun createItems(maxItems: Int, isNumeric: Boolean): MutableList<EmeraldPinItemView> {
         val editTextList: MutableList<EmeraldPinItemView> = mutableListOf()
         repeat((0 until maxItems).count()) {
             val editText = createPinItem(isNumeric)
@@ -69,7 +77,7 @@ class EmeraldPinCodeView @JvmOverloads constructor(
             }
 
             editText.onTextPasted = {
-                handlePasteText(it, editTextList)
+                setCode(it)
             }
 
             editText.requestFocusOnNext = {
@@ -113,7 +121,7 @@ class EmeraldPinCodeView @JvmOverloads constructor(
         return editText
     }
 
-    internal fun handlePasteText(text: String, editTextList: MutableList<EmeraldPinItemView>) {
+    private fun handlePasteText(text: String, editTextList: MutableList<EmeraldPinItemView>) {
         editTextList.forEachIndexed { index, editText ->
             if (text.length > index) {
                 editText.setText(text[index].toString())
@@ -167,6 +175,10 @@ class EmeraldPinCodeView @JvmOverloads constructor(
         return true
     }
 
+    fun setCode(code: String) {
+        handlePasteText(code, editTextList)
+    }
+
     fun getCode(): String {
         var code = ""
         editTextList.forEach {
@@ -175,7 +187,7 @@ class EmeraldPinCodeView @JvmOverloads constructor(
         return code
     }
 
-    internal fun setEditTextList(itemViewList: MutableList<EmeraldPinItemView>) {
+    private fun setEditTextList(itemViewList: MutableList<EmeraldPinItemView>) {
         editTextList = itemViewList
     }
 }
