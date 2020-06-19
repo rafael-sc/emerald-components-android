@@ -156,6 +156,7 @@ class EmeraldPinCodeView @JvmOverloads constructor(
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                state = PinCodeState.DEFAULT
                 when {
                     text.toString().length == maxPinLengthPerView -> {
                         nextEditText?.requestFocus()
