@@ -70,7 +70,7 @@ dependencies {
 
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
 
-    api 'com.github.prolificinteractive:material-calendarview:1.6.1'
+    api 'br.com.stone:material-calendar-view:1.6.5'
     api "com.redmadrobot:inputmask:$inputmask_versoin"
 }
 
