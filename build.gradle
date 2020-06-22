@@ -38,7 +38,7 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://jitpack.io' }
-        maven { url "https://packagecloud.io/Stone/sling-android/maven2" }
+        maven { url "https://packagecloud.io/Stone/emerald-components-android/maven2" }
     }
 }
 
