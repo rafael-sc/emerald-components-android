@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.14.1 - 2020-06-22
+
+### Modified
+- MaterialCalendarView dependency version from official to our forked version that fixed a range selection bug
+
 ## 1.14.0 - 2020-06-12
 
 ### Modified
