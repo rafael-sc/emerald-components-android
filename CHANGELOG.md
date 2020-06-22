@@ -2,6 +2,9 @@
 
 ## 1.14.1 - 2020-06-22
 
+### Added
+- [EmeraldPinCodeView needs a custom init method ][issue-182]
+
 ### Modified
 - MaterialCalendarView dependency version from official to our forked version that fixed a range selection bug
 
