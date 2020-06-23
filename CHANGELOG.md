@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 1.14.1 - 2020-06-22
+
+### Added
+- [EmeraldPinCodeView needs a custom init method ][issue-182]
+
+### Modified
+- MaterialCalendarView dependency version from official to our forked version that fixed a range selection bug
+
 ## 1.14.0 - 2020-06-12
 
 ### Modified
@@ -250,3 +258,4 @@
 [issue-162]:https://github.com/stone-payments/emerald-components-android/issues/162
 [issue-167]:https://github.com/stone-payments/emerald-components-android/issues/167
 [issue-170]:https://github.com/stone-payments/emerald-components-android/issues/170
+[issue-182]:https://github.com/stone-payments/emerald-components-android/issues/182
